@@ -7,13 +7,14 @@ IoT-1: IoT voor gebruikers
 ==========================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Inhoud:
 
    inleiding.rst
    bouwstenen.rst
    webserver.rst
    wifi.rst
+   todo.rst
 
 Index en tabellen
 =================

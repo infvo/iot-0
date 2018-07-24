@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="next" title="WiFi-knopen" href="wifi.html" />
+    <link rel="next" title="Opdrachten" href="webserver/opdrachten.html" />
     <link rel="prev" title="Bouwstenen" href="bouwstenen.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -44,8 +44,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Webserver-knopen</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Webserver-knopen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
 </ul>
 
 <div class="relations">
@@ -53,7 +58,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="bouwstenen.html" title="vorig hoofdstuk">Bouwstenen</a></li>
-      <li>Next: <a href="wifi.html" title="volgend hoofdstuk">WiFi-knopen</a></li>
+      <li>Next: <a href="webserver/opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
   </ul></li>
 </ul>
 </div>
@@ -78,12 +83,62 @@
   <div class="section" id="webserver-knopen">
 <h1>Webserver-knopen<a class="headerlink" href="#webserver-knopen" title="Permalink naar deze titel">¶</a></h1>
 <p>In dit hoofdstuk behandelen we IoT-knopen die als webserver dienen.</p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
+<div class="admonition-leerdoelen-en-concepten admonition">
+<p class="first admonition-title">Leerdoelen en concepten</p>
 <ul class="last simple">
-<li>aap</li>
-<li>noot</li>
-<li>mies</li>
+<li>client-server interactie; request en response</li>
+<li>lokaal netwerk, adressering</li>
+<li>HTTP protocol</li>
+</ul>
+</div>
+<p>Sommige apparaten beschikken over een webserver waarmee je het apparaat kunt bedienen.
+Voorbeelden hiervan zijn een (thuis)router en een netwerkprinter.
+Via de browser van een computer of smartphone bedien je het apparaat op afstand.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/IoT-webserver-interface-0.png"><img alt="_images/IoT-webserver-interface-0.png" src="_images/IoT-webserver-interface-0.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Webserver-interface van een netwerkprinter</span></p>
+</div>
+<p>In de figuur zie je het interface van een netwerkprinter, als webpagina.
+Via de browser kun je de status en de instellingen van de printer bekijken en aanpassen.
+De webserver biedt een uitgebreid gebruikersinterface.
+Het apparaat zelf kan dan met een eenvoudig interface volstaan,
+met een paar knoppen en eventueel een klein schermpje.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/IoT-client-server-0.png"><img alt="_images/IoT-client-server-0.png" src="_images/IoT-client-server-0.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Client-server interactie</span></p>
+</div>
+<p id="index-0">De ingebouwde webserver gebruikt de standaardprotocollen van het internet en van het web:
+HTTP (over TCP) voor de communicatie, waarbij het gebruikersinterface de vorm heeft van een HTML-document.
+De interactie tussen de browser en de webserver is een <em>client-server interactie</em>, via het HTTP-protocol.
+De client (browser) stuurt een HTTP request (bijv. GET) met een bepaald URL-pad naar de webserver;
+de webserver stuurt als response een HTML-document terug, dat de browser vervolgens weergeeft voor de gebruiker.</p>
+<p>Enkele eigenschappen van deze aanpak:</p>
+<div class="figure align-right" id="id3">
+<a class="reference internal image-reference" href="_images/IoT-webserver-1.png"><img alt="_images/IoT-webserver-1.png" src="_images/IoT-webserver-1.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knopen met webserver</span></p>
+</div>
+<ul class="simple">
+<li>het apparaat is verbonden in het lokale netwerk: draadloos (via WiFi) of bedraad (Ethernet)</li>
+<li>het apparaat (de IoT-knoop) moet ‘’permanent’’ in het (lokale) netwerk ‘’verbonden’’ zijn
+<br /> dit is een probleem voor batterij-apparaten, niet voor apparaten met een netsnoer.</li>
+<li>het apparaat is alleen binnen het lokale netwerk te bedienen</li>
+<li>je moet het IP-adres of de lokale domeinnaam (zeroconfig) van het apparaat kennen</li>
+<li>de client (browser of een andere computer) moet de gegevens actief van de webserver halen (“pull”)
+<br /> de client-server interactie via HTTP is een “pull” interactie.</li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="webserver/opdrachten.html">Opdrachten</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#adresseren-van-de-webserver">(1) Adresseren van de webserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#aansturen-van-de-led">(2) Aansturen van de LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#browser-ontwikkelaarstools">(3) Browser-ontwikkelaarstools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#webserver-voor-het-uitlezen-van-sensor-waarden">(4) webserver voor het uitlezen van sensor-waarden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#bestudeer-de-programmatekst-van-de-iot-knoop">(5) Bestudeer de programmatekst van de IoT-knoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#opdracht-6">Opdracht (6)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#een-nodered-webserver">(7) Een NodeRed webserver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webserver/toetsvragen.html">Toetsvragen</a></li>
 </ul>
 </div>
 </div>
