@@ -8,6 +8,11 @@ daarmee kun je sensorwaarden van de IoT-knoop opvragen en de actuatoren (LEDs) v
 .. todo::
 
    * één webserver-programma voor LED(s) en sensoren.
+   * opmerking over (te) primitieve aanpak van de webserver,
+     niet volgens de REST-conventies van het web.
+     Voordeel van de gekozen aanpak: deze kun je zelf via het URL-venster uitvoeren.
+   * ontwikkelen van een alternatieve versie, wel volgens de REST-conventies?
+   * een uitgebreide versie, met JSON-beschrijving van de toestand?
 
 (1) Adresseren van de webserver
 -------------------------------
@@ -106,16 +111,6 @@ Opmerkingen:
   Een andere manier is om te werken met *parameters* in een URL.
   (Voorbeelden?)
 
-
-
-
-
-
-
-
-
-
-
 (3) Browser-ontwikkelaarstools
 ------------------------------
 
@@ -127,48 +122,45 @@ Opmerkingen:
 * je kunt de webserver benaderen via het IP-adres of via de lokale domeinnaam.
     * ga na (via de browser webtools, netwerk-sectie) of dit verschil uitmaakt in de totale tijd tussen aanvraag en resultaat.
 
-(4) webserver voor het uitlezen van sensor-waarden
---------------------------------------------------
+(4) Uitlezen van sensor-waarden
+-------------------------------
 
 We kunnen via de webserver ook de waarden van de sensoren in de IoT-knoop uitlezen.
 Deze kunnen we als getallen beschikbaar maken, maar we kunnen ook kiezen voor een grafische weergave,
 bijvoorbeeld in de vorm van een dashboard.
 
-* hiervoor heb je een knoop nodig met de <code>sensor-webserver-0</code>-software.
+* hiervoor heb je een knoop nodig met de ``sensor-webserver-0``-software.
 * elke keer als je de webpagina ververst krijg je de actuele sensorwaarden te zien.
 * je krijgt veranderde sensorwaarden niet automatisch te zien: je moet daarvoor de webpagina verversen.
-
     * dit verversen kun je wel automatiseren, maar dat verandert niets aan het principe: de client vraagt aan de server wat de actuele toestand is.
     * regelmatig de toestand opvragen heet ook wel "polling"; dit staat tegenover het wachten op een bericht met een veranderde toestand.
 
 
-(5) Bestudeer de programmatekst van de IoT-knoop
-------------------------------------------------
+(5) De programmatekst van de IoT-knoop
+--------------------------------------
 
 In de programmatekst van de IoT-knoop kun je zien hoe de server een verzoek afhandelt,
 en op basis van het URL-pad beslist welke actie op de LED plaatsvindt.
 
 * welke functie bevat de tekst van de webpagina?
-* welke functie wordt aangeroepen bij een request met URL <code>/</code>?
-* welke functie wordt aangeroepen bij een request met URL <code>/ledon</code>?
-* welke functie wordt aangeroepen bij een request met URL <code>/ledoff</code>?
+* welke functie wordt aangeroepen bij een request met URL ``/``?
+* welke functie wordt aangeroepen bij een request met URL ``/ledon``?
+* welke functie wordt aangeroepen bij een request met URL ``/ledoff``?
 * wat gebeurt er als je een onbekende URL invoert?
+    * geef daarbij eventueel *parameters* mee, bijvoorbeeld ``?x=123&y=groen``
 
-    * geef daarbij eventueel ''parameters'' mee, bijvoorbeeld "?x=123&y=groen"
-
-Opdracht (6)
-------------
+(6) Een eigen voorbeeld
+-----------------------
 
 Zoek een apparaat in je omgeving dat via een webinterface bediend kan worden.
 Enkele suggesties: router; netwerkprinter; IoT-gateway (zoals de Hue Bridge).
-Maak een schermafdruk van een bedieningspagina van dit apparaat.
 
-* wat zijn de karakteristieken van dit apparaat?
-
-    * is de webserver altijd online?
-    * hoe kun je de webserver vinden?
-    * hoe krijg je veranderingen in de toestand van het apparaat gemeld?
-    *  moet je daarvoor de pagina in de browser verversen?
+1. Maak een schermafdruk van een bedieningspagina van dit apparaat.
+2. beschrijf de karakteristieken van dit apparaat:
+    a) is de webserver altijd online?
+    b) hoe kun je de webserver vinden?
+    c) hoe krijg je veranderingen in de toestand van het apparaat gemeld?
+    d)  moet je daarvoor de pagina in de browser verversen?
 
 (7) Een NodeRed webserver
 --------------------------
