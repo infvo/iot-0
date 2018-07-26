@@ -8,12 +8,16 @@ IoT-1: IoT voor gebruikers
 
 .. toctree::
    :maxdepth: 4
-   :caption: Inhoud:
 
+   ten-geleide.rst
    inleiding.rst
    bouwstenen.rst
+   mqtt.rst
+   nodered.rst
    webserver.rst
    wifi.rst
+   rfm69.rst
+   lora.rst
    todo.rst
 
 Index en tabellen

@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="prev" title="Toetsvragen" href="wifi/toetsvragen.html" />
+    <link rel="prev" title="LoRa-knopen" href="lora.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -39,12 +39,16 @@
 
 
 <h3>Navigatie</h3>
-<p class="caption"><span class="caption-text">Inhoud:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ten-geleide.html">Ten geleide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webserver.html">Webserver-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ToDo</a></li>
 </ul>
 
@@ -52,7 +56,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="wifi/toetsvragen.html" title="vorig hoofdstuk">Toetsvragen</a></li>
+      <li>Previous: <a href="lora.html" title="vorig hoofdstuk">LoRa-knopen</a></li>
   </ul></li>
 </ul>
 </div>
@@ -76,38 +80,6 @@
             
   <div class="section" id="todo">
 <h1>ToDo<a class="headerlink" href="#todo" title="Permalink naar deze titel">¶</a></h1>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="simple">
-<li>IoT-knopen</li>
-<li>protocol: MQTT (ipv. HTTP)</li>
-<li>ketens: gateways;  PubSub (ipv. client-server)</li>
-<li>NodeRed (als “lijm”)</li>
-</ul>
-<div class="toctree-wrapper last compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bouwstenen/nodered.html">NodeRed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bouwstenen/nodered.html#nodes-en-flows">Nodes en flows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bouwstenen/nodered.html#je-eerste-flow">Je eerste flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bouwstenen/nodered.html#importeren-van-een-flow">Importeren van een flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bouwstenen/nodered.html#opdracht">Opdracht</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="bouwstenen/nodered.html#mqtt-nodes">MQTT-nodes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bouwstenen/nodered.html#mqtt-sensor-flow">MQTT sensor flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bouwstenen/nodered.html#mqtt-actuator-flow">MQTT actuator flow</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="bouwstenen/nodered.html#sensor-dashboard">Sensor dashboard</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bouwstenen/nodered.html#afstandsbediening-van-de-led">Afstandsbediening van de LED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bouwstenen/nodered.html#the-things-network-koppeling">The Things Network-koppeling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bouwstenen/nodered.html#mqtt-koppelen-aan-actie-server">MQTT koppelen aan actie/server</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<p class="todo-source">(Het <a class="reference internal" href="bouwstenen.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-1/source/bouwstenen.rst, regel 5.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Te doen</p>
 <ul class="last simple">
@@ -136,6 +108,47 @@ Voordeel van de gekozen aanpak: deze kun je zelf via het URL-venster uitvoeren.<
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="wifi/opdrachten.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-1/source/wifi/opdrachten.rst, regel 5.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>LoRa</li>
+<li>LoRaWan</li>
+<li>TTN</li>
+<li>gateway; protocol-conversie (van binair naar JSON)</li>
+<li>LoRaWan-server; protocol-conversie, formaat-conversie (van payload)</li>
+</ul>
+</div>
+<p class="todo-source">(Het <a class="reference internal" href="lora.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-1/source/lora.rst, regel 5.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>inleiding rfm69</li>
+<li>868MHz radio band: regels</li>
+<li>rfm69 pakket-radio</li>
+<li>gateway: van rfm69 naar WiFi</li>
+<li>protocol-conversie</li>
+</ul>
+</div>
+<p class="todo-source">(Het <a class="reference internal" href="rfm69.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-1/source/rfm69.rst, regel 5.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Te doen</p>
+<ul class="simple">
+<li>IoT-knopen</li>
+<li>protocol: MQTT (ipv. HTTP)</li>
+<li>ketens: gateways;  PubSub (ipv. client-server)</li>
+<li>NodeRed (als “lijm”)</li>
+</ul>
+<div class="toctree-wrapper last compound">
+</div>
+</div>
+<p class="todo-source">(Het <a class="reference internal" href="bouwstenen.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-1/source/bouwstenen.rst, regel 5.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>meer JSON-voorbeelden</li>
+</ul>
+</div>
+<p class="todo-source">(Het <a class="reference internal" href="mqtt/mqtt-pubsub.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-1/source/mqtt/mqtt-pubsub.rst, regel 123.)</p>
 </div>
 
 

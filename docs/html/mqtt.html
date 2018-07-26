@@ -1,0 +1,195 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MQTT en JSON &#8212; iot-1  documentatie</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Zoeken" href="search.html" />
+    <link rel="next" title="MQTT: publish-subscribe" href="mqtt/mqtt-pubsub.html" />
+    <link rel="prev" title="Bouwstenen" href="bouwstenen.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">iot-1</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MQTT en JSON</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/mqtt-pubsub.html">MQTT: publish-subscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/mqtt-pubsub.html#gebruik-van-mqtt-in-het-internet-of-things">Gebruik van MQTT in het Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/mqtt-pubsub.html#voorbeeld">Voorbeeld</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/mqtt-pubsub.html#structuur-van-een-topic">Structuur van een topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/mqtt-pubsub.html#json">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/mqtt-pubsub.html#links">Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nodered.html">NodeRed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="bouwstenen.html" title="vorig hoofdstuk">Bouwstenen</a></li>
+      <li>Next: <a href="mqtt/mqtt-pubsub.html" title="volgend hoofdstuk">MQTT: publish-subscribe</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mqtt-en-json">
+<h1>MQTT en JSON<a class="headerlink" href="#mqtt-en-json" title="Permalink naar deze titel">¶</a></h1>
+<div class="admonition-leerdoelen-en-concepten admonition">
+<p class="first admonition-title">Leerdoelen en concepten</p>
+<ul class="last simple">
+<li>PubSub interactie: client-broker (versus client-server)</li>
+<li>push versus pull; polling;</li>
+<li>MQTT protocol; publish; subscribe; message; topic; wildcard;</li>
+<li>JSON formaat</li>
+</ul>
+</div>
+<p>Het basisprotocol van het web is HTTP.
+Voor het Internet of Things is dit protocol minder geschikt:
+het Internet of Things stelt andere eisen aan de communicatie dan het web.
+Een veelgebruikt IoT-protocol is MQTT (Message Queuing Telemetry Transport;
+zie <a class="reference external" href="https://en.wikipedia.org/wiki/MQTT">https://en.wikipedia.org/wiki/MQTT</a>, <a class="reference external" href="http://mqtt.org">http://mqtt.org</a>):</p>
+<ul class="simple">
+<li>MQTT is een <em>publish/subscribe</em>-protocol, waarbij een <em>broker</em> als tussenschakel fungeert tussen de clients;</li>
+<li>een client “pusht” een bericht naar de broker, die het vervolgens naar andere clients “pusht”;
+dit in tegenstelling tot de “pull” interactie tussen een HTTP client (browser) en server (webserver).</li>
+</ul>
+<p class="rubric">JSON-formaat voor berichten</p>
+<p>Voor MQTT-berichten wordt vaak het JSON-formaat gebruikt.
+JSON biedt een leesbaar en redelijk compact formaat, in het bijzonder geschikt voor data.
+(Het web gebruikt voor tekst-documenten het HTML-formaat;
+voor data wordt ook vaak JSON gebruikt, zoals bijvoorbeeld bij AJAX.)</p>
+<p class="rubric">Inleiding</p>
+<p>De aanpak met een webserver als interface van de IoT-knoop heeft een aantal nadelen:</p>
+<ul class="simple">
+<li>de IoT-knoop moet altijd beschikbaar (online) zijn;
+voor een draadloze IoT-knoop kost een permanente radioverbinding veel batterij-energie;</li>
+<li>de client-server interactie via het HTTP-protocol is een “pull” van de gegevens van de IoT-knoop;
+veranderingen in de sensorgegevens detecteer je door deze regelmatig bij de server op te vragen (“polling”).
+Dit kost veel onnodige communicatie (bandbreedte) en daarmee energie.</li>
+<li>de IoT-knoop-webserver is zonder verdere maatregelen alleen in het lokale netwerk te benaderen.</li>
+<li>het http-protocol is minder geschikt voor grote aantallen kleine berichten, zoals we die voor de IoT-knopen nodig hebben.</li>
+</ul>
+<p>We gebruiken in dit hoofdstuk een ander protocol: MQTT (<a class="reference external" href="http://mqtt.org/">http://mqtt.org/</a>).
+Dit protocol is speciaal ontwikkeld voor IoT-toepassingen.
+Bij dit protocol is er sprake van een MQTT-broker en MQTT-clients:
+de broker fungeert als tussenstation voor de communicatie tussen de clients.</p>
+<p>MQTT is een ‘’publish/subscribe protocol’‘: de clients van een MQTT-broker kunnen zowel berichten publiceren als ontvangen.
+Een IoT-knoop publiceert berichten met sensorwaarden naar de MQTT-broker;
+deze zorgt voor de verdere distributie (“push”) naar de clients die in die waarden geïnteresseerd zijn.</p>
+<p>In dit hoofstuk gebruiken we een ‘’publieke MQTT-broker’‘.
+Deze vormt de schakel tussen de IoT-knopen en de toepassing.
+Hiermee kunnen we de sensordata van de IoT-knopen ontvangen en de actuatoren op afstand besturen.</p>
+<p class="rubric">Links</p>
+<ul class="simple">
+<li><a class="reference external" href="https://mosquitto.org/man/mosquitto-conf-5.html">https://mosquitto.org/man/mosquitto-conf-5.html</a></li>
+<li><a class="reference external" href="https://www.cloudmqtt.com/docs-bridge.html">https://www.cloudmqtt.com/docs-bridge.html</a></li>
+<li><a class="reference external" href="https://www.cloudmqtt.com/">https://www.cloudmqtt.com/</a></li>
+</ul>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/MQTT.png"><img alt="_images/MQTT.png" src="_images/MQTT.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">MQTT voorbeeld</span></p>
+</div>
+<p class="rubric">Inhoud</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mqtt/mqtt-pubsub.html">MQTT: publish-subscribe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt/mqtt-pubsub.html#gebruik-van-mqtt-in-het-internet-of-things">Gebruik van MQTT in het Internet of Things</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt/mqtt-pubsub.html#voorbeeld">Voorbeeld</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt/mqtt-pubsub.html#structuur-van-een-topic">Structuur van een topic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt/mqtt-pubsub.html#json">JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt/mqtt-pubsub.html#links">Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt/opdrachten.html">Opdrachten</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/opdrachten.html#gebruik-van-de-app-mqtt1">Gebruik van de app MQTT1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/opdrachten.html#alternatief-mqtt-box">Alternatief: MQTT-box</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/opdrachten.html#opdracht-1-chatten-met-mqtt">Opdracht 1: Chatten met MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/opdrachten.html#opdracht-2-mqtt0-met-een-iot-knoop">Opdracht 2: MQTT0 met een IoT-knoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/opdrachten.html#opdracht-3-aansturen-van-actuatoren-leds-met-json">Opdracht 3: Aansturen van actuatoren (LEDs) met JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt/opdrachten.html#opdracht-4-gebruik-van-json-in-het-internet-of-things">Opdracht 4: Gebruik van JSON in het Internet of Things</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt/toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, Eelco Dijkstra.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/mqtt.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

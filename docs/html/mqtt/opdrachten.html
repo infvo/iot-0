@@ -1,0 +1,278 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Opdrachten &#8212; iot-1  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Toetsvragen" href="toetsvragen.html" />
+    <link rel="prev" title="MQTT: publish-subscribe" href="mqtt-pubsub.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-1</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mqtt-pubsub.html">MQTT: publish-subscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt-pubsub.html#gebruik-van-mqtt-in-het-internet-of-things">Gebruik van MQTT in het Internet of Things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt-pubsub.html#voorbeeld">Voorbeeld</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt-pubsub.html#structuur-van-een-topic">Structuur van een topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt-pubsub.html#json">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt-pubsub.html#links">Links</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Opdrachten</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gebruik-van-de-app-mqtt1">Gebruik van de app MQTT1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alternatief-mqtt-box">Alternatief: MQTT-box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-1-chatten-met-mqtt">Opdracht 1: Chatten met MQTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-2-mqtt0-met-een-iot-knoop">Opdracht 2: MQTT0 met een IoT-knoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-3-aansturen-van-actuatoren-leds-met-json">Opdracht 3: Aansturen van actuatoren (LEDs) met JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdracht-4-gebruik-van-json-in-het-internet-of-things">Opdracht 4: Gebruik van JSON in het Internet of Things</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../mqtt.html">MQTT en JSON</a><ul>
+      <li>Previous: <a href="mqtt-pubsub.html" title="vorig hoofdstuk">MQTT: publish-subscribe</a></li>
+      <li>Next: <a href="toetsvragen.html" title="volgend hoofdstuk">Toetsvragen</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="opdrachten">
+<h1>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink naar deze titel">¶</a></h1>
+<div class="admonition-wat-heb-je-nodig admonition">
+<p class="first admonition-title">Wat heb je nodig?</p>
+<ul class="last simple">
+<li><dl class="first docutils">
+<dt>MQTT broker in publieke internet;</dt>
+<dd><ul class="first last">
+<li>de MQTT-broker fungeert ook als statische webserver, voor de app MQTT0</li>
+<li>je moet de domeinnaam, het poortnummer, en eventueel een gebruikersnaam/wachtwoord kennen.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>IoT knoop met software: MQTT-0; verbonden in het lokale WiFi-netwerk; en verbonden met de MQTT broker;</dt>
+<dd><ul class="first last">
+<li>je moet de ID van de knoop kennen; dit bestaat uit de laatste 4 cijfers van het MAC-adres;</li>
+<li>dit kan eventueel een gesimuleerde IoT-knoop zijn.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="gebruik-van-de-app-mqtt1">
+<h2>Gebruik van de app MQTT1<a class="headerlink" href="#gebruik-van-de-app-mqtt1" title="Permalink naar deze titel">¶</a></h2>
+<p>[[Bestand:IoT-mqtt0-app.png|400px|right|mqtt test app]]</p>
+<p>De  web-app kun je vinden via de broker: <a class="reference external" href="http://infvopedia.nl:1884/mqtt1.html">http://infvopedia.nl:1884/mqtt1.html</a>.
+Hierin is infvopedia.nl de domeinnaam van de broker.
+1884 is het HTTP-poortnummer van de broker: de broker fungeert ook als (statische) webserver.
+Het MQTT-protocol gebruikt poort 1883.</p>
+<p>De app heeft de volgende invoervelden en -knoppen:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>invoer <code class="docutils literal notranslate"><span class="pre">IoT-node</span></code>: de ID van de IoT-knoop die je wilt aansturen, en waarvan je de sensordata wilt ontvangen</dt>
+<dd><ul class="first last">
+<li>de sensordata worden ontvangen via topic <code class="docutils literal notranslate"><span class="pre">node/ID/sensors</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>knoppen On en Off: sturen bericht <code class="docutils literal notranslate"><span class="pre">{&quot;led0&quot;:1}</span></code> respectievelijk <code class="docutils literal notranslate"><span class="pre">{&quot;led0&quot;:1}</span></code> met <code class="docutils literal notranslate"><span class="pre">topic</span> <span class="pre">node/ID/actuators</span></code></li>
+<li><dl class="first docutils">
+<dt>invoer <code class="docutils literal notranslate"><span class="pre">subscribe</span> <span class="pre">to</span> <span class="pre">topic</span></code>: hier geef je het topic op waarvan je de berichten wilt ontvangen</dt>
+<dd><ul class="first last">
+<li>in het venster daaronder verschijnen de ontvangen berichten met hun topic</li>
+<li>in het topic kun je ook wildcard-tekens opnemen, zoals <code class="docutils literal notranslate"><span class="pre">+</span></code> en <code class="docutils literal notranslate"><span class="pre">#</span></code>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>invoer <code class="docutils literal notranslate"><span class="pre">publish</span> <span class="pre">to</span> <span class="pre">topic</span></code> - om een bericht met een topic te versturen;</dt>
+<dd><ul class="first last">
+<li>het bericht zelf voer je daaronder in, en</li>
+<li>met de “publish”-knop verstuur je het bericht.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="alternatief-mqtt-box">
+<h2>Alternatief: MQTT-box<a class="headerlink" href="#alternatief-mqtt-box" title="Permalink naar deze titel">¶</a></h2>
+<p>Er zijn ook desktop-applicaties waarmee je deze opdrachten kunt uitvoeren.
+Een voorbeeld is MQTTbox (<a class="reference external" href="http://workswithweb.com/mqttbox.html">http://workswithweb.com/mqttbox.html</a>).</p>
+</div>
+<div class="section" id="opdracht-1-chatten-met-mqtt">
+<h2>Opdracht 1: Chatten met MQTT<a class="headerlink" href="#opdracht-1-chatten-met-mqtt" title="Permalink naar deze titel">¶</a></h2>
+<p>(stap 1) Je kunt met MQTT op een eenvoudige manier met een groep gebruikers chatten, via de MQTT0-app in de browser.</p>
+<ul class="simple">
+<li>Spreek met de groep af welk topic je gebruikt voor de communicatie, bijvoorbeeld &lt;code&gt;chat&lt;/code&gt;</li>
+<li>Stel dit topic in bij de beide topic-vensters: voor het ontvangen (subscribe)
+en voor het verzenden (publish) van de berichten.</li>
+<li>Als je nu in de ene browser in de app een bericht invoert en publiceert,
+zul je dit in de andere browsers in de app zien verschijnen.</li>
+</ul>
+<p>(stap 2) Een nadeel van deze aanpak is dat je niet kunt zien van wie een bericht afkomstig is.
+Dit kun je oplossen door de naam van de afzender in het topic op te nemen:</p>
+<ul class="simple">
+<li>vul als subscribe-topic een wildcard-topic in, bijvoorbeeld &lt;code&gt;chat/+&lt;/code&gt;.
+Deze &lt;code&gt;+&lt;/code&gt; matcht met een willekeurige string.</li>
+<li>vul als publish-topic een topic in met daarin de naam van de afzender,
+bijvoorbeeld &lt;code&gt;chat/frans&lt;/code&gt;.</li>
+<li>je ziet dan bij de ontvangen berichten steeds de naam van de afzender in het topic.</li>
+</ul>
+<p>Je moet er in dit geval wel op vertrouwen dat iedereen zijn eigen naam invult:
+je kunt de afzender in het topic niet authenticeren.</p>
+</div>
+<div class="section" id="opdracht-2-mqtt0-met-een-iot-knoop">
+<h2>Opdracht 2: MQTT0 met een IoT-knoop<a class="headerlink" href="#opdracht-2-mqtt0-met-een-iot-knoop" title="Permalink naar deze titel">¶</a></h2>
+<p>Voor het gebruik van MQTT0 met een IoT-knoop moet je de node-id van die knoop invullen:</p>
+<ul class="simple">
+<li>vul de node-id van je sensorknoop in;</li>
+<li>vul als subscribe-topic in: <code class="docutils literal notranslate"><span class="pre">node/+/+</span></code>;</li>
+</ul>
+<p>Voor de communicatie tussen de toepassing MQTT0 en de IoT-knoop gebruiken we de volgende MQTT-topics:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">node/nodeid/sensors</span></code> - voor de sensorwaarden</li>
+<li><code class="docutils literal notranslate"><span class="pre">node/nodeid/actuators</span></code> - voor de actuatorwaarden.</li>
+</ul>
+<p>Met het wildcard-topic &lt;code&gt;node/+/+&lt;/code&gt; ontvang je alle sensor/actuatorwaarden van alle knopen.
+Er is geen standaard die deze afspraken afdwingt: het is een eigen, praktische keuze.
+Deze keuze gebruiken we in onze IoT-knopen en in onze toepassingen (apps).</p>
+<p>Vervolgens kun je de LEDs aansturen en de sensorwaarden uitlezen:</p>
+<ul class="simple">
+<li>controleer of de LED aan- en uitgaat bij het indrukken van de knoppen;</li>
+<li><dl class="first docutils">
+<dt>controleer of je de sensorwaarden ontvangt: deze verschijnen in tabelvorm.</dt>
+<dd><ul class="first last">
+<li>hierin kun je ook zien of de LED brandt.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="opdracht-3-aansturen-van-actuatoren-leds-met-json">
+<h2>Opdracht 3: Aansturen van actuatoren (LEDs) met JSON<a class="headerlink" href="#opdracht-3-aansturen-van-actuatoren-leds-met-json" title="Permalink naar deze titel">¶</a></h2>
+<p>Bekijk (met de MQTT0-app) de JSON-berichten zoals die door de IoT-knopen verstuurd worden.</p>
+<ul class="simple">
+<li>vul als subscribe-topic in: <code class="docutils literal notranslate"><span class="pre">node/+/sensors</span></code> (of, in plaats van <code class="docutils literal notranslate"><span class="pre">+</span></code>, de nodeid)</li>
+<li>vergelijk de ontvangen berichten in JSON-formaat met de waarden in de tabel erboven.</li>
+<li>hoe weet je wat de eigenschap (het veld) <code class="docutils literal notranslate"><span class="pre">&quot;temp&quot;</span></code> voorstelt?</li>
+</ul>
+<p>Om de actuators (LEDs) van de IoT-knoop aan te sturen,
+moet je in het publish-message-venster een JSON-bericht invoeren,
+en dit met de “publish”-knop versturen.</p>
+<ul class="simple">
+<li>stuur een JSON-bericht naar een IoT-knoop om LED 1 aan (of uit) uit te zetten.</li>
+<li>controleer of de waarde die je voor de LEDs ontvangt, kloppen met de bedoelde actie.</li>
+<li>zet in één JSON-bericht beide LEDs tegelijk aan (of uit).</li>
+</ul>
+</div>
+<div class="section" id="opdracht-4-gebruik-van-json-in-het-internet-of-things">
+<h2>Opdracht 4: Gebruik van JSON in het Internet of Things<a class="headerlink" href="#opdracht-4-gebruik-van-json-in-het-internet-of-things" title="Permalink naar deze titel">¶</a></h2>
+<p>Het JSON-formaat wordt in het Internet of Things op meerdere plaatsen gebruikt.
+Bestudeer de volgende manieren van gebruik:</p>
+<ul class="simple">
+<li>importeren en exporteren van NodeRed-flows</li>
+<li><dl class="first docutils">
+<dt>berichten van TTN gateways (via MQTT)</dt>
+<dd><ul class="first last">
+<li>welke informatie voegt een TTN gateway toe aan de “payload” van een IoT-knoop?</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, Eelco Dijkstra.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/mqtt/opdrachten.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

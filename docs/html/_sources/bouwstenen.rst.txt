@@ -10,5 +10,3 @@ Bouwstenen
   * NodeRed (als "lijm")
 
   .. toctree::
-
-    bouwstenen/nodered.rst

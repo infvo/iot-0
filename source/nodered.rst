@@ -26,19 +26,33 @@ De module "web voor makers" geeft een uitgebreidere handleiding in het gebruik v
 Nodes en flows
 ==============
 
-.. figure:: Nodered-hello.png
+.. figure:: nodered/Nodered-hello.png
    :width: 600 px
    :align: center
 
-   NodeRed http voorbeeld
+   NodeRed http flow-voorbeeld
 
 Een *flow* in NodeRed bestaat uit een netwerk van *nodes* en *verbindingen*.
 Het aansluitpunt (bolletje) aan de linkerkant van een node is de input.
-Een node zonder aansluiting links is een *input-node*, met een externe input, bijvoorbeeld een HTTP-request.
+Een node zonder aansluiting links is een *input-node*, met een externe input, bijvoorbeeld een http-request.
 De outputs staan aan de rechterzijde van de node.
-Een node zonder aansluiting rechts is een *output-node*, met een externe output, bijvoorbeeld een HTTP-response.
+Een node zonder aansluiting rechts is een *output-node*, met een externe output, bijvoorbeeld een http-response.
 
 Een NodeRed-toepassing kan uit meerdere flows bestaan: elke flow heeft een eigen pagina (tab).
+
++--------------------+------------------+------------------+
+| **figuur**         | **naam**         | **soort node**   |
++--------------------+------------------+------------------+
+| |http-input-node|  | http-input-node  |  input           |
++--------------------+------------------+------------------+
+| |http-output-node| | http-output-node |  output          |
++--------------------+------------------+------------------+
+| |template-node|    | template-node    |  in-out          |
++--------------------+------------------+------------------+
+
+.. |http-input-node| image:: nodered/nodered-http-input-node.png
+.. |http-output-node| image:: nodered/nodered-http-output-node.png
+.. |template-node| image:: nodered/nodered-template-node.png
 
 **Hoe werkt een flow?**
 Als een node een bericht (message) krijgt via de input,
@@ -47,7 +61,7 @@ en genereert één of meer messages naar de output(s).
 Deze output is weer verbonden  met de input van een andere node;
 of de node is een output-node, met een externe output.
 
-*Voor het bovenstaande voorbeeld*: (i) de http-input-node ontvangt een http-request als
+*Voor het bovenstaande flow-voorbeeld*: (i) de http-input-node ontvangt een http-request als
 de http-method gelijk is aan ``get`` en het URL-pad gelijk is aan ``/hello``.
 Deze http-input-node stuurt dan een message met dit request naar
 (ii) de template-node ``hello.html``.
@@ -62,7 +76,7 @@ Je eerste flow
 
 Met deze eerste flow kun je zien of alles werkt:
 
-.. figure:: Nodered-flow1.png
+.. figure:: nodered/Nodered-flow1.png
    :width: 500 px
    :align: center
 
@@ -78,9 +92,12 @@ Hiervoor gebruik je de volgende nodes:
 | |debug-node|   | debug-node    |  output          |
 +----------------+---------------+------------------+
 
-.. |inject-node| image:: inject-node.png
+.. |inject-node| image:: nodered/inject-node.png
+.. |debug-node| image:: nodered/debug-node.png
 
-.. |debug-node| image:: debug-node.png
+.. rubric:: Opdracht
+
+Voer de onderstaande opdrachten uit in een lege (flow)tab in NodeRed.
 
 * sleep een inject-node vanuit de lijst met nodes links naar het lege vlak in het midden
 * plaats op dezelfde manier de debug-node;
@@ -91,7 +108,7 @@ Hiervoor gebruik je de volgende nodes:
 Als het goed is, krijg je in het debug-venster rechts nu de output van deze flow te zien. Je maakt het debug-venster zichtbaar via de debug-tab.
 
 * verander de configuratie van de inject-knoop: zorg ervoor dat deze elke minuut een timestamp oplevert.
-  * de configuratie van een knoop krijg je te zien door een dubbel-klik op die knoop.
+    * de configuratie van een knoop krijg je te zien door een dubbel-klik op die knoop.
 * verander de configuratie van de inject-knoop: zorg ervoor dat deze een tekst levert als payload.
 * verbind meerdere inject-knopen met dezelfde debug-knoop.
 
@@ -100,54 +117,74 @@ Importeren van een flow
 
 Bij de praktische opdrachten gebruik je flows die eerder gemaakt zijn.
 
-Importeren van een flow:
+Op de volgende manier importeer je een flow vanuit een JSON-vorm:
 
-* kopieer de flow naar het clipboard
-  * met de "Copy" van je host-Operating System;
+* selecteer en kopieer de flow in JSON-vorm naar het clipboard
+    * met de "Copy" van je host-Operating System;
 * selecteer in het hamburger-menu->Import->Clipboard (rechts);
 * kopieer ("Paste") de inhoud van het clipboard in het venster;
 * klik op "Import"
 
-Opdracht
---------
+.. rubric:: Opdracht
 
-* Importeer de onderstaande flow in NodeRed:
+1. Importeer de onderstaande flow in NodeRed:
 
 .. code-block:: json
 
   [{"id":"678b8c4c.974984","type":"inject","z":"b7f5ac90.8cf17","name":"","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"x":146,"y":80,"wires":[["654b6309.c742ec","d272daf8.c48e38"]]},{"id":"65beec84.75ffe4","type":"debug","z":"b7f5ac90.8cf17","name":"","active":true,"console":"false","complete":"false","x":502,"y":81,"wires":[]},{"id":"654b6309.c742ec","type":"delay","z":"b7f5ac90.8cf17","name":"","pauseType":"delay","timeout":"5","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"x":323.5,"y":82,"wires":[["65beec84.75ffe4"]]},{"id":"d272daf8.c48e38","type":"debug","z":"b7f5ac90.8cf17","name":"","active":true,"console":"false","complete":"false","x":323.5,"y":134,"wires":[]}]
 
 
-* test deze flow.
+2. test deze flow.
 
 MQTT-nodes
 ==========
+
++--------------------+------------------+------------------+
+| **figuur**         | **naam**         | **soort node**   |
++--------------------+------------------+------------------+
+| |mqtt-input-node|  | mqtt-input-node  |  input           |
++--------------------+------------------+------------------+
+| |mqtt-output-node| | mqtt-output-node |  output          |
++--------------------+------------------+------------------+
+| |mqtt-broker-node| | mqtt-broker-node |  configuration   |
++--------------------+------------------+------------------+
+
+.. |mqtt-input-node| image:: nodered/nodered-mqtt-input-node.png
+.. |mqtt-output-node| image:: nodered/nodered-mqtt-output-node.png
+.. |mqtt-broker-node| image:: nodered/nodered-mqtt-broker-node.png
 
 In de volgende voorbeelden gebruiken we de MQTT-input- en output-nodes.
 Deze nodes configureer je met de gebruikte mqtt-broker en het topic.
 
 * de MQTT-input-node heeft het ontvangen bericht als resultaat (payload);
-* de MQTT-output-node stuurt het bericht (<code>msg.payload</code>) naar de broker, met het genoemde topic.
-* er is een aparte configuratie-node voor de MQTT-broker. Deze gebruik je indirect bij het configureren van de MQTT-input- of output-node. Je kunt deze ook vinden via het rechter "hamburger" menu: Configuration Nodes.
+* de MQTT-output-node stuurt het bericht (``msg.payload``) naar de broker, met het genoemde topic.
+* er is een aparte *configuratie-node* voor de MQTT-broker.
+  Deze gebruik je indirect bij het configureren van de MQTT-input- of output-node.
+  Je kunt deze broker-node ook vinden via het rechter "hamburger" menu: Configuration Nodes.
 
 MQTT sensor flow
-----------------
+================
 
 In dit eerste voorbeeld gebruik je de MQTT-input-node om de sensorwaarden van een IoT-knoop te ontvangen.
 De ontvangen waarden vind je in het debug-venster.
 Om deze flow te gebruiken moet je eerst de verschillende nodes configureren (dubbelklik op de node):
 
 * de  *nodeid* in het topic van de MQTT-input-node verander je in de *nodeid* van je eigen IoT-knoop;
-  voorbeeld: <code>node/e0f1/sensors</code>
+  voorbeeld: ``node/e0f1/sensors``
 * de MQTT-broker van de MQTT-input-node configureer je met de gegevens van je MQTT-broker;
 * "deploy" de aangepaste flow. De MQTT-node moet nu melden dat deze "connected" is.
   We gebruiken in dit voorbeeld een JSON-node:
   deze zet een JSON-string-vorm om in een JavaScript-object.
   In het debug-venster vind je dan beide vormen terug.
-* schakel één van de beide debug-nodes uit met de knop aan de rechterkant (en deploy!).
+* schakel één van de beide debug-nodes uit met de knop aan de rechterkant (en **deploy**!).
   Je ziet dan maar één van beide vormen in het debug-venster.
 
-[[Bestand:mqtt-sensor-flow-0.png]]
+.. figure:: nodered/mqtt-sensor-flow-0.png
+   :width: 600 px
+   :align: center
+
+   MQTT sensor flow
+
 
 Flow:
 
@@ -157,7 +194,7 @@ Flow:
 
 
 MQTT actuator flow
-------------------
+==================
 
 In dit voorbeeld gebruik je de MQTT-output-node.
 Hiermee stuur je JSON berichten naar een IoT-knoop.
@@ -168,7 +205,11 @@ Hiermee stuur je JSON berichten naar een IoT-knoop.
 * controleer bij de IoT-knoop of de LED aan- en uitgaat;
 * controleer eventueel de MQTT-berichten met de MQTT0-app.
 
-[[Bestand:mqtt-actuator-flow-0.png]]
+.. figure:: nodered/mqtt-actuator-flow-0.png
+   :width: 600 px
+   :align: center
+
+   MQTT actuator flow
 
 .. code-block:: json
 
@@ -180,12 +221,24 @@ Sensor dashboard
 
 Met een sensor-dashboard kun je de waarden van de sensoren via een browser bekijken.
 
-[[Bestand:Nodered-dashboard-display-0.png]]
+.. figure:: nodered/Nodered-dashboard-display-0.png
+   :width: 600 px
+   :align: center
+
+   NodeRed dashboard display
 
 NodeRed biedt de bouwstenen voor het maken van een eenvoudig dashboard. We gebruiken in het voorbeeld de volgende knopen:
 
-* Gauge - een meter voor een actuele waarde;
-* Chart - een grafiek van het verloop van een waarde.
++--------------------+------------------+----------------+------------------------+
+| **figuur**         | **naam**         | **soort**      | **betekenis**          |
++--------------------+------------------+----------------+------------------------+
+| |dashboard-gauge|  | dashboard-gauge  |  output        | meter (actuele waarde) |
++--------------------+------------------+----------------+------------------------+
+| |dashboard-chart|  | dashboard-chart  |  output        | grafiek (verloop)      |
++--------------------+------------------+----------------+------------------------+
+
+.. |dashboard-gauge| image:: nodered/nodered-dashboard-gauge.png
+.. |dashboard-chart| image:: nodered/nodered-dashboard-chart.png
 
 Het sensor-dashboard gebruikt de sensorwaarden die de IoT-knoop verstuurt, in JSON-formaat.
 Deze sensorwaarden selecteren we uit het JSON-bericht.
@@ -193,7 +246,11 @@ Sommige waarden schalen we om deze op de gebruikelijke manier te presenteren (bi
 
 De flow voor een dashboard voor een enkele sensor:
 
-[[Bestand:Nodered-dashboard-0.png]]
+.. figure:: nodered/Nodered-dashboard-0.png
+   :width: 600 px
+   :align: center
+
+   NodeRed dashboard flow
 
 Uitleg bij deze flow:
 
@@ -217,7 +274,11 @@ Afstandsbediening van de LED
 
 Op eenzelfde manier als het dashboard kun je een gebruikersinterface maken om de LED aan- en uit te zetten.
 
-[[Bestand:Nodered-remote-led-0.png]]
+.. figure:: nodered/Nodered-remote-led-0.png
+   :width: 600 px
+   :align: center
+
+   NodeRed remote led control
 
 Uitleg bij deze flow:
 
