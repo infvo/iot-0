@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="next" title="Bouwstenen" href="bouwstenen.html" />
+    <link rel="next" title="Voorbeelden" href="inleiding/voorbeelden.html" />
     <link rel="prev" title="Ten geleide" href="ten-geleide.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -42,7 +42,15 @@
 <h3>Navigatie</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ten-geleide.html">Ten geleide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Inleiding</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Inleiding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inleiding/voorbeelden.html">Voorbeelden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inleiding/gevolgen.html">Gevolgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inleiding/iot-eisen.html">Eisen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inleiding/overzicht.html">Overzicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inleiding/opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inleiding/toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nodered.html">NodeRed</a></li>
@@ -58,7 +66,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="ten-geleide.html" title="vorig hoofdstuk">Ten geleide</a></li>
-      <li>Next: <a href="bouwstenen.html" title="volgend hoofdstuk">Bouwstenen</a></li>
+      <li>Next: <a href="inleiding/voorbeelden.html" title="volgend hoofdstuk">Voorbeelden</a></li>
   </ul></li>
 </ul>
 </div>
@@ -82,16 +90,82 @@
             
   <div class="section" id="inleiding">
 <h1>Inleiding<a class="headerlink" href="#inleiding" title="Permalink naar deze titel">¶</a></h1>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
+<div class="admonition-concepten-en-leerdoelen admonition">
+<p class="first admonition-title">Concepten en leerdoelen</p>
 <ul class="last simple">
-<li>van internet via web naar IoT</li>
-<li>IoT-toepassingen</li>
-<li>IoT-bouwstenen en -ketens?</li>
+<li>Internet of Things - als volgende stap in de ontwikkeling van het internet</li>
+<li>IoT-toepassingen: van sensordata naar beslissingen, met gebruik van Data Science en Artificial Intelligence</li>
+<li>IoT stelt andere eisen aan de communicatie (via het internet) dan het web</li>
+<li>IoT-bouwstenen</li>
+<li>IoT-ketens</li>
 </ul>
 </div>
-<hr class="docutils" />
-<div class="admonition-todo admonition" id="index-1">
+<p class="rubric">Van Internet van computers tot Internet of Things</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/Internet-of-computers.png"><img alt="_images/Internet-of-computers.png" src="_images/Internet-of-computers.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Internet of computers</span></p>
+</div>
+<p>De eerste gebruikers van het internet waren universiteiten en onderzoeksinstellingen.
+Belangrijke toepassingen uit die periode zijn e-mail, file-transfer (ftp),
+remote login (telnet, nu ssh), en chat (IRC, internet relay chat).
+Deze periode zou je het “internet van computers” kunnen noemen:
+het internet werd vooral gebruikt om computers aan elkaar te verbinden,
+en bijvoorbeeld om op afstand toegang te hebben tot supercomputers.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/Internet-of-people.png"><img alt="_images/Internet-of-people.png" src="_images/Internet-of-people.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Internet of people</span></p>
+</div>
+<p>Rond 1989/1990 vonden twee belangrijke ontwikkelingen plaats:
+het internet werd toegankelijk gemaakt voor commercieel gebruik;
+en Tim Berners-Lee maakte de eerste implementatie van het web,
+met als eerste browser “WorldWideWeb”.
+In de periode 1990-2000 heeft dit geleid tot een revolutionaire ontwikkeling in het gebruik van het internet.
+Een volgende stap was de introductie van de smartphone:
+vooral de iPhone (2007) heeft de aanzet gegeven tot de smartphone als “persoonlijk internet apparaat”.
+Dit leidt tot de opbloei van “sociale toepassingen” zoals Facebook en Twitter.
+Deze periode zou je het “internet van mensen” kunnen noemen:
+het internet verbindt niet alleen computers, maar ook mensen.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="_images/Internet-of-things.png"><img alt="_images/Internet-of-things.png" src="_images/Internet-of-things.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Internet of things</span></p>
+</div>
+<p>Een volgende stap in het internet is het “internet of things”:
+door de ontwikkeling van de micro-elektronica is het mogelijk om zeer goedkope,
+kleine en draadloze internetverbindingen te maken.
+Hiermee kunnen allerlei “dingen” in het internet verbonden worden,
+ook als deze niet over een eigen stroomvoorziening beschikken.
+Het is nu mogelijk om computers, mensen en dingen via het internet aan elkaar te verbinden.
+Het aantal internetverbindingen neemt hierdoor explosief toe.</p>
+<p class="rubric">Andere ontwikkelingen in de ICT: Data Science, Artificial Intelligence</p>
+<p>Het internet of things maakt het mogelijk om beslissingen te nemen op basis van de actuele situatie - in plaats van op basis van een historisch gemiddelde.
+De vele sensordata van het IoT moeten dan wel verder geanalyseerd en bewerkt worden.
+De ontwikkelingen op het gebied van Data Science (big data) en Artificial Intelligence sluiten hier goed op aan:
+hiermee kun je ruwe data omvormen tot zinvolle informatie.
+Vaak worden de sensordata hierbij gecombineerd met data en kennis over de context.
+Het combineren van de sensordata met diensten en data uit andere bronnen kom je bij veel IoT-toepassingen tegen.</p>
+<p>In sommige gevallen worden de beslissingen op grond van de sensordata automatisch genomen, zonder tussenkomst van mensen.
+Dit kan bijvoorbeeld nodig zijn om snel genoeg te reageren in risicovolle situaties.
+Een dergelijke automatische verwerking stelt extra hoge eisen aan de sensordata en aan de verwerking hiervan.</p>
+<blockquote>
+<div>Een voorbeeld van een dergelijke volautomatisch systeem is de <a class="reference external" href="https://nl.wikipedia.org/wiki/Maeslantkering">Maeslantkering</a> in de Nieuwe waterweg.</div></blockquote>
+<div class="admonition-belangrijke-punten-samenvatting admonition">
+<p class="first admonition-title">Belangrijke punten (samenvatting)</p>
+<ul class="last simple">
+<li>het internet of things is de meest recente uitbreiding van het internet:
+na computers en mensen verbindt het internet nu ook dingen (en dieren en planten);</li>
+<li>dit betekent dat dingen met elkaar kunnen communiceren (machine to machine, M2M),
+maar ook mensen en dingen of computers en dingen.</li>
+<li>de ontwikkeling van het internet of things is nog maar net begonnen:
+er zullen nog veel nieuwe toepassingen bedacht worden;</li>
+<li>de meeste toepassingen van het internet of things zijn bedoeld om beter/sneller/automatisch te kunnen beslissen en besturen,
+onder meer om de efficiëntie (verbruik van energie en materialen) en de veiligheid te verbeteren.</li>
+<li>het internet of things heeft gevolgen in je persoonlijke omgeving en op maatschappelijk niveau;
+naast positieve effecten zijn er ook risico’s aan verbonden;</li>
+<li>de ontwikkeling van het internet of things staat niet op zichzelf:
+de ontwikkelingen op het gebied van Data Science en Kunstmatige Intelligentie maken de verwerking van de “dingen”-data en het nemen van beslissingen op grond van deze data mogelijk.</li>
+</ul>
+</div>
+<div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Te doen</p>
 <p class="last">onderstaande tekst, tot voorbeeld, verhuizen</p>
 </div>
@@ -109,6 +183,8 @@ Bij het Internet of Things gaat het vooral om “minder”: minder energie, mind
 Ook in dit geval is een exponentiële ontwikkeling te verwachten.
 Het grootste probleem lijkt daarbij de energievoorziening te zijn:
 vooral de batterij bepaalt de omvang en het gewicht van een IoT-knoop.</p>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 

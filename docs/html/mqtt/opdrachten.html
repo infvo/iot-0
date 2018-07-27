@@ -106,17 +106,19 @@
 <li><dl class="first docutils">
 <dt>MQTT broker in publieke internet;</dt>
 <dd><ul class="first last">
-<li>de MQTT-broker fungeert ook als statische webserver, voor de app MQTT0</li>
+<li>de MQTT-broker fungeert ook als statische webserver,
+voor de app MQTT1 en voor de knoop-simulator;</li>
 <li>je moet de domeinnaam, het poortnummer, en eventueel een gebruikersnaam/wachtwoord kennen.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>IoT knoop met software: MQTT-0; verbonden in het lokale WiFi-netwerk; en verbonden met de MQTT broker;</dt>
+<dt>zo mogelijk: IoT knoop (hardware),</dt>
 <dd><ul class="first last">
-<li>je moet de ID van de knoop kennen; dit bestaat uit de laatste 4 cijfers van het MAC-adres;</li>
-<li>dit kan eventueel een gesimuleerde IoT-knoop zijn.</li>
+<li>met software: MQTT-0;</li>
+<li>verbonden met de MQTT broker;</li>
+<li>de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;</li>
 </ul>
 </dd>
 </dl>
@@ -210,6 +212,10 @@ Dit doen we door voor het subscribe-veld een <em>wildcard</em>-topic in te vulle
 <li>je krijgt nu de sensor-berichten te zien van alle knopen die deze broker gebruiken.</li>
 <li>kies hiervan een knoop die je regelmatig langs ziet komen, en bepaal de ID xxxx (uit <code class="docutils literal notranslate"><span class="pre">node/xxxx/sensors</span></code>).</li>
 </ol>
+<p>Als je een hardware-IoT-knoop hebt, dan staat de ID waarschijnlijk op de knoop zelf.
+De node-ID bestaat uit de laatste 4 tekens van het MAC-adres.
+Controleer of je knoop actief is: er moeten dan regelmatig JSON-berichten langskomen in het subscribe-venster
+(bijvoorbeeld elke 1-2 minuten).</p>
 <p>(stap 2) We willen de sensordata weergeven in het bovenste deel van MQTT1.</p>
 <ol class="arabic simple" start="4">
 <li>vul bij <code class="docutils literal notranslate"><span class="pre">IoT-node</span></code> de ID in van je gekozen knoop.</li>
@@ -252,6 +258,28 @@ en de status van <code class="docutils literal notranslate"><span class="pre">le
 </div>
 <div class="section" id="knoop-simulator">
 <h2>(4) Knoop-simulator<a class="headerlink" href="#knoop-simulator" title="Permalink naar deze titel">¶</a></h2>
+<p>Een ander nuttige web-toepassing is een knoop-simulator.
+Dit is een web-toepassing: deze werkt in een browser.
+Deze knoop-simulator communiceert via mqtt met de broker,
+op dezelfde manier als een hardware-knoop.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/Iotnode-simulator-01.png"><img alt="../_images/Iotnode-simulator-01.png" src="../_images/Iotnode-simulator-01.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop simulator</span></p>
+</div>
+<p>De knoop-simulator vind je op: <a class="reference external" href="http://infvopedia.nl:1884/iotnode-app-1.html">http://infvopedia.nl:1884/iotnode-app-1.html</a></p>
+<ol class="arabic simple">
+<li>open de knoop-simulator in een browser-venster, en
+stel in de knoop-simulator een eigen node-ID in.
+Zorg ervoor dat deze uniek is.
+(We geven hieronder met <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> deze ID aan.)</li>
+<li>open MQTT1 in een browser-venster.
+Het is handig als je de vensters van de knoop-simulator en van MQTT1 naast elkaar plaatst.
+Vul de gekozen node-ID <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> in bij <code class="docutils literal notranslate"><span class="pre">IoT-node</span></code>.
+Vul als subscribe-to-topic in: <code class="docutils literal notranslate"><span class="pre">node/xxxx/+</span></code>.</li>
+<li>pas een sensorwaarde aan in de simulator, en bekijk het resultaat in MQTT1.</li>
+<li>zet via de knoppen van MQTT1 led0 van de knoop-simulator aan.</li>
+<li>zet via een JSON-bericht vanuit MQTT1 beide leds van de knoop-simulator aan (of uit).</li>
+</ol>
 </div>
 <div class="section" id="gebruik-van-json-in-het-internet-of-things">
 <h2>(5) Gebruik van JSON in het Internet of Things<a class="headerlink" href="#gebruik-van-json-in-het-internet-of-things" title="Permalink naar deze titel">¶</a></h2>

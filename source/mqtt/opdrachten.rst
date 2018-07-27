@@ -7,12 +7,13 @@ Opdrachten
 .. admonition:: Wat heb je nodig?
 
   * MQTT broker in publieke internet;
-      * de MQTT-broker fungeert ook als statische webserver, voor de app MQTT0
+      * de MQTT-broker fungeert ook als statische webserver,
+        voor de app MQTT1 en voor de knoop-simulator;
       * je moet de domeinnaam, het poortnummer, en eventueel een gebruikersnaam/wachtwoord kennen.
-  * IoT knoop met software: MQTT-0; verbonden in het lokale WiFi-netwerk; en verbonden met de MQTT broker;
-      * je moet de ID van de knoop kennen; dit bestaat uit de laatste 4 cijfers van het MAC-adres;
-      * dit kan eventueel een gesimuleerde IoT-knoop zijn.
-
+  * zo mogelijk: IoT knoop (hardware),
+      * met software: MQTT-0;
+      * verbonden met de MQTT broker;
+      * de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
 
 .. rubric:: De app MQTT1
 
@@ -42,6 +43,7 @@ De app heeft de volgende invoervelden en knoppen:
 * invoer ``publish to topic`` - om een bericht met een topic te versturen;
     * het bericht zelf voer je daaronder in, en
     * met de "publish"-knop verstuur je het bericht.
+
 
 .. rubric:: Alternatief: MQTT-box
 
@@ -93,6 +95,11 @@ Dit doen we door voor het subscribe-veld een *wildcard*-topic in te vullen.
 2. je krijgt nu de sensor-berichten te zien van alle knopen die deze broker gebruiken.
 3. kies hiervan een knoop die je regelmatig langs ziet komen, en bepaal de ID xxxx (uit ``node/xxxx/sensors``).
 
+Als je een hardware-IoT-knoop hebt, dan staat de ID waarschijnlijk op de knoop zelf.
+De node-ID bestaat uit de laatste 4 tekens van het MAC-adres.
+Controleer of je knoop actief is: er moeten dan regelmatig JSON-berichten langskomen in het subscribe-venster
+(bijvoorbeeld elke 1-2 minuten).
+
 (stap 2) We willen de sensordata weergeven in het bovenste deel van MQTT1.
 
 4. vul bij ``IoT-node`` de ID in van je gekozen knoop.
@@ -136,6 +143,31 @@ kun je ook de andere led besturen.
 
 (4) Knoop-simulator
 -------------------
+
+Een ander nuttige web-toepassing is een knoop-simulator.
+Dit is een web-toepassing: deze werkt in een browser.
+Deze knoop-simulator communiceert via mqtt met de broker,
+op dezelfde manier als een hardware-knoop.
+
+.. figure:: Iotnode-simulator-0.png
+   :width: 400 px
+   :align: center
+
+   IoT-knoop simulator
+
+De knoop-simulator vind je op: http://infvopedia.nl:1884/iotnode-app-1.html
+
+1. open de knoop-simulator in een browser-venster, en
+   stel in de knoop-simulator een eigen node-ID in.
+   Zorg ervoor dat deze uniek is.
+   (We geven hieronder met ``xxxx`` deze ID aan.)
+2. open MQTT1 in een browser-venster.
+   Het is handig als je de vensters van de knoop-simulator en van MQTT1 naast elkaar plaatst.
+   Vul de gekozen node-ID ``xxxx`` in bij ``IoT-node``.
+   Vul als subscribe-to-topic in: ``node/xxxx/+``.
+3. pas een sensorwaarde aan in de simulator, en bekijk het resultaat in MQTT1.
+4. zet via de knoppen van MQTT1 led0 van de knoop-simulator aan.
+5. zet via een JSON-bericht vanuit MQTT1 beide leds van de knoop-simulator aan (of uit).
 
 
 (5) Gebruik van JSON in het Internet of Things
