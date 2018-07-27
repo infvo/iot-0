@@ -5,8 +5,7 @@ Voorbeelden
 .. bij de inleiding
 
 
-Voorbeelden van IoT-toepassingen
-================================
+.. rubric:: Voorbeelden van IoT-toepassingen
 
 Het Internet of Things biedt ontelbare mogelijkheden; veel toepassingen moeten nog bedacht en ontwikkeld worden.
 We noemen enkele voorbeelden:
@@ -46,8 +45,7 @@ We noemen enkele voorbeelden:
     * binnenshuis: beacons (bijv. op basis van BLE)
     * toepassing: deelfietsen (in bijv. Parijs); deelauto's
 
-Enkele overeenkomsten tussen deze toepassingen
-----------------------------------------------
+.. rubric:: Enkele overeenkomsten tussen deze toepassingen
 
 Veel IoT-toepassingen helpen je om *betere beslissingen* te nemen:
 beslissingen gebaseerd op (complete) data uit de actuele werkelijkheid,

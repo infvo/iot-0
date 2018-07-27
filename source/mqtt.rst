@@ -1,6 +1,6 @@
-************
-MQTT en JSON
-************
+****
+MQTT
+****
 
 .. admonition:: Leerdoelen en concepten
 
