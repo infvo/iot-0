@@ -1,0 +1,226 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>IoT-ketens &#8212; iot-1  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Opdrachten" href="opdrachten.html" />
+    <link rel="prev" title="IoT-bouwstenen" href="iot-bouwstenen.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-1</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="iot-bouwstenen.html">IoT-bouwstenen</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">IoT-ketens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iot-knoop-als-webserver">IoT-knoop als webserver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publieke-mqtt-broker">Publieke MQTT-broker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lokale-broker-als-bridge">Lokale broker als bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lokale-gateway">Lokale gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publieke-gateway">Publieke gateway</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../bouwstenen.html">Bouwstenen</a><ul>
+      <li>Previous: <a href="iot-bouwstenen.html" title="vorig hoofdstuk">IoT-bouwstenen</a></li>
+      <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iot-ketens">
+<h1>IoT-ketens<a class="headerlink" href="#iot-ketens" title="Permalink naar deze titel">¶</a></h1>
+<div class="admonition-concepten-en-leerdoelen admonition">
+<p class="first admonition-title">Concepten en leerdoelen</p>
+<ul class="last simple">
+<li>client-server, “pull” interactie; “polling” om veranderingen te detecteren</li>
+<li>publish-subscribe  interactie; “push” vanuit de broker</li>
+</ul>
+</div>
+<p>In het voorgaande hebben we de afzonderlijke onderdelen van het Internet of Things beschreven.
+Hieronder behandelen we een aantal voorbeelden om deze onderdelen samen te stellen tot een (deel)keten.
+Dit hoofdstuk is vooral bedoeld inleiding en overzicht.
+In de volgende hoofdstukken werken we deze voorbeelden verder uit, met praktische opdrachten.
+Je kunt daarbij dit hoofdstuk als naslagwerk gebruiken.</p>
+<p>Het Internet of Things heeft veel verschillende vormen:
+dit komt onder andere doordat er zoveel verschillende soorten “dingen” zijn,
+die in veel verschillende omgevingen voorkomen.
+Voor een bepaalde IoT-toepassing moet je dan passende onderdelen zoeken.</p>
+<div class="section" id="iot-knoop-als-webserver">
+<h2>IoT-knoop als webserver<a class="headerlink" href="#iot-knoop-als-webserver" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/IoT-webserver-11.png"><img alt="../_images/IoT-webserver-11.png" src="../_images/IoT-webserver-11.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop als webserver</span></p>
+</div>
+<p>Een IoT-knoop met ingebouwde webserver kun je direct vanuit een browser bedienen.
+De toepassing (web-app) komt dan van de IoT-knoop zelf.
+Sommige netwerkapparaten, zoals netwerkprinters en routers, gebruiken deze aanpak.
+De huidige microcontrollers zijn krachtig genoeg voor een kleine webserver.</p>
+<p>Alleen apparaten in het lokale netwerk hebben toegang tot zo’n lokale webserver.
+Zonder extra voorzieningen is een lokale webserver niet vanuit het publieke internet toegankelijk.</p>
+<p>Een webserver gebruikt het HTTP-protocol, in een <em>client-server interactie</em>.
+De webclient, in dit voorbeeld de smartphone, haalt (<em>pull</em>) de data van de webserver (hier: IoT-knoop B).
+Om na te gaan of een sensorwaarde veranderd is, moet de smartphone regelmatig de IoT-knoop raadplegen (<em>polling</em>).</p>
+</div>
+<div class="section" id="publieke-mqtt-broker">
+<h2>Publieke MQTT-broker<a class="headerlink" href="#publieke-mqtt-broker" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/IoT-nobridge-11.png"><img alt="../_images/IoT-nobridge-11.png" src="../_images/IoT-nobridge-11.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop met publieke MQTT broker</span></p>
+</div>
+<p>Het MQTT-protocol is beter geschikt voor het IoT dan het webprotocol HTTP.
+Een IoT-knoop met een IP-protocolstack kan rechtstreeks communiceren met een publieke MQTT-broker.
+Toepassingen (web-apps) kunnen dan via de MQTT-broker communiceren met de IoT-knoop.
+In dit voorbeeld gaan we uit van IoT-knopen die via WiFi in het lokale netwerk verbonden zijn;
+deze communiceren via MQTT met de broker in het publieke internet.</p>
+<p>De interactie tussen de IoT-knopen en de web-apps met de MQTT-broker gebruikt het ‘’publish/subscribe’‘-principe:
+clients kunnen berichten publiceren (“push”) naar de broker, onder een bepaald onderwerp (topic);
+clients kunnen zich ook abonneren op de berichten van een onderwerp.
+De broker stuuurt de berichten door (“push”) naar de clients die op dit onderwerp geabonneerd zijn.
+Voor de broker is er geen wezenlijk verschil tussen de clients:
+IoT-knopen en web-apps hebben hier dezelfde client-broker relatie.</p>
+<p>In het voorbeeld ‘’publiceert’’ de IoT-knoop de sensorwaarden naar de broker;
+deze stuurt de sensorwaarden door naar de web-app die zich eerder op deze sensorwaarden geabonneerd heeft (‘’subscibe’‘).
+Omgekeerd kan de web-app actuator-berichten naar de broker publiceren;
+de IoT-knoop abonneert zich op de (eigen) actuatorwaarden.</p>
+<p>rubric:: NodeRed als IoT-schakelstation</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/IoT-nobridge-2.png"><img alt="../_images/IoT-nobridge-2.png" src="../_images/IoT-nobridge-2.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop met publieke MQTT broker en NodeRed</span></p>
+</div>
+<p>In dit voorbeeld hierboven communiceert de web-app rechtstreeks met de MQTT-broker.
+Vaak is het handiger om NodeRed als schakelstation te gebruiken:
+NodeRed communiceert dan met de MQTT-broker, en de web-app met de NodeRed-server.</p>
+</div>
+<div class="section" id="lokale-broker-als-bridge">
+<h2>Lokale broker als bridge<a class="headerlink" href="#lokale-broker-als-bridge" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/IoT-MQTT-bridge-1.png"><img alt="../_images/IoT-MQTT-bridge-1.png" src="../_images/IoT-MQTT-bridge-1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop met lokale MQTT broker/bridge</span></p>
+</div>
+<p>Vaak is het handig om een lokale MQTT-broker te plaatsen tussen de lokale IoT-knopen en de publieke MQTT-broker.
+De IoT-knopen communiceren via het lokale (WiFi) netwerk met de lokale broker.
+De lokale broker communiceert met lokale toepassingen.
+Daarnaast fungeert de lokale broker als bridge naar de publieke MQTT-broker.
+Deze bridge scheidt zo het lokale IoT/MQTT-verkeer en het publieke IoT/MQTT-verkeer.</p>
+<p>Een zinvolle toevoeging is een lokale NodeRed-server:
+daarmee kun je bijvoorbeeld verschillende lokale IoT-netwerken en toepassingen koppelen.</p>
+</div>
+<div class="section" id="lokale-gateway">
+<h2>Lokale gateway<a class="headerlink" href="#lokale-gateway" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/IoT-lokale-gateway-1.png"><img alt="../_images/IoT-lokale-gateway-1.png" src="../_images/IoT-lokale-gateway-1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knopen met lokale gateway</span></p>
+</div>
+<p>Om aan low-power-eisen te voldoen gebruiken IoT-knopen soms eenvoudige niet-IP-protocollen.
+Een lokale gateway zorgt dan voor de protocolconversie,
+in dit geval tussen het lokale formaat van de IoT-knopen en het MQTT-toepassingsformaat.
+Deze lokale gateway verzorgt de communicatie met de publieke MQTT-broker,
+of met de lokale MQTT broker die ook als bridge fungeert.
+Als voorbeeld gebruiken we een eenvoudige pakketradio (RFM69) met een bereik van enkele honderden meters.</p>
+</div>
+<div class="section" id="publieke-gateway">
+<h2>Publieke gateway<a class="headerlink" href="#publieke-gateway" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/IoT-publieke-gateway-1.png"><img alt="../_images/IoT-publieke-gateway-1.png" src="../_images/IoT-publieke-gateway-1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knopen met publieke gateway</span></p>
+</div>
+<p>Voor low-power IoT-knopen die mobiel zijn in een groot gebied is het gebruik van een publieke gateway handig.
+Dit kun je vergelijken met het gebruik van publieke zendmasten voor mobiele telefonie.
+Een voorbeeld van een provider met publieke gateways is The Things Network (TTN, op basis van LoRaWAN).
+De publieke TTN-gateways communiceren met een TTN-server/broker.
+Toepassingen (web-apps) communiceren bijvoorbeeld via MQTT met deze TTN-server/broker.</p>
+<p>We zullen in de volgende hoofdstukken deze verschillende IoT-ketens verder uitwerken.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/bouwstenen/iot-ketens.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

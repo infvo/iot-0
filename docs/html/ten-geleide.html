@@ -41,7 +41,10 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Ten geleide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ten geleide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#planning">Planning</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT en JSON</a></li>
@@ -82,35 +85,113 @@
             
   <div class="section" id="ten-geleide">
 <h1>Ten geleide<a class="headerlink" href="#ten-geleide" title="Permalink naar deze titel">¶</a></h1>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>kennismaking met Internet of Things</dt>
-<dd><ul class="first last">
-<li>top-down benadering</li>
+<p>Welkom bij <em>Het Internet of Things voor gebruikers</em> (IoT-1)!
+Deze module is bedoeld als inleiding op het Internet of Things,
+als context voor de concepten van computernetwerken en van het internet.</p>
+<p>Dit is de centrale module voor het keuzethema “Netwerken”
+van het vernieuwde examenprogramma Informatica in de bovenbouw van het VO.
+De andere modules zijn: <em>Inleiding communicatie en netwerken</em> (IoT-0)
+en <em>Het Internet of Things voor makers</em> (IoT-2).</p>
+<p>De module IoT-0: <em>Inleiding communicatie en netwerken</em>, behandelt de basisbegrippen,
+en is <em>bottom-up</em> georganiseerd, vanuit de <em>concepten</em>.
+Waar de module IoT-1 georganiseerd is vanuit de <em>context</em> van het Internet of Things,
+kan IoT-0 gebruikt worden voor de conceptuele verdieping - wanneer de behoefte daaraan ontstaat.</p>
+<p>De module IoT-1 is <em>top-down</em> georganiseerd, vanuit de <em>context</em> van het Internet of Things.
+Het is de bedoeling dat leerlingen vrijwel direct praktisch aan de slag kunnen gaan,
+vanuit het niveau van de IoT-toepassing.
+Leerlingen werken eerst met gesimuleerde IoT-knopen,
+daarna met voorgeconfigureerde en voorgeprogrammeerde IoT-knopen en IoT-ketens.</p>
+<p>De module IoT2: <em>het Internet of Things voor makers</em>, behandelt de details van deze IoT-knopen en IoT-ketens,
+zodat leerlingen (of hun docenten) hier zelf mee aan de slag kunnen gaan.
+Al het materiaal, hardware zowel als software, is Open Source:
+het materiaal is vrij te gebruiken en aan te passen, en alle details zijn te vinden.</p>
+<p>Een gesuggereerde manier van werken is dat leerlingen beginnen met het materiaal van IoT-1;
+wanneer er vragen ontstaan over een bepaald begrip, bijvoorbeeld <em>snelheid van een verbinding</em>,
+kan het materiaal van IoT-0 daarop antwoord geven.
+Ook het materiaal van IoT-2 kan gebruikt worden als “just in time” naslagwerk bij Iot-1.</p>
+<p>Het is onze bedoeling dat leerlingen op basis van het materiaal van deze modules een eigen IoT-toepassing kunnen maken.
+Dit kan in het kader van een project dat speciaal op dit doel gericht is.</p>
+<p>Zoals gezegd is de aanpak van IoT-1 <em>top-down</em>.
+Leerlingen die in een vroeg stadium meer “grond onder de voeten” nodig hebben,
+kunnen (eventueel als zelfstudie, in eigen tempo) daarvoor het materiaal van IoT-0 gebruiken.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>voor leerlingen van alle profielen</li>
+<li>onderscheid HAVO-VWO?</li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>basiskennis communicatie en netwerken: zie IoT-0</dt>
-<dd><ul class="first last">
-<li>bottom-up benadering</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>verdieping, details van implementatie: zie IoT-2</li>
-<li><dl class="first docutils">
-<dt>direct aan de slag</dt>
-<dd><ul class="first last">
-<li>met gesimuleerde IoT-knopen</li>
-<li>met data van IoT-knopen elders</li>
-<li>met eigen IoT-knopen (hardware)</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
+</div>
+<div class="section" id="planning">
+<h2>Planning<a class="headerlink" href="#planning" title="Permalink naar deze titel">¶</a></h2>
+<p>Het materiaal van de module IoT-1 is bedoeld voor een blok van 8-10 weken,
+met ca. 4-5 SLU per week (totaal 40 SLU).
+Leerlingen kunnen met het meeste materiaal ook thuis aan de slag,
+door gebruik te maken van gesimuleerde IoT-knopen,
+en van ondersteunende software “in the cloud”.</p>
+<p>Na de behandeling van IoT-1 kunnen de leerlingen met een project IoT aan de slag.
+Suggesties hiervoor worden later beschreven.</p>
+<p>De tabel hieronder geeft een voorlopige planning.</p>
+<table border="1" class="colwidths-given docutils" id="id1">
+<caption><span class="caption-text">Planning IoT-1</span><a class="headerlink" href="#id1" title="Permalink naar deze tabel">¶</a></caption>
+<colgroup>
+<col width="9%" />
+<col width="36%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Week</th>
+<th class="head">Onderdeel</th>
+<th class="head">Beschrijving</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Inleiding</td>
+<td>Verkenning van IoT en IoT-toepassingen</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Bouwstenen</td>
+<td>Overzicht van de bouwstenen van het IoT</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>MQTT en JSON</td>
+<td>Aan de slag met gesimuleerde IoT-knopen en een test-app</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>NodeRed</td>
+<td>Koppelen van protocollen en toepassingen, op grafische manier</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Webserver-knopen</td>
+<td>IoT-knopen met een webserver</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>WiFi-knopen(1)</td>
+<td>IoT-knopen met WiFi, via MQTT verbonden</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>WiFi-knopen(2)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td>RFM69-knopen(1)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td>RFM69-knopen(2)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>9</td>
+<td>LoRa-knopen(1)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>10</td>
+<td>LoRa-knopen(2)</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -120,7 +201,7 @@
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, Eelco Dijkstra.
+      &copy;2018, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

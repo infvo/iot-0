@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'iot-1'
-copyright = '2018, Eelco Dijkstra'
+copyright = '2018, SLO'
 author = 'Eelco Dijkstra'
 
 # The short X.Y version
@@ -144,7 +144,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'iot-1.tex', 'iot-1 Documentation',
+    (master_doc, 'iot-1.tex', 'Module iot-1',
      'Eelco Dijkstra', 'manual'),
 ]
 

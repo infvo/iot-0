@@ -9,22 +9,6 @@ MQTT en JSON
  * MQTT protocol; publish; subscribe; message; topic; wildcard;
  * JSON formaat
 
-Het basisprotocol van het web is HTTP.
-Voor het Internet of Things is dit protocol minder geschikt:
-het Internet of Things stelt andere eisen aan de communicatie dan het web.
-Een veelgebruikt IoT-protocol is MQTT (Message Queuing Telemetry Transport;
-zie https://en.wikipedia.org/wiki/MQTT, http://mqtt.org):
-
-* MQTT is een *publish/subscribe*-protocol, waarbij een *broker* als tussenschakel fungeert tussen de clients;
-* een client "pusht" een bericht naar de broker, die het vervolgens naar andere clients "pusht";
-  dit in tegenstelling tot de "pull" interactie tussen een HTTP client (browser) en server (webserver).
-
-.. rubric:: JSON-formaat voor berichten
-
-Voor MQTT-berichten wordt vaak het JSON-formaat gebruikt.
-JSON biedt een leesbaar en redelijk compact formaat, in het bijzonder geschikt voor data.
-(Het web gebruikt voor tekst-documenten het HTML-formaat;
-voor data wordt ook vaak JSON gebruikt, zoals bijvoorbeeld bij AJAX.)
 
 .. rubric:: Inleiding
 

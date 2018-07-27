@@ -1,0 +1,289 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>IoT-bouwstenen &#8212; iot-1  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="IoT-ketens" href="iot-ketens.html" />
+    <link rel="prev" title="Bouwstenen" href="../bouwstenen.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-1</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">IoT-bouwstenen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iot-knoop">IoT-knoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radio">Radio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gateway">Gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt">MQTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nodered">NodeRed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dashboard">Dashboard</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="iot-ketens.html">IoT-ketens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../bouwstenen.html">Bouwstenen</a><ul>
+      <li>Previous: <a href="../bouwstenen.html" title="vorig hoofdstuk">Bouwstenen</a></li>
+      <li>Next: <a href="iot-ketens.html" title="volgend hoofdstuk">IoT-ketens</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iot-bouwstenen">
+<h1>IoT-bouwstenen<a class="headerlink" href="#iot-bouwstenen" title="Permalink naar deze titel">¶</a></h1>
+<div class="section" id="iot-knoop">
+<h2>IoT-knoop<a class="headerlink" href="#iot-knoop" title="Permalink naar deze titel">¶</a></h2>
+<p>Een <em>IoT-knoop</em> koppelt de fysieke wereld aan de virtuele wereld.
+Zo’n knoop omvat:</p>
+<ul class="simple">
+<li>sensoren, om in de fysieke wereld te meten;</li>
+<li>actuatoren, om in de fysieke wereld te sturen;</li>
+<li>een microcontroller (“computer op een chip”) voor de besturing van de IoT-knoop;</li>
+<li>communicatie, meestal draadloos (radio)</li>
+<li>energie, meestal in de vorm van een batterij, soms aangevuld met “energy harvesting”.</li>
+</ul>
+<p class="rubric">Voorbeeld van een IoT-knoop</p>
+<p>In de voorbeelden gebruiken we een IoT-knoop met de volgende sensoren/actuatoren:</p>
+<ul class="simple">
+<li>twee LEDs - als actuatoren</li>
+<li>twee drukknoppen - als “event” sensoren</li>
+<li>sensoren voor: temperatuur, luchtdruk en lichtniveau</li>
+</ul>
+<p>Voor de draadloze communicatie gebruiken we verschillende protocollen (zoals MQTT en LoRaWan) en verschillende radio’s (WiFi, RFM69, LoRa).
+In deze laatste twee gevallen hebben we een <em>gateway</em> nodig voor de verbinding van de IoT-knoop met het lokale netwerk of met het publieke internet.</p>
+<p>Voor de microcontroller voor de besturing zijn er ook meerdere alternatieven, zoals Atmega AVR (Arduino), ESP8266, ESP32, ARM.
+De keuze voor de microcontroller hangt af van de lokale omstandigheden, de gebruikte programmeertaal/programmeeromgeving, enz.</p>
+<p>We voeden de draadloze IoT-knopen gewoonlijk met een batterij.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/Iotnode-simulator-0.png"><img alt="../_images/Iotnode-simulator-0.png" src="../_images/Iotnode-simulator-0.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop simulator</span></p>
+</div>
+<p>In de opdrachten gebruiken we een gesimuleerde IoT-knoop.
+Je moet dan zelf de sensorwaarden instellen.
+Deze gesimuleerde IoT-knoop gebruikt hetzelfde (MQTT-)protocol als de hardware-IoT-knopen.</p>
+</div>
+<div class="section" id="radio">
+<h2>Radio<a class="headerlink" href="#radio" title="Permalink naar deze titel">¶</a></h2>
+<p>Voor de verbinding tussen een draadloze IoT-knoop en het internet zijn verschillende radio’s beschikbaar.
+Deze radio’s verschillen in hun energieverbruik (power), bereik en bitrate.
+In deze module gebruiken we verschillende radio’s, voor verschillende toepassingen.
+De onderstaande tabel geeft de beangrijkste karakteristieken.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="23%" />
+<col width="14%" />
+<col width="10%" />
+<col width="24%" />
+<col width="18%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>power</strong></td>
+<td><strong>bereik</strong></td>
+<td><strong>bitrate</strong></td>
+<td><strong>radio</strong></td>
+<td><strong>tussenstap</strong></td>
+<td><strong>protocol</strong> (**)</td>
+</tr>
+<tr class="row-even"><td>medium</td>
+<td>lokaal bereik (10-50m)</td>
+<td>MBytes/s</td>
+<td>WiFi</td>
+<td>(rechtstreeks)</td>
+<td>HTTP</td>
+</tr>
+<tr class="row-odd"><td>medium</td>
+<td>lokaal bereik (10-50m)</td>
+<td>Mbytes/s</td>
+<td>WiFi</td>
+<td>lokale/publieke broker</td>
+<td>MQTT</td>
+</tr>
+<tr class="row-even"><td>low</td>
+<td>lokaal bereik (50-200m)</td>
+<td>50kbits/s (*)</td>
+<td>RFM69</td>
+<td>lokale gateway; broker</td>
+<td>MQTT</td>
+</tr>
+<tr class="row-odd"><td>low</td>
+<td>niet-lokaal (enkele km)</td>
+<td>1 kbit/s (*)</td>
+<td>LoRa</td>
+<td>publieke gateway; broker</td>
+<td>MQTT</td>
+</tr>
+</tbody>
+</table>
+<p>(*) voor LoRa is de bitrate nog lager bij een groot bereik.
+Bovendien mogen RFM69 en Lora-radio’s max. 1% van de tijd zenden.</p>
+<p>(**) protocol: IoT-knoop &lt;-&gt; NodeRed/web-app</p>
+</div>
+<div class="section" id="gateway">
+<h2>Gateway<a class="headerlink" href="#gateway" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/IoT-1-stacks-gateway.png"><img alt="../_images/IoT-1-stacks-gateway.png" src="../_images/IoT-1-stacks-gateway.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">IoT-gateway</span></p>
+</div>
+<p>Soms kunnen we de IoT-knopen niet zomaar in het internet verbinden,
+bijvoorbeeld omdat deze een veel eenvoudiger protocol gebruiken.
+We gebruiken dan een gateway om het IoT-knoop-protocol om te zetten naar het IP-protocol, en omgekeerd.</p>
+<p>Bij een dergelijke omzetting (protocolconversie) moeten we rekening houden met de complete protocolstack,
+tot en met de toepassing.
+In onze voorbeelden betekent dit dat de berichten van de IoT-knopen omgezet worden naar MQTT-berichten in het formaat van de toepassing.</p>
+<div class="admonition-gateway-versus-bridge admonition">
+<p class="first admonition-title">Gateway versus bridge</p>
+<p class="last">We maken hier onderscheid tussen ‘’gateways’’ en ‘’bridges’‘:
+een bridge verbindt netwerken met eenzelfde protocol(stack),
+een gateway verbindt netwerken met verschillende protocollen.
+De omzetting in een bridge is dan beperkt tot de gemeenschappelijke onderste laag van de protocollen.
+Bij een gateway moet je de hele protocolstack hierbij betrekken.
+Een gateway is  vaak (aanzienlijk) complexer dan een bridge.
+Bovendien hebben veranderingen in de toepassing mogelijk gevolgen voor de gateway.
+Voor een bridge is de toepassing niet van belang.
+Overigens wordt deze terminologie, met een duidelijk onderscheid tussen bridge en gateway,
+niet overal op dezelfde manier gebruikt.</p>
+</div>
+<p>Ook als de IoT-knoop zelf de internet-protocolstack gebruikt kan het zinvol zijn om een bridge te gebruiken,
+om de lokale communicatie te scheiden van het publieke internet.
+Deze bridge kan er bijvoorbeeld zorgen voor de versleuteling van het verkeer naar het publieke internet.</p>
+</div>
+<div class="section" id="mqtt">
+<h2>MQTT<a class="headerlink" href="#mqtt" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/MQTT.png"><img alt="../_images/MQTT.png" src="../_images/MQTT.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">MQTT voorbeeld</span></p>
+</div>
+<p>Het basisprotocol van het web is HTTP.
+Voor het Internet of Things is dit protocol minder geschikt:
+het Internet of Things stelt andere eisen aan de communicatie dan het web.
+Een veelgebruikt IoT-protocol is MQTT (Message Queuing Telemetry Transport;
+zie <a class="reference external" href="https://en.wikipedia.org/wiki/MQTT">https://en.wikipedia.org/wiki/MQTT</a>, <a class="reference external" href="http://mqtt.org">http://mqtt.org</a>):</p>
+<ul class="simple">
+<li>MQTT is een <em>publish/subscribe</em>-protocol, waarbij een <em>broker</em> als tussenschakel fungeert tussen de clients;</li>
+<li>een client “pusht” een bericht naar de broker, die het vervolgens naar andere clients “pusht”;
+dit in tegenstelling tot de “pull” interactie tussen een HTTP client (browser) en server (webserver).</li>
+</ul>
+<p class="rubric">JSON-formaat voor berichten</p>
+<p>Voor MQTT-berichten wordt vaak het JSON-formaat gebruikt.
+JSON biedt een leesbaar en redelijk compact formaat, in het bijzonder geschikt voor data.
+(Het web gebruikt voor tekst-documenten het HTML-formaat;
+voor data wordt ook vaak JSON gebruikt, zoals bijvoorbeeld bij AJAX.)</p>
+</div>
+<div class="section" id="nodered">
+<h2>NodeRed<a class="headerlink" href="#nodered" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/Nodered-chat-flow.png"><img alt="../_images/Nodered-chat-flow.png" src="../_images/Nodered-chat-flow.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed Chat flow</span></p>
+</div>
+<p>IoT-toepassingen combineren vaak data uit verschillende bronnen:
+vanuit verschillende netwerken met IoT-knopen, maar ook uit andere databases of datastromen.
+Deze data kunnen door allerlei diensten (Data Science, Artificial Intelligence, enz.) verwerkt worden voordat deze bruikbaar zijn in een toepassing.
+Deze databronnen, diensten en gebruikerstoepassingen gebruiken verschillende protocollen en formaten.
+Met NodeRed knoop je deze verschillende onderdelen samen, op een grafische manier.</p>
+</div>
+<div class="section" id="dashboard">
+<h2>Dashboard<a class="headerlink" href="#dashboard" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-0.png"><img alt="../_images/Nodered-dashboard-display-0.png" src="../_images/Nodered-dashboard-display-0.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Voorbeeld van een dashboard</span></p>
+</div>
+<p>Een IoT-toepassing heeft vaak een gebruikersinterface,
+bijvoorbeeld in de vorm van een <em>dashboard</em> met een samenvatting van de gegevens van de IoT-knopen.
+In onze voorbeeld-toepassing werken we met een eenvoudig dashboard met de gegevens van één IoT-knoop.
+Dit dashboard maken we met NodeRed: we gebruiken deze dan als web-server.
+Bovendien kunnen we via dit dashboard de actuators van de IoT-knoop bedienen.
+Dit gebruikersinterface heeft de vorm van een webtoepassing (“app”), beschikbaar via een server in het publieke web.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/bouwstenen/iot-bouwstenen.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
