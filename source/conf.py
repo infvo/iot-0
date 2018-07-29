@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'iot-1'
+project = 'iot-0'
 copyright = '2018, SLO'
 author = 'Eelco Dijkstra'
 
@@ -117,7 +117,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'iot-1doc'
+htmlhelp_basename = 'iot-0doc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -144,7 +144,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'iot-1.tex', 'Module iot-1',
+    (master_doc, 'iot-0.tex', 'Module iot-0',
      'Eelco Dijkstra', 'manual'),
 ]
 
@@ -154,7 +154,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'iot-1', 'iot-1 Documentation',
+    (master_doc, 'iot-0', 'iot-0 Documentation',
      [author], 1)
 ]
 
@@ -165,8 +165,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'iot-1', 'iot-1 Documentation',
-     author, 'iot-1', 'One line description of project.',
+    (master_doc, 'iot-0', 'iot-0 Documentation',
+     author, 'iot-0', 'One line description of project.',
      'Miscellaneous'),
 ]
 

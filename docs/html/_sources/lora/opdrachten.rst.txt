@@ -114,3 +114,20 @@ Een voorbeeld hiervan zie je hieronder:
 * wat is de (geschatte) *air time* van het bericht?
 
 (NB: deze gegevens kun je ook bestuderen in het TTN-console; waarom zou je dat hier doen?)
+
+LoRaWan-toepassingen
+====================
+
+* zoek een aantal voorbeelden van LoRaWan-toepassingen
+* ga voor één van deze toepassingen na:
+    * welke sensordata moeten verstuurd worden?
+    * hoe vaak zouden deze verstuurd moeten worden?
+    * wat zijn de voordelen van deze toepassing? voor wie?
+    * wat zijn de mogelijke nadelen? voor wie?
+
+Zie ook:
+
+* https://www.thethingsnetwork.org/labs/
+* https://www.thethingsnetwork.org/marketplace
+    * o.a. "a better mousetrap"
+* https://www.kpn.com/zakelijk/grootzakelijk/internet-of-things/lora-netwerk.htm
