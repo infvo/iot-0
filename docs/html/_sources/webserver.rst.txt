@@ -45,7 +45,7 @@ Enkele eigenschappen van deze aanpak:
 
 .. figure:: webserver/IoT-webserver-1.png
    :width: 300 px
-   :align: right
+   :align: center
 
    IoT-knopen met webserver
 

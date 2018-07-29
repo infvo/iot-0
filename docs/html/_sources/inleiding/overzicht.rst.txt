@@ -38,8 +38,24 @@ Een eenvoudige toepassing is een *dashboard* waarin je de sensorgegevens van Ã©Ã
 
 .. rubric: Webserver-knopen
 
+Sommige IoT-knopen beschikken over een webserver.
+Zo'n knoop je bewaken en besturen via een browser, via het HTTP-protocol.
+
+
 .. rubric:: WiFi-knopen
+
+Een
+
 
 .. rubric:: RFM69-knopen
 
 .. rubric:: LoRa-knopen
+
+De LoRa-radio heeft een bereik van enkele kilometers:
+deze is dan ook vooral geschikt voor IoT-knopen die mobiel zijn in een groot gebied.
+Dit grote bereik gaat wel ten koste van de bitrate:
+een IoT-knoop kan maar een tiental keren per uur een klein bericht versturen.
+
+In dit onderdeel gebruiken we het publieke netwerk van TheThingsNetwork (TTN).
+Je koppelt IoT-knopen in een gegeven TTN-toepassing aan een eigen dashboard.
+Met hardware-knopen met LoRaWan/TTN-software kun je een eigen TTN-toepassing maken.

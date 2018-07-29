@@ -305,12 +305,6 @@ De flow:
 
 
 
-The Things Network-koppeling
-============================
-
-Met NodeRed kun je ook de data van een TTN-toepassing gebruiken, bijvoorbeeld in een dashboard.
-In de onderstaande flow maak je de elementaire koppelingen.
-Deze kun je eventueel gebruiken om je dashboard aan te passen.
 
 MQTT koppelen aan actie/server
 ==============================
