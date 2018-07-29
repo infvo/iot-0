@@ -68,7 +68,7 @@ Bovendien mogen RFM69 en Lora-radio's max. 1% van de tijd zenden.
 Gateway
 =======
 
-.. figure:: IoT-1-stacks-gateway.png
+.. figure:: IoT-0-stacks-gateway.png
    :width: 400 px
    :align: center
 

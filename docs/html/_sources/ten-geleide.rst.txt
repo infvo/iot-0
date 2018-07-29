@@ -11,6 +11,12 @@ van het vernieuwde examenprogramma Informatica in de bovenbouw van het VO.
 De andere modules zijn: *Inleiding communicatie en netwerken* (Com-0)
 en *Het Internet of Things voor makers* (IoT-1).
 
+.. admonition:: Thema Netwerken/Internet of Things
+
+  * Com-0: *Inleiding communicatie en netwerken*
+  * IoT-0: *Het Internet of Things voor gebruikers*
+  * IoT-1: *Het Internet of Things voor makers*
+
 De module Com-0: *Inleiding communicatie en netwerken*, behandelt de basisbegrippen,
 en is *bottom-up* georganiseerd, vanuit de *concepten*.
 Waar de module IoT-0 georganiseerd is vanuit de *context* van het Internet of Things,
