@@ -95,5 +95,6 @@ Voor welke toepassingen is LoraWan *niet* geschikt?
 
 .. toctree::
 
+  lora/lorawan-keten.rst
   lora/opdrachten.rst
   lora/toetsvragen.rst
