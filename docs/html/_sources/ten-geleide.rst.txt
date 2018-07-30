@@ -13,9 +13,9 @@ en *Het Internet of Things voor makers* (IoT-1).
 
 .. admonition:: Thema Netwerken/Internet of Things
 
-  * Com-0: *Inleiding communicatie en netwerken*
-  * IoT-0: *Het Internet of Things voor gebruikers*
-  * IoT-1: *Het Internet of Things voor makers*
+  * Com-0: Inleiding communicatie en netwerken
+  * IoT-0: Het Internet of Things voor gebruikers
+  * IoT-1: Het Internet of Things voor makers
 
 De module Com-0: *Inleiding communicatie en netwerken*, behandelt de basisbegrippen,
 en is *bottom-up* georganiseerd, vanuit de *concepten*.
