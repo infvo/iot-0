@@ -186,9 +186,9 @@ Aanbieders van LoRaWan (zoals TTN en KPN) kunnen hiervoor inspiratie bieden.
    Beschrijf deze toepassing, de waarde die deze toepassing heeft voor de gebruikers,
    en de mogelijke nadelen voor anderen in deze omgeving.
 
- Zie ook:
+Zie ook:
 
- * https://www.thethingsnetwork.org/labs/
- * https://www.thethingsnetwork.org/marketplace
-     * o.a. "a better mousetrap"
- * https://www.kpn.com/zakelijk/grootzakelijk/internet-of-things/lora-netwerk.htm
+* https://www.thethingsnetwork.org/labs/
+* https://www.thethingsnetwork.org/marketplace
+   * o.a. "a better mousetrap"
+* https://www.kpn.com/zakelijk/grootzakelijk/internet-of-things/lora-netwerk.htm

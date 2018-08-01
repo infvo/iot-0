@@ -20,6 +20,12 @@ IoT-0: IoT voor gebruikers
    lora.rst
    todo.rst
 
+.. toctree::
+   :caption: Andere modules
+
+   Com-0 <https://eelcodijkstra.github.io/com-0/>
+   IoT-1 <https://eelcodijkstra.github.io/iot-1/>
+
 Index en tabellen
 =================
 
