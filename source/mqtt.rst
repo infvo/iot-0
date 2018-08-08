@@ -52,5 +52,6 @@ Hiermee kunnen we de sensordata van de IoT-knopen ontvangen en de actuatoren op 
 .. toctree::
 
   mqtt/mqtt-pubsub.rst
+  mqtt/json.rst
   mqtt/opdrachten.rst
   mqtt/toetsvragen.rst

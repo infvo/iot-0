@@ -143,33 +143,6 @@ Ook in dit geval is een exponentiële ontwikkeling te verwachten.
 Het grootste probleem lijkt daarbij de energievoorziening te zijn:
 vooral de batterij bepaalt de omvang en het gewicht van een IoT-knoop.</p>
 </div>
-<div class="admonition-todo admonition" id="index-4">
-<p class="first admonition-title">Te doen</p>
-<p class="last">Onderstaande tekst verhuizen (verschillen IoT en het web)</p>
-</div>
-<p class="rubric">Verschillen tussen IoT en het web</p>
-<p>Het IoT is veel heterogener dan het web, en veel minder gestandaardiseerd.
-Dit betekent dat we veel verschillende oplossingen en vormen van de IoT-keten tegenkomen.</p>
-<p>Deze IoT-keten heeft andere karakteristieken dan de keten voor het web:</p>
-<ul class="simple">
-<li>de sensordata van een enkele IoT-knoop bestaan uit weinig bytes - veel minder dan de gemiddelde webpagina, en nog veel minder dan nodig voor audio en video;</li>
-<li>het aantal IoT-knopen in een toepassing kun erg groot zijn - veel groter dan bijvoorbeeld het aantal gebruikers van een website;</li>
-<li>de fysieke wereld stelt soms absolute grenzen aan de latency; in de virtuele wereld is deze latency wat minder van belang;</li>
-<li>de resultaten van het web worden aan mensen gepresenteerd, die op basis daarvan beslissingen nemen;</li>
-<li>de resultaten van het IoT worden soms gebruikt om direct “dingen” te besturen, zonder menselijke tussenkomst (M2M, machine to machine).</li>
-<li>de verschillen tussen “dingen” zijn veel groter dan de verschillen tussen mensen: het IoT is veel heterogener dan het web.</li>
-</ul>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="simple">
-<li>eisen aan de communicatie</li>
-<li>eisen aan de security (en privacy)</li>
-</ul>
-<p class="rubric">Het Internet of Things stelt eigen eisen aan de internet-communicatie</p>
-<p class="last">Het Internet of Things stelt andere eisen aan de communicatie dan het web.
-Dit betekent dat je andere soorten verbindingen (radio’s) en protocollen nodig hebt.</p>
-</div>
-<p class="todo-source">(Het <a class="reference internal" href="inleiding/iot-eisen.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/inleiding/iot-eisen.rst, regel 7.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Te doen</p>
 <ul class="last simple">
@@ -263,6 +236,18 @@ Voordeel van de gekozen aanpak: deze kun je zelf via het URL-venster uitvoeren.<
 <p class="todo-source">(Het <a class="reference internal" href="inleiding/gevolgen.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/inleiding/gevolgen.rst, regel 7.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>IoT-knopen</li>
+<li>protocol: HTTP (met HTML)</li>
+<li>protocol: MQTT (ipv. HTTP) - met JSON</li>
+<li>ketens: cleint-server; client-broker-client - PubSub; gateway;</li>
+<li>NodeRed (als “lijm”); gebruik van externe diensten etc.</li>
+<li>externe diensten (bijv. weer? <a class="reference external" href="https://openweathermap.org">https://openweathermap.org</a>? twitter?)</li>
+</ul>
+</div>
+<p class="todo-source">(Het <a class="reference internal" href="bouwstenen.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/bouwstenen.rst, regel 5.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Te doen</p>
 <p>MQTT1:</p>
 <ul class="last simple">
 <li>naamgeving?</li>
@@ -309,28 +294,32 @@ of bij het indrukken van een knop moeten de sensorwaarden verstuurd worden.</li>
 <p class="todo-source">(Het <a class="reference internal" href="#index-3"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/todo.rst, regel 34.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Te doen</p>
-<p class="last">Onderstaande tekst verhuizen (verschillen IoT en het web)</p>
+<ul class="last simple">
+<li>eisen aan de communicatie</li>
+<li>eisen aan de security (en privacy)</li>
+</ul>
 </div>
-<p class="todo-source">(Het <a class="reference internal" href="#index-4"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/todo.rst, regel 55.)</p>
+<p class="todo-source">(Het <a class="reference internal" href="inleiding/iot-eisen.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/inleiding/iot-eisen.rst, regel 7.)</p>
+<div class="admonition-todo admonition">
+<p class="first admonition-title">Te doen</p>
+<p class="last">&lt;&lt;JSON&gt;&gt;</p>
+</div>
+<p class="todo-source">(Het <a class="reference internal" href="inleiding/overzicht.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/inleiding/overzicht.rst, regel 33.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Te doen</p>
 <ul class="last simple">
-<li>IoT-knopen</li>
-<li>protocol: HTTP (met HTML)</li>
-<li>protocol: MQTT (ipv. HTTP) - met JSON</li>
-<li>ketens: cleint-server; client-broker-client - PubSub; gateway;</li>
-<li>NodeRed (als “lijm”); gebruik van externe diensten etc.</li>
-<li>externe diensten (bijv. weer? <a class="reference external" href="https://openweathermap.org">https://openweathermap.org</a>? twitter?)</li>
+<li>MQTT; MQTT-broker (publiek - op afstand besturen; eventueel lokaal);</li>
+<li>JSON (JSON-formaat voor sensorknopen)</li>
 </ul>
 </div>
-<p class="todo-source">(Het <a class="reference internal" href="bouwstenen.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/bouwstenen.rst, regel 5.)</p>
+<p class="todo-source">(Het <a class="reference internal" href="inleiding/overzicht.html#index-1"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/inleiding/overzicht.rst, regel 52.)</p>
 <div class="admonition-todo admonition">
 <p class="first admonition-title">Te doen</p>
 <ul class="last simple">
 <li>meer JSON-voorbeelden</li>
 </ul>
 </div>
-<p class="todo-source">(Het <a class="reference internal" href="mqtt/mqtt-pubsub.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/mqtt/mqtt-pubsub.rst, regel 126.)</p>
+<p class="todo-source">(Het <a class="reference internal" href="mqtt/json.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/mqtt/json.rst, regel 30.)</p>
 </div>
 
 

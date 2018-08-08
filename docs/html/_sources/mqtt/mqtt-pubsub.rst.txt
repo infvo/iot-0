@@ -1,5 +1,6 @@
+***********************
 MQTT: publish-subscribe
-=======================
+***********************
 
 MQTT is een zogenaamd publish-subscribe protocol.
 De communicatie vindt plaats tussen clients, met tussenkomst van een broker (makelaar).
@@ -13,8 +14,8 @@ De broker heeft alleen als taak om berichten door te sturen:
 Dit laatste betekent dat de broker op een willekeurig moment een bericht naar een client kan *pushen*:
 deze client hoeft niet steeds bij de broker te vragen of er een nieuw bericht aangekomen is.
 
-  *Dit is een verschil met het HTTP-protocol: in dat geval ligt het initiatief altijd bij de client,
-  deze "trekt" (*pull*) de documenten van de server.*
+  Dit is een verschil met het HTTP-protocol: in dat geval ligt het initiatief altijd bij de client,
+  deze "trekt" (*pull*) de documenten van de server.
 
   .. figure:: MQTT.png
      :width: 600 px
@@ -74,8 +75,8 @@ Uitleg:
     * deze communiceert alleen met node B.
 * de broker stuurt de sensordata door naar de apps, en de led-aansturing naar de IoT-knopen.
 
-Structuur van een topic
-=======================
+MQTT-topics
+===========
 
 Een MQTT-topic bestaat uit een aantal strings gekoppeld door ``/``,
 bijvoorbeeld ``abd``, ``abc/def``, ``abc/123/def``.
@@ -88,63 +89,14 @@ Bij een *subscribe* kun je in de topic-string ook wildcards opnemen:
 * voorbeeld: ``node/+/sensors`` matcht met ``node/12/sensors`` en ``node/432/sensors``.
 * voorbeeld: ``node/#`` matcht met ``node/12/sensors`` en ``node/432/led``
 
-JSON
-====
+MQTT voor IoT-knopen
+====================
 
-.. sidebar:: JSON in het web
+We gebruiken in de software bij deze module een aantal vaste afspraken voor MQTT-topics
+en voor MQTT-berichten (zie JSON, verderop).
+Hierdoor kunnen we de verschillende soorten IoT-knopen combineren met de verschillende toepassingen.
 
-  Ook het web gebruikt het JSON-formaat, als onderdeel van AJAX.
-  JavaScript-functies in een app communiceren vanuit de browser met de server,
-  met (naar verhouding) kleine hoeveelheden data.
-  Deze communicatie gebruikt het compacte en leesbare JSON-formaat, in plaats van complete HTML-documenten.
+* voor sensoren: ``node/<nodeid>/sensors``
+* voor actuatoren: ``node/<nodeid>/actuators``
 
-In dit hoofdstuk gebruiken we MQTT voor het bewaken en besturen van een IoT-knoop.
-De communicatie tussen de IoT-knoop en de toepassing (app), via de MQTT-broker,
-vindt plaats in de vorm van JSON-berichten.
-Het JSON-formaat is voor het IoT wat HTML is voor het web.
-We leggen hieronder eerst de principes van JSON uit.
-In de opdracht gebruik je JSON voor het aansturen van de IoT-knoop.
-
-JSON staat voor "JavaScript Object Notatie".
-Een JSON-document is een tekstdocument: een leesbare vorm van een JavaScript-object.
-Een object bestaat uit een aantal <code>"naam": waarde</code>-paren.
-Een waarde kan een enkelvoudige waarde zijn, bijvoorbeeld een getal, een string, of een boolean.
-Het kan ook een samengestelde waarde zijn: een object of een array.
-In JavaScript gebruiken we de notatie: ``naam: waarde``.
-In JSON staat de naam tussen dubbele quotes: ``"naam": waarde``.
-
-We geven in de onderstaande voorbeelden de JavaScript-objecten en de bijbehorende JSON-notatie.
-
-.. code-block:: javascript
-
-  {temp: 21, press: 1015, id: "e4c7"}
-
-.. code-block:: json
-
-  {"temp":123,"press":1012, "id": "e4c7"}
-
-.. todo::
-
-  * meer JSON-voorbeelden
-
-Je kunt een JSON-document eenvoudig omzetten in een JavaScript-object, en omgekeerd:
-
-* ``obj = JSON.parse(str);``
-* ``str = JSON.stringify(obj);``
-
-Niet alle JavaScript-objecten kun je in JSON omzetten:
-
-* objecten met functie-waarden
-* objecten met onderlinge verwijzingen die een lus (cykel) vormen.
-
-Veel programmeertalen hebben functies om JSON-objecten te verwerken.
-
-* Python: https://docs.python.org/3/library/json.html
-* Arduino: https://arduinojson.org/
-
-Links
-=====
-
-* referentie: https://www.json.org/
-* referentie: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
-* tutorial: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+Hierin is ``<nodeid>`` de identificatie (string) van de IoT-knoop.

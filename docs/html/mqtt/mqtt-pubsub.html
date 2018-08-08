@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="Opdrachten" href="opdrachten.html" />
+    <link rel="next" title="JSON" href="json.html" />
     <link rel="prev" title="MQTT" href="../mqtt.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -45,11 +45,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../mqtt.html">MQTT</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">MQTT: publish-subscribe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mqtt-in-het-iot">MQTT in het IoT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#structuur-van-een-topic">Structuur van een topic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#json">JSON</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#links">Links</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MQTT: publish-subscribe</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-in-het-iot">MQTT in het IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-topics">MQTT-topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-voor-iot-knopen">MQTT voor IoT-knopen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>
@@ -74,7 +76,7 @@
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../mqtt.html">MQTT</a><ul>
       <li>Previous: <a href="../mqtt.html" title="vorig hoofdstuk">MQTT</a></li>
-      <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
+      <li>Next: <a href="json.html" title="volgend hoofdstuk">JSON</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -111,8 +113,8 @@ De broker stuurt dit bericht dan door naar alle clients zich op dit onderwerp ge
 <p>Dit laatste betekent dat de broker op een willekeurig moment een bericht naar een client kan <em>pushen</em>:
 deze client hoeft niet steeds bij de broker te vragen of er een nieuw bericht aangekomen is.</p>
 <blockquote>
-<div><p><em>Dit is een verschil met het HTTP-protocol: in dat geval ligt het initiatief altijd bij de client,
-deze “trekt” (*pull</em>) de documenten van de server.*</p>
+<div><p>Dit is een verschil met het HTTP-protocol: in dat geval ligt het initiatief altijd bij de client,
+deze “trekt” (<em>pull</em>) de documenten van de server.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/MQTT1.png"><img alt="../_images/MQTT1.png" src="../_images/MQTT1.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">MQTT voorbeeld</span></p>
@@ -131,9 +133,8 @@ Client B is dan zowel <em>publisher</em> als <em>subscriber</em>.</p>
 de clients communiceren via een topic, en weten niet welke clients aan dat topic gekoppeld zijn.
 In het bijzonder weet een publisher niet welke clients op het topic geabonneerd zijn.</li>
 </ul>
-</div>
 <div class="section" id="mqtt-in-het-iot">
-<h1>MQTT in het IoT<a class="headerlink" href="#mqtt-in-het-iot" title="Permalink naar deze titel">¶</a></h1>
+<h2>MQTT in het IoT<a class="headerlink" href="#mqtt-in-het-iot" title="Permalink naar deze titel">¶</a></h2>
 <p>In de context van het Internet of Things zijn zowel IoT-knopen als IoT-apps clients van de MQTT-broker.</p>
 <p>Een typisch gebruik van MQTT voor IoT-toepassingen:</p>
 <ul class="simple">
@@ -194,8 +195,8 @@ In het bijzonder weet een publisher niet welke clients op het topic geabonneerd 
 <li>de broker stuurt de sensordata door naar de apps, en de led-aansturing naar de IoT-knopen.</li>
 </ul>
 </div>
-<div class="section" id="structuur-van-een-topic">
-<h1>Structuur van een topic<a class="headerlink" href="#structuur-van-een-topic" title="Permalink naar deze titel">¶</a></h1>
+<div class="section" id="mqtt-topics">
+<h2>MQTT-topics<a class="headerlink" href="#mqtt-topics" title="Permalink naar deze titel">¶</a></h2>
 <p>Een MQTT-topic bestaat uit een aantal strings gekoppeld door <code class="docutils literal notranslate"><span class="pre">/</span></code>,
 bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">abd</span></code>, <code class="docutils literal notranslate"><span class="pre">abc/def</span></code>, <code class="docutils literal notranslate"><span class="pre">abc/123/def</span></code>.
 Dit lijkt op de padnaam in een URL.</p>
@@ -207,64 +208,17 @@ Dit lijkt op de padnaam in een URL.</p>
 <li>voorbeeld: <code class="docutils literal notranslate"><span class="pre">node/#</span></code> matcht met <code class="docutils literal notranslate"><span class="pre">node/12/sensors</span></code> en <code class="docutils literal notranslate"><span class="pre">node/432/led</span></code></li>
 </ul>
 </div>
-<div class="section" id="json">
-<h1>JSON<a class="headerlink" href="#json" title="Permalink naar deze titel">¶</a></h1>
-<div class="sidebar">
-<p class="first sidebar-title">JSON in het web</p>
-<p class="last">Ook het web gebruikt het JSON-formaat, als onderdeel van AJAX.
-JavaScript-functies in een app communiceren vanuit de browser met de server,
-met (naar verhouding) kleine hoeveelheden data.
-Deze communicatie gebruikt het compacte en leesbare JSON-formaat, in plaats van complete HTML-documenten.</p>
-</div>
-<p>In dit hoofdstuk gebruiken we MQTT voor het bewaken en besturen van een IoT-knoop.
-De communicatie tussen de IoT-knoop en de toepassing (app), via de MQTT-broker,
-vindt plaats in de vorm van JSON-berichten.
-Het JSON-formaat is voor het IoT wat HTML is voor het web.
-We leggen hieronder eerst de principes van JSON uit.
-In de opdracht gebruik je JSON voor het aansturen van de IoT-knoop.</p>
-<p>JSON staat voor “JavaScript Object Notatie”.
-Een JSON-document is een tekstdocument: een leesbare vorm van een JavaScript-object.
-Een object bestaat uit een aantal &lt;code&gt;”naam”: waarde&lt;/code&gt;-paren.
-Een waarde kan een enkelvoudige waarde zijn, bijvoorbeeld een getal, een string, of een boolean.
-Het kan ook een samengestelde waarde zijn: een object of een array.
-In JavaScript gebruiken we de notatie: <code class="docutils literal notranslate"><span class="pre">naam:</span> <span class="pre">waarde</span></code>.
-In JSON staat de naam tussen dubbele quotes: <code class="docutils literal notranslate"><span class="pre">&quot;naam&quot;:</span> <span class="pre">waarde</span></code>.</p>
-<p>We geven in de onderstaande voorbeelden de JavaScript-objecten en de bijbehorende JSON-notatie.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nx">temp</span><span class="o">:</span> <span class="mi">21</span><span class="p">,</span> <span class="nx">press</span><span class="o">:</span> <span class="mi">1015</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;e4c7&quot;</span><span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;temp&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="nt">&quot;press&quot;</span><span class="p">:</span><span class="mi">1012</span><span class="p">,</span> <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;e4c7&quot;</span><span class="p">}</span>
-</pre></div>
-</div>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>meer JSON-voorbeelden</li>
-</ul>
-</div>
-<p>Je kunt een JSON-document eenvoudig omzetten in een JavaScript-object, en omgekeerd:</p>
+<div class="section" id="mqtt-voor-iot-knopen">
+<h2>MQTT voor IoT-knopen<a class="headerlink" href="#mqtt-voor-iot-knopen" title="Permalink naar deze titel">¶</a></h2>
+<p>We gebruiken in de software bij deze module een aantal vaste afspraken voor MQTT-topics
+en voor MQTT-berichten (zie JSON, verderop).
+Hierdoor kunnen we de verschillende soorten IoT-knopen combineren met de verschillende toepassingen.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">=</span> <span class="pre">JSON.parse(str);</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">str</span> <span class="pre">=</span> <span class="pre">JSON.stringify(obj);</span></code></li>
+<li>voor sensoren: <code class="docutils literal notranslate"><span class="pre">node/&lt;nodeid&gt;/sensors</span></code></li>
+<li>voor actuatoren: <code class="docutils literal notranslate"><span class="pre">node/&lt;nodeid&gt;/actuators</span></code></li>
 </ul>
-<p>Niet alle JavaScript-objecten kun je in JSON omzetten:</p>
-<ul class="simple">
-<li>objecten met functie-waarden</li>
-<li>objecten met onderlinge verwijzingen die een lus (cykel) vormen.</li>
-</ul>
-<p>Veel programmeertalen hebben functies om JSON-objecten te verwerken.</p>
-<ul class="simple">
-<li>Python: <a class="reference external" href="https://docs.python.org/3/library/json.html">https://docs.python.org/3/library/json.html</a></li>
-<li>Arduino: <a class="reference external" href="https://arduinojson.org/">https://arduinojson.org/</a></li>
-</ul>
+<p>Hierin is <code class="docutils literal notranslate"><span class="pre">&lt;nodeid&gt;</span></code> de identificatie (string) van de IoT-knoop.</p>
 </div>
-<div class="section" id="links">
-<h1>Links<a class="headerlink" href="#links" title="Permalink naar deze titel">¶</a></h1>
-<ul class="simple">
-<li>referentie: <a class="reference external" href="https://www.json.org/">https://www.json.org/</a></li>
-<li>referentie: <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON</a></li>
-<li>tutorial: <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON</a></li>
-</ul>
 </div>
 
 

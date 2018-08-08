@@ -100,14 +100,57 @@
 <h1>Eisen<a class="headerlink" href="#eisen" title="Permalink naar deze titel">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Te doen</p>
-<ul class="simple">
+<ul class="last simple">
 <li>eisen aan de communicatie</li>
 <li>eisen aan de security (en privacy)</li>
 </ul>
-<p class="rubric">Het Internet of Things stelt eigen eisen aan de internet-communicatie</p>
-<p class="last">Het Internet of Things stelt andere eisen aan de communicatie dan het web.
-Dit betekent dat je andere soorten verbindingen (radio’s) en protocollen nodig hebt.</p>
 </div>
+<p class="rubric">Het Internet of Things stelt eigen eisen aan de internet-communicatie</p>
+<p>Het Internet of Things stelt andere eisen aan de communicatie dan het web.
+Dit betekent dat je andere soorten verbindingen (radio’s) en protocollen nodig hebt.</p>
+<p class="rubric">Eisen aan de communicatie</p>
+<ul>
+<li><dl class="first docutils">
+<dt>bandbreedte (bitrate) is vaak beperkt (behalve als er beeld en geluid bij betrokken zijn)</dt>
+<dd><ul class="first last simple">
+<li>per sensor (meting) weinig data</li>
+<li>per tijdseenheid weinig metingen</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">latency soms wel belangrijk - in het bijzonder bij real-time besturing van “dingen”.</p>
+</li>
+<li><p class="first">veiligheid is essentieel - zowel vanwege de veiligheid van de “dingen”
+als van de privacy van mensen in hun omgeving.</p>
+<blockquote>
+<div><ul class="simple">
+<li>vooral bij besturingstoepassingen is dit van belang</li>
+<li>(opmerking: het IoT kan ook bijdragen aan de fysieke veiligheid…)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>aantallen IoT-knopen kan erg groot zijn - veel groter dan het aantal mensen dat een server gebruikt.</dt>
+<dd><ul class="first last simple">
+<li>een IoT-toepassing (server) moet dan grote hoeveelheden kleine berichten kunnen verwerken.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p class="rubric">Verschillen tussen IoT en het web</p>
+<p>Het IoT is veel heterogener dan het web, en veel minder gestandaardiseerd.
+Dit betekent dat we veel verschillende oplossingen en vormen van de IoT-keten tegenkomen.</p>
+<p>Deze IoT-keten heeft andere karakteristieken dan de keten voor het web:</p>
+<ul class="simple">
+<li>de sensordata van een enkele IoT-knoop bestaan uit weinig bytes - veel minder dan de gemiddelde webpagina, en nog veel minder dan nodig voor audio en video;</li>
+<li>het aantal IoT-knopen in een toepassing kun erg groot zijn - veel groter dan bijvoorbeeld het aantal gebruikers van een website;</li>
+<li>de fysieke wereld stelt soms absolute grenzen aan de latency; in de virtuele wereld is deze latency wat minder van belang;</li>
+<li>de resultaten van het web worden aan mensen gepresenteerd, die op basis daarvan beslissingen nemen;</li>
+<li>de resultaten van het IoT worden soms gebruikt om direct “dingen” te besturen, zonder menselijke tussenkomst (M2M, machine to machine).</li>
+<li>de verschillen tussen “dingen” zijn veel groter dan de verschillen tussen mensen: het IoT is veel heterogener dan het web.</li>
+</ul>
 </div>
 
 

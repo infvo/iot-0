@@ -52,23 +52,4 @@ Deze ontwikkelingen versterken elkaar en zorgen samen voor een stroomversnelling
   Het grootste probleem lijkt daarbij de energievoorziening te zijn:
   vooral de batterij bepaalt de omvang en het gewicht van een IoT-knoop.
 
-.. todo::
-
-  Onderstaande tekst verhuizen (verschillen IoT en het web)
-
-.. rubric:: Verschillen tussen IoT en het web
-
-Het IoT is veel heterogener dan het web, en veel minder gestandaardiseerd.
-Dit betekent dat we veel verschillende oplossingen en vormen van de IoT-keten tegenkomen.
-
-Deze IoT-keten heeft andere karakteristieken dan de keten voor het web:
-
-* de sensordata van een enkele IoT-knoop bestaan uit weinig bytes - veel minder dan de gemiddelde webpagina, en nog veel minder dan nodig voor audio en video;
-* het aantal IoT-knopen in een toepassing kun erg groot zijn - veel groter dan bijvoorbeeld het aantal gebruikers van een website;
-* de fysieke wereld stelt soms absolute grenzen aan de latency; in de virtuele wereld is deze latency wat minder van belang;
-* de resultaten van het web worden aan mensen gepresenteerd, die op basis daarvan beslissingen nemen;
-* de resultaten van het IoT worden soms gebruikt om direct "dingen" te besturen, zonder menselijke tussenkomst (M2M, machine to machine).
-* de verschillen tussen "dingen" zijn veel groter dan de verschillen tussen mensen: het IoT is veel heterogener dan het web.
-
-
 .. todolist::

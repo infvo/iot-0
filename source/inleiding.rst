@@ -6,9 +6,7 @@ Inleiding
 
   * Internet of Things - als volgende stap in de ontwikkeling van het internet
   * IoT-toepassingen: van sensordata naar beslissingen, met gebruik van Data Science en Artificial Intelligence
-  * IoT stelt andere eisen aan de communicatie (via het internet) dan het web
-  * IoT-bouwstenen
-  * IoT-ketens
+  * persoonlijke en maatschappelijke gevolgen van IoT-toepassingen
 
 .. rubric:: Van Internet van computers tot Internet of Things
 
