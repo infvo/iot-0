@@ -84,6 +84,7 @@ Dit lijkt op de padnaam in een URL.
 Bij een *subscribe* kun je in de topic-string ook wildcards opnemen:
 ``+`` staat voor een willekeurige string zonder ``/``;
 ``#`` voor een willekeurige string waarin ook het koppelteken ``/`` mag voorkomen.
+
 * voorbeeld: ``node/+/sensors`` matcht met ``node/12/sensors`` en ``node/432/sensors``.
 * voorbeeld: ``node/#`` matcht met ``node/12/sensors`` en ``node/432/led``
 

@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
@@ -200,9 +201,11 @@ bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">abd</s
 Dit lijkt op de padnaam in een URL.</p>
 <p>Bij een <em>subscribe</em> kun je in de topic-string ook wildcards opnemen:
 <code class="docutils literal notranslate"><span class="pre">+</span></code> staat voor een willekeurige string zonder <code class="docutils literal notranslate"><span class="pre">/</span></code>;
-<code class="docutils literal notranslate"><span class="pre">#</span></code> voor een willekeurige string waarin ook het koppelteken <code class="docutils literal notranslate"><span class="pre">/</span></code> mag voorkomen.
-* voorbeeld: <code class="docutils literal notranslate"><span class="pre">node/+/sensors</span></code> matcht met <code class="docutils literal notranslate"><span class="pre">node/12/sensors</span></code> en <code class="docutils literal notranslate"><span class="pre">node/432/sensors</span></code>.
-* voorbeeld: <code class="docutils literal notranslate"><span class="pre">node/#</span></code> matcht met <code class="docutils literal notranslate"><span class="pre">node/12/sensors</span></code> en <code class="docutils literal notranslate"><span class="pre">node/432/led</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">#</span></code> voor een willekeurige string waarin ook het koppelteken <code class="docutils literal notranslate"><span class="pre">/</span></code> mag voorkomen.</p>
+<ul class="simple">
+<li>voorbeeld: <code class="docutils literal notranslate"><span class="pre">node/+/sensors</span></code> matcht met <code class="docutils literal notranslate"><span class="pre">node/12/sensors</span></code> en <code class="docutils literal notranslate"><span class="pre">node/432/sensors</span></code>.</li>
+<li>voorbeeld: <code class="docutils literal notranslate"><span class="pre">node/#</span></code> matcht met <code class="docutils literal notranslate"><span class="pre">node/12/sensors</span></code> en <code class="docutils literal notranslate"><span class="pre">node/432/led</span></code></li>
+</ul>
 </div>
 <div class="section" id="json">
 <h1>JSON<a class="headerlink" href="#json" title="Permalink naar deze titel">¶</a></h1>

@@ -18,6 +18,7 @@ IoT-0: IoT voor gebruikers
    wifi.rst
    rfm69.rst
    lora.rst
+   glossary.rst
    todo.rst
 
 .. toctree::

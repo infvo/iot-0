@@ -54,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
@@ -108,7 +109,7 @@ Via de browser van een computer of smartphone bedien je het apparaat op afstand.
 <p class="caption"><span class="caption-text">Webserver-interface van een netwerkprinter</span></p>
 </div>
 <p>In de figuur zie je het interface van een netwerkprinter, als webpagina.
-Via de browser kun je de status en de instellingen van de printer bekijken en aanpassen.
+Via de browser kun je de status van de printer bekijken en de instellingen aanpassen.
 De webserver biedt een uitgebreid gebruikersinterface.
 Het apparaat zelf kan dan met een eenvoudig interface volstaan,
 met een paar knoppen en eventueel een klein schermpje.</p>
@@ -116,24 +117,24 @@ met een paar knoppen en eventueel een klein schermpje.</p>
 <a class="reference internal image-reference" href="_images/IoT-client-server-0.png"><img alt="_images/IoT-client-server-0.png" src="_images/IoT-client-server-0.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">Client-server interactie</span></p>
 </div>
-<p id="index-0">De ingebouwde webserver gebruikt de standaardprotocollen van het internet en van het web:
-HTTP (over TCP) voor de communicatie, waarbij het gebruikersinterface de vorm heeft van een HTML-document.
-De interactie tussen de browser en de webserver is een <em>client-server interactie</em>, via het HTTP-protocol.
+<p id="index-0">De ingebouwde webserver gebruikt de web- en internetprotocollen.
+De interactie tussen de browser en deze webserver is een <em>client-server interactie</em>, via het HTTP-protocol.
 De client (browser) stuurt een HTTP request (bijv. GET) met een bepaald URL-pad naar de webserver;
-de webserver stuurt als response een HTML-document terug, dat de browser vervolgens weergeeft voor de gebruiker.</p>
-<p>Enkele eigenschappen van deze aanpak:</p>
+de webserver stuurt als response een HTML-document terug, dat de browser vervolgens weergeeft voor de gebruiker.
+Dit HTML-document is in dit geval het gebruikersinterface van het apparaat.
+De client-server interactie via HTTP is een “pull” interactie: het initiatief voor de interactie ligt bij de browser.</p>
 <div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="_images/IoT-webserver-11.png"><img alt="_images/IoT-webserver-11.png" src="_images/IoT-webserver-11.png" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-text">IoT-knopen met webserver</span></p>
 </div>
+<p>Enkele eigenschappen van deze aanpak:</p>
 <ul class="simple">
-<li>het apparaat is verbonden in het lokale netwerk: draadloos (via WiFi) of bedraad (Ethernet)</li>
-<li>het apparaat (de IoT-knoop) moet ‘’permanent’’ in het (lokale) netwerk ‘’verbonden’’ zijn
-<br /> dit is een probleem voor batterij-apparaten, niet voor apparaten met een netsnoer.</li>
-<li>het apparaat is alleen binnen het lokale netwerk te bedienen</li>
-<li>je moet het IP-adres of de lokale domeinnaam (zeroconfig) van het apparaat kennen</li>
-<li>de client (browser of een andere computer) moet de gegevens actief van de webserver halen (“pull”)
-<br /> de client-server interactie via HTTP is een “pull” interactie.</li>
+<li>het apparaat is verbonden in het <em>lokale netwerk</em>: draadloos (via WiFi) of bedraad (Ethernet);</li>
+<li>het apparaat (de IoT-knoop) moet <em>permanent verbonden</em> zijn in dit netwerk;
+voor batterij-apparaten is dit is een probleem;</li>
+<li>het apparaat is alleen binnen het lokale netwerk te bedienen;</li>
+<li>je moet het IP-adres of de lokale domeinnaam (<em>zeroconfig</em>) van het apparaat kennen</li>
+<li>de client (browser of een andere computer) moet de gegevens actief van de webserver halen (“pull”).</li>
 </ul>
 <div class="toctree-wrapper compound">
 <ul>

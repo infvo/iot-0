@@ -37,6 +37,8 @@ We noemen enkele voorbeelden:
     * o.a. predictive maintenance: "just in time" onderhoud;
     * https://www.zdnet.com/article/germanys-vision-for-industrie-4-0-the-revolution-will-be-digitised/
     * http://www.ioti.com/industrial-iot-iiot/how-industry-40-will-change-your-job
+* Sensoren op het spoor (ProRail)
+    * https://www.spoorpro.nl/innovatie/2018/07/11/prorail-maakt-filmpje-over-internet-of-things-sensoren/
 * Smart Grid (slim elektriciteitsnet)
     * o.a. slimme meters, slimme apparaten, hernieuwbare energie (wind, zon)
     * https://en.wikipedia.org/wiki/Smart_grid
@@ -49,11 +51,10 @@ We noemen enkele voorbeelden:
 
 Veel IoT-toepassingen helpen je om *betere beslissingen* te nemen:
 beslissingen gebaseerd op (complete) data uit de actuele werkelijkheid,
-in plaats van op basis van gemiddelden van historische steekproeven.
+in plaats van op gemiddelden van historische steekproeven.
 Bovendien kun je deze beslissingen sneller nemen, en in soms zelfs automatisch.
 Zo kun je allerlei vormen van verspilling voorkomen:
 
-* licht in huis of op straat hoeft niet te branden als er geen mensen zijn;
 * je hoeft halfvolle vuilcontainers niet in de route op te nemen;
 * je hoeft niet meer naar een vrije parkeerplaats te zoeken (verspilling van tijd, brandstof en ruimte);
 * je hoeft niet meer te zoeken naar een deelfiets: de app wijst je naar de dichtstbijzijnde fiets.
@@ -65,6 +66,7 @@ het aanbod van hernieuwbare energie varieert sterk (met het weer);
 als je slimme apparaten op het juiste moment aan- en uit kunt schakelen,
 kun je vraag en aanbod veel beter op elkaar afstemmen.
 
-* voorbeeld: een vriezer kan van te voren "koude" opslaan,
+* licht in huis of op straat hoeft niet te branden als er geen mensen zijn;
+* een vriezer kan van te voren "koude" opslaan,
   en hoeft dan niet (zwaar) te werken tijdens piekbelasting van het net;
-* voorbeeld: een wasmachine hoeft niet op een vast tijdstip te werken - als de was vandaag maar gedaan wordt.
+* een wasmachine hoeft niet op een vast tijdstip te werken - als de was vandaag maar gedaan wordt.

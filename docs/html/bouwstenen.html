@@ -56,6 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
@@ -97,26 +98,43 @@
 <p class="first admonition-title">Te doen</p>
 <ul class="last simple">
 <li>IoT-knopen</li>
-<li>protocol: MQTT (ipv. HTTP)</li>
-<li>ketens: gateways;  PubSub (ipv. client-server)</li>
-<li>NodeRed (als “lijm”)</li>
+<li>protocol: HTTP (met HTML)</li>
+<li>protocol: MQTT (ipv. HTTP) - met JSON</li>
+<li>ketens: cleint-server; client-broker-client - PubSub; gateway;</li>
+<li>NodeRed (als “lijm”); gebruik van externe diensten etc.</li>
+<li>externe diensten (bijv. weer? <a class="reference external" href="https://openweathermap.org">https://openweathermap.org</a>? twitter?)</li>
 </ul>
 </div>
-<p>Wat zijn de belangrijkste bouwstenen van het Internet of Things (IoT)?
-Waardoor maakt het IoT nu zo’n grote sterke ontwikkeling door?</p>
+<p>In dit hoofdstuk geven we een overzicht van de bouwstenen van het Internet of Things.
+We geven verschillende voorbeelden van de manier waarop deze bouwstenen tot een IoT-keten gecombineerd worden.
+In de volgende hoofdstukken werken we deze bouwstenen en IoT-ketens verder uit.</p>
+<div class="admonition note">
+<p class="first admonition-title">Notitie</p>
+<p class="last">Dit hoofdstuk is bedoeld als een inleidend overzicht:
+het is niet nodig de begrippen die we hier invoeren in detail te begrijpen.
+In de volgende hoofdstukken werken we deze bouwstenen en IoT-ketens verder uit.
+Je kunt dit hoofdstuk later gebruiken om deze details in het geheel te kunnen plaatsen.</p>
+</div>
 <p class="rubric">IoT-knoop: koppelen van de fysieke wereld aan de virtuele wereld</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/IoT-knoop-0.png"><img alt="_images/IoT-knoop-0.png" src="_images/IoT-knoop-0.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop</span></p>
+</div>
 <p>Het Internet of Things koppelt de fysieke wereld van de “dingen” aan de virtuele wereld van het internet.
 De koppeling van een “ding” aan het internet noemen we een <em>IoT-knoop</em>.
-Deze gebruikt  <em>sensoren en actuatoren</em> om het “ding” te monitoren (bewaken) en te besturen.
-Een <em>microcontroller</em>, een complete computer op een chip, bestuurt deze sensoren en actuatoren .
+Deze gebruikt  <em>sensoren en actuatoren</em> om het “ding” te bewaken en te besturen.
+Een <em>microcontroller</em>, een complete computer op een chip, bestuurt deze sensoren en actuatoren.
 De IoT-knoop heeft <em>communicatie</em> nodig om deze microcontroller met sensoren en actuatoren in het internet te verbinden.
-Voor mobiele “dingen” moet deze communicatie <em>draadloos</em> zijn.
-Ook voor andere “dingen” heeft draadloze communicatie voordelen.
-Voor mobiele “dingen” moet ook de <em>energievoorziening</em> (elektriciteit) draadloos zijn:
+Mobiele IoT-knopen gebruiken een <em>radio</em> voor communicatie <em>draadloze communicatie</em>.
+Voor mobiele knopen moet ook de <em>energievoorziening</em> (elektriciteit) draadloos zijn:
 je hebt dan energiezuinige elektronica nodig, met een batterij en soms met lokale energieopwekking (“energy harvesting” of “scavenging”, zoals zonnecellen).
 Tenslotte zijn de fysieke afmetingen en het gewicht van de IoT-knoop belang:
 hoe kleiner en lichter (en goedkoper) een IoT-knoop, voor des te meer “dingen” kun je deze gebruiken.</p>
 <p class="rubric">De IoT-keten: van sensoren en actuatoren tot beslissingen</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/IoT-lokale-gateway-1.png"><img alt="_images/IoT-lokale-gateway-1.png" src="_images/IoT-lokale-gateway-1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Voorbeeld van een IoT-keten</span></p>
+</div>
 <p>Een IoT-toepassing omvat een keten van onderdelen, van sensoren en actuatoren tot besluitvorming, mogelijk ondersteund door Data Science en Artificial Intelligence.
 In deze keten komen we meestal de volgende onderdelen tegen:</p>
 <ul class="simple">
@@ -128,18 +146,7 @@ In deze keten komen we meestal de volgende onderdelen tegen:</p>
 <li><em>protocollen</em> voor datatransporten en voor interactie tussen de verschillende onderdelen.</li>
 </ul>
 <p>De IoT-knopen vormen de buitenkant (“edge”) van het Internet of Things.
-Eén van de ontwerpvragen bij het Internet of Things is hoe het rekenwerk verdeeld moet worden over de “edge” en de kern (servers) van het IoT.</p>
-<p>Het IoT is veel heterogener dan het web, en veel minder gestandaardiseerd.
-Dit betekent dat we veel verschillende oplossingen en vormen van de IoT-keten tegenkomen.</p>
-<p>Deze IoT-keten heeft andere karakteristieken dan de keten voor het web:</p>
-<ul class="simple">
-<li>de sensordata van een enkele IoT-knoop bestaan uit weinig bytes - veel minder dan de gemiddelde webpagina, en nog veel minder dan nodig voor audio en video;</li>
-<li>het aantal IoT-knopen in een toepassing kun erg groot zijn - veel groter dan bijvoorbeeld het aantal gebruikers van een website;</li>
-<li>de fysieke wereld stelt soms absolute grenzen aan de latency; in de virtuele wereld is deze latency wat minder van belang;</li>
-<li>de resultaten van het web worden aan mensen gepresenteerd, die op basis daarvan beslissingen nemen;</li>
-<li>de resultaten van het IoT worden soms gebruikt om direct “dingen” te besturen, zonder menselijke tussenkomst (M2M, machine to machine).</li>
-<li>de verschillen tussen “dingen” zijn veel groter dan de verschillen tussen mensen: het IoT is veel heterogener dan het web.</li>
-</ul>
+Eén van de ontwerpvragen bij een Internet of Things-toepassing is hoe het rekenwerk verdeeld moet worden over de “edge” en de kern (servers) van het IoT.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
