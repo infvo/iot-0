@@ -9,4 +9,10 @@ RFM69-knopen
   * rfm69 pakket-radio
   * gateway: van rfm69 naar WiFi
   * protocol-conversie
+
+.. toctree::
+
+  rfm69/opdrachten.rst
+  rfm69/toetsvragen.rst
+
   
