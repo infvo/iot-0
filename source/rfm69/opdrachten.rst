@@ -19,8 +19,8 @@ Als ontvanger gebruik je een RFM69-WiFi-gateway met de normale gateway-software.
 
 Het programma "ping" stuurt elke 5 seconden een speciaal *ping* bericht naar de gateway.
 De gateway stuurt dan direct een bericht terug naar de afzender.
-De gateway stuurt ook een MQTT-bericht met als topic ``node/<nodeid>/ping`` naar de broker;
-het JSON-bericht bevat met onder meer de signaalsterkte (``rssi``) van het ontvangen bericht.
+De gateway stuurt ook een MQTT/JSON-bericht met als topic ``node/<nodeid>/ping`` naar de broker;
+dit bericht bevat onder meer de signaalsterkte (``rssi``) van het ontvangen bericht.
 
 1. bepaal het maximale bereik van de radio "in het open veld",
    waarbij er geen obstakels zijn tussen de zender (IoT-knoop) en de ontvanger.
@@ -37,13 +37,8 @@ De RFM69-IOT-knoop stuurt een payload in binair formaat, volgens de Cayenne low 
 De gateway zet deze binaire payload om in een JSON-formaat.
 Het JSON-bericht bevat ook de oorspronkelijke binaire payload.
 
-* bestudeer van een bericht de binaire payload.
+* bestudeer de binaire payload van een bericht .
   Geef de overeenkomst aan tussen de bytes in de binaire payload en de payload-elementen in het JSON-bericht.
-
-.. todo::
-
-  Waar is de beschrijving van de binaire payload te vinden?
-  (In elk geval in IoT-1; ook in IoT-0?)
 
 (3) Dashboard
 =============

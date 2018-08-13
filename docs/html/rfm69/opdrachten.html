@@ -49,14 +49,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Opdrachten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#radio-bereik">(1) Radio-bereik</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#payload-formaat">(2) Payload-formaat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dashboard">(3) Dashboard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#koppelen-van-twee-knopen">(4) Koppelen van twee knopen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rfm69.html#rfm69-keten">RFM69 keten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rfm69.html#rfm69-protocol">RFM69 protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rfm69.html#gateway">Gateway</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../rfm69.html#opdrachten">Opdrachten</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Opdrachten</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#radio-bereik">(1) Radio-bereik</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#payload-formaat">(2) Payload-formaat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dashboard">(3) Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#koppelen-van-twee-knopen">(4) Koppelen van twee knopen</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
@@ -111,8 +117,8 @@ met de gebruikelijke configuratie (vermogen, frequentie, bandbreedte, bitrate, a
 Als ontvanger gebruik je een RFM69-WiFi-gateway met de normale gateway-software.</p>
 <p>Het programma “ping” stuurt elke 5 seconden een speciaal <em>ping</em> bericht naar de gateway.
 De gateway stuurt dan direct een bericht terug naar de afzender.
-De gateway stuurt ook een MQTT-bericht met als topic <code class="docutils literal notranslate"><span class="pre">node/&lt;nodeid&gt;/ping</span></code> naar de broker;
-het JSON-bericht bevat met onder meer de signaalsterkte (<code class="docutils literal notranslate"><span class="pre">rssi</span></code>) van het ontvangen bericht.</p>
+De gateway stuurt ook een MQTT/JSON-bericht met als topic <code class="docutils literal notranslate"><span class="pre">node/&lt;nodeid&gt;/ping</span></code> naar de broker;
+dit bericht bevat onder meer de signaalsterkte (<code class="docutils literal notranslate"><span class="pre">rssi</span></code>) van het ontvangen bericht.</p>
 <ol class="arabic simple">
 <li>bepaal het maximale bereik van de radio “in het open veld”,
 waarbij er geen obstakels zijn tussen de zender (IoT-knoop) en de ontvanger.
@@ -129,14 +135,9 @@ bijvoorbeeld je school.</li>
 De gateway zet deze binaire payload om in een JSON-formaat.
 Het JSON-bericht bevat ook de oorspronkelijke binaire payload.</p>
 <ul class="simple">
-<li>bestudeer van een bericht de binaire payload.
+<li>bestudeer de binaire payload van een bericht .
 Geef de overeenkomst aan tussen de bytes in de binaire payload en de payload-elementen in het JSON-bericht.</li>
 </ul>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<p class="last">Waar is de beschrijving van de binaire payload te vinden?
-(In elk geval in IoT-1; ook in IoT-0?)</p>
-</div>
 </div>
 <div class="section" id="dashboard">
 <h2>(3) Dashboard<a class="headerlink" href="#dashboard" title="Permalink naar deze titel">¶</a></h2>

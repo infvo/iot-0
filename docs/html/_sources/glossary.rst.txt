@@ -17,3 +17,10 @@ Glossary
     "data over data". In het geval van communicatie, meestal data over de communicatie,
     bijvoorbeeld het volgnummer van een bericht, tijdstip van de communicatie,
     of de signaalsterkte bij de communicatie.
+
+  replay-attack
+    poging om in te breken in een beveiligde communicatie, door het herhalen van een vroeger bericht.
+    Stel dat je altijd hetzelfde (radio)bericht gebruik om een deur te openen:
+    iemand kan dit bericht opvangen en opnieuw afspelen als het hem uitkomt.
+    Je kunt dit voorkomen door elk bericht van een volgnummer te voorzien:
+    een bericht dat niet in de volgorde past wordt overgeslagen.
