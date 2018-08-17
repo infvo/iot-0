@@ -19,6 +19,9 @@ In de webserver-keten hebben we te maken met de volgende spelers (*agents*):
 Een derde speler is de lokale WiFi-router: deze zorgt voor de fysieke verbinding tussen deze spelers.
 Deze heeft verder geen invloed op de interactie tussen de webclient en de webserver.
 
+De webserver is in het lokale netwerk verbonden, en daardoor (meestal) niet toegankelijk via het publieke internet.
+Dit betekent dat je het apparaat alleen via smartphones en computers in het lokale netwerk kunt bedienen.
+
 .. figure:: IoT-client-server-0.png
    :width: 500 px
    :align: center
@@ -29,6 +32,12 @@ De *interactie* tussen de webclient en webserver is een *client-server interacti
 Deze interactie verloopt via het HTTP-protocol (Hypertext transfer protocol).
 de webclient stuurt een HTTP-verzoek naar de webserver; de webserver stuurt een HTTP-response terug,
 met daarin een HTML-document.
+Anders gezegd: de webclient "pull"t het HTML-document van de webserver.
+
+Het initiatief voor deze client-server interactie ligt bij de browser (client).
+De webserver stuurt niet op eigen initiatief gegevens naar de browser ("push").
+Deze HTTP-aanpak is geschikt voor het besturen van een apparaat (actuatoren).
+Voor monitoring van sensoren is deze aanpak minder geschikt.
 
 .. topic:: Webservers: van klein tot zeer groot
 

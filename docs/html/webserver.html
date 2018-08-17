@@ -41,9 +41,7 @@
 <ul class="last simple">
 <li>client-server interactie; request en response</li>
 <li>lokaal netwerk; adressering (IP-adres, domeinnaam)</li>
-<li>HTTP protocol</li>
-<li>adressering: URL</li>
-<li>payload: HTML formaat</li>
+<li>HTTP protocol (adressering: URL; payload: HTML document)</li>
 </ul>
 </div>
 <p>Sommige apparaten beschikken over een webserver waarmee je het apparaat kunt bedienen.
@@ -62,45 +60,51 @@ met een paar knoppen en eventueel een klein schermpje.</p>
 <a class="reference internal image-reference" href="_images/IoT-client-server-0.png"><img alt="_images/IoT-client-server-0.png" src="_images/IoT-client-server-0.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">Client-server interactie</span></p>
 </div>
-<p id="index-0">De ingebouwde webserver gebruikt de web- en internetprotocollen.
-De interactie tussen de browser en deze webserver is een <em>client-server interactie</em>, via het HTTP-protocol.
-De client (browser) stuurt een HTTP request (bijv. GET) met een bepaald URL-pad naar de webserver;
-de webserver stuurt als response een HTML-document terug, dat de browser vervolgens weergeeft voor de gebruiker.
-Dit HTML-document is in dit geval het gebruikersinterface van het apparaat.
+<p id="index-0">De ingebouwde webserver gebruikt de web- en internetprotocollen in een <em>client-server interactie</em> via het HTTP-protocol.
+De client (browser) stuurt een HTTP <em>request</em> (bijv. GET) met een bepaald URL-pad naar de webserver;
+de webserver stuurt in de <em>response</em> een HTML-document, dat de browser vervolgens weergeeft voor de gebruiker.
+Het HTML-document is in dit geval het gebruikersinterface van het apparaat.
 De client-server interactie via HTTP is een “pull” interactie: het initiatief voor de interactie ligt bij de browser.</p>
 <div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="_images/IoT-webserver-11.png"><img alt="_images/IoT-webserver-11.png" src="_images/IoT-webserver-11.png" style="width: 300px;" /></a>
 <p class="caption"><span class="caption-text">IoT-knopen met webserver</span></p>
 </div>
-<p>Enkele eigenschappen van deze aanpak:</p>
+<p class="rubric">Belangrijke eigenschappen van deze aanpak</p>
 <ul class="simple">
-<li>het apparaat is verbonden in het <em>lokale netwerk</em>: draadloos (via WiFi) of bedraad (Ethernet);</li>
-<li>het apparaat (de IoT-knoop) moet <em>permanent verbonden</em> zijn in dit netwerk;
-voor batterij-apparaten is dit is een probleem;</li>
-<li>het apparaat is alleen binnen het lokale netwerk te bedienen;</li>
-<li>je moet het IP-adres of de lokale domeinnaam (<em>zeroconfig</em>) van het apparaat kennen</li>
-<li>de client (browser of een andere computer) moet de gegevens actief van de webserver halen (“pull”).</li>
+<li><dl class="first docutils">
+<dt>de IoT-knoop-webserver is verbonden in het <em>lokale netwerk</em>, via WiFi of Ethernet;</dt>
+<dd><ul class="first last">
+<li>gevolg: het apparaat alleen te bedienen binnen het lokale netwerk;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>de IoT-knoop-webserver moet altijd bereikbaar (online) zijn;</dt>
+<dd><ul class="first last">
+<li>gevolg: niet geschikt voor batterijvoeding van de IoT-knoop;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>de IoT-knoop-webserver moet te vinden zijn via de browser-URL;</dt>
+<dd><ul class="first last">
+<li>gevolg: je moet het IP-adres of de lokale domeinnaam van de IoT-knoop kennen;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>de browser neemt het initiatief in de client-server interactie met de IoT-knoop-webserver;</dt>
+<dd><ul class="first last">
+<li>gevolg: deze HTTP-client-server interactie is geschikt voor actuatoren (bediening), minder voor sensoren (monitoring).</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="webserver/webserver-keten.html">Webserver-keten</a></li>
-<li class="toctree-l1"><a class="reference internal" href="webserver/webserver-protocol.html">Protocollen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webserver/webserver-protocol.html#adressering">Adressering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver/webserver-protocol.html#payload">Payload</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="webserver/opdrachten.html">Opdrachten</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#adresseren-van-de-webserver">(1) Adresseren van de webserver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#aansturen-van-de-led">(2) Aansturen van de LED</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#browser-ontwikkelaarstools">(3) Browser-ontwikkelaarstools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#uitlezen-van-sensorwaarden">(4) Uitlezen van sensorwaarden</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#de-programmatekst-van-de-iot-knoop">(5) De programmatekst van de IoT-knoop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#een-eigen-voorbeeld">(6) Een eigen voorbeeld</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#een-nodered-webserver">(7) Een NodeRed webserver</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="webserver/toetsvragen.html">Toetsvragen</a></li>
-</ul>
 </div>
 </div>
 

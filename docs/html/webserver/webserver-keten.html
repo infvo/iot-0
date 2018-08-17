@@ -49,6 +49,8 @@ draadloos (WiFi) of bedraad (Ethernet)verbonden in het lokale netwerk.</li>
 </ul>
 <p>Een derde speler is de lokale WiFi-router: deze zorgt voor de fysieke verbinding tussen deze spelers.
 Deze heeft verder geen invloed op de interactie tussen de webclient en de webserver.</p>
+<p>De webserver is in het lokale netwerk verbonden, en daardoor (meestal) niet toegankelijk via het publieke internet.
+Dit betekent dat je het apparaat alleen via smartphones en computers in het lokale netwerk kunt bedienen.</p>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/IoT-client-server-0.png"><img alt="../_images/IoT-client-server-0.png" src="../_images/IoT-client-server-0.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">Client-server interactie</span></p>
@@ -56,7 +58,12 @@ Deze heeft verder geen invloed op de interactie tussen de webclient en de webser
 <p>De <em>interactie</em> tussen de webclient en webserver is een <em>client-server interactie</em>.
 Deze interactie verloopt via het HTTP-protocol (Hypertext transfer protocol).
 de webclient stuurt een HTTP-verzoek naar de webserver; de webserver stuurt een HTTP-response terug,
-met daarin een HTML-document.</p>
+met daarin een HTML-document.
+Anders gezegd: de webclient “pull”t het HTML-document van de webserver.</p>
+<p>Het initiatief voor deze client-server interactie ligt bij de browser (client).
+De webserver stuurt niet op eigen initiatief gegevens naar de browser (“push”).
+Deze HTTP-aanpak is geschikt voor het besturen van een apparaat (actuatoren).
+Voor monitoring van sensoren is deze aanpak minder geschikt.</p>
 <div class="topic">
 <p class="topic-title first">Webservers: van klein tot zeer groot</p>
 <p>Zoals je in de voorbeelden in deze module ziet, kan een webserver heel klein zijn.

@@ -8,9 +8,7 @@ In dit hoofdstuk behandelen we IoT-knopen die als webserver dienen.
 
   * client-server interactie; request en response
   * lokaal netwerk; adressering (IP-adres, domeinnaam)
-  * HTTP protocol
-  * adressering: URL
-  * payload: HTML formaat
+  * HTTP protocol (adressering: URL; payload: HTML document)
 
 Sommige apparaten beschikken over een webserver waarmee je het apparaat kunt bedienen.
 Voorbeelden hiervan zijn een (thuis)router en een netwerkprinter.
@@ -37,11 +35,10 @@ met een paar knoppen en eventueel een klein schermpje.
 .. index::
    single: client-server interactie; request; response
 
-De ingebouwde webserver gebruikt de web- en internetprotocollen.
-De interactie tussen de browser en deze webserver is een *client-server interactie*, via het HTTP-protocol.
-De client (browser) stuurt een HTTP request (bijv. GET) met een bepaald URL-pad naar de webserver;
-de webserver stuurt als response een HTML-document terug, dat de browser vervolgens weergeeft voor de gebruiker.
-Dit HTML-document is in dit geval het gebruikersinterface van het apparaat.
+De ingebouwde webserver gebruikt de web- en internetprotocollen in een *client-server interactie* via het HTTP-protocol.
+De client (browser) stuurt een HTTP *request* (bijv. GET) met een bepaald URL-pad naar de webserver;
+de webserver stuurt in de *response* een HTML-document, dat de browser vervolgens weergeeft voor de gebruiker.
+Het HTML-document is in dit geval het gebruikersinterface van het apparaat.
 De client-server interactie via HTTP is een "pull" interactie: het initiatief voor de interactie ligt bij de browser.
 
 .. figure:: webserver/IoT-webserver-1.png
@@ -50,19 +47,22 @@ De client-server interactie via HTTP is een "pull" interactie: het initiatief vo
 
    IoT-knopen met webserver
 
-Enkele eigenschappen van deze aanpak:
+.. rubric:: Belangrijke eigenschappen van deze aanpak
 
-* het apparaat is verbonden in het *lokale netwerk*: draadloos (via WiFi) of bedraad (Ethernet);
-* het apparaat (de IoT-knoop) moet *permanent verbonden* zijn in dit netwerk;
-  voor batterij-apparaten is dit is een probleem;
-* het apparaat is alleen binnen het lokale netwerk te bedienen;
-* je moet het IP-adres of de lokale domeinnaam (*zeroconfig*) van het apparaat kennen
-* de client (browser of een andere computer) moet de gegevens actief van de webserver halen ("pull").
+* de IoT-knoop-webserver is verbonden in het *lokale netwerk*, via WiFi of Ethernet;
+   * gevolg: het apparaat alleen te bedienen binnen het lokale netwerk;
+* de IoT-knoop-webserver moet altijd bereikbaar (online) zijn;
+   * gevolg: niet geschikt voor batterijvoeding van de IoT-knoop;
+* de IoT-knoop-webserver moet te vinden zijn via de browser-URL;
+   * gevolg: je moet het IP-adres of de lokale domeinnaam van de IoT-knoop kennen;
+* de browser neemt het initiatief in de client-server interactie met de IoT-knoop-webserver;
+   * gevolg: deze HTTP-client-server interactie is geschikt voor actuatoren (bediening), minder voor sensoren (monitoring).
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
 
    webserver/webserver-keten.rst
-   webserver/webserver-protocol.rst 
+   webserver/webserver-protocol.rst
    webserver/opdrachten.rst
    webserver/toetsvragen.rst

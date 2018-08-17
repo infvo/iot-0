@@ -51,28 +51,43 @@ universeel datatransport, onafhankelijk van hardware en toepassingen</li>
 <p>Elk protocol heeft zijn eigen vorm van <em>adressering</em> en zijn eigen formaat voor datatransport.
 Dit bevat de “netto” te transporteren data: de <em>payload</em>,
 en extra protocolgegevens voor de adressering, de beveiliging van de payload, enz.</p>
+<p>De basisprotocollen van het internet, “TCP/IP”, vormen een logische laag die de toepassingen scheidt van de hardware
+(zie <em>3-lagen model</em>).
+Deze logische laag is volgende het <em>end-to-end principe</em> van het internet gesplitst in een universele netwerklaag
+(het IP-protocol) en meer gespecialiseerde lagen in het eindpunt, zoals de TCP- en UDP-protocollen.</p>
 <div class="topic">
 <p class="topic-title first">3-lagen model</p>
 <p>In de ICT komen we op allerlei plaatsen het 3-lagen model tegen:</p>
-<ul class="simple">
-<li>toepassingen-laag</li>
-<li>logische laag (systeemsoftware)</li>
-<li>fysieke laag (hardware)</li>
-</ul>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>toepassingen-laag</td>
+<td>toepassingen: …</td>
+</tr>
+<tr class="row-even"><td>logische laag</td>
+<td>systeemsoftware: OS, programmeertalen, DBMS, TCP/IP</td>
+</tr>
+<tr class="row-odd"><td>fysieke laag</td>
+<td>hardware: CPU, memory, disk, netwerk, …</td>
+</tr>
+</tbody>
+</table>
 <p>De <em>logische laag</em> schermt de toepassingen af van de onderliggende hardware:
 je kunt daardoor eenzelfde toepassing combineren met allerlei verschillende hardware.
 De logische laag schermt ook de hardware af van de toepassingen:
 je kunt dezelfde hardware gebruiken voor allerlei verschillende toepassingen.
-De logische laag zorgt er ook voor dat de evolutie van de toepassingen onafhankelijk is van de evolutie van de hardware.
-Je kunt je bestaande toepassingen gebruiken op (bijna) elke nieuwe computer.
+Door de logische laag is de evolutie van de toepassingen onafhankelijk van de evolutie van de hardware.
+Je kunt bestaande toepassingen gebruiken op (bijna) elke nieuwe computer.
 En je hoeft niet voor elke nieuwe toepassing een nieuwe computer te kopen.
 Zowel de evolutie van de hardware als die van de software kunnen daardoor veel sneller verlopen.</p>
-<p>(In de begintijd van de computer waren de hardware en de toepassingssoftware veel directer gekoppeld.
-De ontkoppeling door een universele logische laag is een cruciale stap in de ontwikkelingn van de computer.)</p>
-<p>Voorbeelden van dit model:</p>
+<p>In de begintijd van de computer waren de hardware en de toepassingssoftware veel directer gekoppeld.
+De ontkoppeling door een universele logische laag is een cruciale stap in de ontwikkeling van de computer.</p>
 </div>
 <div class="topic">
-<p class="topic-title first">end-to-end principe</p>
+<p class="topic-title first">Internet end-to-end principe</p>
 <p>Het IP-protocol verzorgt het datatransport in het internet.
 Dit protocol is <em>in het netwerk</em> aanwezig: in de verbonden computers en in de routers e.d.
 De hogere protocollen (TCP, UDP; HTTP; enz.) zijn alleen in de eindpunten aanwezig.
@@ -133,10 +148,10 @@ waarbij <code class="docutils literal notranslate"><span class="pre">xxxx</span>
 Een URL-pad identificeert een <em>resource</em>: in het geval van een IoT-knoop, bijvoorbeeld een sensor of een actuator.</li>
 </ul>
 <p>Voorbeeld: <code class="docutils literal notranslate"><span class="pre">http://esp8266-ae3b/leds/0</span></code></p>
-<p>De webserver krijgt dynamisch een lokaal IP-adres toegewezen van de lokale router, door middel van DHCP.
-De webserver laat dit adres zien via de Arduino-IDE (Seriële Monitor).
-Soms heeft de webserver een display waarop dit IP-adres te vinden is.
-Als je browser verbinding heeft met de webserver vind je het IP-adres ook via de <em>browser-ontwikkelaarstools</em>.</p>
+<p>Het IP-adres van de webserver is gebonden aan het netwerk.
+Gewoonlijk krijgt de webserver dit toegewezen van de lokale router, via het DHCP-protocol.
+De webserver krijgt dynamisch een lokaal IP-adres toegewezen van de lokale router, door middel van DHCP.
+Met behulp van mDNS wordt een <em>lokale domeinnaam</em> (<code class="docutils literal notranslate"><span class="pre">example.local</span></code>) omgezet in het bijbehorende IP-adres.</p>
 </div>
 <div class="section" id="payload">
 <h2>Payload<a class="headerlink" href="#payload" title="Permalink naar deze titel">¶</a></h2>
