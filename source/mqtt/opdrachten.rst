@@ -4,20 +4,20 @@ Opdrachten
 
 .. bij mqtt
 
-.. admonition:: Wat heb je nodig?
+.. topic:: Wat heb je nodig?
 
   * MQTT broker in publieke internet;
       * de MQTT-broker fungeert ook als statische webserver,
-        voor de app MQTT1 en voor de knoop-simulator;
+        voor de app MQTTT en voor de knoop-simulator;
       * je moet de domeinnaam, het poortnummer, en eventueel een gebruikersnaam/wachtwoord kennen.
   * zo mogelijk: IoT knoop (hardware),
-      * met software: MQTT-0;
+      * met software: MQTT???;
       * verbonden met de MQTT broker;
       * de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
 
-.. rubric:: De app MQTT1
+.. rubric:: De app MQTTT
 
-Bij veel opdrachten gebruiken we de app MQTT1 (MQTT0):
+Bij veel opdrachten gebruiken we de app MQTTT:
 dit is een mqtt-client waarmee we mqtt-berichten kunnen sturen en ontvangen.
 Door de aard van het mqtt-protocol kunnen we daarmee ook *topics* "afluisteren".
 
@@ -25,23 +25,25 @@ Door de aard van het mqtt-protocol kunnen we daarmee ook *topics* "afluisteren".
    :width: 400 px
    :align: center
 
-   MQTT test app
+   MQTTTest app
 
-De  web-app kun je vinden via de broker: http://infvopedia.nl:1884/mqtt1.html.
+De  web-app kun je vinden via de broker: http://infvopedia.nl:1884/mqttt.html.
 Hierin is ``infvopedia.nl`` de domeinnaam van de broker.
 ``1884`` is het HTTP-poortnummer van de broker: de broker fungeert ook als (statische) webserver.
 Het MQTT-protocol gebruikt poort ``1883``.
 
 De app heeft de volgende invoervelden en knoppen:
 
-* invoer ``IoT-node``: de ID van de IoT-knoop die je wilt aansturen, en waarvan je de sensordata wilt ontvangen
+* ``IoT-node``: de ID van de IoT-knoop waarvan je de sensordata wilt ontvangen
     * de sensordata worden ontvangen via topic ``node/ID/sensors``
-* knoppen On en Off: sturen bericht ``{"led0":1}`` respectievelijk ``{"led0":1}`` met ``topic node/ID/actuators``
-* invoer ``subscribe to topic``: hier geef je het topic op waarvan je de berichten wilt ontvangen
-    * in het venster daaronder verschijnen de ontvangen berichten met hun topic
+* knoppen On en Off: sturen berichten met topic ``node/ID/actuators``:
+    * On (led0 aan): ``{"0":{"dOut"1}}``
+    * Off (led0 uit): ``{"0":{"dOut"0}}}``
+* ``subscribe to topic``: het topic waarvan je de berichten wilt ontvangen
+    * daaronder verschijnen de ontvangen berichten
     * in het topic kun je ook wildcard-tekens opnemen, zoals ``+`` en ``#``.
-* invoer ``publish to topic`` - om een bericht met een topic te versturen;
-    * het bericht zelf voer je daaronder in, en
+* ``publish to topic``: het topic waarvoor je berichten wilt versturen:
+    * het bericht voer je daaronder in, en
     * met de "publish"-knop verstuur je het bericht.
 
 
@@ -120,7 +122,7 @@ Met MQTT1 kunnen we de LEDs van de knoop ``xxxx`` ook aansturen.
 **(stap 1)** Aansturen van ``led0``:
 
 1. vul als ``subscribe to topic`` in: ``node/xxxx/+`` (waarin ``xxxx`` staat voor de gekozen ID);
-2. door het indrukken van de knoppen in MQTT1 kun je ``led0`` aan- en uitschakelen;
+2. door het indrukken van de knoppen in MQTTT kun je ``led0`` aan- en uitschakelen;
 3. controleer bij de sensorwaarden of deze led inderdaad uit- en uitgaat.
 4. ga in het subscribe-venster na welke berichten langskomen als je een knop indrukt,
    voor de actuatoren (leds) en voor de sensoren.
@@ -155,19 +157,19 @@ op dezelfde manier als een hardware-knoop.
 
    IoT-knoop simulator
 
-De knoop-simulator vind je op: http://infvopedia.nl:1884/iotnode-app-1.html
+De knoop-simulator vind je op: http://infvopedia.nl:1884/iotnode-app.html
 
 1. open de knoop-simulator in een browser-venster, en
    stel in de knoop-simulator een eigen node-ID in.
    Zorg ervoor dat deze uniek is.
    (We geven hieronder met ``xxxx`` deze ID aan.)
 2. open MQTT1 in een browser-venster.
-   Het is handig als je de vensters van de knoop-simulator en van MQTT1 naast elkaar plaatst.
+   Het is handig als je de vensters van de knoop-simulator en van MQTTT naast elkaar plaatst.
    Vul de gekozen node-ID ``xxxx`` in bij ``IoT-node``.
    Vul als subscribe-to-topic in: ``node/xxxx/+``.
-3. pas een sensorwaarde aan in de simulator, en bekijk het resultaat in MQTT1.
-4. zet via de knoppen van MQTT1 led0 van de knoop-simulator aan.
-5. zet via een JSON-bericht vanuit MQTT1 beide leds van de knoop-simulator aan (of uit).
+3. pas een sensorwaarde aan in de simulator, en bekijk het resultaat in MQTTT.
+4. zet via de knoppen van MQTTT led0 van de knoop-simulator aan.
+5. zet via een JSON-bericht vanuit MQTTT beide leds van de knoop-simulator aan (of uit).
 
 
 (5) Gebruik van JSON in het Internet of Things

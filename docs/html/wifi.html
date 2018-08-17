@@ -26,8 +26,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  <div class="document">
-    
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wifi-knopen">
+<h1>WiFi-knopen<a class="headerlink" href="#wifi-knopen" title="Permalink naar deze titel">¶</a></h1>
+<p>In dit hoofdstuk behandelen we IoT-knopen gebaseerd op WiFi radio’s.</p>
+<p>In het vorige hoofdstuk hebben we een IoT-knoop met een webserver behandeld.
+Deze aanpak heeft de volgende nadelen:</p>
+<ul class="simple">
+<li>de webserver moet altijd “online” zijn; voor IoT-knopen met batterijvoeding is dat lastig;</li>
+<li>de webserver is alleen lokaal toegankelijk: je kunt het apparaat niet op grote afstand bedienen;</li>
+<li>de client-server interactie tussen browser en webserver betekent dat de browser steeds om de sensorwaarden moet vragen (“pull”);
+de webserver kan niet direct een bericht aan de browser sturen.</li>
+</ul>
+<p>In dit hoofdstuk gebruiken we in plaats van HTTP het MQTT-protocol:
+dit is een veelgebruikt protocol voor het Internet of Things.
+Met dit protocol kunnen we de bovenstaande problemen oplossen.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="index.html">iot-0</a></h1>
@@ -88,34 +115,8 @@
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="wifi-knopen">
-<h1>WiFi-knopen<a class="headerlink" href="#wifi-knopen" title="Permalink naar deze titel">¶</a></h1>
-<p>In dit hoofdstuk behandelen we IoT-knopen gebaseerd op WiFi radio’s.</p>
-<p>In het vorige hoofdstuk hebben we een IoT-knoop met een webserver behandeld.
-Deze aanpak heeft de volgende nadelen:</p>
-<ul class="simple">
-<li>de webserver moet altijd “online” zijn; voor IoT-knopen met batterijvoeding is dat lastig;</li>
-<li>de webserver is alleen lokaal toegankelijk: je kunt het apparaat niet op grote afstand bedienen;</li>
-<li>de client-server interactie tussen browser en webserver betekent dat de browser steeds om de sensorwaarden moet vragen (“pull”);
-de webserver kan niet direct een bericht aan de browser sturen.</li>
-</ul>
-<p>In dit hoofdstuk gebruiken we in plaats van HTTP het MQTT-protocol:
-dit is een veelgebruikt protocol voor het Internet of Things.
-Met dit protocol kunnen we de bovenstaande problemen oplossen.</p>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-
-
-          </div>
-        </div>
-      </div>
-    <div class="clearer"></div>
-  </div>
+      <div class="clearer"></div>
+    </div>
     <div class="footer">
       &copy;2018, SLO.
       

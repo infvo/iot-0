@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="next" title="Opdrachten" href="webserver/opdrachten.html" />
+    <link rel="next" title="Webserver-keten" href="webserver/webserver-keten.html" />
     <link rel="prev" title="NodeRed" href="nodered.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -26,66 +26,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  <div class="document">
-    
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">iot-0</a></h1>
+  
 
-
-
-
-
-
-
-
-<h3>Navigatie</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ten-geleide.html">Ten geleide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT en JSON</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nodered.html">NodeRed</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Webserver-knopen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html">Opdrachten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver/toetsvragen.html">Toetsvragen</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-knopen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Andere modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="nodered.html" title="vorig hoofdstuk">NodeRed</a></li>
-      <li>Next: <a href="webserver/opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Snel zoeken</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
@@ -97,8 +40,10 @@
 <p class="first admonition-title">Leerdoelen en concepten</p>
 <ul class="last simple">
 <li>client-server interactie; request en response</li>
-<li>lokaal netwerk, adressering</li>
+<li>lokaal netwerk; adressering (IP-adres, domeinnaam)</li>
 <li>HTTP protocol</li>
+<li>adressering: URL</li>
+<li>payload: HTML formaat</li>
 </ul>
 </div>
 <p>Sommige apparaten beschikken over een webserver waarmee je het apparaat kunt bedienen.
@@ -109,7 +54,7 @@ Via de browser van een computer of smartphone bedien je het apparaat op afstand.
 <p class="caption"><span class="caption-text">Webserver-interface van een netwerkprinter</span></p>
 </div>
 <p>In de figuur zie je het interface van een netwerkprinter, als webpagina.
-Via de browser kun je de status van de printer bekijken en de instellingen aanpassen.
+Via de browser kun je de toestand van de printer bekijken en de instellingen aanpassen.
 De webserver biedt een uitgebreid gebruikersinterface.
 Het apparaat zelf kan dan met een eenvoudig interface volstaan,
 met een paar knoppen en eventueel een klein schermpje.</p>
@@ -138,11 +83,17 @@ voor batterij-apparaten is dit is een probleem;</li>
 </ul>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="webserver/webserver-keten.html">Webserver-keten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webserver/webserver-protocol.html">Protocollen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webserver/webserver-protocol.html#adressering">Adressering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/webserver-protocol.html#payload">Payload</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="webserver/opdrachten.html">Opdrachten</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#adresseren-van-de-webserver">(1) Adresseren van de webserver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#aansturen-van-de-led">(2) Aansturen van de LED</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#browser-ontwikkelaarstools">(3) Browser-ontwikkelaarstools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#uitlezen-van-sensor-waarden">(4) Uitlezen van sensor-waarden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#uitlezen-van-sensorwaarden">(4) Uitlezen van sensorwaarden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#de-programmatekst-van-de-iot-knoop">(5) De programmatekst van de IoT-knoop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#een-eigen-voorbeeld">(6) Een eigen voorbeeld</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html#een-nodered-webserver">(7) Een NodeRed webserver</a></li>
@@ -157,8 +108,68 @@ voor batterij-apparaten is dit is een probleem;</li>
           </div>
         </div>
       </div>
-    <div class="clearer"></div>
-  </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodered.html">NodeRed</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Webserver-knopen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webserver/webserver-keten.html">Webserver-keten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/webserver-protocol.html">Protocollen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver/toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="nodered.html" title="vorig hoofdstuk">NodeRed</a></li>
+      <li>Next: <a href="webserver/webserver-keten.html" title="volgend hoofdstuk">Webserver-keten</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
     <div class="footer">
       &copy;2018, SLO.
       

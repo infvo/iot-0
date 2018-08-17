@@ -33,7 +33,7 @@ dit bericht bevat onder meer de signaalsterkte (``rssi``) van het ontvangen beri
 (2) Payload-formaat
 ===================
 
-De RFM69-IOT-knoop stuurt een payload in binair formaat, volgens de Cayenne low power payload-regels.
+De RFM69-IOT-knoop stuurt een payload in binair formaat, volgens de Cayenne low power payload (LPP)-regels.
 De gateway zet deze binaire payload om in een JSON-formaat.
 Het JSON-bericht bevat ook de oorspronkelijke binaire payload.
 

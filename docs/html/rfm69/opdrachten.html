@@ -26,8 +26,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  <div class="document">
-    
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="opdrachten">
+<h1>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink naar deze titel">¶</a></h1>
+<div class="section" id="radio-bereik">
+<h2>(1) Radio-bereik<a class="headerlink" href="#radio-bereik" title="Permalink naar deze titel">¶</a></h2>
+<p>Het bereik van een radio hangt onder meer af van het zendvermogen,
+de frequentie van het signaal, de bandbreedte, de bitrate, de antenne,
+de plaatsing en de obstakels tussen zender en ontvanger.</p>
+<p>In deze opdracht bestudeer je het bereik van de RFM69(H)-radio,
+met de gebruikelijke configuratie (vermogen, frequentie, bandbreedte, bitrate, antenne).</p>
+<p>Als zender gebruik je een RFM69 IoT-knoop met het programma “ping”.
+Als ontvanger gebruik je een RFM69-WiFi-gateway met de normale gateway-software.</p>
+<p>Het programma “ping” stuurt elke 5 seconden een speciaal <em>ping</em> bericht naar de gateway.
+De gateway stuurt dan direct een bericht terug naar de afzender.
+De gateway stuurt ook een MQTT/JSON-bericht met als topic <code class="docutils literal notranslate"><span class="pre">node/&lt;nodeid&gt;/ping</span></code> naar de broker;
+dit bericht bevat onder meer de signaalsterkte (<code class="docutils literal notranslate"><span class="pre">rssi</span></code>) van het ontvangen bericht.</p>
+<ol class="arabic simple">
+<li>bepaal het maximale bereik van de radio “in het open veld”,
+waarbij er geen obstakels zijn tussen de zender (IoT-knoop) en de ontvanger.
+Plaats de RFM69-WiFi-gateway zodat deze een WiFi-verbinding heeft.</li>
+<li>bepaal het maximale bereik van de radio in het gebouw waarin je dit gebruikt,
+bijvoorbeeld je school.</li>
+<li>maak een tabel met de signaalsterkte als functie van de afstand (in het open veld of in een gebouw).
+(Je kunt de MQTT-berichten via MQTTT ontvangen op je mobiele telefoon.)</li>
+</ol>
+</div>
+<div class="section" id="payload-formaat">
+<h2>(2) Payload-formaat<a class="headerlink" href="#payload-formaat" title="Permalink naar deze titel">¶</a></h2>
+<p>De RFM69-IOT-knoop stuurt een payload in binair formaat, volgens de Cayenne low power payload (LPP)-regels.
+De gateway zet deze binaire payload om in een JSON-formaat.
+Het JSON-bericht bevat ook de oorspronkelijke binaire payload.</p>
+<ul class="simple">
+<li>bestudeer de binaire payload van een bericht .
+Geef de overeenkomst aan tussen de bytes in de binaire payload en de payload-elementen in het JSON-bericht.</li>
+</ul>
+</div>
+<div class="section" id="dashboard">
+<h2>(3) Dashboard<a class="headerlink" href="#dashboard" title="Permalink naar deze titel">¶</a></h2>
+<p>Maak een dashboard voor een RFM69 IoT-knoop, op dezelfde manier als voor een WiFi-knoop.</p>
+</div>
+<div class="section" id="koppelen-van-twee-knopen">
+<h2>(4) Koppelen van twee knopen<a class="headerlink" href="#koppelen-van-twee-knopen" title="Permalink naar deze titel">¶</a></h2>
+<p>Koppel via NodeRed de knoppen van een RFM69-IoT-knoop aan een LED van een andere IoT-knoop.
+Hiervoor gebruik je dezelfde aanpak als voor de WiFi-knopen.</p>
+<p><em>Opmerking:</em> bij de bovenstaande opdrachten heb je voordeel van het uniforme JSON-formaat voor de verschillende soorten knopen.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">iot-0</a></h1>
@@ -100,63 +156,8 @@
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="opdrachten">
-<h1>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink naar deze titel">¶</a></h1>
-<div class="section" id="radio-bereik">
-<h2>(1) Radio-bereik<a class="headerlink" href="#radio-bereik" title="Permalink naar deze titel">¶</a></h2>
-<p>Het bereik van een radio hangt onder meer af van het zendvermogen,
-de frequentie van het signaal, de bandbreedte, de bitrate, de antenne,
-de plaatsing en de obstakels tussen zender en ontvanger.</p>
-<p>In deze opdracht bestudeer je het bereik van de RFM69(H)-radio,
-met de gebruikelijke configuratie (vermogen, frequentie, bandbreedte, bitrate, antenne).</p>
-<p>Als zender gebruik je een RFM69 IoT-knoop met het programma “ping”.
-Als ontvanger gebruik je een RFM69-WiFi-gateway met de normale gateway-software.</p>
-<p>Het programma “ping” stuurt elke 5 seconden een speciaal <em>ping</em> bericht naar de gateway.
-De gateway stuurt dan direct een bericht terug naar de afzender.
-De gateway stuurt ook een MQTT/JSON-bericht met als topic <code class="docutils literal notranslate"><span class="pre">node/&lt;nodeid&gt;/ping</span></code> naar de broker;
-dit bericht bevat onder meer de signaalsterkte (<code class="docutils literal notranslate"><span class="pre">rssi</span></code>) van het ontvangen bericht.</p>
-<ol class="arabic simple">
-<li>bepaal het maximale bereik van de radio “in het open veld”,
-waarbij er geen obstakels zijn tussen de zender (IoT-knoop) en de ontvanger.
-Plaats de RFM69-WiFi-gateway zodat deze een WiFi-verbinding heeft.</li>
-<li>bepaal het maximale bereik van de radio in het gebouw waarin je dit gebruikt,
-bijvoorbeeld je school.</li>
-<li>maak een tabel met de signaalsterkte als functie van de afstand (in het open veld of in een gebouw).
-(Je kunt de MQTT-berichten via MQTTT ontvangen op je mobiele telefoon.)</li>
-</ol>
-</div>
-<div class="section" id="payload-formaat">
-<h2>(2) Payload-formaat<a class="headerlink" href="#payload-formaat" title="Permalink naar deze titel">¶</a></h2>
-<p>De RFM69-IOT-knoop stuurt een payload in binair formaat, volgens de Cayenne low power payload-regels.
-De gateway zet deze binaire payload om in een JSON-formaat.
-Het JSON-bericht bevat ook de oorspronkelijke binaire payload.</p>
-<ul class="simple">
-<li>bestudeer de binaire payload van een bericht .
-Geef de overeenkomst aan tussen de bytes in de binaire payload en de payload-elementen in het JSON-bericht.</li>
-</ul>
-</div>
-<div class="section" id="dashboard">
-<h2>(3) Dashboard<a class="headerlink" href="#dashboard" title="Permalink naar deze titel">¶</a></h2>
-<p>Maak een dashboard voor een RFM69 IoT-knoop, op dezelfde manier als voor een WiFi-knoop.</p>
-</div>
-<div class="section" id="koppelen-van-twee-knopen">
-<h2>(4) Koppelen van twee knopen<a class="headerlink" href="#koppelen-van-twee-knopen" title="Permalink naar deze titel">¶</a></h2>
-<p>Koppel via NodeRed de knoppen van een RFM69-IoT-knoop aan een LED van een andere IoT-knoop.
-Hiervoor gebruik je dezelfde aanpak als voor de WiFi-knopen.</p>
-<p><em>Opmerking:</em> bij de bovenstaande opdrachten heb je voordeel van het uniforme JSON-formaat voor de verschillende soorten knopen.</p>
-</div>
-</div>
-
-
-          </div>
-        </div>
-      </div>
-    <div class="clearer"></div>
-  </div>
+      <div class="clearer"></div>
+    </div>
     <div class="footer">
       &copy;2018, SLO.
       

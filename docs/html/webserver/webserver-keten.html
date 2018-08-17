@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Toetsvragen &#8212; iot-0  documentatie</title>
+    <title>Webserver-keten &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="WiFi-knopen" href="../wifi.html" />
-    <link rel="prev" title="Opdrachten" href="opdrachten.html" />
+    <link rel="next" title="Protocollen" href="webserver-protocol.html" />
+    <link rel="prev" title="Webserver-knopen" href="../webserver.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -33,11 +33,36 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="toetsvragen">
-<h1>Toetsvragen<a class="headerlink" href="#toetsvragen" title="Permalink naar deze titel">¶</a></h1>
+  <div class="section" id="webserver-keten">
+<h1>Webserver-keten<a class="headerlink" href="#webserver-keten" title="Permalink naar deze titel">¶</a></h1>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/IoT-webserver-11.png"><img alt="../_images/IoT-webserver-11.png" src="../_images/IoT-webserver-11.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop als webserver</span></p>
+</div>
+<p>In de webserver-keten hebben we te maken met de volgende spelers (<em>agents</em>):</p>
 <ul class="simple">
-<li>waarom kun je de IoT-knoop alleen in het lokale netwerk benaderen?</li>
+<li><em>webserver</em>: de IoT-knoop, als onderdeel van een apparaat.
+Deze IoT-knoop is verbonden in het lokale netwerk, draadloos (WiFi) of bedraad (Ethernet).
+De webserver levert het HTML-document (de “web app”) waarmee je via de browser het apparaat kunt besturen.</li>
+<li><em>webclient</em>: een browser op een computer of smartphone,
+draadloos (WiFi) of bedraad (Ethernet)verbonden in het lokale netwerk.</li>
 </ul>
+<p>Een derde speler is de lokale WiFi-router: deze zorgt voor de fysieke verbinding tussen deze spelers.
+Deze heeft verder geen invloed op de interactie tussen de webclient en de webserver.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/IoT-client-server-0.png"><img alt="../_images/IoT-client-server-0.png" src="../_images/IoT-client-server-0.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Client-server interactie</span></p>
+</div>
+<p>De <em>interactie</em> tussen de webclient en webserver is een <em>client-server interactie</em>.
+Deze interactie verloopt via het HTTP-protocol (Hypertext transfer protocol).
+de webclient stuurt een HTTP-verzoek naar de webserver; de webserver stuurt een HTTP-response terug,
+met daarin een HTML-document.</p>
+<div class="topic">
+<p class="topic-title first">Webservers: van klein tot zeer groot</p>
+<p>Zoals je in de voorbeelden in deze module ziet, kan een webserver heel klein zijn.
+Deze kleine webservers gebruiken dezelfde protocollen en formaten als de webservers die bijvoorbeeld voor Wikipedia gebruikt worden:
+de servers voor dergelijke grote websites staan opgesteld in <em>server farms</em>, vaak in de buurt van een energiecentrale.</p>
+</div>
 </div>
 
 
@@ -63,10 +88,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../webserver.html">Webserver-knopen</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="webserver-keten.html">Webserver-keten</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Webserver-keten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webserver-protocol.html">Protocollen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Toetsvragen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
@@ -86,8 +111,8 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../webserver.html">Webserver-knopen</a><ul>
-      <li>Previous: <a href="opdrachten.html" title="vorig hoofdstuk">Opdrachten</a></li>
-      <li>Next: <a href="../wifi.html" title="volgend hoofdstuk">WiFi-knopen</a></li>
+      <li>Previous: <a href="../webserver.html" title="vorig hoofdstuk">Webserver-knopen</a></li>
+      <li>Next: <a href="webserver-protocol.html" title="volgend hoofdstuk">Protocollen</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -116,7 +141,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/webserver/toetsvragen.rst.txt"
+      <a href="../_sources/webserver/webserver-keten.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

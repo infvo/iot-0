@@ -3,25 +3,17 @@ Opdrachten
 
 In de opdrachten gebruiken we een IoT-knoop met daarop een webserver.
 Via een computer (browser) in hetzelfde netwerk als deze IoT-knoop maak je contact met deze webserver:
-daarmee kun je sensorwaarden van de IoT-knoop opvragen en de actuatoren (LEDs) van de knoop besturen.
-
-.. todo::
-
-   * één webserver-programma voor LED(s) en sensoren.
-   * opmerking over (te) primitieve aanpak van de webserver,
-     niet volgens de REST-conventies van het web.
-     Voordeel van de gekozen aanpak: deze kun je zelf via het URL-venster uitvoeren.
-   * ontwikkelen van een alternatieve versie, wel volgens de REST-conventies?
-   * een uitgebreide versie, met JSON-beschrijving van de toestand?
+daarmee vraag je sensorwaarden van de IoT-knoop op en bestuur je de actuatoren (LEDs) van de knoop.
 
 (1) Adresseren van de webserver
 -------------------------------
 
-In het eerste voorbeeld gebruiken we een IoT-knoop met een webserver voor het aansturen van een LED.
+In het eerste voorbeeld gebruik je een IoT-knoop met een webserver voor het aansturen van een LED en
+voor het uitlezen van sensorwaarden.
 
 .. admonition:: Wat heb je nodig?
 
-  * IoT-knoop met LED en webserver-software (``LED-webserver-0``);
+  * IoT-knoop met LED en webserver-software (``sensor-webserver-0``);
   * computer of smartphone met browser;
   * computer en IoT-knoop moeten beide verbonden zijn in het lokale (WiFi) netwerk.
 
@@ -30,24 +22,18 @@ Een webpagina adresseer je in de browser met een URL.
 
 * Het eerste onderdeel van de URL geeft het protocol aan, in dit geval ``http:`` .
 * Het volgende onderdeel is het adres van de server.
-  Dit kan een *domeinnaam* zijn, zoals ``infvo.nl``, of een *IP-adres*, zoals ``xxx.xxx.xxx.xxx``.
+  Dit kan een *domeinnaam* zijn, zoals ``infvo.nl``, of een *IP-adres*, zoals ``192.168.1.103``.
   De browser gebruikt een Domain Name Server (DNS-server) om het IP-adres te vinden van een domeinnaam.
 * Na het server-adres volgt de *padnaam*: dit identificeert de webpagina op de server.
 
-Webservers in het lokale netwerk komen niet voor in de administratie van een publieke DNS-server.
-Voor het lokale netwerk kun je een andere technologie gebruiken: mDNS (multicast DNS).
-Je kunt dan een lokale webserver (van een apparaat) vinden aan de hand van een naam,
-je hoeft het IP-adres niet te weten.
-(Niet alle operating systems ondersteunen mDNS.)
+Een webserver in het lokale netwerk komt niet voor in de administratie van een publieke DNS-server.
+Voor het lokale netwerk kun je een andere technologie gebruiken: mDNS (multicast DNS;
+niet alle operating systems ondersteunen dit).
 
-De webserver-software meldt zich bij mDNS aan met de naam: ``esp8266-xxxx.local``,
-waarin ``xxxx`` de laatste 4 cijfers van het *MAC-adres* van de knoop zijn.
-Het MAC-adres is een adres dat gebonden is aan een apparaat: dit verandert niet
-(Eigenlijk is het MAC-adres gebonden aan het netwerk-interface van het betreffende apparaat.
-In het geval van de ESP8266 is dit het MAC-adres van het WiFi-interface.)
-Het MAC-adres van de IoT-knoop is het hardware-adres van het WiFi-interface.
-Dit adres is vast onderdeel van het apparaat, en is wereldwijd uniek.
-Een WiFi-MAC-adres is een 48-bits adres, geschreven als een reeks van 6 bytes in hexadecimale notatie: ``00:00:00:00:00:00``.
+De sensor-webserver-software meldt zich bij mDNS aan met de naam: ``esp8266-xxxx.local``,
+waarin ``xxxx`` de laatste 4 cijfers van het WiFi MAC-adres van de knoop zijn.
+Dit unieke adres is een *overanderlijk onderdeel van het apparaat*.
+Een WiFi MAC-adres is een 48-bits adres, geschreven als een reeks van 6 bytes in hexadecimale notatie: ``00:00:00:00:00:00``.
 
 * Zie: https://en.wikipedia.org/wiki/MAC_address.
 
@@ -78,38 +64,49 @@ Opmerkingen:
 
 .. admonition:: Wat heb je nodig?
 
-   * de opstellingn van de vorige opdracht
+   * de opstelling van de vorige opdracht
    * de gegevens van de vorige opdracht
 
 We gebruiken de webserver om een LED van de IoT-knoop aan- en uit te zetten.
 
 1. Open de webpagina van de IoT-knoop, zoals in de vorige opdracht;
-2. Je ziet twee "knoppen" (web-links), om de LED aan- en uit te zetten.
+2. Je ziet twee knoppen (buttons) om de LED aan- en uit te zetten.
    Zet de LED aan.
    De LED op de IoT-knoop brandt nu (als het goed is).
-   Wat is nu de URL (in het URL-venster van de browser)?
+   Wat is nu de URL in het URL-venster van de browser?
 3. Zet de LED uit.
    De LED is nu uit (als het goed is).
    Wat is nu de URL?
-4. Verander de URL in het URL-venster van de browser,
-   met de URL gevonden bij (2), en laad de pagina opnieuw.
-   Wat gebeurt er?
+4. Wat gebeurt er als je in de browser de pagina opnieuw laadt ("refresh" of "reload")?
+5. Wat gebeurt er als je de URL van (2) of (3) invoert in het URL-venster van de browser?
 
-We zien hier dat je een apparaat kunt besturen door verschillende URLs (met verschillende *padnamen*) te gebruiken.
-In de webserver komt elke URL dan overeen met een afzonderlijke actie.
-Dit vind je terug in de broncode van de webserver:
+Je ziet hier dat je een apparaat kunt besturen met een webpagina.
+De beide buttons zijn onderdeel van een *webformulier*.
+De browser stuurt dit formulier via een HTTP-POST-request naar de server,
+met als naam-waard-paren: ``on=1`` voor "aan", ``on=0`` voor "uit".
+
+De server verwerkt het verzoek als volgt:
 
 .. code-block:: c++
 
+  void handleLed0() {
+    if (server.method() == HTTP_POST) {
+      for (uint8_t i=0; i < server.args(); i++) {
+        if (server.argName(i) == "on") {
+          String argvalue = server.arg(i);
+          if (argvalue == "0") {
+            digitalWrite(ledPin, LOW);
+          } else if (argvalue == "1") {
+            digitalWrite(ledPin, HIGH);
+          }
+        }
+      }
+    }
+    sendHTMLdoc();
+  }
+
   server.on("/", handleRoot);
-  server.on("/ledon", handleLedOn);
-  server.on("/ledoff", handleLedOff);
-
-Opmerkingen:
-
-* We gebruiken in dit voorbeeld verschillende URL-padnamen, om de code van de webserver eenvoudig te houden.
-  Een andere manier is om te werken met *parameters* in een URL.
-  (Voorbeelden?)
+  server.on("/leds/0", handleLedOn);
 
 (3) Browser-ontwikkelaarstools
 ------------------------------
@@ -119,21 +116,22 @@ Opmerkingen:
     * soms krijg je meer informatie als je op de naam van het document klikt
     * uit hoeveel tekens (bytes) bestaat het brondocument?
     * welke URL wordt gebruikt voor het inschakelen van de LED? welke voor het uitschakelen?
+    * welke verzoekgegevens worden gebruikt voor het in- en uitschakelen van de LED?
 * je kunt de webserver benaderen via het IP-adres of via de lokale domeinnaam.
     * ga na (via de browser webtools, netwerk-sectie) of dit verschil uitmaakt in de totale tijd tussen aanvraag en resultaat.
 
-(4) Uitlezen van sensor-waarden
+(4) Uitlezen van sensorwaarden
 -------------------------------
 
-We kunnen via de webserver ook de waarden van de sensoren in de IoT-knoop uitlezen.
-Deze kunnen we als getallen beschikbaar maken, maar we kunnen ook kiezen voor een grafische weergave,
-bijvoorbeeld in de vorm van een dashboard.
+Via de webserver lees je ook de waarden van de sensoren in de IoT-knoop uit.
 
 * hiervoor heb je een knoop nodig met de ``sensor-webserver-0``-software.
 * elke keer als je de webpagina ververst krijg je de actuele sensorwaarden te zien.
 * je krijgt veranderde sensorwaarden niet automatisch te zien: je moet daarvoor de webpagina verversen.
-    * dit verversen kun je wel automatiseren, maar dat verandert niets aan het principe: de client vraagt aan de server wat de actuele toestand is.
-    * regelmatig de toestand opvragen heet ook wel "polling"; dit staat tegenover het wachten op een bericht met een veranderde toestand.
+    * dit verversen kun je wel automatiseren, maar dat verandert niets aan het principe:
+      de client vraagt aan de server wat de actuele toestand is.
+    * regelmatig de toestand opvragen bij de server heet ook wel "polling";
+      dit staat tegenover het wachten op een bericht als de toestand veranderd is.
 
 
 (5) De programmatekst van de IoT-knoop
@@ -144,8 +142,7 @@ en op basis van het URL-pad beslist welke actie op de LED plaatsvindt.
 
 * welke functie bevat de tekst van de webpagina?
 * welke functie wordt aangeroepen bij een request met URL ``/``?
-* welke functie wordt aangeroepen bij een request met URL ``/ledon``?
-* welke functie wordt aangeroepen bij een request met URL ``/ledoff``?
+* welke functie wordt aangeroepen bij een request met URL ``/leds/0``?
 * wat gebeurt er als je een onbekende URL invoert?
     * geef daarbij eventueel *parameters* mee, bijvoorbeeld ``?x=123&y=groen``
 

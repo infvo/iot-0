@@ -293,8 +293,8 @@ Uitleg bij deze flow:
       msg.background = "blue";
   }
 
-* de on-button maakt (bij indrukken van de knop) een JSON-bericht aan: <code>{"led0": 1}</code>
-* de off-button maakt een JSON-bericht aan:  <code>{"led0": 0}</code>
+* de on-button maakt (bij indrukken van de knop) een JSON-bericht aan: ``{"0":{"dOut":1}}``
+* de off-button maakt een JSON-bericht aan:  ``{"0":{"dOut":0}}``
 * de MQTT-output-node verstuurt dit bericht via de broker naar de IoT-knoop.
 
 De flow:

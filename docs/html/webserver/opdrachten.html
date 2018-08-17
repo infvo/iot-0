@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Toetsvragen" href="toetsvragen.html" />
-    <link rel="prev" title="Webserver-knopen" href="../webserver.html" />
+    <link rel="prev" title="Protocollen" href="webserver-protocol.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -26,77 +26,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  <div class="document">
-    
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+  
 
-
-
-
-
-
-
-
-<h3>Navigatie</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../webserver.html">Webserver-knopen</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Opdrachten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adresseren-van-de-webserver">(1) Adresseren van de webserver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aansturen-van-de-led">(2) Aansturen van de LED</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#browser-ontwikkelaarstools">(3) Browser-ontwikkelaarstools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uitlezen-van-sensor-waarden">(4) Uitlezen van sensor-waarden</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#de-programmatekst-van-de-iot-knoop">(5) De programmatekst van de IoT-knoop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#een-eigen-voorbeeld">(6) Een eigen voorbeeld</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#een-nodered-webserver">(7) Een NodeRed webserver</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Andere modules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../webserver.html">Webserver-knopen</a><ul>
-      <li>Previous: <a href="../webserver.html" title="vorig hoofdstuk">Webserver-knopen</a></li>
-      <li>Next: <a href="toetsvragen.html" title="volgend hoofdstuk">Toetsvragen</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Snel zoeken</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
@@ -105,25 +37,15 @@
 <h1>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink naar deze titel">¶</a></h1>
 <p>In de opdrachten gebruiken we een IoT-knoop met daarop een webserver.
 Via een computer (browser) in hetzelfde netwerk als deze IoT-knoop maak je contact met deze webserver:
-daarmee kun je sensorwaarden van de IoT-knoop opvragen en de actuatoren (LEDs) van de knoop besturen.</p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>één webserver-programma voor LED(s) en sensoren.</li>
-<li>opmerking over (te) primitieve aanpak van de webserver,
-niet volgens de REST-conventies van het web.
-Voordeel van de gekozen aanpak: deze kun je zelf via het URL-venster uitvoeren.</li>
-<li>ontwikkelen van een alternatieve versie, wel volgens de REST-conventies?</li>
-<li>een uitgebreide versie, met JSON-beschrijving van de toestand?</li>
-</ul>
-</div>
+daarmee vraag je sensorwaarden van de IoT-knoop op en bestuur je de actuatoren (LEDs) van de knoop.</p>
 <div class="section" id="adresseren-van-de-webserver">
 <h2>(1) Adresseren van de webserver<a class="headerlink" href="#adresseren-van-de-webserver" title="Permalink naar deze titel">¶</a></h2>
-<p>In het eerste voorbeeld gebruiken we een IoT-knoop met een webserver voor het aansturen van een LED.</p>
+<p>In het eerste voorbeeld gebruik je een IoT-knoop met een webserver voor het aansturen van een LED en
+voor het uitlezen van sensorwaarden.</p>
 <div class="admonition-wat-heb-je-nodig admonition">
 <p class="first admonition-title">Wat heb je nodig?</p>
 <ul class="last simple">
-<li>IoT-knoop met LED en webserver-software (<code class="docutils literal notranslate"><span class="pre">LED-webserver-0</span></code>);</li>
+<li>IoT-knoop met LED en webserver-software (<code class="docutils literal notranslate"><span class="pre">sensor-webserver-0</span></code>);</li>
 <li>computer of smartphone met browser;</li>
 <li>computer en IoT-knoop moeten beide verbonden zijn in het lokale (WiFi) netwerk.</li>
 </ul>
@@ -133,23 +55,17 @@ Een webpagina adresseer je in de browser met een URL.</p>
 <ul class="simple">
 <li>Het eerste onderdeel van de URL geeft het protocol aan, in dit geval <code class="docutils literal notranslate"><span class="pre">http:</span></code> .</li>
 <li>Het volgende onderdeel is het adres van de server.
-Dit kan een <em>domeinnaam</em> zijn, zoals <code class="docutils literal notranslate"><span class="pre">infvo.nl</span></code>, of een <em>IP-adres</em>, zoals <code class="docutils literal notranslate"><span class="pre">xxx.xxx.xxx.xxx</span></code>.
+Dit kan een <em>domeinnaam</em> zijn, zoals <code class="docutils literal notranslate"><span class="pre">infvo.nl</span></code>, of een <em>IP-adres</em>, zoals <code class="docutils literal notranslate"><span class="pre">192.168.1.103</span></code>.
 De browser gebruikt een Domain Name Server (DNS-server) om het IP-adres te vinden van een domeinnaam.</li>
 <li>Na het server-adres volgt de <em>padnaam</em>: dit identificeert de webpagina op de server.</li>
 </ul>
-<p>Webservers in het lokale netwerk komen niet voor in de administratie van een publieke DNS-server.
-Voor het lokale netwerk kun je een andere technologie gebruiken: mDNS (multicast DNS).
-Je kunt dan een lokale webserver (van een apparaat) vinden aan de hand van een naam,
-je hoeft het IP-adres niet te weten.
-(Niet alle operating systems ondersteunen mDNS.)</p>
-<p>De webserver-software meldt zich bij mDNS aan met de naam: <code class="docutils literal notranslate"><span class="pre">esp8266-xxxx.local</span></code>,
-waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> de laatste 4 cijfers van het <em>MAC-adres</em> van de knoop zijn.
-Het MAC-adres is een adres dat gebonden is aan een apparaat: dit verandert niet
-(Eigenlijk is het MAC-adres gebonden aan het netwerk-interface van het betreffende apparaat.
-In het geval van de ESP8266 is dit het MAC-adres van het WiFi-interface.)
-Het MAC-adres van de IoT-knoop is het hardware-adres van het WiFi-interface.
-Dit adres is vast onderdeel van het apparaat, en is wereldwijd uniek.
-Een WiFi-MAC-adres is een 48-bits adres, geschreven als een reeks van 6 bytes in hexadecimale notatie: <code class="docutils literal notranslate"><span class="pre">00:00:00:00:00:00</span></code>.</p>
+<p>Een webserver in het lokale netwerk komt niet voor in de administratie van een publieke DNS-server.
+Voor het lokale netwerk kun je een andere technologie gebruiken: mDNS (multicast DNS;
+niet alle operating systems ondersteunen dit).</p>
+<p>De sensor-webserver-software meldt zich bij mDNS aan met de naam: <code class="docutils literal notranslate"><span class="pre">esp8266-xxxx.local</span></code>,
+waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> de laatste 4 cijfers van het WiFi MAC-adres van de knoop zijn.
+Dit unieke adres is een <em>overanderlijk onderdeel van het apparaat</em>.
+Een WiFi MAC-adres is een 48-bits adres, geschreven als een reeks van 6 bytes in hexadecimale notatie: <code class="docutils literal notranslate"><span class="pre">00:00:00:00:00:00</span></code>.</p>
 <ul class="simple">
 <li>Zie: <a class="reference external" href="https://en.wikipedia.org/wiki/MAC_address">https://en.wikipedia.org/wiki/MAC_address</a>.</li>
 </ul>
@@ -180,38 +96,48 @@ Voor zover bekend ondersteunen OS X, iOS en Android mDNS.</p>
 <div class="admonition-wat-heb-je-nodig admonition">
 <p class="first admonition-title">Wat heb je nodig?</p>
 <ul class="last simple">
-<li>de opstellingn van de vorige opdracht</li>
+<li>de opstelling van de vorige opdracht</li>
 <li>de gegevens van de vorige opdracht</li>
 </ul>
 </div>
 <p>We gebruiken de webserver om een LED van de IoT-knoop aan- en uit te zetten.</p>
 <ol class="arabic simple">
 <li>Open de webpagina van de IoT-knoop, zoals in de vorige opdracht;</li>
-<li>Je ziet twee “knoppen” (web-links), om de LED aan- en uit te zetten.
+<li>Je ziet twee knoppen (buttons) om de LED aan- en uit te zetten.
 Zet de LED aan.
 De LED op de IoT-knoop brandt nu (als het goed is).
-Wat is nu de URL (in het URL-venster van de browser)?</li>
+Wat is nu de URL in het URL-venster van de browser?</li>
 <li>Zet de LED uit.
 De LED is nu uit (als het goed is).
 Wat is nu de URL?</li>
-<li>Verander de URL in het URL-venster van de browser,
-met de URL gevonden bij (2), en laad de pagina opnieuw.
-Wat gebeurt er?</li>
+<li>Wat gebeurt er als je in de browser de pagina opnieuw laadt (“refresh” of “reload”)?</li>
+<li>Wat gebeurt er als je de URL van (2) of (3) invoert in het URL-venster van de browser?</li>
 </ol>
-<p>We zien hier dat je een apparaat kunt besturen door verschillende URLs (met verschillende <em>padnamen</em>) te gebruiken.
-In de webserver komt elke URL dan overeen met een afzonderlijke actie.
-Dit vind je terug in de broncode van de webserver:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">server</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">handleRoot</span><span class="p">);</span>
-<span class="n">server</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="s">&quot;/ledon&quot;</span><span class="p">,</span> <span class="n">handleLedOn</span><span class="p">);</span>
-<span class="n">server</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="s">&quot;/ledoff&quot;</span><span class="p">,</span> <span class="n">handleLedOff</span><span class="p">);</span>
+<p>Je ziet hier dat je een apparaat kunt besturen met een webpagina.
+De beide buttons zijn onderdeel van een <em>webformulier</em>.
+De browser stuurt dit formulier via een HTTP-POST-request naar de server,
+met als naam-waard-paren: <code class="docutils literal notranslate"><span class="pre">on=1</span></code> voor “aan”, <code class="docutils literal notranslate"><span class="pre">on=0</span></code> voor “uit”.</p>
+<p>De server verwerkt het verzoek als volgt:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">handleLed0</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">server</span><span class="p">.</span><span class="n">method</span><span class="p">()</span> <span class="o">==</span> <span class="n">HTTP_POST</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">uint8_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">server</span><span class="p">.</span><span class="n">args</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">server</span><span class="p">.</span><span class="n">argName</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;on&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">argvalue</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">argvalue</span> <span class="o">==</span> <span class="s">&quot;0&quot;</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">argvalue</span> <span class="o">==</span> <span class="s">&quot;1&quot;</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">sendHTMLdoc</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">server</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="n">handleRoot</span><span class="p">);</span>
+<span class="n">server</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="s">&quot;/leds/0&quot;</span><span class="p">,</span> <span class="n">handleLedOn</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Opmerkingen:</p>
-<ul class="simple">
-<li>We gebruiken in dit voorbeeld verschillende URL-padnamen, om de code van de webserver eenvoudig te houden.
-Een andere manier is om te werken met <em>parameters</em> in een URL.
-(Voorbeelden?)</li>
-</ul>
 </div>
 <div class="section" id="browser-ontwikkelaarstools">
 <h2>(3) Browser-ontwikkelaarstools<a class="headerlink" href="#browser-ontwikkelaarstools" title="Permalink naar deze titel">¶</a></h2>
@@ -223,6 +149,7 @@ Een andere manier is om te werken met <em>parameters</em> in een URL.
 <li>soms krijg je meer informatie als je op de naam van het document klikt</li>
 <li>uit hoeveel tekens (bytes) bestaat het brondocument?</li>
 <li>welke URL wordt gebruikt voor het inschakelen van de LED? welke voor het uitschakelen?</li>
+<li>welke verzoekgegevens worden gebruikt voor het in- en uitschakelen van de LED?</li>
 </ul>
 </dd>
 </dl>
@@ -237,19 +164,19 @@ Een andere manier is om te werken met <em>parameters</em> in een URL.
 </li>
 </ul>
 </div>
-<div class="section" id="uitlezen-van-sensor-waarden">
-<h2>(4) Uitlezen van sensor-waarden<a class="headerlink" href="#uitlezen-van-sensor-waarden" title="Permalink naar deze titel">¶</a></h2>
-<p>We kunnen via de webserver ook de waarden van de sensoren in de IoT-knoop uitlezen.
-Deze kunnen we als getallen beschikbaar maken, maar we kunnen ook kiezen voor een grafische weergave,
-bijvoorbeeld in de vorm van een dashboard.</p>
+<div class="section" id="uitlezen-van-sensorwaarden">
+<h2>(4) Uitlezen van sensorwaarden<a class="headerlink" href="#uitlezen-van-sensorwaarden" title="Permalink naar deze titel">¶</a></h2>
+<p>Via de webserver lees je ook de waarden van de sensoren in de IoT-knoop uit.</p>
 <ul class="simple">
 <li>hiervoor heb je een knoop nodig met de <code class="docutils literal notranslate"><span class="pre">sensor-webserver-0</span></code>-software.</li>
 <li>elke keer als je de webpagina ververst krijg je de actuele sensorwaarden te zien.</li>
 <li><dl class="first docutils">
 <dt>je krijgt veranderde sensorwaarden niet automatisch te zien: je moet daarvoor de webpagina verversen.</dt>
 <dd><ul class="first last">
-<li>dit verversen kun je wel automatiseren, maar dat verandert niets aan het principe: de client vraagt aan de server wat de actuele toestand is.</li>
-<li>regelmatig de toestand opvragen heet ook wel “polling”; dit staat tegenover het wachten op een bericht met een veranderde toestand.</li>
+<li>dit verversen kun je wel automatiseren, maar dat verandert niets aan het principe:
+de client vraagt aan de server wat de actuele toestand is.</li>
+<li>regelmatig de toestand opvragen bij de server heet ook wel “polling”;
+dit staat tegenover het wachten op een bericht als de toestand veranderd is.</li>
 </ul>
 </dd>
 </dl>
@@ -263,8 +190,7 @@ en op basis van het URL-pad beslist welke actie op de LED plaatsvindt.</p>
 <ul class="simple">
 <li>welke functie bevat de tekst van de webpagina?</li>
 <li>welke functie wordt aangeroepen bij een request met URL <code class="docutils literal notranslate"><span class="pre">/</span></code>?</li>
-<li>welke functie wordt aangeroepen bij een request met URL <code class="docutils literal notranslate"><span class="pre">/ledon</span></code>?</li>
-<li>welke functie wordt aangeroepen bij een request met URL <code class="docutils literal notranslate"><span class="pre">/ledoff</span></code>?</li>
+<li>welke functie wordt aangeroepen bij een request met URL <code class="docutils literal notranslate"><span class="pre">/leds/0</span></code>?</li>
 <li><dl class="first docutils">
 <dt>wat gebeurt er als je een onbekende URL invoert?</dt>
 <dd><ul class="first last">
@@ -378,8 +304,79 @@ Stel de output van deze debug-node in als “complete msg object”.</p>
           </div>
         </div>
       </div>
-    <div class="clearer"></div>
-  </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../webserver.html">Webserver-knopen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="webserver-keten.html">Webserver-keten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver-protocol.html">Protocollen</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Opdrachten</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adresseren-van-de-webserver">(1) Adresseren van de webserver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aansturen-van-de-led">(2) Aansturen van de LED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#browser-ontwikkelaarstools">(3) Browser-ontwikkelaarstools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uitlezen-van-sensorwaarden">(4) Uitlezen van sensorwaarden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#de-programmatekst-van-de-iot-knoop">(5) De programmatekst van de IoT-knoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#een-eigen-voorbeeld">(6) Een eigen voorbeeld</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#een-nodered-webserver">(7) Een NodeRed webserver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../webserver.html">Webserver-knopen</a><ul>
+      <li>Previous: <a href="webserver-protocol.html" title="vorig hoofdstuk">Protocollen</a></li>
+      <li>Next: <a href="toetsvragen.html" title="volgend hoofdstuk">Toetsvragen</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
     <div class="footer">
       &copy;2018, SLO.
       

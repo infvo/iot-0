@@ -7,8 +7,10 @@ In dit hoofdstuk behandelen we IoT-knopen die als webserver dienen.
 .. admonition:: Leerdoelen en concepten
 
   * client-server interactie; request en response
-  * lokaal netwerk, adressering
+  * lokaal netwerk; adressering (IP-adres, domeinnaam)
   * HTTP protocol
+  * adressering: URL
+  * payload: HTML formaat
 
 Sommige apparaten beschikken over een webserver waarmee je het apparaat kunt bedienen.
 Voorbeelden hiervan zijn een (thuis)router en een netwerkprinter.
@@ -21,7 +23,7 @@ Via de browser van een computer of smartphone bedien je het apparaat op afstand.
    Webserver-interface van een netwerkprinter
 
 In de figuur zie je het interface van een netwerkprinter, als webpagina.
-Via de browser kun je de status van de printer bekijken en de instellingen aanpassen.
+Via de browser kun je de toestand van de printer bekijken en de instellingen aanpassen.
 De webserver biedt een uitgebreid gebruikersinterface.
 Het apparaat zelf kan dan met een eenvoudig interface volstaan,
 met een paar knoppen en eventueel een klein schermpje.
@@ -60,9 +62,7 @@ Enkele eigenschappen van deze aanpak:
 .. toctree::
    :maxdepth: 2
 
+   webserver/webserver-keten.rst
+   webserver/webserver-protocol.rst 
    webserver/opdrachten.rst
    webserver/toetsvragen.rst
-
-.. |br| raw:: html
-
-   <br />

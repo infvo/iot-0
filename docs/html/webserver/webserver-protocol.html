@@ -1,0 +1,279 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Protocollen &#8212; iot-0  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Opdrachten" href="opdrachten.html" />
+    <link rel="prev" title="Webserver-keten" href="webserver-keten.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="protocollen">
+<h1>Protocollen<a class="headerlink" href="#protocollen" title="Permalink naar deze titel">¶</a></h1>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/IoT-webserver-protocol.png"><img alt="../_images/IoT-webserver-protocol.png" src="../_images/IoT-webserver-protocol.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Webserver protocolstack</span></p>
+</div>
+<p>De protocolstack voor de webserver-keten bevat de volgende elementen, vanaf de toepassing gezien:</p>
+<ul class="simple">
+<li>web-app</li>
+<li>web: hypertext transfer protocol (HTTP): HTML-documenten enz.</li>
+<li>internet: transmission control protocol (TCP): betrouwbare bytestromen</li>
+<li>internet-protocol (IP): best-effort pakketcommunicatie;
+universeel datatransport, onafhankelijk van hardware en toepassingen</li>
+<li>fysieke (hardware) verbinding: WiFi of Ethernet</li>
+</ul>
+<p>Elk protocol heeft zijn eigen vorm van <em>adressering</em> en zijn eigen formaat voor datatransport.
+Dit bevat de “netto” te transporteren data: de <em>payload</em>,
+en extra protocolgegevens voor de adressering, de beveiliging van de payload, enz.</p>
+<div class="topic">
+<p class="topic-title first">3-lagen model</p>
+<p>In de ICT komen we op allerlei plaatsen het 3-lagen model tegen:</p>
+<ul class="simple">
+<li>toepassingen-laag</li>
+<li>logische laag (systeemsoftware)</li>
+<li>fysieke laag (hardware)</li>
+</ul>
+<p>De <em>logische laag</em> schermt de toepassingen af van de onderliggende hardware:
+je kunt daardoor eenzelfde toepassing combineren met allerlei verschillende hardware.
+De logische laag schermt ook de hardware af van de toepassingen:
+je kunt dezelfde hardware gebruiken voor allerlei verschillende toepassingen.
+De logische laag zorgt er ook voor dat de evolutie van de toepassingen onafhankelijk is van de evolutie van de hardware.
+Je kunt je bestaande toepassingen gebruiken op (bijna) elke nieuwe computer.
+En je hoeft niet voor elke nieuwe toepassing een nieuwe computer te kopen.
+Zowel de evolutie van de hardware als die van de software kunnen daardoor veel sneller verlopen.</p>
+<p>(In de begintijd van de computer waren de hardware en de toepassingssoftware veel directer gekoppeld.
+De ontkoppeling door een universele logische laag is een cruciale stap in de ontwikkelingn van de computer.)</p>
+<p>Voorbeelden van dit model:</p>
+</div>
+<div class="topic">
+<p class="topic-title first">end-to-end principe</p>
+<p>Het IP-protocol verzorgt het datatransport in het internet.
+Dit protocol is <em>in het netwerk</em> aanwezig: in de verbonden computers en in de routers e.d.
+De hogere protocollen (TCP, UDP; HTTP; enz.) zijn alleen in de eindpunten aanwezig.
+Het IP-netwerk is hierdoor onafhankelijk van de toepassingen - en daardoor geschikt voor (bijna) alle toepassingen.
+Dit betekent dat je voor een nieuwe toepassing het netwerk niet hoeft aan te passen.
+Iedereen kan een nieuwe toepassing voor het internet maken: hiervoor is alleen software in de eindpunten nodig,
+bijvoorbeeld als toepassingssoftware op een smartphone in combinatie met een server.</p>
+<p>Het IP-protocol is universeel wat de fysieke verbindingen betreft:
+dit protocol schermt de (meeste) eigenschappen van de fysieke verbindingen af voor de hogere protocols.
+Het IP-protocol is ook universeel wat de toepassingen betreft:
+het schermt de eigenschappen van de toepassingen af van de onderliggende hardware (<em>3-lagen model</em>).</p>
+</div>
+<div class="section" id="adressering">
+<h2>Adressering<a class="headerlink" href="#adressering" title="Permalink naar deze titel">¶</a></h2>
+<p>Elk protocollen in de stack heeft een eigen vorm van adressering.
+In het gebruik van de IoT-knoop-webserver kun je deze allemaal tegenkomen.</p>
+<table border="1" class="colwidths-given docutils" id="id2">
+<caption><span class="caption-text">Adressering in de protocolstack</span><a class="headerlink" href="#id2" title="Permalink naar deze tabel">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Protocol</th>
+<th class="head">Adres</th>
+<th class="head">Voorbeeld</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HTTP</td>
+<td>URL-pad</td>
+<td><code class="docutils literal notranslate"><span class="pre">/leds/0</span></code></td>
+</tr>
+<tr class="row-odd"><td>TCP</td>
+<td>TCP-poort</td>
+<td><code class="docutils literal notranslate"><span class="pre">80</span></code> (voor HTTP)</td>
+</tr>
+<tr class="row-even"><td>IP</td>
+<td>IP-adres</td>
+<td><code class="docutils literal notranslate"><span class="pre">94.132.250.160</span></code></td>
+</tr>
+<tr class="row-odd"><td>WiFi Ethernet</td>
+<td>MAC-adres</td>
+<td><code class="docutils literal notranslate"><span class="pre">5CCF7F6EAE3B</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Het MAC-adres is gekoppeld aan de hardware: dit identificeert de IoT-knoop.
+Als domeinnaam van de IoT-knoop-webserver gebruiken we <code class="docutils literal notranslate"><span class="pre">esp8266-xxxx</span></code>,
+waarbij <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> de laatste 4 tekens van het MAC-adres zijn.</p>
+<p>De webserver adresseer je vanuit de browser via een URL van de vorm: <code class="docutils literal notranslate"><span class="pre">http://&lt;domeinnaam&gt;:&lt;poortnummer&gt;/&lt;URL-pad&gt;</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">http</span></code> geeft het protocol aan voor de interactie;</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;domeinnaam&gt;</span></code> is de domeinnaam of het IP-adres van de webserver, voor het IP-protocol;</li>
+<li>het <code class="docutils literal notranslate"><span class="pre">&lt;poortnummer&gt;</span></code> geeft de TCP-poort aan; als je dit onderdeel weglaat, wordt voor HTTP poort 80 gebruikt;</li>
+<li>de webserver gebruikt het <code class="docutils literal notranslate"><span class="pre">&lt;URL-pad&gt;</span></code> om de verschillende verzoeken te onderscheiden.
+Een URL-pad identificeert een <em>resource</em>: in het geval van een IoT-knoop, bijvoorbeeld een sensor of een actuator.</li>
+</ul>
+<p>Voorbeeld: <code class="docutils literal notranslate"><span class="pre">http://esp8266-ae3b/leds/0</span></code></p>
+<p>De webserver krijgt dynamisch een lokaal IP-adres toegewezen van de lokale router, door middel van DHCP.
+De webserver laat dit adres zien via de Arduino-IDE (Seriële Monitor).
+Soms heeft de webserver een display waarop dit IP-adres te vinden is.
+Als je browser verbinding heeft met de webserver vind je het IP-adres ook via de <em>browser-ontwikkelaarstools</em>.</p>
+</div>
+<div class="section" id="payload">
+<h2>Payload<a class="headerlink" href="#payload" title="Permalink naar deze titel">¶</a></h2>
+<p>Elk van de protocollen in de stack heeft een eigen dataformaat:
+dit bevat <em>header</em>-gegevens voor het protocol zelf, bijvoorbeeld voor de adressering,
+en de <em>payload</em>: de data die via dat protocol getransporteerd worden.</p>
+<table border="1" class="colwidths-given docutils" id="id3">
+<caption><span class="caption-text">Protocol- en payload-formaten</span><a class="headerlink" href="#id3" title="Permalink naar deze tabel">¶</a></caption>
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Protocol</th>
+<th class="head">Adres</th>
+<th class="head">Dataformaat</th>
+<th class="head">Payload</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HTTP</td>
+<td>URL-pad</td>
+<td>HTTP-request/response</td>
+<td>HTML-document (etc.)</td>
+</tr>
+<tr class="row-odd"><td>TCP</td>
+<td>TCP-poort</td>
+<td>TCP segment, met bytestroom data</td>
+<td>HTTP-request/response</td>
+</tr>
+<tr class="row-even"><td>IP</td>
+<td>IP-adres</td>
+<td>IP-pakket</td>
+<td>TCP-segment</td>
+</tr>
+<tr class="row-odd"><td>WiFi Ethernet</td>
+<td>MAC-adres</td>
+<td>WiFi/Ethernet frame</td>
+<td>IP-pakket</td>
+</tr>
+</tbody>
+</table>
+<p>Omdat de payload van een IP-pakket voor verschillende protocollen gebruikt kan worden,
+bevat een IP-pakket een veld om aan te geven wat het gebruikte payload-protocol is.
+De ontvanger weet dan op welke manier deze payload geïnterpreteerd moet worden.
+Een vergelijkbaar principe kom je op elk niveau in de protocolstack tegen.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../webserver.html">Webserver-knopen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="webserver-keten.html">Webserver-keten</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Protocollen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adressering">Adressering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payload">Payload</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../webserver.html">Webserver-knopen</a><ul>
+      <li>Previous: <a href="webserver-keten.html" title="vorig hoofdstuk">Webserver-keten</a></li>
+      <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/webserver/webserver-protocol.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

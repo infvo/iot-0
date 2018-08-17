@@ -26,8 +26,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  <div class="document">
-    
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink naar deze titel">¶</a></h1>
+<dl class="glossary docutils">
+<dt id="term-gateway">gateway</dt>
+<dd>verbinding tussen twee netwerken.
+Als de protocollen van deze netwerken verschillen,
+dan verzorgt de gateway de <em>protocol-conversie</em>.</dd>
+<dt id="term-payload">payload</dt>
+<dd>De “eigenlijke data” die getransporteerd wordt als onderdeel van een pakket of frame.
+Zie ook <em>metadata</em>.</dd>
+<dt id="term-metadata">metadata</dt>
+<dd>“data over data”. In het geval van communicatie, meestal data over de communicatie,
+bijvoorbeeld het volgnummer van een bericht, tijdstip van de communicatie,
+of de signaalsterkte bij de communicatie.</dd>
+<dt id="term-replay-attack">replay-attack</dt>
+<dd>poging om in te breken in een beveiligde communicatie, door het herhalen van een vroeger bericht.
+Stel dat je altijd hetzelfde (radio)bericht gebruik om een deur te openen:
+iemand kan dit bericht opvangen en opnieuw afspelen als het hem uitkomt.
+Je kunt dit voorkomen door elk bericht van een volgnummer te voorzien:
+een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
+</dl>
+</div>
+
+
+          </div>
+        </div>
+      </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="index.html">iot-0</a></h1>
@@ -82,39 +114,8 @@
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="glossary">
-<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink naar deze titel">¶</a></h1>
-<dl class="glossary docutils">
-<dt id="term-gateway">gateway</dt>
-<dd>verbinding tussen twee netwerken.
-Als de protocollen van deze netwerken verschillen,
-dan verzorgt de gateway de <em>protocol-conversie</em>.</dd>
-<dt id="term-payload">payload</dt>
-<dd>De “eigenlijke data” die getransporteerd wordt als onderdeel van een pakket of frame.
-Zie ook <em>metadata</em>.</dd>
-<dt id="term-metadata">metadata</dt>
-<dd>“data over data”. In het geval van communicatie, meestal data over de communicatie,
-bijvoorbeeld het volgnummer van een bericht, tijdstip van de communicatie,
-of de signaalsterkte bij de communicatie.</dd>
-<dt id="term-replay-attack">replay-attack</dt>
-<dd>poging om in te breken in een beveiligde communicatie, door het herhalen van een vroeger bericht.
-Stel dat je altijd hetzelfde (radio)bericht gebruik om een deur te openen:
-iemand kan dit bericht opvangen en opnieuw afspelen als het hem uitkomt.
-Je kunt dit voorkomen door elk bericht van een volgnummer te voorzien:
-een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
-</dl>
-</div>
-
-
-          </div>
-        </div>
-      </div>
-    <div class="clearer"></div>
-  </div>
+      <div class="clearer"></div>
+    </div>
     <div class="footer">
       &copy;2018, SLO.
       
