@@ -23,8 +23,27 @@ Beantwoord daarvoor de onderstaande vragen - en presenteer deze aan de andere gr
     * beveiliging (security)?
     * heeft de toepassing draadloze communicatie nodig?
            * zo ja, welk bereik heeft deze draadloze communicatie nodig?
-           
+
 * is het "ding" altijd van stroom voorzien?
 * wat zijn de voordelen van deze toepassing? voor wie?
 * wat zijn de nadelen en risico's van deze toepassing? voor wie?
     * opmerking: de voordelen van een toepassing kunnen bij een andere groep terechtkomen dan de nadelen.
+
+(2) bedenk een eigen IoT-toepassingen
+=====================================
+
+Bedenk en beschrijf een eigen IoT-toepassing.
+
+* wat zijn de voordelen van deze toepassing? voor wie?
+* wat zijn de nadelen en risico's van deze toepassing? voor wie?
+* welke onderdelen denk je voor deze toepassing nodig te hebben?
+* is het "ding" altijd van stroom voorzien?
+* welke eisen stelt de toepassing aan de communicatie tussen de "dingen" en de rest (het internet)?
+  In het bijzonder, welke eisen stelt de toepassing aan de
+
+    * bitsnelheid (geschat)?
+    * latency (geschat)?
+    * betrouwbaarheid?
+    * beveiliging (security)?
+    * heeft de toepassing draadloze communicatie nodig?
+           * zo ja, welk bereik heeft deze draadloze communicatie nodig?

@@ -20,6 +20,8 @@ Zo'n knoop omvat:
   :width: 400px
   :align: center
 
+  Een IoT-knoop
+
 In de voorbeelden gebruiken we een IoT-knoop met de volgende sensoren/actuatoren:
 
 * twee LEDs - als actuatoren

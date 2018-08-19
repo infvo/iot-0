@@ -28,17 +28,15 @@ zie https://en.wikipedia.org/wiki/MQTT, http://mqtt.org):
 
 Door middel van een *topic* adresseert een client een stroom van berichten.
 Als "payload" van de berichten wordt vaak JSON gebruikt.
+JSON biedt een leesbaar en redelijk compact formaat, in het bijzonder geschikt voor data.
 
 In onze IoT-voorbeelden gebruiken we een speciaal JSON-formaat, gebaseerd op het binaire LPP-formaat.
 We bespreken MQTT en JSON in meer detail in het hoofdstuk over WiFi-MQTT-knopen.
 
-.. rubric:: JSON-formaat voor berichten
+.. topic JSON in het web
 
-Voor MQTT-berichten wordt vaak het JSON-formaat gebruikt.
-JSON biedt een leesbaar en redelijk compact formaat, in het bijzonder geschikt voor data.
-(Het web gebruikt voor tekst-documenten het HTML-formaat;
-voor data wordt ook vaak JSON gebruikt, zoals bijvoorbeeld bij AJAX.)
-
+  * AJAX: JavaScript en JSON
+  * websockets als symmetrisch "push" protocol
 
 Protocol-stack
 --------------

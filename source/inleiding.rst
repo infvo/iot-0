@@ -30,7 +30,7 @@ en bijvoorbeeld om op afstand toegang te hebben tot supercomputers.
    Internet of people
 
 Rond 1989/1990 vonden twee belangrijke ontwikkelingen plaats:
-het internet werd toegankelijk gemaakt voor commercieel gebruik;
+het internet werd voor iedereen toegankelijk;
 en Tim Berners-Lee maakte de eerste implementatie van het web,
 met als eerste browser "WorldWideWeb".
 In de periode 1990-2000 heeft dit geleid tot een revolutionaire ontwikkeling in het gebruik van het internet.
@@ -46,7 +46,7 @@ het internet verbindt niet alleen computers, maar ook mensen.
 
    Internet of things
 
-Een volgende stap in het internet is het "internet of things":
+Een volgende stap is het "internet of things":
 door de ontwikkeling van de micro-elektronica is het mogelijk om zeer goedkope,
 kleine en draadloze internetverbindingen te maken.
 Hiermee kunnen allerlei "dingen" in het internet verbonden worden,
@@ -71,19 +71,23 @@ Een dergelijke automatische verwerking stelt extra hoge eisen aan de sensordata 
 
   Een voorbeeld van een dergelijke volautomatisch systeem is de `Maeslantkering <https://nl.wikipedia.org/wiki/Maeslantkering>`_ in de Nieuwe waterweg.
 
+.. rubric:: Persoonlijke en maatschappelijke ontwikkelingen
+
+.. todo::
+
+  * Inleiding: persoonlijke en maatschappelijke ontwikkelingen.
 
 
+.. admonition:: Samenvattend
 
-.. admonition:: Belangrijke punten (samenvatting)
-
-  * het internet of things is de meest recente uitbreiding van het internet:
+  * het internet of things (IoT) is de meest recente uitbreiding van het internet:
     na computers en mensen verbindt het internet nu ook dingen (en dieren en planten);
-  * dit betekent dat dingen met elkaar kunnen communiceren (machine to machine, M2M),
-    maar ook mensen en dingen of computers en dingen.
+  * dit betekent dat dingen met dingen kunnen communiceren (machine to machine, M2M),
+    maar ook mensen met dingen of dingen met computers (diensten).
   * de ontwikkeling van het internet of things is nog maar net begonnen:
     er zullen nog veel nieuwe toepassingen bedacht worden;
-  * de meeste toepassingen van het internet of things zijn bedoeld om beter/sneller/automatisch te kunnen beslissen en besturen,
-    onder meer om de efficiëntie (verbruik van energie en materialen) en de veiligheid te verbeteren.
+  * veel IoT-toepassingen zijn bedoeld om beter/sneller/automatisch te kunnen beslissen en besturen,
+    bijvoorbeeld om de efficiëntie (verbruik van energie en materialen) en de veiligheid te verbeteren.
   * het internet of things heeft gevolgen in je persoonlijke omgeving en op maatschappelijk niveau;
     naast positieve effecten zijn er ook risico's aan verbonden;
   * de ontwikkeling van het internet of things staat niet op zichzelf:
