@@ -2,6 +2,14 @@
 NodeRed
 *******
 
+.. todo::
+
+  * Inleiding NodeRed-hoofdstuk: vooral opdrachten, geen theorie
+  * focus in eerste instantie op web/http (webserver-knopen)
+  * opdracht: dashboard voor webserver-knoop
+      * andere presentatie van gegevens
+      * automatisch opvragen van gegevens
+
 .. admonition:: Leerdoelen en concepten
 
   * Kennismaking met NodeRed, voor het configureren van datastromen, koppelen van data, acties en diensten;

@@ -2,43 +2,34 @@
 Opdrachten
 **********
 
-.. todo::
+.. admonition:: Je hebt nodig
 
-  * opdrachten
-
-.. admonition:: Wat heb je nodig?
-
-  * IoT-knoop (ESP8266) met mqtt-toepassing
+  * IoT-knoop (ESP8266) met toepassing: ``mqtt-node-0``,
+      * met WiFi toegang tot een lokaal netwerk, en
+      * met MQTT-toegang tot publieke MQTT-broker
+      * broker: MQTT-protocol op port 1883
+      * broker: HTTP/websockets-protocol op port 1884
   * MQTT-broker in het publieke netwerk
-  * met web-app mqtt0
-  * MQTT-broker in het lokale netwerk
+  * met web-app mqttt (bijvoorbeeld via de publieke broker)
+  * (later) MQTT-broker in het lokale netwerk
   * (gratis) FRED-account voor NodeRed (in het publieke internet)
-
-.. admonition:: N.B.
-
-  * mqtt0 gebruikt infvoplein, mqtt1 gebruikt infvopedia
-  * voor de websockets-mqtt-library wordt een CDN gebruikt;
-    dit werkt alleen als je (ook) een internet-verbinding hebt.
-  * de IoT-knoop zoekt via WiFi verbinding met de MQTT-broker;
-    het MQTT-protocol (en de port) moeten toegankelijk zijn vanuit het WiFi-netwerk.
-
 
 (1) Publieke broker met web-app
 ===============================
 
-We gebruiken in deze opdracht een publieke MQTT-broker met een (statische) webtoepassing.
-Deze broker fungeert ook als webserver voor statische webtoepassingen.
+We gebruiken in deze opdracht een publieke MQTT-broker.
+Deze broker fungeert ook als webserver voor de statische webtoepassing ``mqttt``.
 
-.. sidebar:: Statische webtoepassing
+.. topic:: Statische webtoepassing
 
-  Bij een statische webtoepassing levert de server alleen als de bestanden;
-  alle actie en interactie vindt alleen plaats in JavaScript in de browser.
+  Bij een statische webtoepassing levert de server alleen de bestanden;
+  alle actie en interactie vindt plaats in de browser, via JavaScript.
   De server gebruikt geen server-scripting (zoals PHP of Python) en geen server-database.
 
-Deze webtoepassing communiceert met de MQTT-broker via het *websockets* protocol.
+De webtoepassing MQTTT communiceert met de MQTT-broker via het *websockets* protocol.
 
 * noteer het MAC-adres van de IoT-knoop; de laatste 4 tekens vormen de node-ID;
-* start de webtoepassing: http://infvopedia.nl:1884/mqtt1.html
+* start de webtoepassing: http://infvopedia.nl:1884/mqttt.html
 * deze toepassing maakt contact met de broker via ``ws://infvopedia.nl:1884``
 * deze toepassing bestaat uit 3 delen:
     * een interface voor een enkele IoT-knoop;
@@ -48,14 +39,25 @@ Deze webtoepassing communiceert met de MQTT-broker via het *websockets* protocol
       Dit kan een *wildcard*-topic zijn.
     * een venster voor het versturen van MQTT-berichten.
       Het MQTT-topic geef je op bij ``Publish to topic:``.
-      (Dit kan *geen wildcard-topic* zijn.)
+      (Let op: dit kan *geen wildcard-topic* zijn!)
       Het bericht verstuur je via de ``Publish``-knop.
 
+1. MQTTT: vul onder ``IoT-node`` de node-ID in van je ESP8266-knoop.
+   De toepassing zal de sensor-berichten van deze knoop nu netjes weergeven.
+2. Vul als ``Subscribe to topic:`` in: ``node/ID/+``, waarin ``ID`` de node-ID van je knoop.
+   Je krijgt dan alle berichten voor deze knoop te zien.
+3. Zet de LED aan via de button On.
+   Als het goed is, zie je
+   (i) het verstuurde bericht in het "subscribe"-venster;
+   (ii) de LED branden;
+   (ii) in de sensordata, de waarde "1" voor deze LED;
+4. Je kunt de LED ook aan- en uitzetten via een MQTT-bericht dat je zelf samenstelt in het Publish-venster.
+   Gebruik hiervoor de berichten die door de buttons verstuurd worden.
+   Je verstuurt het bericht met de "Publish"-knop.
+5. De knoop heeft 2 LEDs: zet ze beide aan.
+6. Verduister de knoop (bijvoorbeeld met een doekje).
+   Controleer dat de volgende sensor-boodschap van de knoop een andere waarde voor de analoge input (LDR) geeft.
 
-* MQTT0: vul de node-ID in van je ESP8266-knoop
-* MQTT0: zet led0 van de ESP8266-knoop aan (via het "publish" venster)
-* MQTT0: stuur een bericht om beide LEDs aan (of uit) te zetten naar de ESP8266-knoop
-* ESP8266-knoop: hou je vinger op de LDR; en zie dat (binnen ca. 50 seconden) MQTT0 een andere sensorwaarde weergeeft.
 
 (2) Een eigen dashboard
 =======================
@@ -145,7 +147,6 @@ Breid het dashboard uit met een weergaven van de licht-sensor.
 * controleer het dashboard; het kan even duren voordat de IoT-knoop de sensorwaarden verstuurd heeft.
 
 
-
 (3) Opdracht
 ============
 
@@ -155,20 +156,21 @@ We gebruiken dit om met de knoppen van de ene IoT-knoop een LED van een andere I
 We gebruiken de ene knop om een LED aan te zetten, en de andere knop om deze uit te zetten.
 Dit zorgt ervoor dat er geen vreemde dingen gebeuren als er een bericht verloren gaat.
 
-* Deze aanpak gebruik je veel vaker bij communicatie:
-  het maakt dan geen verschil of een bepaalde opdracht 1 keer of vaker uitgevoerd wordt.
-  Een dergelijke opdracht noemen we ''idempotent''.
-  Dit vinden we onder andere terug bij de HTTP-opdrachten:
-  GET en PUT zijn idempotent;
-  POST, bijvoorbeeld voor het opsturen van een ingevuld formulier, is niet idempotent:
-  de browser vraagt je dan ook of je "het formulier nog een keer wilt opsturen".
-* Merk op: veel knoppen op een infrarood-afstandbediening zijn idempotent
-  (behalve: de volume-knoppen en de knoppen voor vorig/volgend kanaal).
-* Ga na wat er kan gebeuren als je één knop gebruikt voor het aan- en uitzetten van een enkele LED,
-  in een situatie dat er berichten verloren kunnen gaan.
+.. topic:: Idempotente acties
 
+  Bij een idempotente actie maakt het geen verschil of je deze 1 maal of vaker uitvoert.
+  Deze aanpak gebruik je veel vaker bij communicatie, vooral als deze "best effort" is.
+  Als je niet zeker bent of een bericht aangekomen is, kun je dit zonder risico nogmaals versturen.
+  Een voorbeeld is de HTTP-GET opdracht: je kunt een webpagina een extra keer vernieuwen (reload) zonder dat dit gevolgen heeft (voor de server).
+  De HTTP-POST opdracht is niet idempotent: de browser vraagt je dan of je het formulier nogmaals wilt versturen.
+
+  In ons geval configureren we de knoppen op de IoT-knopen op een idempotente manier:
+  we gebruiken de ene knop voor het aanzetten en de andere voor het uitschakelen van de LED.
+  (Ga na wat er kan gebeuren als je één knop gebruikt voor het aan- en uitschakelen,
+  in een situatie dat er berichten verloren kunnen gaan.)
 
 Bij deze opdracht heb je twee IoT-knopen nodig: met de buttons van de ene knoop bedien je een LED van de andere knoop.
+Je kunt hiervoor ook gesimuleerde knopen gebruiken.
 
 (1) Importeer de flow, pas deze aan, en test deze:
 
@@ -177,11 +179,11 @@ Bij deze opdracht heb je twee IoT-knopen nodig: met de buttons van de ene knoop 
 * maak een nieuw flow-venster aan in NodeRed (via de "+"-tab);
 * importeer hierin de flow-code die hieronder staat;
 * pas de volgende knopen aan:
-    * <code>node/eof1/sensors</code> (mqtt input-node)
-        * verander het Topic in <code>node/[nodeA]/sensors</code>, waarin <code>[nodeA]</code> de ID is van nodeA
+    * ``node/e0f1/sensors`` (mqtt input-node)
+        * verander het Topic in ``node/[nodeA]/sensors``, waarin ``[nodeA]`` de ID is van nodeA
         * "Save"
-    * <code>node/eof2/actuators</code> (mqtt output node)
-        * verander het Topic in <code>node/[nodeB]/sensors</code>, waarin <code>[nodeB]</code> de ID is van nodeB
+    * ``node/e0f2/actuators`` (mqtt output node)
+        * verander het Topic in ``node/[nodeB]/sensors``, waarin ``[nodeB]`` de ID is van nodeB
         * "Save"
 * "Deploy" de aangepaste flow
 * Test de flow:

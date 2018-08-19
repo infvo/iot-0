@@ -44,9 +44,12 @@ Zo’n knoop omvat:</p>
 <li>actuatoren, om in de fysieke wereld te sturen;</li>
 <li>een microcontroller (“computer op een chip”) voor de besturing van de IoT-knoop;</li>
 <li>communicatie, meestal draadloos (radio)</li>
-<li>energie, meestal in de vorm van een batterij, soms aangevuld met “energy harvesting”.</li>
+<li>energie (“voeding”), meestal in de vorm van een batterij, soms aangevuld met “energy harvesting”.</li>
 </ul>
 <p class="rubric">Voorbeeld van een IoT-knoop</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/IoT-knoop-0.png"><img alt="../_images/IoT-knoop-0.png" src="../_images/IoT-knoop-0.png" style="width: 400px;" /></a>
+</div>
 <p>In de voorbeelden gebruiken we een IoT-knoop met de volgende sensoren/actuatoren:</p>
 <ul class="simple">
 <li>twee LEDs - als actuatoren</li>
@@ -152,31 +155,9 @@ niet overal op dezelfde manier gebruikt.</p>
 om de lokale communicatie te scheiden van het publieke internet.
 Deze bridge kan er bijvoorbeeld zorgen voor de versleuteling van het verkeer naar het publieke internet.</p>
 </div>
-<div class="section" id="mqtt">
-<h2>MQTT<a class="headerlink" href="#mqtt" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/MQTT.png"><img alt="../_images/MQTT.png" src="../_images/MQTT.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">MQTT voorbeeld</span></p>
-</div>
-<p>Het basisprotocol van het web is HTTP.
-Voor het Internet of Things is dit protocol minder geschikt:
-het Internet of Things stelt andere eisen aan de communicatie dan het web.
-Een veelgebruikt IoT-protocol is MQTT (Message Queuing Telemetry Transport;
-zie <a class="reference external" href="https://en.wikipedia.org/wiki/MQTT">https://en.wikipedia.org/wiki/MQTT</a>, <a class="reference external" href="http://mqtt.org">http://mqtt.org</a>):</p>
-<ul class="simple">
-<li>MQTT is een <em>publish/subscribe</em>-protocol, waarbij een <em>broker</em> als tussenschakel fungeert tussen de clients;</li>
-<li>een client “pusht” een bericht naar de broker, die het vervolgens naar andere clients “pusht”;
-dit in tegenstelling tot de “pull” interactie tussen een HTTP client (browser) en server (webserver).</li>
-</ul>
-<p class="rubric">JSON-formaat voor berichten</p>
-<p>Voor MQTT-berichten wordt vaak het JSON-formaat gebruikt.
-JSON biedt een leesbaar en redelijk compact formaat, in het bijzonder geschikt voor data.
-(Het web gebruikt voor tekst-documenten het HTML-formaat;
-voor data wordt ook vaak JSON gebruikt, zoals bijvoorbeeld bij AJAX.)</p>
-</div>
 <div class="section" id="nodered">
 <h2>NodeRed<a class="headerlink" href="#nodered" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/Nodered-chat-flow.png"><img alt="../_images/Nodered-chat-flow.png" src="../_images/Nodered-chat-flow.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed Chat flow</span></p>
 </div>
@@ -188,7 +169,7 @@ Met NodeRed knoop je deze verschillende onderdelen samen, op een grafische manie
 </div>
 <div class="section" id="dashboard">
 <h2>Dashboard<a class="headerlink" href="#dashboard" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-0.png"><img alt="../_images/Nodered-dashboard-display-0.png" src="../_images/Nodered-dashboard-display-0.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">Voorbeeld van een dashboard</span></p>
 </div>
@@ -225,12 +206,13 @@ Dit gebruikersinterface heeft de vorm van een webtoepassing (“app”), beschik
 <li class="toctree-l3"><a class="reference internal" href="#iot-knoop">IoT-knoop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#radio">Radio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gateway">Gateway</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mqtt">MQTT</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nodered">NodeRed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dashboard">Dashboard</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="iot-ketens.html">IoT-ketens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-interacties.html">Interacties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-protocollen.html">Protocollen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>

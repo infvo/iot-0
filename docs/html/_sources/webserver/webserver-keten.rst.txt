@@ -22,6 +22,15 @@ Deze heeft verder geen invloed op de interactie tussen de webclient en de webser
 De webserver is in het lokale netwerk verbonden, en daardoor (meestal) niet toegankelijk via het publieke internet.
 Dit betekent dat je het apparaat alleen via smartphones en computers in het lokale netwerk kunt bedienen.
 
+.. topic:: Webservers: van klein tot zeer groot
+
+  Zoals je in de voorbeelden in deze module ziet, kan een webserver heel klein zijn.
+  Deze kleine webservers gebruiken dezelfde protocollen en formaten als de webservers die bijvoorbeeld voor Wikipedia gebruikt worden:
+  de servers voor dergelijke grote websites staan opgesteld in *server farms*, vaak in de buurt van een energiecentrale.
+
+Client-server
+-------------
+
 .. figure:: IoT-client-server-0.png
    :width: 500 px
    :align: center
@@ -39,8 +48,13 @@ De webserver stuurt niet op eigen initiatief gegevens naar de browser ("push").
 Deze HTTP-aanpak is geschikt voor het besturen van een apparaat (actuatoren).
 Voor monitoring van sensoren is deze aanpak minder geschikt.
 
-.. topic:: Webservers: van klein tot zeer groot
+.. topic:: Client-server in het internet
 
-  Zoals je in de voorbeelden in deze module ziet, kan een webserver heel klein zijn.
-  Deze kleine webservers gebruiken dezelfde protocollen en formaten als de webservers die bijvoorbeeld voor Wikipedia gebruikt worden:
-  de servers voor dergelijke grote websites staan opgesteld in *server farms*, vaak in de buurt van een energiecentrale.
+  Andere voorbeelden:
+
+  * server kan als client optreden van andere server (->NodeRed voorbeeld)
+  * mail: server voor versturen (SMTP) en server voor ontvangen (POP, IMAP) van mail
+  * time server
+  * DNS-server
+  * in al deze voorbeelden: initiatief bij client;
+    client hoeft alleen tijdens interactie verbonden te zijn.

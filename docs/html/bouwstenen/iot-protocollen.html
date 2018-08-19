@@ -1,0 +1,200 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Protocollen &#8212; iot-0  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Opdrachten" href="opdrachten.html" />
+    <link rel="prev" title="Interacties" href="iot-interacties.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="protocollen">
+<h1>Protocollen<a class="headerlink" href="#protocollen" title="Permalink naar deze titel">¶</a></h1>
+<div class="section" id="http-web">
+<h2>HTTP (web)<a class="headerlink" href="#http-web" title="Permalink naar deze titel">¶</a></h2>
+<p>HTTP is het basisprotocol voor het web.
+De <em>client-server interactie</em> tussen de browser en de webserver gebruikt dit protocol.
+Door middel van een URL (Uniform Resource Locator) adresseert de browser een element (“<em>resource</em>”)” in het web.
+Deze URL bevat het adres van de server, en het adres (“pad”) van het eigenlijke web-element.
+Als resultaat krijgt de browser een HTML-document, als “payload” in de response van de server.</p>
+<p>Sommige IoT-knopen (of bridges) gebruiken het HTTP-protocol.
+We bespreken dit in meer detail in het hoofdstuk over Webserver-knopen.</p>
+</div>
+<div class="section" id="mqtt-iot">
+<h2>MQTT (IoT)<a class="headerlink" href="#mqtt-iot" title="Permalink naar deze titel">¶</a></h2>
+<p>Het Internet of Things stelt andere eisen aan de communicatie dan het web:
+HTTP is voor het IoT niet bijzonder geschikt.
+Een veelgebruikt IoT-protocol is MQTT (Message Queuing Telemetry Transport;
+zie <a class="reference external" href="https://en.wikipedia.org/wiki/MQTT">https://en.wikipedia.org/wiki/MQTT</a>, <a class="reference external" href="http://mqtt.org">http://mqtt.org</a>):</p>
+<ul class="simple">
+<li>MQTT is een <em>publish/subscribe</em>-protocol, waarbij een <em>broker</em> als tussenschakel fungeert tussen de clients;</li>
+<li>een client “pusht” een bericht met een bepaald <em>topic</em> naar de broker,</li>
+<li>de broker “pusht” een ontvangen bericht naar alle clients die op dit topic geabonneerd zijn.</li>
+</ul>
+<p>Door middel van een <em>topic</em> adresseert een client een stroom van berichten.
+Als “payload” van de berichten wordt vaak JSON gebruikt.</p>
+<p>In onze IoT-voorbeelden gebruiken we een speciaal JSON-formaat, gebaseerd op het binaire LPP-formaat.
+We bespreken MQTT en JSON in meer detail in het hoofdstuk over WiFi-MQTT-knopen.</p>
+<p class="rubric">JSON-formaat voor berichten</p>
+<p>Voor MQTT-berichten wordt vaak het JSON-formaat gebruikt.
+JSON biedt een leesbaar en redelijk compact formaat, in het bijzonder geschikt voor data.
+(Het web gebruikt voor tekst-documenten het HTML-formaat;
+voor data wordt ook vaak JSON gebruikt, zoals bijvoorbeeld bij AJAX.)</p>
+</div>
+<div class="section" id="protocol-stack">
+<h2>Protocol-stack<a class="headerlink" href="#protocol-stack" title="Permalink naar deze titel">¶</a></h2>
+<ul class="simple">
+<li>end-to-end (toepassingen in de eindpunten)</li>
+<li>IP-protocol in het netwerk</li>
+<li>HTTP (web-protocol) -&gt; webserver</li>
+<li>TCP/IP (internet basisprotocol) -&gt; webserver</li>
+<li>MQTT (iot-protocol) -&gt; WiFi-knopen</li>
+</ul>
+</div>
+<div class="section" id="adressering">
+<h2>Adressering<a class="headerlink" href="#adressering" title="Permalink naar deze titel">¶</a></h2>
+<ul class="simple">
+<li>op de verschillende lagen</li>
+<li>HTTP: URL</li>
+<li>MQTT: topic</li>
+<li>IP: IP-adres</li>
+<li>TCP: poortnummer</li>
+</ul>
+</div>
+<div class="section" id="payload">
+<h2>Payload<a class="headerlink" href="#payload" title="Permalink naar deze titel">¶</a></h2>
+<ul class="simple">
+<li>HTTP: HTML-documenten</li>
+<li>MQTT: JSON (JSON-LPP)</li>
+<li>RFM69: LPP (binair)</li>
+<li>LoRa: binaire applicatie-payload</li>
+</ul>
+</div>
+<div class="section" id="protocol-conversie">
+<h2>Protocol-conversie<a class="headerlink" href="#protocol-conversie" title="Permalink naar deze titel">¶</a></h2>
+<ul class="simple">
+<li>gateway (…toepassing in de gateway…)</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="iot-bouwstenen.html">IoT-bouwstenen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-ketens.html">IoT-ketens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-interacties.html">Interacties</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Protocollen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#http-web">HTTP (web)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-iot">MQTT (IoT)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protocol-stack">Protocol-stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adressering">Adressering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payload">Payload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protocol-conversie">Protocol-conversie</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../bouwstenen.html">Bouwstenen</a><ul>
+      <li>Previous: <a href="iot-interacties.html" title="vorig hoofdstuk">Interacties</a></li>
+      <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/bouwstenen/iot-protocollen.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

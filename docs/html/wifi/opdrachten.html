@@ -35,46 +35,40 @@
             
   <div class="section" id="opdrachten">
 <h1>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink naar deze titel">¶</a></h1>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
+<div class="admonition-je-hebt-nodig admonition">
+<p class="first admonition-title">Je hebt nodig</p>
 <ul class="last simple">
-<li>opdrachten</li>
+<li><dl class="first docutils">
+<dt>IoT-knoop (ESP8266) met toepassing: <code class="docutils literal notranslate"><span class="pre">mqtt-node-0</span></code>,</dt>
+<dd><ul class="first last">
+<li>met WiFi toegang tot een lokaal netwerk, en</li>
+<li>met MQTT-toegang tot publieke MQTT-broker</li>
+<li>broker: MQTT-protocol op port 1883</li>
+<li>broker: HTTP/websockets-protocol op port 1884</li>
 </ul>
-</div>
-<div class="admonition-wat-heb-je-nodig admonition">
-<p class="first admonition-title">Wat heb je nodig?</p>
-<ul class="last simple">
-<li>IoT-knoop (ESP8266) met mqtt-toepassing</li>
+</dd>
+</dl>
+</li>
 <li>MQTT-broker in het publieke netwerk</li>
-<li>met web-app mqtt0</li>
-<li>MQTT-broker in het lokale netwerk</li>
+<li>met web-app mqttt (bijvoorbeeld via de publieke broker)</li>
+<li>(later) MQTT-broker in het lokale netwerk</li>
 <li>(gratis) FRED-account voor NodeRed (in het publieke internet)</li>
-</ul>
-</div>
-<div class="admonition-n-b admonition">
-<p class="first admonition-title">N.B.</p>
-<ul class="last simple">
-<li>mqtt0 gebruikt infvoplein, mqtt1 gebruikt infvopedia</li>
-<li>voor de websockets-mqtt-library wordt een CDN gebruikt;
-dit werkt alleen als je (ook) een internet-verbinding hebt.</li>
-<li>de IoT-knoop zoekt via WiFi verbinding met de MQTT-broker;
-het MQTT-protocol (en de port) moeten toegankelijk zijn vanuit het WiFi-netwerk.</li>
 </ul>
 </div>
 <div class="section" id="publieke-broker-met-web-app">
 <h2>(1) Publieke broker met web-app<a class="headerlink" href="#publieke-broker-met-web-app" title="Permalink naar deze titel">¶</a></h2>
-<p>We gebruiken in deze opdracht een publieke MQTT-broker met een (statische) webtoepassing.
-Deze broker fungeert ook als webserver voor statische webtoepassingen.</p>
-<div class="sidebar">
-<p class="first sidebar-title">Statische webtoepassing</p>
-<p class="last">Bij een statische webtoepassing levert de server alleen als de bestanden;
-alle actie en interactie vindt alleen plaats in JavaScript in de browser.
+<p>We gebruiken in deze opdracht een publieke MQTT-broker.
+Deze broker fungeert ook als webserver voor de statische webtoepassing <code class="docutils literal notranslate"><span class="pre">mqttt</span></code>.</p>
+<div class="topic">
+<p class="topic-title first">Statische webtoepassing</p>
+<p>Bij een statische webtoepassing levert de server alleen de bestanden;
+alle actie en interactie vindt plaats in de browser, via JavaScript.
 De server gebruikt geen server-scripting (zoals PHP of Python) en geen server-database.</p>
 </div>
-<p>Deze webtoepassing communiceert met de MQTT-broker via het <em>websockets</em> protocol.</p>
+<p>De webtoepassing MQTTT communiceert met de MQTT-broker via het <em>websockets</em> protocol.</p>
 <ul class="simple">
 <li>noteer het MAC-adres van de IoT-knoop; de laatste 4 tekens vormen de node-ID;</li>
-<li>start de webtoepassing: <a class="reference external" href="http://infvopedia.nl:1884/mqtt1.html">http://infvopedia.nl:1884/mqtt1.html</a></li>
+<li>start de webtoepassing: <a class="reference external" href="http://infvopedia.nl:1884/mqttt.html">http://infvopedia.nl:1884/mqttt.html</a></li>
 <li>deze toepassing maakt contact met de broker via <code class="docutils literal notranslate"><span class="pre">ws://infvopedia.nl:1884</span></code></li>
 <li><dl class="first docutils">
 <dt>deze toepassing bestaat uit 3 delen:</dt>
@@ -86,17 +80,30 @@ Het MQTT-topic geef je op bij: <code class="docutils literal notranslate"><span 
 Dit kan een <em>wildcard</em>-topic zijn.</li>
 <li>een venster voor het versturen van MQTT-berichten.
 Het MQTT-topic geef je op bij <code class="docutils literal notranslate"><span class="pre">Publish</span> <span class="pre">to</span> <span class="pre">topic:</span></code>.
-(Dit kan <em>geen wildcard-topic</em> zijn.)
+(Let op: dit kan <em>geen wildcard-topic</em> zijn!)
 Het bericht verstuur je via de <code class="docutils literal notranslate"><span class="pre">Publish</span></code>-knop.</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>MQTT0: vul de node-ID in van je ESP8266-knoop</li>
-<li>MQTT0: zet led0 van de ESP8266-knoop aan (via het “publish” venster)</li>
-<li>MQTT0: stuur een bericht om beide LEDs aan (of uit) te zetten naar de ESP8266-knoop</li>
-<li>ESP8266-knoop: hou je vinger op de LDR; en zie dat (binnen ca. 50 seconden) MQTT0 een andere sensorwaarde weergeeft.</li>
 </ul>
+<ol class="arabic simple">
+<li>MQTTT: vul onder <code class="docutils literal notranslate"><span class="pre">IoT-node</span></code> de node-ID in van je ESP8266-knoop.
+De toepassing zal de sensor-berichten van deze knoop nu netjes weergeven.</li>
+<li>Vul als <code class="docutils literal notranslate"><span class="pre">Subscribe</span> <span class="pre">to</span> <span class="pre">topic:</span></code> in: <code class="docutils literal notranslate"><span class="pre">node/ID/+</span></code>, waarin <code class="docutils literal notranslate"><span class="pre">ID</span></code> de node-ID van je knoop.
+Je krijgt dan alle berichten voor deze knoop te zien.</li>
+<li>Zet de LED aan via de button On.
+Als het goed is, zie je
+(i) het verstuurde bericht in het “subscribe”-venster;
+(ii) de LED branden;
+(ii) in de sensordata, de waarde “1” voor deze LED;</li>
+<li>Je kunt de LED ook aan- en uitzetten via een MQTT-bericht dat je zelf samenstelt in het Publish-venster.
+Gebruik hiervoor de berichten die door de buttons verstuurd worden.
+Je verstuurt het bericht met de “Publish”-knop.</li>
+<li>De knoop heeft 2 LEDs: zet ze beide aan.</li>
+<li>Verduister de knoop (bijvoorbeeld met een doekje).
+Controleer dat de volgende sensor-boodschap van de knoop een andere waarde voor de analoge input (LDR) geeft.</li>
+</ol>
 </div>
 <div class="section" id="een-eigen-dashboard">
 <h2>(2) Een eigen dashboard<a class="headerlink" href="#een-eigen-dashboard" title="Permalink naar deze titel">¶</a></h2>
@@ -186,20 +193,20 @@ en stel de minima en maxima in op 0 en 1023.</li>
 We gebruiken dit om met de knoppen van de ene IoT-knoop een LED van een andere IoT-knoop aan- en uit te schakelen.</p>
 <p>We gebruiken de ene knop om een LED aan te zetten, en de andere knop om deze uit te zetten.
 Dit zorgt ervoor dat er geen vreemde dingen gebeuren als er een bericht verloren gaat.</p>
-<ul class="simple">
-<li>Deze aanpak gebruik je veel vaker bij communicatie:
-het maakt dan geen verschil of een bepaalde opdracht 1 keer of vaker uitgevoerd wordt.
-Een dergelijke opdracht noemen we ‘’idempotent’‘.
-Dit vinden we onder andere terug bij de HTTP-opdrachten:
-GET en PUT zijn idempotent;
-POST, bijvoorbeeld voor het opsturen van een ingevuld formulier, is niet idempotent:
-de browser vraagt je dan ook of je “het formulier nog een keer wilt opsturen”.</li>
-<li>Merk op: veel knoppen op een infrarood-afstandbediening zijn idempotent
-(behalve: de volume-knoppen en de knoppen voor vorig/volgend kanaal).</li>
-<li>Ga na wat er kan gebeuren als je één knop gebruikt voor het aan- en uitzetten van een enkele LED,
-in een situatie dat er berichten verloren kunnen gaan.</li>
-</ul>
-<p>Bij deze opdracht heb je twee IoT-knopen nodig: met de buttons van de ene knoop bedien je een LED van de andere knoop.</p>
+<div class="topic">
+<p class="topic-title first">Idempotente acties</p>
+<p>Bij een idempotente actie maakt het geen verschil of je deze 1 maal of vaker uitvoert.
+Deze aanpak gebruik je veel vaker bij communicatie, vooral als deze “best effort” is.
+Als je niet zeker bent of een bericht aangekomen is, kun je dit zonder risico nogmaals versturen.
+Een voorbeeld is de HTTP-GET opdracht: je kunt een webpagina een extra keer vernieuwen (reload) zonder dat dit gevolgen heeft (voor de server).
+De HTTP-POST opdracht is niet idempotent: de browser vraagt je dan of je het formulier nogmaals wilt versturen.</p>
+<p>In ons geval configureren we de knoppen op de IoT-knopen op een idempotente manier:
+we gebruiken de ene knop voor het aanzetten en de andere voor het uitschakelen van de LED.
+(Ga na wat er kan gebeuren als je één knop gebruikt voor het aan- en uitschakelen,
+in een situatie dat er berichten verloren kunnen gaan.)</p>
+</div>
+<p>Bij deze opdracht heb je twee IoT-knopen nodig: met de buttons van de ene knoop bedien je een LED van de andere knoop.
+Je kunt hiervoor ook gesimuleerde knopen gebruiken.</p>
 <ol class="arabic simple">
 <li>Importeer de flow, pas deze aan, en test deze:</li>
 </ol>
@@ -212,18 +219,18 @@ in een situatie dat er berichten verloren kunnen gaan.</li>
 <dt>pas de volgende knopen aan:</dt>
 <dd><ul class="first last">
 <li><dl class="first docutils">
-<dt>&lt;code&gt;node/eof1/sensors&lt;/code&gt; (mqtt input-node)</dt>
+<dt><code class="docutils literal notranslate"><span class="pre">node/e0f1/sensors</span></code> (mqtt input-node)</dt>
 <dd><ul class="first last">
-<li>verander het Topic in &lt;code&gt;node/[nodeA]/sensors&lt;/code&gt;, waarin &lt;code&gt;[nodeA]&lt;/code&gt; de ID is van nodeA</li>
+<li>verander het Topic in <code class="docutils literal notranslate"><span class="pre">node/[nodeA]/sensors</span></code>, waarin <code class="docutils literal notranslate"><span class="pre">[nodeA]</span></code> de ID is van nodeA</li>
 <li>“Save”</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>&lt;code&gt;node/eof2/actuators&lt;/code&gt; (mqtt output node)</dt>
+<dt><code class="docutils literal notranslate"><span class="pre">node/e0f2/actuators</span></code> (mqtt output node)</dt>
 <dd><ul class="first last">
-<li>verander het Topic in &lt;code&gt;node/[nodeB]/sensors&lt;/code&gt;, waarin &lt;code&gt;[nodeB]&lt;/code&gt; de ID is van nodeB</li>
+<li>verander het Topic in <code class="docutils literal notranslate"><span class="pre">node/[nodeB]/sensors</span></code>, waarin <code class="docutils literal notranslate"><span class="pre">[nodeB]</span></code> de ID is van nodeB</li>
 <li>“Save”</li>
 </ul>
 </dd>
@@ -337,6 +344,8 @@ in een situatie dat er berichten verloren kunnen gaan.</li>
 <li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../wifi.html">WiFi-knopen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wifi-keten.html">WiFi-MQTT-ketens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifi-protocol.html">WiFi-MQTT-protocol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="local-mqtt.html">MQTT in het lokale netwerk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="public-mqtt.html">MQTT in het publieke netwerk</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Opdrachten</a><ul>

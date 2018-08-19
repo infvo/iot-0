@@ -51,6 +51,14 @@ draadloos (WiFi) of bedraad (Ethernet)verbonden in het lokale netwerk.</li>
 Deze heeft verder geen invloed op de interactie tussen de webclient en de webserver.</p>
 <p>De webserver is in het lokale netwerk verbonden, en daardoor (meestal) niet toegankelijk via het publieke internet.
 Dit betekent dat je het apparaat alleen via smartphones en computers in het lokale netwerk kunt bedienen.</p>
+<div class="topic">
+<p class="topic-title first">Webservers: van klein tot zeer groot</p>
+<p>Zoals je in de voorbeelden in deze module ziet, kan een webserver heel klein zijn.
+Deze kleine webservers gebruiken dezelfde protocollen en formaten als de webservers die bijvoorbeeld voor Wikipedia gebruikt worden:
+de servers voor dergelijke grote websites staan opgesteld in <em>server farms</em>, vaak in de buurt van een energiecentrale.</p>
+</div>
+<div class="section" id="client-server">
+<h2>Client-server<a class="headerlink" href="#client-server" title="Permalink naar deze titel">¶</a></h2>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/IoT-client-server-0.png"><img alt="../_images/IoT-client-server-0.png" src="../_images/IoT-client-server-0.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">Client-server interactie</span></p>
@@ -65,10 +73,17 @@ De webserver stuurt niet op eigen initiatief gegevens naar de browser (“push�
 Deze HTTP-aanpak is geschikt voor het besturen van een apparaat (actuatoren).
 Voor monitoring van sensoren is deze aanpak minder geschikt.</p>
 <div class="topic">
-<p class="topic-title first">Webservers: van klein tot zeer groot</p>
-<p>Zoals je in de voorbeelden in deze module ziet, kan een webserver heel klein zijn.
-Deze kleine webservers gebruiken dezelfde protocollen en formaten als de webservers die bijvoorbeeld voor Wikipedia gebruikt worden:
-de servers voor dergelijke grote websites staan opgesteld in <em>server farms</em>, vaak in de buurt van een energiecentrale.</p>
+<p class="topic-title first">Client-server in het internet</p>
+<p>Andere voorbeelden:</p>
+<ul class="simple">
+<li>server kan als client optreden van andere server (-&gt;NodeRed voorbeeld)</li>
+<li>mail: server voor versturen (SMTP) en server voor ontvangen (POP, IMAP) van mail</li>
+<li>time server</li>
+<li>DNS-server</li>
+<li>in al deze voorbeelden: initiatief bij client;
+client hoeft alleen tijdens interactie verbonden te zijn.</li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -95,7 +110,10 @@ de servers voor dergelijke grote websites staan opgesteld in <em>server farms</e
 <li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../webserver.html">Webserver-knopen</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Webserver-keten</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Webserver-keten</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client-server">Client-server</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="webserver-protocol.html">Protocollen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>

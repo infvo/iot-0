@@ -19,6 +19,8 @@ Met dit protocol kunnen we de bovenstaande problemen oplossen.
 .. toctree::
   :hidden:
 
+  wifi/wifi-keten.rst
+  wifi/wifi-protocol.rst 
   wifi/local-mqtt.rst
   wifi/public-mqtt.rst
   wifi/opdrachten.rst

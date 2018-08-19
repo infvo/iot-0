@@ -12,9 +12,13 @@ Zo'n knoop omvat:
 * actuatoren, om in de fysieke wereld te sturen;
 * een microcontroller ("computer op een chip") voor de besturing van de IoT-knoop;
 * communicatie, meestal draadloos (radio)
-* energie, meestal in de vorm van een batterij, soms aangevuld met "energy harvesting".
+* energie ("voeding"), meestal in de vorm van een batterij, soms aangevuld met "energy harvesting".
 
 .. rubric:: Voorbeeld van een IoT-knoop
+
+.. figure:: IoT-knoop-0.png
+  :width: 400px
+  :align: center
 
 In de voorbeelden gebruiken we een IoT-knoop met de volgende sensoren/actuatoren:
 
@@ -98,32 +102,6 @@ In onze voorbeelden betekent dit dat de berichten van de IoT-knopen omgezet word
 Ook als de IoT-knoop zelf de internet-protocolstack gebruikt kan het zinvol zijn om een bridge te gebruiken,
 om de lokale communicatie te scheiden van het publieke internet.
 Deze bridge kan er bijvoorbeeld zorgen voor de versleuteling van het verkeer naar het publieke internet.
-
-MQTT
-====
-
-.. figure:: MQTT.png
-   :width: 400 px
-   :align: center
-
-   MQTT voorbeeld
-
-Het basisprotocol van het web is HTTP.
-Voor het Internet of Things is dit protocol minder geschikt:
-het Internet of Things stelt andere eisen aan de communicatie dan het web.
-Een veelgebruikt IoT-protocol is MQTT (Message Queuing Telemetry Transport;
-zie https://en.wikipedia.org/wiki/MQTT, http://mqtt.org):
-
-* MQTT is een *publish/subscribe*-protocol, waarbij een *broker* als tussenschakel fungeert tussen de clients;
-* een client "pusht" een bericht naar de broker, die het vervolgens naar andere clients "pusht";
-  dit in tegenstelling tot de "pull" interactie tussen een HTTP client (browser) en server (webserver).
-
-.. rubric:: JSON-formaat voor berichten
-
-Voor MQTT-berichten wordt vaak het JSON-formaat gebruikt.
-JSON biedt een leesbaar en redelijk compact formaat, in het bijzonder geschikt voor data.
-(Het web gebruikt voor tekst-documenten het HTML-formaat;
-voor data wordt ook vaak JSON gebruikt, zoals bijvoorbeeld bij AJAX.)
 
 NodeRed
 =======
