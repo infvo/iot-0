@@ -71,12 +71,19 @@ Een dergelijke automatische verwerking stelt extra hoge eisen aan de sensordata 
 
   Een voorbeeld van een dergelijke volautomatisch systeem is de `Maeslantkering <https://nl.wikipedia.org/wiki/Maeslantkering>`_ in de Nieuwe waterweg.
 
-.. rubric:: Persoonlijke en maatschappelijke ontwikkelingen
+.. rubric:: Over dit hoofdstuk
 
 .. todo::
 
-  * Inleiding: persoonlijke en maatschappelijke ontwikkelingen.
-
+  * Overzicht van dit hoofdstuk
+  * Voorbeelden
+  * Persoonlijke en maatschappelijke gevolgen
+  * Eisen die een toepasssing stelt aan de technologie,
+    en meer speciaal aan de communicatie.
+    Opmerking: (i) je kunt deze eisen opstellen op het niveau van de gebruiker,
+    je hebt daarvoor geen uitgebreide kennis van de technologie nodig;
+    (ii) deze eisen hebben een grote invloed op de technologie-keuzes die je maakt.
+  * Overzicht van de module? (-> verplaatsen naar "ten geleide/over deze module"?)
 
 .. admonition:: Samenvattend
 

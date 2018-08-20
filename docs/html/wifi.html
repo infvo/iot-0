@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>WiFi-knopen &#8212; iot-0  documentatie</title>
+    <title>WiFi-MQTT-knopen &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="next" title="WiFi-MQTT-ketens" href="wifi/wifi-keten.html" />
+    <link rel="next" title="MQTT-ketens" href="wifi/wifi-keten.html" />
     <link rel="prev" title="Toetsvragen" href="webserver/toetsvragen.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -33,20 +33,24 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="wifi-knopen">
-<h1>WiFi-knopen<a class="headerlink" href="#wifi-knopen" title="Permalink naar deze titel">¶</a></h1>
-<p>In dit hoofdstuk behandelen we IoT-knopen gebaseerd op WiFi radio’s.</p>
-<p>In het vorige hoofdstuk hebben we een IoT-knoop met een webserver behandeld.
-Deze aanpak heeft de volgende nadelen:</p>
+  <div class="section" id="wifi-mqtt-knopen">
+<h1>WiFi-MQTT-knopen<a class="headerlink" href="#wifi-mqtt-knopen" title="Permalink naar deze titel">¶</a></h1>
+<p>In dit hoofdstuk behandelen we IoT-knopen gebaseerd op WiFi radio’s.
+Deze knopen communiceren via het MQTT-protocol met de IoT-toepassing (app).
+MQTT is een veel gebruikt protocol voor het het Internet of Things.
+Dit protocol heeft een aantal voordelen ten opzichte van HTTP:</p>
 <ul class="simple">
-<li>de webserver moet altijd “online” zijn; voor IoT-knopen met batterijvoeding is dat lastig;</li>
-<li>de webserver is alleen lokaal toegankelijk: je kunt het apparaat niet op grote afstand bedienen;</li>
-<li>de client-server interactie tussen browser en webserver betekent dat de browser steeds om de sensorwaarden moet vragen (“pull”);
-de webserver kan niet direct een bericht aan de browser sturen.</li>
+<li>de interactie via MQTT is <em>publish-subscribe</em> tussen MQTT-clients en de MQTT-broker,
+in plaats van <em>client-server</em> zoals bij HTTP;</li>
+<li>dit maakt het “pushen” van berichten in beide richtingen mogelijk:
+van IoT-knoop naar IoT-toepassing, en van toepassing naar IoT-knoop;</li>
+<li>MQTT is daarmee geschikt voor het bewaken van sensoren (monitoring) en voor het besturen van actuatoren (control).</li>
+<li>alleen de MQTT-broker moet altijd online zijn;
+clients zoals IoT-knopen of toepassingen hoeven dat niet.
+Dit heeft grote voordelen voor draadloze IoT-knopen.</li>
 </ul>
-<p>In dit hoofdstuk gebruiken we in plaats van HTTP het MQTT-protocol:
-dit is een veelgebruikt protocol voor het Internet of Things.
-Met dit protocol kunnen we de bovenstaande problemen oplossen.</p>
+<p>Als payload voor MQTT gebruiken we in onze voorbeelden JSON,
+meestal in een variant afgeleid van het Cayenne Low Power Payload (LPP) formaat.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -74,12 +78,13 @@ Met dit protocol kunnen we de bovenstaande problemen oplossen.</p>
 <li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webserver.html">Webserver-knopen</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">WiFi-knopen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="wifi/wifi-keten.html">WiFi-MQTT-ketens</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wifi/wifi-protocol.html">WiFi-MQTT-protocol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wifi/local-mqtt.html">MQTT in het lokale netwerk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wifi/public-mqtt.html">MQTT in het publieke netwerk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wifi/opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WiFi-MQTT-knopen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wifi/wifi-keten.html">MQTT-ketens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifi/mqtt-interactie.html">Publish-subscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifi/wifi-protocol.html">Protocol: MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifi/json-lpp.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifi/opdrachten.html">MQTT-opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifi/nodered-opdrachten.html">NodeRed-opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wifi/toetsvragen.html">Toetsvragen</a></li>
 </ul>
 </li>
@@ -99,7 +104,7 @@ Met dit protocol kunnen we de bovenstaande problemen oplossen.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="webserver/toetsvragen.html" title="vorig hoofdstuk">Toetsvragen</a></li>
-      <li>Next: <a href="wifi/wifi-keten.html" title="volgend hoofdstuk">WiFi-MQTT-ketens</a></li>
+      <li>Next: <a href="wifi/wifi-keten.html" title="volgend hoofdstuk">MQTT-ketens</a></li>
   </ul></li>
 </ul>
 </div>

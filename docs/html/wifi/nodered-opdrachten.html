@@ -1,0 +1,447 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>NodeRed-opdrachten &#8212; iot-0  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Toetsvragen" href="toetsvragen.html" />
+    <link rel="prev" title="MQTT-opdrachten" href="opdrachten.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nodered-opdrachten">
+<h1>NodeRed-opdrachten<a class="headerlink" href="#nodered-opdrachten" title="Permalink naar deze titel">¶</a></h1>
+<p>Bij de volgende opdrachten gebruiken we NodeRed-flows met MQTT-knopen.
+Met deze MQTT-knopen sluiten we deze flows aan op de IoT-knopen.</p>
+<div class="admonition-je-hebt-nodig admonition">
+<p class="first admonition-title">Je hebt nodig</p>
+<ul class="last simple">
+<li><dl class="first docutils">
+<dt>IoT-knoop (ESP8266) met toepassing: <code class="docutils literal notranslate"><span class="pre">mqtt-node-0</span></code>,</dt>
+<dd><ul class="first last">
+<li>met WiFi toegang tot een lokaal netwerk, en</li>
+<li>met MQTT-toegang tot publieke MQTT-broker</li>
+<li>broker: MQTT-protocol op port 1883</li>
+<li>broker: HTTP/websockets-protocol op port 1884</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>MQTT-broker in het publieke netwerk</li>
+<li>met web-app mqttt (bijvoorbeeld via de publieke broker)</li>
+<li>(gratis) FRED-account voor NodeRed (in het publieke internet)</li>
+</ul>
+</div>
+<p class="rubric">MQTT-nodes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="32%" />
+<col width="32%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>figuur</strong></td>
+<td><strong>naam</strong></td>
+<td><strong>soort node</strong></td>
+</tr>
+<tr class="row-even"><td><img alt="mqtt-input-node" src="../_images/nodered-mqtt-input-node1.png" /></td>
+<td>mqtt-input-node</td>
+<td>input</td>
+</tr>
+<tr class="row-odd"><td><img alt="mqtt-output-node" src="../_images/nodered-mqtt-output-node1.png" /></td>
+<td>mqtt-output-node</td>
+<td>output</td>
+</tr>
+<tr class="row-even"><td><img alt="mqtt-broker-node" src="../_images/nodered-mqtt-broker-node1.png" /></td>
+<td>mqtt-broker-node</td>
+<td>configuration</td>
+</tr>
+</tbody>
+</table>
+<p>In de volgende voorbeelden gebruiken we de MQTT-input- en output-nodes.
+Deze nodes configureer je met de gebruikte mqtt-broker en het topic.</p>
+<ul class="simple">
+<li>de MQTT-input-node heeft het ontvangen bericht als resultaat (payload);</li>
+<li>de MQTT-output-node stuurt het bericht (<code class="docutils literal notranslate"><span class="pre">msg.payload</span></code>) naar de broker, met het genoemde topic.</li>
+<li>er is een aparte <em>configuratie-node</em> voor de MQTT-broker.
+Deze gebruik je indirect bij het configureren van de MQTT-input- of output-node.
+Je kunt deze broker-node ook vinden via het rechter “hamburger” menu: Configuration Nodes.</li>
+</ul>
+<div class="section" id="mqtt-sensor-flow">
+<h2>(5) MQTT sensor flow<a class="headerlink" href="#mqtt-sensor-flow" title="Permalink naar deze titel">¶</a></h2>
+<p>In dit eerste voorbeeld gebruik je de MQTT-input-node om de sensorwaarden van een IoT-knoop te ontvangen.
+De ontvangen waarden vind je in het debug-venster.
+Om deze flow te gebruiken moet je eerst de verschillende nodes configureren (dubbelklik op de node):</p>
+<ul class="simple">
+<li>de  <em>nodeid</em> in het topic van de MQTT-input-node verander je in de <em>nodeid</em> van je eigen IoT-knoop;
+voorbeeld: <code class="docutils literal notranslate"><span class="pre">node/e0f1/sensors</span></code></li>
+<li>de MQTT-broker van de MQTT-input-node configureer je met de gegevens van je MQTT-broker;</li>
+<li>“deploy” de aangepaste flow. De MQTT-node moet nu melden dat deze “connected” is.
+We gebruiken in dit voorbeeld een JSON-node:
+deze zet een JSON-string-vorm om in een JavaScript-object.
+In het debug-venster vind je dan beide vormen terug.</li>
+<li>schakel één van de beide debug-nodes uit met de knop aan de rechterkant (en <strong>deploy</strong>!).
+Je ziet dan maar één van beide vormen in het debug-venster.</li>
+</ul>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/mqtt-sensor-flow-01.png"><img alt="../_images/mqtt-sensor-flow-01.png" src="../_images/mqtt-sensor-flow-01.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">MQTT sensor flow</span></p>
+</div>
+<p>Flow:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;db8775b0.d5ebf8&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;mqtt in&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;ffc7967f.8cd98&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;node/ec54/sensors&quot;</span><span class="p">,</span><span class="nt">&quot;qos&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="nt">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;f4b28537.29eb48&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">190</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;553ee431.775ac4&quot;</span><span class="p">,</span><span class="s2">&quot;d065b3dd.226998&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;553ee431.775ac4&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;ffc7967f.8cd98&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;tosidebar&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;tostatus&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">430</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;8675f8e8.eb7ff8&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;ffc7967f.8cd98&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;tosidebar&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;tostatus&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">630</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;d065b3dd.226998&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;ffc7967f.8cd98&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;property&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;pretty&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">410</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;8675f8e8.eb7ff8&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;f4b28537.29eb48&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;mqtt-broker&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="s2">&quot;1883&quot;</span><span class="p">,</span><span class="nt">&quot;clientid&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;usetls&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;compatmode&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;keepalive&quot;</span><span class="p">:</span><span class="s2">&quot;60&quot;</span><span class="p">,</span><span class="nt">&quot;cleansession&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;willTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;willQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;willPayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;birthTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;birthQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;birthPayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mqtt-actuator-flow">
+<h2>(6) MQTT actuator flow<a class="headerlink" href="#mqtt-actuator-flow" title="Permalink naar deze titel">¶</a></h2>
+<p>In dit voorbeeld gebruik je de MQTT-output-node.
+Hiermee stuur je JSON berichten naar een IoT-knoop.</p>
+<ul class="simple">
+<li>configureer de MQTT-output-node voor je IoT-knoop (nodeid) en voor je MQTT-broker.</li>
+<li>bij de Inject-node selecteer je voor de payload het JSON-alternatief: <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</li>
+<li>voor het in- en uitschakelen gebruik je de teksten <code class="docutils literal notranslate"><span class="pre">{&quot;0&quot;:{&quot;dOut&quot;:1}}</span></code> en <code class="docutils literal notranslate"><span class="pre">{&quot;0&quot;:{&quot;dOut&quot;:0}}</span></code></li>
+<li>controleer bij de IoT-knoop of de LED aan- en uitgaat;</li>
+<li>controleer eventueel de MQTT-berichten met de MQTTT-app.</li>
+</ul>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/mqtt-actuator-flow-01.png"><img alt="../_images/mqtt-actuator-flow-01.png" src="../_images/mqtt-actuator-flow-01.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">MQTT actuator flow</span></p>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c9b1e2b5.78e5e&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inject&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;ffc7967f.8cd98&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="s2">&quot;{\&quot;led0\&quot;: 1}&quot;</span><span class="p">,</span><span class="nt">&quot;payloadType&quot;</span><span class="p">:</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="nt">&quot;repeat&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;crontab&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;once&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;onceDelay&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">180</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;ab359f6d.215e78&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;ab359f6d.215e78&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;mqtt out&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;ffc7967f.8cd98&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;node/ec54/actuators&quot;</span><span class="p">,</span><span class="nt">&quot;qos&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;retain&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;f4b28537.29eb48&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">460</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;93df0f8c.4a27&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inject&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;ffc7967f.8cd98&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="s2">&quot;{\&quot;led0\&quot;: 0}&quot;</span><span class="p">,</span><span class="nt">&quot;payloadType&quot;</span><span class="p">:</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="nt">&quot;repeat&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;crontab&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;once&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;onceDelay&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">180</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">360</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;ab359f6d.215e78&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;f4b28537.29eb48&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;mqtt-broker&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="s2">&quot;1883&quot;</span><span class="p">,</span><span class="nt">&quot;clientid&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;usetls&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;compatmode&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;keepalive&quot;</span><span class="p">:</span><span class="s2">&quot;60&quot;</span><span class="p">,</span><span class="nt">&quot;cleansession&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;willTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;willQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;willPayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;birthTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;birthQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;birthPayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="een-eigen-dashboard">
+<h2>(7) Een eigen dashboard<a class="headerlink" href="#een-eigen-dashboard" title="Permalink naar deze titel">¶</a></h2>
+<p>In deze opdracht maak je een eigen dashboard voor de IoT-knoop,
+met behulp van NodeRed.</p>
+<ul class="simple">
+<li>Als je een publieke NodeRed-server in het publieke internet gebruikt,
+dan is dit dashboard toegankelijke voor computers in het internet (lokaal en publiek).</li>
+<li>Als je een lokale NodeRed-server in het lokale netwerk gebruikt,
+bijvoorbeeld op een Raspberry Pi,
+dan is het dashboard alleen toegankelijk voor computers in het lokale netwerk.</li>
+</ul>
+<p>Gebruik voor het dashboard de volgende flow:</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/IoT-dashboard-flow.png"><img alt="../_images/IoT-dashboard-flow.png" src="../_images/IoT-dashboard-flow.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed-flow voor IoT-dashboard</span></p>
+</div>
+<p>Kopieer de onderstaande flow-code naar een lege flow-tab in NodeRed.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;5e3f6502.43471c&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;mqtt in&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;c9819513.b5c408&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;node/e0f1/sensors&quot;</span><span class="p">,</span> <span class="nt">&quot;qos&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="nt">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;d97b4423.5d2e78&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">170</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span>
+<span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;9a7d4d72.52a178&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;9a7d4d72.52a178&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;json&quot;</span><span class="p">,</span>
+<span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;c9819513.b5c408&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;pretty&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">210</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">220</span><span class="p">,</span>
+<span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;4d0ca7b0.c72278&quot;</span><span class="p">,</span><span class="s2">&quot;f844ca03.6d7bf8&quot;</span><span class="p">,</span><span class="s2">&quot;c4605ff8.e68618&quot;</span><span class="p">]]},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;bd11d240.d3e168&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_gauge&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;c9819513.b5c408&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;a4643fc8.e80d68&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;gtype&quot;</span><span class="p">:</span><span class="s2">&quot;gage&quot;</span><span class="p">,</span>
+<span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Temperatuur&quot;</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&#39;C&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;{{payload}}&quot;</span><span class="p">,</span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="s2">&quot;50&quot;</span><span class="p">,</span>
+<span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#00b500&quot;</span><span class="p">,</span><span class="s2">&quot;#e6e600&quot;</span><span class="p">,</span><span class="s2">&quot;#ca3838&quot;</span><span class="p">],</span><span class="nt">&quot;seg1&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;seg2&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">610</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span>
+<span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;eb10bb85.4c73b8&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_chart&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;c9819513.b5c408&quot;</span><span class="p">,</span>
+<span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;b7537500.9e9de&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;Temperatuur&quot;</span><span class="p">,</span>
+<span class="nt">&quot;chartType&quot;</span><span class="p">:</span><span class="s2">&quot;line&quot;</span><span class="p">,</span><span class="nt">&quot;legend&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;xformat&quot;</span><span class="p">:</span><span class="s2">&quot;HH:mm:ss&quot;</span><span class="p">,</span><span class="nt">&quot;interpolate&quot;</span><span class="p">:</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+<span class="nt">&quot;nodata&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;dot&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;ymin&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;ymax&quot;</span><span class="p">:</span><span class="s2">&quot;50&quot;</span><span class="p">,</span><span class="nt">&quot;removeOlder&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;removeOlderPoints&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;removeOlderUnit&quot;</span><span class="p">:</span><span class="s2">&quot;3600&quot;</span><span class="p">,</span><span class="nt">&quot;cutout&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;useOneColor&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">,</span><span class="s2">&quot;#aec7e8&quot;</span><span class="p">,</span>
+<span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#2ca02c&quot;</span><span class="p">,</span><span class="s2">&quot;#98df8a&quot;</span><span class="p">,</span><span class="s2">&quot;#d62728&quot;</span><span class="p">,</span><span class="s2">&quot;#ff9896&quot;</span><span class="p">,</span><span class="s2">&quot;#9467bd&quot;</span><span class="p">,</span><span class="s2">&quot;#c5b0d5&quot;</span><span class="p">],</span>
+<span class="nt">&quot;useOldStyle&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">610</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">240</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[],[]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;4d0ca7b0.c72278&quot;</span><span class="p">,</span>
+<span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;change&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;c9819513.b5c408&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;rules&quot;</span><span class="p">:[{</span><span class="nt">&quot;t&quot;</span><span class="p">:</span><span class="s2">&quot;set&quot;</span><span class="p">,</span><span class="nt">&quot;p&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span>
+<span class="nt">&quot;pt&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;payload.temp&quot;</span><span class="p">,</span><span class="nt">&quot;tot&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">}],</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;property&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;reg&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">220</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;eb10bb85.4c73b8&quot;</span><span class="p">,</span><span class="s2">&quot;bd11d240.d3e168&quot;</span><span class="p">]]},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;2881d11b.ee3086&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_gauge&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;c9819513.b5c408&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;a4643fc8.e80d68&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;gtype&quot;</span><span class="p">:</span><span class="s2">&quot;gage&quot;</span><span class="p">,</span>
+<span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Luchtdruk&quot;</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;units&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;{{payload}}&quot;</span><span class="p">,</span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="s2">&quot;950&quot;</span><span class="p">,</span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="s2">&quot;1050&quot;</span><span class="p">,</span>
+<span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#00b500&quot;</span><span class="p">,</span><span class="s2">&quot;#e6e600&quot;</span><span class="p">,</span><span class="s2">&quot;#ca3838&quot;</span><span class="p">],</span><span class="nt">&quot;seg1&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;seg2&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span>
+<span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;96937342.1bee2&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_chart&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;c9819513.b5c408&quot;</span><span class="p">,</span>
+<span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;b7537500.9e9de&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;Luchtdruk&quot;</span><span class="p">,</span>
+<span class="nt">&quot;chartType&quot;</span><span class="p">:</span><span class="s2">&quot;line&quot;</span><span class="p">,</span><span class="nt">&quot;legend&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;xformat&quot;</span><span class="p">:</span><span class="s2">&quot;HH:mm:ss&quot;</span><span class="p">,</span><span class="nt">&quot;interpolate&quot;</span><span class="p">:</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+<span class="nt">&quot;nodata&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;dot&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;ymin&quot;</span><span class="p">:</span><span class="s2">&quot;950&quot;</span><span class="p">,</span><span class="nt">&quot;ymax&quot;</span><span class="p">:</span><span class="s2">&quot;1050&quot;</span><span class="p">,</span><span class="nt">&quot;removeOlder&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;removeOlderPoints&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;removeOlderUnit&quot;</span><span class="p">:</span><span class="s2">&quot;3600&quot;</span><span class="p">,</span><span class="nt">&quot;cutout&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;useOneColor&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">,</span>
+<span class="s2">&quot;#aec7e8&quot;</span><span class="p">,</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#2ca02c&quot;</span><span class="p">,</span><span class="s2">&quot;#98df8a&quot;</span><span class="p">,</span><span class="s2">&quot;#d62728&quot;</span><span class="p">,</span><span class="s2">&quot;#ff9896&quot;</span><span class="p">,</span><span class="s2">&quot;#9467bd&quot;</span><span class="p">,</span><span class="s2">&quot;#c5b0d5&quot;</span><span class="p">],</span>
+<span class="nt">&quot;useOldStyle&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">340</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[],[]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;f844ca03.6d7bf8&quot;</span><span class="p">,</span>
+<span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;change&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;c9819513.b5c408&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;rules&quot;</span><span class="p">:[{</span><span class="nt">&quot;t&quot;</span><span class="p">:</span><span class="s2">&quot;set&quot;</span><span class="p">,</span><span class="nt">&quot;p&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span>
+<span class="nt">&quot;pt&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;payload.pres&quot;</span><span class="p">,</span><span class="nt">&quot;tot&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">}],</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;property&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;reg&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">320</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;2881d11b.ee3086&quot;</span><span class="p">,</span><span class="s2">&quot;96937342.1bee2&quot;</span><span class="p">]]},</span>
+<span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c4605ff8.e68618&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;c9819513.b5c408&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+<span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">390</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">160</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;d97b4423.5d2e78&quot;</span><span class="p">,</span>
+<span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;mqtt-broker&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;infvopedia.nl&quot;</span><span class="p">,</span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="s2">&quot;1883&quot;</span><span class="p">,</span><span class="nt">&quot;clientid&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;usetls&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;compatmode&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;keepalive&quot;</span><span class="p">:</span><span class="s2">&quot;60&quot;</span><span class="p">,</span><span class="nt">&quot;cleansession&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;birthTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;birthQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;birthRetain&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;birthPayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;closeTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;closeQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="nt">&quot;closeRetain&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;closePayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;willTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;willQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;willRetain&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
+<span class="nt">&quot;willPayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;a4643fc8.e80d68&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_group&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;my-meters&quot;</span><span class="p">,</span>
+<span class="nt">&quot;tab&quot;</span><span class="p">:</span><span class="s2">&quot;4e75c8d2.40f86&quot;</span><span class="p">,</span><span class="nt">&quot;disp&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="nt">&quot;collapse&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;b7537500.9e9de&quot;</span><span class="p">,</span>
+<span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_group&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;My-graphs&quot;</span><span class="p">,</span><span class="nt">&quot;tab&quot;</span><span class="p">:</span><span class="s2">&quot;4e75c8d2.40f86&quot;</span><span class="p">,</span><span class="nt">&quot;disp&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+<span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="nt">&quot;collapse&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;4e75c8d2.40f86&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_tab&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;My-node&quot;</span><span class="p">,</span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="s2">&quot;dashboard&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+<p>Pas in deze flow de parameters van de MQTT-input-node aan, en bekijk je eigen dashboard.</p>
+<ul class="simple">
+<li>dubbel-klik op de MQTT-input-node;</li>
+<li>verander de node-ID in het topic naar de ID van je eigen knoop.</li>
+<li>je krijgt de webpagina met het dashboard via de tab “dasboard”, bij het debug-venster rechts.
+In deze tab klik je op het vierkantje met de uitgaande pijl (rechtsboven).</li>
+<li>in het dashboard vind je de gegevens van je eigen knoop onder “My Node”.</li>
+</ul>
+<p>Breid het dashboard uit met een weergaven van de licht-sensor.</p>
+<ul class="simple">
+<li>kopieer de deelflow met 3 knopen: set msg.payload, Luchtdruk(meter) en Luchtdruk (grafiek),</li>
+<li>en plak deze in dezelfde flow;</li>
+<li>pas de knoop msg.payload aan: <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">msg.payload</span> <span class="pre">to</span> <span class="pre">msg.payload.light</span></code></li>
+<li>pas de knopen Luchtdruk (meter) en Luchtdruk (grafiek) aan: vervang “Luchtdruk” door “Licht”,
+en stel de minima en maxima in op 0 en 1023.</li>
+<li><strong>deploy</strong></li>
+<li>controleer het dashboard; het kan even duren voordat de IoT-knoop de sensorwaarden verstuurd heeft.</li>
+</ul>
+</div>
+<div class="section" id="koppelen-van-knopen">
+<h2>(8) Koppelen van knopen<a class="headerlink" href="#koppelen-van-knopen" title="Permalink naar deze titel">¶</a></h2>
+<p>Je kunt in NodeRed ook verschillende IoT-knopen aan elkaar koppelen.
+We gebruiken dit om met de knoppen van de ene IoT-knoop een LED van een andere IoT-knoop aan- en uit te schakelen.</p>
+<p>We gebruiken de ene knop om een LED aan te zetten, en de andere knop om deze uit te zetten.
+Dit zorgt ervoor dat er geen vreemde dingen gebeuren als er een bericht verloren gaat.</p>
+<div class="topic">
+<p class="topic-title first">Idempotente acties</p>
+<p>Bij een idempotente actie maakt het geen verschil of je deze 1 maal of vaker uitvoert.
+Deze aanpak gebruik je veel vaker bij communicatie, vooral als deze “best effort” is.
+Als je niet zeker bent of een bericht aangekomen is, kun je dit zonder risico nogmaals versturen.
+Een voorbeeld is de HTTP-GET opdracht: je kunt een webpagina een extra keer vernieuwen (reload) zonder dat dit gevolgen heeft (voor de server).
+De HTTP-POST opdracht is niet idempotent: de browser vraagt je dan of je het formulier nogmaals wilt versturen.</p>
+<p>In ons geval configureren we de knoppen op de IoT-knopen op een idempotente manier:
+we gebruiken de ene knop voor het aanzetten en de andere voor het uitschakelen van de LED.
+(Ga na wat er kan gebeuren als je één knop gebruikt voor het aan- en uitschakelen,
+in een situatie dat er berichten verloren kunnen gaan.)</p>
+</div>
+<p>Bij deze opdracht heb je twee IoT-knopen nodig: met de buttons van de ene knoop bedien je een LED van de andere knoop.
+Je kunt hiervoor ook gesimuleerde knopen gebruiken.</p>
+<ol class="arabic simple">
+<li>Importeer de flow, pas deze aan, en test deze:</li>
+</ol>
+<ul class="simple">
+<li>maak een IoT-knoop(simulator) aan, en geef deze een eigen (uniek) adres (nodeA);</li>
+<li>maak een tweede IoT-knoop aan, en geef deze een eigen (uniek) adres (nodeB);</li>
+<li>maak een nieuw flow-venster aan in NodeRed (via de “+”-tab);</li>
+<li>importeer hierin de flow-code die hieronder staat;</li>
+<li><dl class="first docutils">
+<dt>pas de volgende knopen aan:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">node/e0f1/sensors</span></code> (mqtt input-node)</dt>
+<dd><ul class="first last">
+<li>verander het Topic in <code class="docutils literal notranslate"><span class="pre">node/[nodeA]/sensors</span></code>, waarin <code class="docutils literal notranslate"><span class="pre">[nodeA]</span></code> de ID is van nodeA</li>
+<li>“Save”</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">node/e0f2/actuators</span></code> (mqtt output node)</dt>
+<dd><ul class="first last">
+<li>verander het Topic in <code class="docutils literal notranslate"><span class="pre">node/[nodeB]/sensors</span></code>, waarin <code class="docutils literal notranslate"><span class="pre">[nodeB]</span></code> de ID is van nodeB</li>
+<li>“Save”</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>“Deploy” de aangepaste flow</li>
+<li><dl class="first docutils">
+<dt>Test de flow:</dt>
+<dd><ul class="first last">
+<li>Button0 van NodeA schakelt Led0 van NodeB aan</li>
+<li>Button1 van NodeA schakelt Led0 van NodeB uit</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Deze flow heeft als nadeel dat je bij NodeA niet ziet of Led0 bij NodeB brandt.</li>
+</ol>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>pas de flow aan zodat Button0 ook Led0 van NodeA aanzet, en Led0 van NodeA uitzet</dt>
+<dd><ul class="first last">
+<li>hint: je hoeft maar 1 output-node toe te voegen.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<ol class="arabic simple" start="3">
+<li>Wat lastiger is de volgende variant:</li>
+</ol>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>pas de flow aan zodat Button0 ‘’Led1’‘(!) van NodeA aanzet, en Led1 van NodeA uitzet (in plaats van Led0).</dt>
+<dd><ul class="first last">
+<li>(en nog steeds Led0 van NodeB schakelt)</li>
+<li>tip: binnen NodeRed kun je nodes of hele flows kopiëren en plakken met Copy/Paste.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li>De volgende stap ligt nu voor de hand:<ul>
+<li>pas de flow aan zodat Button0 van NodeB Led0 van NodeA en Led1 van NodeB aan zet; Button1 van NodeB zet deze leds uit.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="flow-voor-de-koppeling-van-schakelaars-en-leds">
+<h2>Flow voor de koppeling van schakelaars en LEDs<a class="headerlink" href="#flow-voor-de-koppeling-van-schakelaars-en-leds" title="Permalink naar deze titel">¶</a></h2>
+<p>Uitleg bij deze flow:</p>
+<ul class="simple">
+<li>de mqtt-input-node ontvangt (via “subscribe”) de berichten van het Topic <code class="docutils literal notranslate"><span class="pre">node/[IDa]/sensors</span></code></li>
+<li>de JSON-node zet de JSON-tekst van het mqtt-bericht om in een JavaScript-object</li>
+<li><dl class="first docutils">
+<dt>de switch-node splitst de berichten in:</dt>
+<dd><ul class="first last">
+<li>berichten met <code class="docutils literal notranslate"><span class="pre">button0:</span> <span class="pre">1</span></code> en</li>
+<li>berichten met <code class="docutils literal notranslate"><span class="pre">button1:</span> <span class="pre">1</span></code>;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>deze verschijnen op de twee uitgangen, en op de ingangen van de template-nodes:</dt>
+<dd><ul class="first last">
+<li>de eerste template-node geeft als resultaat {“0”: {“dOut”:1} (in JSON)</li>
+<li>de tweede template-node geeft: {“0”: {“dOut”:0} (idem)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>de mqtt-output-node verstuurt (“publish”) het JSON-bericht onder Topic <code class="docutils literal notranslate"><span class="pre">node/[IDb]/actuators</span></code></li>
+<li>controleer de berichten met het mqtt-hulpprogramma</li>
+<li>controleer de berichten door debug-nodes aan de flow toe te voegen (vergeet “Deploy” niet!).</li>
+</ul>
+<p>NodeRed-code van deze flow:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;7bd76101.769c6&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;mqtt in&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;21e77168.c3a01e&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;node/e0f1/sensors&quot;</span><span class="p">,</span><span class="nt">&quot;qos&quot;</span><span class="p">:</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="nt">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;d97b4423.5d2e78&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">210</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;61316186.c89fa8&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;61316186.c89fa8&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;21e77168.c3a01e&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;property&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;pretty&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;65a7b0ed.8e5d&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;65a7b0ed.8e5d&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;switch&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;21e77168.c3a01e&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;button0/1 split&quot;</span><span class="p">,</span><span class="nt">&quot;property&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;propertyType&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="nt">&quot;rules&quot;</span><span class="p">:[{</span><span class="nt">&quot;t&quot;</span><span class="p">:</span><span class="s2">&quot;jsonata_exp&quot;</span><span class="p">,</span><span class="nt">&quot;v&quot;</span><span class="p">:</span><span class="s2">&quot;payload.button0 = 1&quot;</span><span class="p">,</span><span class="nt">&quot;vt&quot;</span><span class="p">:</span><span class="s2">&quot;jsonata&quot;</span><span class="p">},{</span><span class="nt">&quot;t&quot;</span><span class="p">:</span><span class="s2">&quot;jsonata_exp&quot;</span><span class="p">,</span><span class="nt">&quot;v&quot;</span><span class="p">:</span><span class="s2">&quot;payload.button1 = 1&quot;</span><span class="p">,</span><span class="nt">&quot;vt&quot;</span><span class="p">:</span><span class="s2">&quot;jsonata&quot;</span><span class="p">}],</span><span class="nt">&quot;checkall&quot;</span><span class="p">:</span><span class="s2">&quot;true&quot;</span><span class="p">,</span><span class="nt">&quot;repair&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">330</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">240</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;441083fd.53bc6c&quot;</span><span class="p">],[</span><span class="s2">&quot;54723040.784cf&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;441083fd.53bc6c&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;template&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;21e77168.c3a01e&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;led0-1&quot;</span><span class="p">,</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;fieldType&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="s2">&quot;mustache&quot;</span><span class="p">,</span><span class="nt">&quot;template&quot;</span><span class="p">:</span><span class="s2">&quot;{\&quot;led0\&quot;: 1}&quot;</span><span class="p">,</span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="s2">&quot;str&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">540</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">220</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;e12e623.940f0a&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;54723040.784cf&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;template&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;21e77168.c3a01e&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;led0-0&quot;</span><span class="p">,</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;fieldType&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="s2">&quot;mustache&quot;</span><span class="p">,</span><span class="nt">&quot;template&quot;</span><span class="p">:</span><span class="s2">&quot;{\&quot;led0\&quot;: 0}&quot;</span><span class="p">,</span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="s2">&quot;str&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">540</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;e12e623.940f0a&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;e12e623.940f0a&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;mqtt out&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;21e77168.c3a01e&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;node/e0f2/actuators&quot;</span><span class="p">,</span><span class="nt">&quot;qos&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;retain&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;d97b4423.5d2e78&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">790</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">240</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;d97b4423.5d2e78&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;mqtt-broker&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;broker&quot;</span><span class="p">:</span><span class="s2">&quot;infvopedia.nl&quot;</span><span class="p">,</span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="s2">&quot;1883&quot;</span><span class="p">,</span><span class="nt">&quot;clientid&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;usetls&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;compatmode&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;keepalive&quot;</span><span class="p">:</span><span class="s2">&quot;60&quot;</span><span class="p">,</span><span class="nt">&quot;cleansession&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;birthTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;birthQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;birthRetain&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;birthPayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;closeTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;closeQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;closeRetain&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;closePayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;willTopic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;willQos&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;willRetain&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;willPayload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wifi-keten.html">MQTT-ketens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt-interactie.html">Publish-subscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifi-protocol.html">Protocol: MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-lpp.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">MQTT-opdrachten</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NodeRed-opdrachten</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-sensor-flow">(5) MQTT sensor flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-actuator-flow">(6) MQTT actuator flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#een-eigen-dashboard">(7) Een eigen dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#koppelen-van-knopen">(8) Koppelen van knopen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flow-voor-de-koppeling-van-schakelaars-en-leds">Flow voor de koppeling van schakelaars en LEDs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../wifi.html">WiFi-MQTT-knopen</a><ul>
+      <li>Previous: <a href="opdrachten.html" title="vorig hoofdstuk">MQTT-opdrachten</a></li>
+      <li>Next: <a href="toetsvragen.html" title="volgend hoofdstuk">Toetsvragen</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/wifi/nodered-opdrachten.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

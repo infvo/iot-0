@@ -36,23 +36,32 @@
   <div class="section" id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Permalink naar deze titel">¶</a></h1>
 <dl class="glossary docutils">
-<dt id="term-gateway">gateway</dt>
+</dl>
+<dl class="docutils">
+<dt>downlink</dt>
+<dd><p class="first">van de toepassing naar de IoT-knoop; tegenover uplink.</p>
+<dl class="last docutils">
+<dt>gateway</dt>
 <dd>verbinding tussen twee netwerken.
 Als de protocollen van deze netwerken verschillen,
 dan verzorgt de gateway de <em>protocol-conversie</em>.</dd>
-<dt id="term-payload">payload</dt>
+<dt>payload</dt>
 <dd>De “eigenlijke data” die getransporteerd wordt als onderdeel van een pakket of frame.
 Zie ook <em>metadata</em>.</dd>
-<dt id="term-metadata">metadata</dt>
+<dt>metadata</dt>
 <dd>“data over data”. In het geval van communicatie, meestal data over de communicatie,
 bijvoorbeeld het volgnummer van een bericht, tijdstip van de communicatie,
 of de signaalsterkte bij de communicatie.</dd>
-<dt id="term-replay-attack">replay-attack</dt>
+<dt>replay-attack</dt>
 <dd>poging om in te breken in een beveiligde communicatie, door het herhalen van een vroeger bericht.
 Stel dat je altijd hetzelfde (radio)bericht gebruik om een deur te openen:
 iemand kan dit bericht opvangen en opnieuw afspelen als het hem uitkomt.
 Je kunt dit voorkomen door elk bericht van een volgnummer te voorzien:
 een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
+<dt>uplink</dt>
+<dd>van de IoT-knoop naar de toepassing; tegenover downlink.</dd>
+</dl>
+</dd>
 </dl>
 </div>
 
@@ -79,7 +88,7 @@ een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
 <li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webserver.html">Webserver-knopen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-MQTT-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>

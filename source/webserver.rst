@@ -65,4 +65,5 @@ De client-server interactie via HTTP is een "pull" interactie: het initiatief vo
    webserver/webserver-keten.rst
    webserver/webserver-protocol.rst
    webserver/opdrachten.rst
+   webserver/nodered-opdrachten.rst 
    webserver/toetsvragen.rst

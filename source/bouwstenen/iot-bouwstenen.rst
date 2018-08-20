@@ -2,19 +2,23 @@
 IoT-bouwstenen
 **************
 
+We beschrijven hier de verschillende bouwstenen van het Internet of Things.
+Met deze bouwstenen kun je op verschillende manieren een *keten* vormen.
+Een aantal mogelijke ketens vind je in het keten-gedeelte;
+in de andere delen beschrijven we de interacties tussen deze bouwstenen,
+en de protocollen die we daarbij gebruiken.
+
 IoT-knoop
 =========
 
 Een *IoT-knoop* koppelt de fysieke wereld aan de virtuele wereld.
-Zo'n knoop omvat:
+Zo'n knoop omvat gewoonlijk:
 
 * sensoren, om in de fysieke wereld te meten;
 * actuatoren, om in de fysieke wereld te sturen;
 * een microcontroller ("computer op een chip") voor de besturing van de IoT-knoop;
-* communicatie, meestal draadloos (radio)
-* energie ("voeding"), meestal in de vorm van een batterij, soms aangevuld met "energy harvesting".
-
-.. rubric:: Voorbeeld van een IoT-knoop
+* communicatie, vaak draadloos (radioverbinding)
+* energie ("voeding"), voor draadloze knopen in de vorm van een batterij, soms aangevuld met *energy harvesting*.
 
 .. figure:: IoT-knoop-0.png
   :width: 400px
@@ -30,59 +34,49 @@ In de voorbeelden gebruiken we een IoT-knoop met de volgende sensoren/actuatoren
 
 Voor de draadloze communicatie gebruiken we verschillende protocollen (zoals MQTT en LoRaWan) en verschillende radio's (WiFi, RFM69, LoRa).
 In deze laatste twee gevallen hebben we een *gateway* nodig voor de verbinding van de IoT-knoop met het lokale netwerk of met het publieke internet.
+De eisen die het "ding" stelt aan bitrate, bereik, mobiliteit (draadloos?) en energieverbruik bepalen de keuze voor de radio.
 
 Voor de microcontroller voor de besturing zijn er ook meerdere alternatieven, zoals Atmega AVR (Arduino), ESP8266, ESP32, ARM.
-De keuze voor de microcontroller hangt af van de lokale omstandigheden, de gebruikte programmeertaal/programmeeromgeving, enz.
-
-We voeden de draadloze IoT-knopen gewoonlijk met een batterij.
-
-.. figure:: Iotnode-simulator-0.png
-   :width: 400 px
-   :align: center
-
-   IoT-knoop simulator
-
-In de opdrachten gebruiken we een gesimuleerde IoT-knoop.
-Je moet dan zelf de sensorwaarden instellen.
-Deze gesimuleerde IoT-knoop gebruikt hetzelfde (MQTT-)protocol als de hardware-IoT-knopen.
+De keuze voor de microcontroller hangt meer af van de eigen voorkeur en omstandigheden dan van de eisen van de toepassing.
 
 Radio
-=====
+-----
 
-Voor de verbinding tussen een draadloze IoT-knoop en het internet zijn verschillende radio's beschikbaar.
+Voor de verbinding tussen een draadloze IoT-knoop en het internet kun je kiezen uit verschillende radio's.
 Deze radio's verschillen in hun energieverbruik (power), bereik en bitrate.
-In deze module gebruiken we verschillende radio's, voor verschillende toepassingen.
-De onderstaande tabel geeft de beangrijkste karakteristieken.
+In deze module maken we kennis met enkele IoT-radio's.
+De onderstaande tabel geeft de belangrijkste karakteristieken.
 
-+-----------+-------------------------+---------------+-----------+--------------------------+-------------------+
-| **power** | **bereik**              | **bitrate**   | **radio** | **tussenstap**           | **protocol** (**) |
-+-----------+-------------------------+---------------+-----------+--------------------------+-------------------+
-| medium    | lokaal bereik (10-50m)  | MBytes/s      | WiFi      | (rechtstreeks)           | HTTP              |
-+-----------+-------------------------+---------------+-----------+--------------------------+-------------------+
-| medium    | lokaal bereik (10-50m)  | Mbytes/s      | WiFi      | lokale/publieke broker   | MQTT              |
-+-----------+-------------------------+---------------+-----------+--------------------------+-------------------+
-| low       | lokaal bereik (50-200m) | 50kbits/s (*) | RFM69     | lokale gateway; broker   | MQTT              |
-+-----------+-------------------------+---------------+-----------+--------------------------+-------------------+
-| low       | niet-lokaal (enkele km) | 1 kbit/s (*)  | LoRa      | publieke gateway; broker | MQTT              |
-+-----------+-------------------------+---------------+-----------+--------------------------+-------------------+
++-----------+-----------+-------------------------+---------------+
+| **radio** | **power** | **bereik**              | **bitrate**   |
++-----------+-----------+-------------------------+---------------+
+| WiFi      | medium    | lokaal bereik (10-50m)  | MBytes/s      |
++-----------+-----------+-------------------------+---------------+
+| WiFi      | medium    | lokaal bereik (10-50m)  | Mbytes/s      |
++-----------+-----------+-------------------------+---------------+
+| RFM69     | low       | lokaal bereik (50-200m) | 50kbits/s (*) |
++-----------+-----------+-------------------------+---------------+
+| LoRa      | low       | niet-lokaal (enkele km) | 1 kbit/s (*)  |
++-----------+-----------+-------------------------+---------------+
 
 (*) voor LoRa is de bitrate nog lager bij een groot bereik.
 Bovendien mogen RFM69 en Lora-radio's max. 1% van de tijd zenden.
 
-(**) protocol: IoT-knoop <-> NodeRed/web-app
+**Opmerking**: in deze lijst ontbreekt nog Bluetooth Low Energy (BLE).
+We proberen deze in een toekomstige versie van dit materiaal toe te voegen.
 
 Gateway
 =======
+
+Soms kunnen we de IoT-knopen niet rechstreeks in het internet verbinden,
+bijvoorbeeld omdat deze knopen een ander (eenvoudiger) protocol gebruiken.
+We gebruiken dan een *gateway* om het IoT-knoop-protocol om te zetten naar het IP-protocol, en omgekeerd.
 
 .. figure:: IoT-0-stacks-gateway.png
    :width: 400 px
    :align: center
 
    IoT-gateway
-
-Soms kunnen we de IoT-knopen niet zomaar in het internet verbinden,
-bijvoorbeeld omdat deze een veel eenvoudiger protocol gebruiken.
-We gebruiken dan een gateway om het IoT-knoop-protocol om te zetten naar het IP-protocol, en omgekeerd.
 
 Bij een dergelijke omzetting (protocolconversie) moeten we rekening houden met de complete protocolstack,
 tot en met de toepassing.
@@ -105,8 +99,16 @@ Ook als de IoT-knoop zelf de internet-protocolstack gebruikt kan het zinvol zijn
 om de lokale communicatie te scheiden van het publieke internet.
 Deze bridge kan er bijvoorbeeld zorgen voor de versleuteling van het verkeer naar het publieke internet.
 
-NodeRed
-=======
+MQTT-broker
+===========
+
+We gebruiken het MQTT-protocol om IoT-knopen te koppelen aan de toepassing (web-app).
+MQTT is een *Publish-Subscribe* protocol.
+De MQTT-broker koppelt de verschillende soorten clients:
+de IoT-knopen aan de ene kant, en de toepassingen en diensten aan de andere kant.
+
+NodeRed-server
+==============
 
 .. figure:: Nodered-chat-flow.png
    :width: 500 px
@@ -115,24 +117,27 @@ NodeRed
    NodeRed Chat flow
 
 IoT-toepassingen combineren vaak data uit verschillende bronnen:
-vanuit verschillende netwerken met IoT-knopen, maar ook uit andere databases of datastromen.
-Deze data kunnen door allerlei diensten (Data Science, Artificial Intelligence, enz.) verwerkt worden voordat deze bruikbaar zijn in een toepassing.
+vanuit IoT-knopen, maar ook uit databases of andere datastromen.
+Om deze ruwe data bruikbaar te maken voor de gebruikerstoepassing, kun je deze eerst door externe diensten (Data Science, Artificial Intelligence, enz.) bewerken.
 Deze databronnen, diensten en gebruikerstoepassingen gebruiken verschillende protocollen en formaten.
 Met NodeRed knoop je deze verschillende onderdelen samen, op een grafische manier.
+Een NodeRed-server is daarom in onze voorbeelden vrijwel altijd onderdeel van de IoT-keten.
 
 
-Dashboard
-=========
+Web(-app) server
+================
 
 .. figure:: Nodered-dashboard-display-0.png
    :width: 500 px
    :align: center
 
-   Voorbeeld van een dashboard
+   Web-app voorbeeld: dashboard
 
-Een IoT-toepassing heeft vaak een gebruikersinterface,
-bijvoorbeeld in de vorm van een *dashboard* met een samenvatting van de gegevens van de IoT-knopen.
+Uiteindelijk komen deze data terecht bij een gebruikerstoepassing;
+deze bereik je via een web(-app)server.
+Een voorbeeld van een eenvoudige toepassing is een *dashboard*, met een samenvatting van de gegevens van de IoT-knopen.
+
 In onze voorbeeld-toepassing werken we met een eenvoudig dashboard met de gegevens van één IoT-knoop.
-Dit dashboard maken we met NodeRed: we gebruiken deze dan als web-server.
+Dit dashboard maken we met NodeRed: we gebruiken deze dan (ook) als webserver.
 Bovendien kunnen we via dit dashboard de actuators van de IoT-knoop bedienen.
 Dit gebruikersinterface heeft de vorm van een webtoepassing ("app"), beschikbaar via een server in het publieke web.

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>WiFi-MQTT-protocol &#8212; iot-0  documentatie</title>
+    <title>Protocol: MQTT &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="MQTT in het lokale netwerk" href="local-mqtt.html" />
-    <link rel="prev" title="WiFi-MQTT-ketens" href="wifi-keten.html" />
+    <link rel="next" title="JSON" href="json-lpp.html" />
+    <link rel="prev" title="Publish-subscribe" href="mqtt-interactie.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -33,24 +33,103 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="wifi-mqtt-protocol">
-<h1>WiFi-MQTT-protocol<a class="headerlink" href="#wifi-mqtt-protocol" title="Permalink naar deze titel">¶</a></h1>
+  <div class="section" id="protocol-mqtt">
+<h1>Protocol: MQTT<a class="headerlink" href="#protocol-mqtt" title="Permalink naar deze titel">¶</a></h1>
+<p>MQTT is een publish-subscribe-protocol dat je in allerlei omgevingen kunt gebruiken.
+In het bijzonder is MQTT geschikt voor het Internet of Things.
+In die context zijn zowel IoT-knopen als IoT-toepassingen (apps) clients van de MQTT-broker.
+De interactie is in principe symmetrisch: zowel een IoT-knoop als een IoT-toepassing kan een bericht publiceren naar de broker.</p>
+<p>Een typisch gebruik van MQTT voor IoT-toepassingen:</p>
 <ul class="simple">
-<li>protocolstack voor wifi mqtt-knopen
-* mqtt
-* tcp (of websockets/tcp…)
-* ip
-* wifi</li>
-<li>payload-formaten (JSON-LPP)</li>
+<li><dl class="first docutils">
+<dt>een IoT-knoop publiceert zijn sensordata naar de broker</dt>
+<dd><ul class="first last">
+<li>als de sensordata veranderd zijn, of met een vaste regelmaat;</li>
+<li>met een topic dat gekoppeld is aan de identiteit van de IoT-knoop;</li>
 </ul>
-<p>(Opmerking: dit is de eerste plek waar we dit formaat gebruiken.
-De noodzaak voor dit formaat is hier mogelijk nog niet duidelijk: je kunt ook een vrijer JSON-formaat gebruiken.
-Standaardisatie heeft wel voordelen, o.a. voor verdere verwerking.)</p>
-<div class="section" id="mqtt-stack">
-<h2>MQTT-stack<a class="headerlink" href="#mqtt-stack" title="Permalink naar deze titel">¶</a></h2>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>een IoT-knoop abonneert zich op de actuatordata voor de eigen actuatoren</dt>
+<dd><ul class="first last">
+<li>met een topic dat gekoppeld is aan de identiteit van de knoop;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>een IoT-app abonneert zich op de sensordata van de relevante knopen;</li>
+<li><dl class="first docutils">
+<dt>een IoT-app stuurt een actuator in een IoT-knoop aan door een “publish”</dt>
+<dd><ul class="first last">
+<li>van een bericht met het actuator-topic van de IoT-knoop.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p class="rubric">Voorbeeld</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/MQTT-IoT1.png"><img alt="../_images/MQTT-IoT1.png" src="../_images/MQTT-IoT1.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">MQTT in het Internet of Things</span></p>
 </div>
-<div class="section" id="json-lpp-payload">
-<h2>JSON-LPP Payload<a class="headerlink" href="#json-lpp-payload" title="Permalink naar deze titel">¶</a></h2>
+<p>Uitleg:</p>
+<ul class="simple">
+<li>IoT-knoop A publiceert zijn sensordata onder topic <code class="docutils literal notranslate"><span class="pre">A/sensors</span></code></li>
+<li>IoT-knoop A (na “subscribe(A/led)”) ontvangt de berichten voor het aansturen van de eigen LED</li>
+<li>analoog voor IoT-knoop B</li>
+<li><dl class="first docutils">
+<dt>toepassing (app) C ontvangt (na “subscribe(+/sensors)”) de sensordata van A en van B</dt>
+<dd><ul class="first last">
+<li>“+” is hierin een wildcard-teken: dit past op alle strings (node-id’s)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>toepassing C stuurt de LED van de node A aan.</li>
+<li><dl class="first docutils">
+<dt>analoog voor app D</dt>
+<dd><ul class="first last">
+<li>deze communiceert alleen met node B.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>de broker stuurt de sensordata door naar de apps, en de led-aansturing naar de IoT-knopen.</li>
+</ul>
+<div class="section" id="protocolstack">
+<h2>Protocolstack<a class="headerlink" href="#protocolstack" title="Permalink naar deze titel">¶</a></h2>
+<ul class="simple">
+<li>MQTT op basis van TCP</li>
+<li>alternatief: MQTT op basis van websockets (op basis van TCP)</li>
+</ul>
+</div>
+<div class="section" id="adressering-topic">
+<h2>Adressering: topic<a class="headerlink" href="#adressering-topic" title="Permalink naar deze titel">¶</a></h2>
+<p>Door middel van een <em>topic</em> adresseert een MQTT-client de berichtenstroom voor een publish- of subscribe-actie.
+Een MQTT-topic bestaat uit een aantal strings gekoppeld door <code class="docutils literal notranslate"><span class="pre">/</span></code>,
+bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">abd</span></code>, <code class="docutils literal notranslate"><span class="pre">abc/def</span></code>, <code class="docutils literal notranslate"><span class="pre">abc/123/def</span></code>.
+Dit lijkt op de padnaam in een URL.</p>
+<p>Bij een <em>subscribe</em> kun je in de topic-string ook wildcards opnemen:
+<code class="docutils literal notranslate"><span class="pre">+</span></code> staat voor een willekeurige string zonder <code class="docutils literal notranslate"><span class="pre">/</span></code>;
+<code class="docutils literal notranslate"><span class="pre">#</span></code> voor een willekeurige string waarin ook het koppelteken <code class="docutils literal notranslate"><span class="pre">/</span></code> mag voorkomen.</p>
+<ul class="simple">
+<li>voorbeeld: <code class="docutils literal notranslate"><span class="pre">node/+/sensors</span></code> matcht met <code class="docutils literal notranslate"><span class="pre">node/12/sensors</span></code> en <code class="docutils literal notranslate"><span class="pre">node/432/sensors</span></code>.</li>
+<li>voorbeeld: <code class="docutils literal notranslate"><span class="pre">node/#</span></code> matcht met <code class="docutils literal notranslate"><span class="pre">node/12/sensors</span></code> en <code class="docutils literal notranslate"><span class="pre">node/432/led</span></code></li>
+</ul>
+<p>We gebruiken in de software bij deze module een aantal vaste afspraken voor MQTT-topics.
+Hierdoor kunnen we de verschillende soorten IoT-knopen combineren met de verschillende toepassingen.</p>
+<ul class="simple">
+<li>voor sensoren: <code class="docutils literal notranslate"><span class="pre">node/&lt;nodeid&gt;/sensors</span></code></li>
+<li>voor actuatoren: <code class="docutils literal notranslate"><span class="pre">node/&lt;nodeid&gt;/actuators</span></code></li>
+</ul>
+<p>Hierin is <code class="docutils literal notranslate"><span class="pre">&lt;nodeid&gt;</span></code> de identificatie (string) van de IoT-knoop.</p>
+</div>
+<div class="section" id="payload-json">
+<h2>Payload: JSON<a class="headerlink" href="#payload-json" title="Permalink naar deze titel">¶</a></h2>
+<p>Er is geen vast voorgeschreven payload-formaat voor MQTT.
+In onze voorbeelden gebruiken we JSON (JavaScript Object Notation) als MQTT-payload:
+dit is een tekst-gebaseerd formaat voor objecten.</p>
 </div>
 </div>
 
@@ -77,16 +156,18 @@ Standaardisatie heeft wel voordelen, o.a. voor verdere verwerking.)</p>
 <li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../wifi.html">WiFi-knopen</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="wifi-keten.html">WiFi-MQTT-ketens</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">WiFi-MQTT-protocol</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mqtt-stack">MQTT-stack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#json-lpp-payload">JSON-LPP Payload</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="wifi-keten.html">MQTT-ketens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt-interactie.html">Publish-subscribe</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Protocol: MQTT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#protocolstack">Protocolstack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adressering-topic">Adressering: topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payload-json">Payload: JSON</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="local-mqtt.html">MQTT in het lokale netwerk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="public-mqtt.html">MQTT in het publieke netwerk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-lpp.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">MQTT-opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodered-opdrachten.html">NodeRed-opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>
 </li>
@@ -105,9 +186,9 @@ Standaardisatie heeft wel voordelen, o.a. voor verdere verwerking.)</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../wifi.html">WiFi-knopen</a><ul>
-      <li>Previous: <a href="wifi-keten.html" title="vorig hoofdstuk">WiFi-MQTT-ketens</a></li>
-      <li>Next: <a href="local-mqtt.html" title="volgend hoofdstuk">MQTT in het lokale netwerk</a></li>
+  <li><a href="../wifi.html">WiFi-MQTT-knopen</a><ul>
+      <li>Previous: <a href="mqtt-interactie.html" title="vorig hoofdstuk">Publish-subscribe</a></li>
+      <li>Next: <a href="json-lpp.html" title="volgend hoofdstuk">JSON</a></li>
   </ul></li>
   </ul></li>
 </ul>

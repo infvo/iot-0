@@ -35,6 +35,63 @@
             
   <div class="section" id="opdrachten">
 <h1>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink naar deze titel">¶</a></h1>
+<p class="rubric">MQTT-broker in het publieke internet</p>
+<p>We gebruiken in deze opdracht een publieke MQTT-broker.
+Deze broker fungeert ook als webserver voor de statische webtoepassing <code class="docutils literal notranslate"><span class="pre">mqttt</span></code>.</p>
+<div class="topic">
+<p class="topic-title first">Statische webtoepassing</p>
+<p>Bij een statische webtoepassing levert de server alleen de bestanden;
+alle actie en interactie vindt plaats in de browser, via JavaScript.
+De server gebruikt geen server-scripting (zoals PHP of Python) en geen server-database.</p>
+</div>
+<p class="rubric">De app MQTTT</p>
+<p>Bij veel opdrachten gebruiken we de app MQTTT:
+dit is een mqtt-client waarmee we mqtt-berichten kunnen sturen en ontvangen.
+Door de aard van het mqtt-protocol kunnen we daarmee ook <em>topics</em> “afluisteren”.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/IoT-mqtt0-app1.png"><img alt="../_images/IoT-mqtt0-app1.png" src="../_images/IoT-mqtt0-app1.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">MQTTTest app</span></p>
+</div>
+<p>De  web-app kun je vinden via de broker: <a class="reference external" href="http://infvopedia.nl:1884/mqttt.html">http://infvopedia.nl:1884/mqttt.html</a>.
+Hierin is <code class="docutils literal notranslate"><span class="pre">infvopedia.nl</span></code> de domeinnaam van de broker.
+<code class="docutils literal notranslate"><span class="pre">1884</span></code> is het HTTP-poortnummer van de broker: de broker fungeert ook als (statische) webserver.
+MQTTT communiceert met de MQTT-broker via het <em>websockets</em> protocol (via poort 1884).
+Het MQTT-protocol gebruikt poort <code class="docutils literal notranslate"><span class="pre">1883</span></code>.</p>
+<p>De app heeft de volgende invoervelden en knoppen:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">IoT-node</span></code>: de ID van de IoT-knoop waarvan je de sensordata wilt ontvangen</dt>
+<dd><ul class="first last">
+<li>knoppen On en Off: publiceren berichten met topic <code class="docutils literal notranslate"><span class="pre">node/ID/actuators</span></code>,
+om led0 aan- en uit te schakelen</li>
+<li>de sensordata worden ontvangen via topic <code class="docutils literal notranslate"><span class="pre">node/ID/sensors</span></code></li>
+<li>de ontvangen sensordata worden in tabelvorm weergegeven</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">subscribe</span> <span class="pre">to</span> <span class="pre">topic</span></code>: het topic waarvan je de berichten wilt ontvangen</dt>
+<dd><ul class="first last">
+<li>daaronder verschijnen de ontvangen berichten</li>
+<li>in het topic kun je ook wildcard-tekens opnemen, zoals <code class="docutils literal notranslate"><span class="pre">+</span></code> en <code class="docutils literal notranslate"><span class="pre">#</span></code>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">publish</span> <span class="pre">to</span> <span class="pre">topic</span></code>: het topic waarvoor je berichten wilt versturen:</dt>
+<dd><ul class="first last">
+<li>het bericht voer je daaronder in, en</li>
+<li>met de “publish”-knop verstuur je het bericht.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p class="rubric">Alternatief: MQTT-box</p>
+<p>Er zijn ook desktop-applicaties waarmee je deze opdrachten kunt uitvoeren.
+Een voorbeeld is MQTTbox (<a class="reference external" href="http://workswithweb.com/mqttbox.html">http://workswithweb.com/mqttbox.html</a>).</p>
 <div class="section" id="een-eerste-iot-keten">
 <h2>(1) Een eerste IoT-keten<a class="headerlink" href="#een-eerste-iot-keten" title="Permalink naar deze titel">¶</a></h2>
 <p>Een eerste voorbeeld van een IoT-keten, van IoT-knoop tot toepassings (“app”), bestaat uit de volgende onderdelen:</p>
@@ -42,51 +99,56 @@
 <li><dl class="first docutils">
 <dt>een gesimuleerde IoT-knoop</dt>
 <dd><ul class="first last">
-<li><a class="reference external" href="http://infvopedia.nl:1884/iotnode-app-1.html">http://infvopedia.nl:1884/iotnode-app-1.html</a></li>
+<li><a class="reference external" href="http://infvopedia.nl:1884/iotnode-app.html">http://infvopedia.nl:1884/iotnode-app.html</a></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li>een MQTT-broker in het publieke internet;</li>
 <li><dl class="first docutils">
-<dt>het programma MQTT0 (of MQTT1), waarmee je het mqtt-verkeer van de sensor kunt bekijken.</dt>
+<dt>het programma MQTTT, waarmee je het mqtt-verkeer van de sensor kunt bekijken.</dt>
 <dd><ul class="first last">
-<li><a class="reference external" href="http://infvopedia.nl:1884/mqtt1.html">http://infvopedia.nl:1884/mqtt1.html</a></li>
+<li><a class="reference external" href="http://infvopedia.nl:1884/mqttt.html">http://infvopedia.nl:1884/mqttt.html</a></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/Iotnode-simulator-0.png"><img alt="../_images/Iotnode-simulator-0.png" src="../_images/Iotnode-simulator-0.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop simulator</span></p>
+</div>
 <p>Voer de onderstaande stappen uit:</p>
 <ol class="arabic simple">
 <li>open de gesimuleerde IoT-knoop op in een browservenster</li>
 <li><dl class="first docutils">
-<dt>open het programma MQTT1 in een ander browservenster</dt>
+<dt>open het programma MQTTT in een ander browservenster</dt>
 <dd><ul class="first last">
 <li>deze opzet werkt het best met twee browservensters naast elkaar.</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>voer in het “IoT-node”-venster van MQTT1 de nodeID in van de gesimuleerde IoT-knoop</li>
+<li>voer in het “IoT-node”-venster van MQTTT de nodeID in van de gesimuleerde IoT-knoop</li>
 <li><dl class="first docutils">
-<dt>verander één van de sliders van de IoT-knoop</dt>
+<dt>druk in MQTTT op de knop om de LED (led0) aan (of uit) te zetten</dt>
 <dd><ul class="first last">
-<li>je ziet nu de berichten met de nieuwe waarde langskomen, en de waarden bovenin in tabelvorm verschijnen.</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>druk in MQTT1 op de knop om de LED (led0) aan (of uit) te zetten</dt>
-<dd><ul class="first last">
+<li>in MQTTT zie je de waarden van de sensoren in tabelvorm verschijnen</li>
 <li>je ziet in de gesimuleerde IoT-knoop de linker LED aan (of uit) gaan.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>druk één van de knoppen op de IoT-knoop in</dt>
+<dt>verander één van de sliders van de IoT-knoop</dt>
+<dd><ul class="first last">
+<li>je ziet nu (na verloop van tijd) de berichten met de nieuwe waarde langskomen.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>druk één van de knoppen op de (gesimuleerde) IoT-knoop in</dt>
 <dd><ul class="first last">
 <li>wat gebeurt er?</li>
 </ul>
@@ -98,8 +160,8 @@
 <ul class="simple">
 <li>Mogelijk zie je ook berichten van andere IoT-knopen langskomen:
 die gebruiken dezelfde MQTT-broker,
-en via <code class="docutils literal notranslate"><span class="pre">subscribe:</span> <span class="pre">+/+/+</span></code> ontvangt MQTT1 de berichten van alle knopen.</li>
-<li>De IoT-knoop-simulator verstuurt ca. elke 50 seconden de waarden van de lokale sensoren;
+en via <code class="docutils literal notranslate"><span class="pre">subscribe:</span> <span class="pre">+/+/+</span></code> ontvangt MQTTT de berichten van alle knopen.</li>
+<li>De IoT-knoop-simulator verstuurt ca. elke 60 seconden de waarden van de lokale sensoren;
 dit zullen we later ook bij de hardware-IoT-knopen zien.</li>
 <li>je kunt meerdere (gesimuleerde) IoT-knopen hebben met dezelfde node-ID:
 deze zijn op het MQTT-niveau niet van elkaar te onderscheiden.</li>
@@ -107,9 +169,10 @@ deze zijn op het MQTT-niveau niet van elkaar te onderscheiden.</li>
 </div>
 <div class="section" id="een-tweede-iot-keten">
 <h2>(2) een tweede IoT-keten<a class="headerlink" href="#een-tweede-iot-keten" title="Permalink naar deze titel">¶</a></h2>
-<blockquote>
-<div>Verder uitwerken - ook de infrastructuur.</div></blockquote>
-<ul class="simple">
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Te doen</p>
+<p>Verder uitwerken - ook de infrastructuur.</p>
+<ul class="last simple">
 <li><dl class="first docutils">
 <dt>gebruik van een IoT-dashboard</dt>
 <dd><ul class="first last">
@@ -121,6 +184,7 @@ deze zijn op het MQTT-niveau niet van elkaar te onderscheiden.</li>
 </dl>
 </li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -159,7 +223,7 @@ deze zijn op het MQTT-niveau niet van elkaar te onderscheiden.</li>
 <li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>

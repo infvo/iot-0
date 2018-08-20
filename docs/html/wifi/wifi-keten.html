@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>WiFi-MQTT-ketens &#8212; iot-0  documentatie</title>
+    <title>MQTT-ketens &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="WiFi-MQTT-protocol" href="wifi-protocol.html" />
-    <link rel="prev" title="WiFi-knopen" href="../wifi.html" />
+    <link rel="next" title="Publish-subscribe" href="mqtt-interactie.html" />
+    <link rel="prev" title="WiFi-MQTT-knopen" href="../wifi.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -33,55 +33,32 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="wifi-mqtt-ketens">
-<h1>WiFi-MQTT-ketens<a class="headerlink" href="#wifi-mqtt-ketens" title="Permalink naar deze titel">¶</a></h1>
-<p>(spelers/agents en interacties)</p>
-<ul class="simple">
-<li>interactie: publish/Subscribe (via MQTT)</li>
-<li>symmetrisch push-protocol (zowel client als broker “pushen” berichten)</li>
-<li>configuratieprobleem? (ssid/wachtwoord lokale WiFi)</li>
-<li>eerste voorbeeld van publieke internet: ook router/gateway als speler</li>
-</ul>
-<div class="section" id="mqtt-publish-subscribe">
-<h2>MQTT: Publish-subscribe<a class="headerlink" href="#mqtt-publish-subscribe" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/MQTT2.png"><img alt="../_images/MQTT2.png" src="../_images/MQTT2.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Publish-subscribe interactie (MQTT)</span></p>
-</div>
-<div class="figure align-center" id="id2">
-<a class="reference internal image-reference" href="../_images/IoT-MQTT0.png"><img alt="../_images/IoT-MQTT0.png" src="../_images/IoT-MQTT0.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">MQTT in het Internet of Things</span></p>
-</div>
-</div>
+  <div class="section" id="mqtt-ketens">
+<h1>MQTT-ketens<a class="headerlink" href="#mqtt-ketens" title="Permalink naar deze titel">¶</a></h1>
 <div class="section" id="publieke-broker">
 <h2>Publieke broker<a class="headerlink" href="#publieke-broker" title="Permalink naar deze titel">¶</a></h2>
-<ul class="simple">
-<li>door broker in publieke internet: bediening op afstand</li>
-<li>(eenvoudig in gebruik)</li>
-<li>nadeel:  grotere latency; veiligheid?</li>
-</ul>
-<div class="figure align-center" id="id3">
+<p>Met een MQTT-broker in het publieke netwerk kunnen we toepassingen in het internet koppelen aan lokale IoT-knopen.
+Via deze broker kunnen we de IoT-knoop op afstand bedienen, bijvoorbeeld via een web-toepassing.</p>
+<div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/IoT-nobridge-11.png"><img alt="../_images/IoT-nobridge-11.png" src="../_images/IoT-nobridge-11.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">IoT-knopen met MQTT-broker in het publieke internet</span></p>
 </div>
+<p>De IoT-knoop publiceert de sensorwaarden naar de broker,
+en deze stuurt deze berichten door naar de clients die zich op deze berichten geabonneerd hebben.</p>
+<p>Deze keten is eenvoudig op te zetten.
+Er kleven wel enkele nadelen aan: (i) de latency kan te groot worden om lokale apparaten te bedienen;
+en (ii) de communicatie verloopt via het publieke internet, met meer veiligheidsrisico’s dan het lokale netwerk.</p>
 </div>
 <div class="section" id="lokale-broker">
 <h2>Lokale broker<a class="headerlink" href="#lokale-broker" title="Permalink naar deze titel">¶</a></h2>
-<ul class="simple">
-<li>door lokale broker: lagere latency; grotere veiligheid</li>
-<li><dl class="first docutils">
-<dt>lokale broker als bridge naar publieke broker</dt>
-<dd><ul class="first last">
-<li>combineren van lage latency en bediening op afstand</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/IoT-lokale-gateway-11.png"><img alt="../_images/IoT-lokale-gateway-11.png" src="../_images/IoT-lokale-gateway-11.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Lokale MQTT-broker als bridge naar publieke broker</span></p>
 </div>
+<p>Door het gebruik van een lokale broker kunnen we de lokale interacties binnen het lokale netwerk houden:
+dit komt de latency en de veiligheid ten goede.</p>
+<p>Een lokale broker kun je ook gebruiken als <em>bridge</em> naar een publieke broker:
+op die manier kun je de voordelen van lokale en publieke brokers combineren.</p>
 </div>
 </div>
 
@@ -108,17 +85,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../wifi.html">WiFi-knopen</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">WiFi-MQTT-ketens</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mqtt-publish-subscribe">MQTT: Publish-subscribe</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MQTT-ketens</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#publieke-broker">Publieke broker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lokale-broker">Lokale broker</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="wifi-protocol.html">WiFi-MQTT-protocol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="local-mqtt.html">MQTT in het lokale netwerk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="public-mqtt.html">MQTT in het publieke netwerk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt-interactie.html">Publish-subscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wifi-protocol.html">Protocol: MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-lpp.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">MQTT-opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodered-opdrachten.html">NodeRed-opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>
 </li>
@@ -137,9 +114,9 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../wifi.html">WiFi-knopen</a><ul>
-      <li>Previous: <a href="../wifi.html" title="vorig hoofdstuk">WiFi-knopen</a></li>
-      <li>Next: <a href="wifi-protocol.html" title="volgend hoofdstuk">WiFi-MQTT-protocol</a></li>
+  <li><a href="../wifi.html">WiFi-MQTT-knopen</a><ul>
+      <li>Previous: <a href="../wifi.html" title="vorig hoofdstuk">WiFi-MQTT-knopen</a></li>
+      <li>Next: <a href="mqtt-interactie.html" title="volgend hoofdstuk">Publish-subscribe</a></li>
   </ul></li>
   </ul></li>
 </ul>

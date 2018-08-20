@@ -4,6 +4,9 @@ Glossary
 
 .. glossary::
 
+downlink
+  van de toepassing naar de IoT-knoop; tegenover uplink.
+
   gateway
     verbinding tussen twee netwerken.
     Als de protocollen van deze netwerken verschillen,
@@ -24,3 +27,6 @@ Glossary
     iemand kan dit bericht opvangen en opnieuw afspelen als het hem uitkomt.
     Je kunt dit voorkomen door elk bericht van een volgnummer te voorzien:
     een bericht dat niet in de volgorde past wordt overgeslagen.
+
+  uplink
+    van de IoT-knoop naar de toepassing; tegenover downlink.

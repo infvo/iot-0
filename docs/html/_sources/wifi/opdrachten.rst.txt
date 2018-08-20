@@ -1,231 +1,124 @@
-**********
-Opdrachten
-**********
+MQTT-opdrachten
+===============
 
-.. admonition:: Je hebt nodig
+.. bij wifi-mqtt-knopen
 
-  * IoT-knoop (ESP8266) met toepassing: ``mqtt-node-0``,
-      * met WiFi toegang tot een lokaal netwerk, en
-      * met MQTT-toegang tot publieke MQTT-broker
-      * broker: MQTT-protocol op port 1883
-      * broker: HTTP/websockets-protocol op port 1884
-  * MQTT-broker in het publieke netwerk
-  * met web-app mqttt (bijvoorbeeld via de publieke broker)
-  * (later) MQTT-broker in het lokale netwerk
-  * (gratis) FRED-account voor NodeRed (in het publieke internet)
+.. topic:: Wat heb je nodig?
 
-(1) Publieke broker met web-app
-===============================
+  * MQTT broker in publieke internet;
+      * de MQTT-broker fungeert ook als statische webserver,
+        voor de app MQTTT en voor de knoop-simulator;
+      * je moet de domeinnaam, het poortnummer, en eventueel een gebruikersnaam/wachtwoord kennen.
+  * zo mogelijk: IoT knoop (hardware),
+      * met software: MQTT-XXXX;
+      * verbonden met de MQTT broker;
+      * de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
+        deze ID staat ook op de knoop zelf.
 
-We gebruiken in deze opdracht een publieke MQTT-broker.
-Deze broker fungeert ook als webserver voor de statische webtoepassing ``mqttt``.
+(1) MQTT-chat
+-------------
 
-.. topic:: Statische webtoepassing
+**(stap 1)** Je kunt met MQTT op een eenvoudige manier met een groep gebruikers chatten,
+via de MQTTT-app in de browsers van deze gebruikers.
 
-  Bij een statische webtoepassing levert de server alleen de bestanden;
-  alle actie en interactie vindt plaats in de browser, via JavaScript.
-  De server gebruikt geen server-scripting (zoals PHP of Python) en geen server-database.
+1. Spreek af welk *topic* je gebruikt voor de communicatie, bijvoorbeeld ``chat``
+2. Stel dit topic in bij de beide topic-vensters: voor het ontvangen (*subscribe*)
+   en voor het verzenden (*publish*) van de berichten.
+3. Als je nu in de ene browser in de app een bericht invoert en publiceert,
+   zie je dit in de andere browsers in de app verschijnen.
 
-De webtoepassing MQTTT communiceert met de MQTT-broker via het *websockets* protocol.
+**(stap 2)** Een nadeel van deze aanpak is dat je niet kunt zien van wie een bericht afkomstig is.
+Dit kun je oplossen door de naam van de afzender in het topic op te nemen:
 
-* noteer het MAC-adres van de IoT-knoop; de laatste 4 tekens vormen de node-ID;
-* start de webtoepassing: http://infvopedia.nl:1884/mqttt.html
-* deze toepassing maakt contact met de broker via ``ws://infvopedia.nl:1884``
-* deze toepassing bestaat uit 3 delen:
-    * een interface voor een enkele IoT-knoop;
-      het adres (de node-ID) geef je op in het venster ``IoT-node``.
-    * een venster voor het ontvangen van MQTT-berichten.
-      Het MQTT-topic geef je op bij: ``Subscribe to topic:``.
-      Dit kan een *wildcard*-topic zijn.
-    * een venster voor het versturen van MQTT-berichten.
-      Het MQTT-topic geef je op bij ``Publish to topic:``.
-      (Let op: dit kan *geen wildcard-topic* zijn!)
-      Het bericht verstuur je via de ``Publish``-knop.
+4. vul als **subscribe-topic** een wildcard-topic in, bijvoorbeeld ``chat/+`` .
+   Deze ``+`` matcht met een willekeurige string.
+5. vul als **publish-topic** een topic in met daarin de naam van de afzender,
+   bijvoorbeeld ``chat/frans`` .
+6. je ziet dan bij de ontvangen berichten steeds de naam van de afzender in het topic.
 
-1. MQTTT: vul onder ``IoT-node`` de node-ID in van je ESP8266-knoop.
-   De toepassing zal de sensor-berichten van deze knoop nu netjes weergeven.
-2. Vul als ``Subscribe to topic:`` in: ``node/ID/+``, waarin ``ID`` de node-ID van je knoop.
-   Je krijgt dan alle berichten voor deze knoop te zien.
-3. Zet de LED aan via de button On.
-   Als het goed is, zie je
-   (i) het verstuurde bericht in het "subscribe"-venster;
-   (ii) de LED branden;
-   (ii) in de sensordata, de waarde "1" voor deze LED;
-4. Je kunt de LED ook aan- en uitzetten via een MQTT-bericht dat je zelf samenstelt in het Publish-venster.
-   Gebruik hiervoor de berichten die door de buttons verstuurd worden.
-   Je verstuurt het bericht met de "Publish"-knop.
-5. De knoop heeft 2 LEDs: zet ze beide aan.
-6. Verduister de knoop (bijvoorbeeld met een doekje).
-   Controleer dat de volgende sensor-boodschap van de knoop een andere waarde voor de analoge input (LDR) geeft.
+Je moet er in dit geval wel op vertrouwen dat iedereen zijn eigen naam invult:
+je kunt de afzender in het topic niet authenticeren.
 
+(2): Knoop volgen
+-----------------
 
-(2) Een eigen dashboard
-=======================
+In deze opdracht gebruik je MQTTT om het verkeer van een bestaande IoT-knoop te volgen,
+en om de sensordata netjes weer te geven.
+Voor de communicatie tussen MQTTT en de IoT-knoop met ID ``xxxx`` gebruiken we de volgende *topics*:
 
-In deze opdracht maak je een eigen dashboard voor de IoT-knoop,
-met behulp van NodeRed.
+* ``node/xxxx/sensors`` - voor de sensorwaarden
+* ``node/xxxx/actuators`` - voor de actuatorwaarden.
 
-* Als je een publieke NodeRed-server in het publieke internet gebruikt,
-  dan is dit dashboard toegankelijke voor computers in het internet (lokaal en publiek).
-* Als je een lokale NodeRed-server in het lokale netwerk gebruikt,
-  bijvoorbeeld op een Raspberry Pi,
-  dan is het dashboard alleen toegankelijk voor computers in het lokale netwerk.
+Met het wildcard-topic ``node/+/+`` ontvang je alle sensor/actuatorwaarden van alle knopen.
+Er is geen standaard die de vorm van deze topics afdwingt: het is onze eigen, praktische keuze.
+Deze keuze gebruiken we in onze IoT-knopen en in onze toepassingen (apps).
 
-Gebruik voor het dashboard de volgende flow:
+(stap 1) Eerst moeten we de ID van een bestaande knoop zien te vinden.
+Dit doen we door voor het subscribe-veld een *wildcard*-topic in te vullen.
 
-.. figure:: IoT-dashboard-flow.png
-   :width: 600 px
-   :align: center
+1. vul als subscribe-topic in: ``node/+/sensors``;
+2. je krijgt nu de sensor-berichten te zien van alle knopen die deze broker gebruiken.
+3. kies hiervan een knoop die je regelmatig langs ziet komen, en bepaal de ID xxxx (uit ``node/xxxx/sensors``).
 
-   NodeRed-flow voor IoT-dashboard
+Als je een hardware-IoT-knoop hebt, dan staat de ID waarschijnlijk op de knoop zelf.
+De node-ID bestaat uit de laatste 4 tekens van het MAC-adres.
+Controleer of je knoop actief is: er moeten dan regelmatig JSON-berichten langskomen in het subscribe-venster
+(bijvoorbeeld elke 1-2 minuten).
 
-Kopieer de onderstaande flow-code naar een lege flow-tab in NodeRed.
+(stap 2) We willen de sensordata weergeven in het bovenste deel van MQTTT.
 
-.. code-block:: JSON
+4. vul bij ``IoT-node`` de ID in van je gekozen knoop.
+5. vul als subscribe-topic in: ``node/xxxx/+`` (waarin ``xxxx`` staat voor de gekozen ID).
+   je ziet dan alle sensor- en actuator-berichten van deze IoT-knoop verschijnen.
+6. na enige tijd verschijnen de waarden van de sensoren in tabelvorm;
+   in het subscribe-venster zie je deze in JSON-vorm.
+7. Verduister de knoop (bijvoorbeeld met een doekje).
+   Controleer dat het volgende sensor-bericht van de knoop een andere waarde voor de analoge input (LDR) geeft.
 
-  [{"id":"5e3f6502.43471c","type":"mqtt in","z":"c9819513.b5c408", "name":"",
-  "topic":"node/e0f1/sensors", "qos":"2","broker":"d97b4423.5d2e78","x":170,"y":120,
-  "wires":[["9a7d4d72.52a178"]]},{"id":"9a7d4d72.52a178","type":"json",
-  "z":"c9819513.b5c408","name":"","pretty":false,"x":210,"y":220,
-  "wires":[["4d0ca7b0.c72278","f844ca03.6d7bf8","c4605ff8.e68618"]]},
-  {"id":"bd11d240.d3e168","type":"ui_gauge","z":"c9819513.b5c408","name":"",
-  "group":"a4643fc8.e80d68","order":0,"width":0,"height":0,"gtype":"gage",
-  "title":"Temperatuur","label":"'C","format":"{{payload}}","min":0,"max":"50",
-  "colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":610,"y":200,
-  "wires":[]},{"id":"eb10bb85.4c73b8","type":"ui_chart","z":"c9819513.b5c408",
-  "name":"","group":"b7537500.9e9de","order":0,"width":0,"height":0,"label":"Temperatuur",
-  "chartType":"line","legend":"false","xformat":"HH:mm:ss","interpolate":"linear",
-  "nodata":"","dot":false,"ymin":"0","ymax":"50","removeOlder":1,"removeOlderPoints":"",
-  "removeOlderUnit":"3600","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8",
-  "#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],
-  "useOldStyle":false,"x":610,"y":240,"wires":[[],[]]},{"id":"4d0ca7b0.c72278",
-  "type":"change","z":"c9819513.b5c408","name":"","rules":[{"t":"set","p":"payload",
-  "pt":"msg","to":"payload.temp","tot":"msg"}],"action":"","property":"","from":"",
-  "to":"","reg":false,"x":400,"y":220,"wires":[["eb10bb85.4c73b8","bd11d240.d3e168"]]},
-  {"id":"2881d11b.ee3086","type":"ui_gauge","z":"c9819513.b5c408","name":"",
-  "group":"a4643fc8.e80d68","order":0,"width":0,"height":0,"gtype":"gage",
-  "title":"Luchtdruk","label":"units","format":"{{payload}}","min":"950","max":"1050",
-  "colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":600,"y":300,
-  "wires":[]},{"id":"96937342.1bee2","type":"ui_chart","z":"c9819513.b5c408",
-  "name":"","group":"b7537500.9e9de","order":0,"width":0,"height":0,"label":"Luchtdruk",
-  "chartType":"line","legend":"false","xformat":"HH:mm:ss","interpolate":"linear",
-  "nodata":"","dot":false,"ymin":"950","ymax":"1050","removeOlder":1,"removeOlderPoints":"",
-  "removeOlderUnit":"3600","cutout":0,"useOneColor":false,"colors":["#1f77b4",
-  "#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],
-  "useOldStyle":false,"x":600,"y":340,"wires":[[],[]]},{"id":"f844ca03.6d7bf8",
-  "type":"change","z":"c9819513.b5c408","name":"","rules":[{"t":"set","p":"payload",
-  "pt":"msg","to":"payload.pres","tot":"msg"}],"action":"","property":"","from":"",
-  "to":"","reg":false,"x":400,"y":320,"wires":[["2881d11b.ee3086","96937342.1bee2"]]},
-  {"id":"c4605ff8.e68618","type":"debug","z":"c9819513.b5c408","name":"","active":true,
-  "console":"false","complete":"false","x":390,"y":160,"wires":[]},{"id":"d97b4423.5d2e78",
-  "type":"mqtt-broker","z":"","name":"","broker":"infvopedia.nl","port":"1883","clientid":"",
-  "usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"birthTopic":"",
-  "birthQos":"0","birthRetain":"false","birthPayload":"","closeTopic":"","closeQos":"0",
-  "closeRetain":"false","closePayload":"","willTopic":"","willQos":"0","willRetain":"false",
-  "willPayload":""},{"id":"a4643fc8.e80d68","type":"ui_group","z":"","name":"my-meters",
-  "tab":"4e75c8d2.40f86","disp":true,"width":"6","collapse":false},{"id":"b7537500.9e9de",
-  "type":"ui_group","z":"","name":"My-graphs","tab":"4e75c8d2.40f86","disp":true,
-  "width":"6","collapse":false},{"id":"4e75c8d2.40f86","type":"ui_tab","z":"",
-  "name":"My-node","icon":"dashboard"}]
+Om over na te denken:
 
-Pas in deze flow de parameters van de MQTT-input-node aan, en bekijk je eigen dashboard.
+* hoe weet je wat de eigenschap (het veld) ``"temperature"`` voorstelt?
 
-* dubbel-klik op de MQTT-input-node;
-* verander de node-ID in het topic naar de ID van je eigen knoop.
-* je krijgt de webpagina met het dashboard via de tab "dasboard", bij het debug-venster rechts.
-  In deze tab klik je op het vierkantje met de uitgaande pijl (rechtsboven).
-* in het dashboard vind je de gegevens van je eigen knoop onder "My Node".
+(3) Knoop besturen
+------------------
 
-Breid het dashboard uit met een weergaven van de licht-sensor.
+Met MQTTT kunnen we de LEDs van de knoop ``xxxx`` ook aansturen.
 
-* kopieer de deelflow met 3 knopen: set msg.payload, Luchtdruk(meter) en Luchtdruk (grafiek),
-* en plak deze in dezelfde flow;
-* pas de knoop msg.payload aan: ``set msg.payload to msg.payload.light``
-* pas de knopen Luchtdruk (meter) en Luchtdruk (grafiek) aan: vervang "Luchtdruk" door "Licht",
-  en stel de minima en maxima in op 0 en 1023.
-* **deploy**
-* controleer het dashboard; het kan even duren voordat de IoT-knoop de sensorwaarden verstuurd heeft.
+**(stap 1)** Aansturen van ``led0``:
+
+1. vul als ``subscribe to topic`` in: ``node/xxxx/+`` (waarin ``xxxx`` staat voor de gekozen ID);
+2. door het indrukken van de knoppen in MQTTT kun je ``led0`` aan- en uitschakelen;
+3. controleer bij de sensorwaarden of deze led inderdaad uit- en uitgaat.
+4. ga in het subscribe-venster na welke berichten langskomen als je een knop indrukt,
+   voor de actuatoren (leds) en voor de sensoren.
+   (a) Welk bericht stuurt de knop On? met welk topic?
+   (b) En welk bericht stuurt de knop Off?
+
+Als de (hardware) IoT-knoop ``xxxx`` in je buurt is, kun je controleren of de LED aan- en uitgaat.
+
+**(stap 2)** Je kunt ``led1`` "met de hand" aansturen.
+Door de juiste JSON-berichten te sturen naar het actuator-topic van je knoop,
+kun je ook de andere led besturen.
+
+5. vul als ``publish to topic`` in: ``node/xxxx/actuators`` (waarin ``xxxx`` staat voor de gekozen ID)
+6. vul in het ``publish``-veld in: het bericht dat je gevonden hebt onder (4a) hierboven,
+   aangepast aan ``led1``.
+7. klik op "Publish"
+8. controleer de berichten die langskomen in het subscribe-venster,
+   en de status van ``led1`` in de sensortabel.
+9. schakel beide leds uit (of aan) met één enkel JSON-bericht.
 
 
-(3) Opdracht
-============
+(4) JSON in het IoT
+-------------------
 
-Je kunt in NodeRed ook verschillende IoT-knopen aan elkaar koppelen.
-We gebruiken dit om met de knoppen van de ene IoT-knoop een LED van een andere IoT-knoop aan- en uit te schakelen.
+.. todo::
 
-We gebruiken de ene knop om een LED aan te zetten, en de andere knop om deze uit te zetten.
-Dit zorgt ervoor dat er geen vreemde dingen gebeuren als er een bericht verloren gaat.
+    nog aanvullen
 
-.. topic:: Idempotente acties
+Het JSON-formaat wordt in het Internet of Things op meerdere plaatsen gebruikt.
+Bestudeer de volgende manieren van gebruik:
 
-  Bij een idempotente actie maakt het geen verschil of je deze 1 maal of vaker uitvoert.
-  Deze aanpak gebruik je veel vaker bij communicatie, vooral als deze "best effort" is.
-  Als je niet zeker bent of een bericht aangekomen is, kun je dit zonder risico nogmaals versturen.
-  Een voorbeeld is de HTTP-GET opdracht: je kunt een webpagina een extra keer vernieuwen (reload) zonder dat dit gevolgen heeft (voor de server).
-  De HTTP-POST opdracht is niet idempotent: de browser vraagt je dan of je het formulier nogmaals wilt versturen.
-
-  In ons geval configureren we de knoppen op de IoT-knopen op een idempotente manier:
-  we gebruiken de ene knop voor het aanzetten en de andere voor het uitschakelen van de LED.
-  (Ga na wat er kan gebeuren als je één knop gebruikt voor het aan- en uitschakelen,
-  in een situatie dat er berichten verloren kunnen gaan.)
-
-Bij deze opdracht heb je twee IoT-knopen nodig: met de buttons van de ene knoop bedien je een LED van de andere knoop.
-Je kunt hiervoor ook gesimuleerde knopen gebruiken.
-
-(1) Importeer de flow, pas deze aan, en test deze:
-
-* maak een IoT-knoop(simulator) aan, en geef deze een eigen (uniek) adres (nodeA);
-* maak een tweede IoT-knoop aan, en geef deze een eigen (uniek) adres (nodeB);
-* maak een nieuw flow-venster aan in NodeRed (via de "+"-tab);
-* importeer hierin de flow-code die hieronder staat;
-* pas de volgende knopen aan:
-    * ``node/e0f1/sensors`` (mqtt input-node)
-        * verander het Topic in ``node/[nodeA]/sensors``, waarin ``[nodeA]`` de ID is van nodeA
-        * "Save"
-    * ``node/e0f2/actuators`` (mqtt output node)
-        * verander het Topic in ``node/[nodeB]/sensors``, waarin ``[nodeB]`` de ID is van nodeB
-        * "Save"
-* "Deploy" de aangepaste flow
-* Test de flow:
-    * Button0 van NodeA schakelt Led0 van NodeB aan
-    * Button1 van NodeA schakelt Led0 van NodeB uit
-
-(2) Deze flow heeft als nadeel dat je bij NodeA niet ziet of Led0 bij NodeB brandt.
-
-* pas de flow aan zodat Button0 ook Led0 van NodeA aanzet, en Led0 van NodeA uitzet
-    * hint: je hoeft maar 1 output-node toe te voegen.
-
-(3) Wat lastiger is de volgende variant:
-
-* pas de flow aan zodat Button0 ''Led1''(!) van NodeA aanzet, en Led1 van NodeA uitzet (in plaats van Led0).
-    * (en nog steeds Led0 van NodeB schakelt)
-    * tip: binnen NodeRed kun je nodes of hele flows kopiëren en plakken met Copy/Paste.
-
-(4) De volgende stap ligt nu voor de hand:
-
-    * pas de flow aan zodat Button0 van NodeB Led0 van NodeA en Led1 van NodeB aan zet; Button1 van NodeB zet deze leds uit.
-
-Flow voor de koppeling van schakelaars en LEDs
-----------------------------------------------
-
-.. [[Bestand:IoT-node-switch-flow.png|IoT node - switch flow]]
-
-Uitleg bij deze flow:
-
-* de mqtt-input-node ontvangt (via "subscribe") de berichten van het Topic <code>node/[IDa]/sensors</code>
-* de JSON-node zet de JSON-tekst van het mqtt-bericht om in een JavaScript-object
-* de switch-node splitst de berichten in:
-    *  berichten met <code>button0: 1</code> en
-    * berichten met <code>button1: 1</code>;
-* deze verschijnen op de twee uitgangen, en op de ingangen van de template-nodes:
-    * de eerste template-node geeft als resultaat <code>{"led0": 1}</code> (in JSON)
-    * de tweede template-node geeft: <code>{"led0": 0}</code> (idem)
-* de mqtt-output-node verstuurt ("publish") het JSON-bericht onder Topic  <code>node/[IDb]/actuators</code>
-* controleer de berichten met het mqtt-hulpprogramma
-* controleer de berichten door debug-nodes aan de flow toe te voegen (vergeet "Deploy" niet!).
-
-NodeRed-code van deze flow:
-
-.. code-block:: JSON
-
-  [{"id":"7bd76101.769c6","type":"mqtt in","z":"21e77168.c3a01e","name":"","topic":"node/e0f1/sensors","qos":"2","broker":"d97b4423.5d2e78","x":210,"y":120,"wires":[["61316186.c89fa8"]]},{"id":"61316186.c89fa8","type":"json","z":"21e77168.c3a01e","name":"","property":"payload","action":"","pretty":false,"x":400,"y":120,"wires":[["65a7b0ed.8e5d"]]},{"id":"65a7b0ed.8e5d","type":"switch","z":"21e77168.c3a01e","name":"button0/1 split","property":"payload","propertyType":"msg","rules":[{"t":"jsonata_exp","v":"payload.button0 = 1","vt":"jsonata"},{"t":"jsonata_exp","v":"payload.button1 = 1","vt":"jsonata"}],"checkall":"true","repair":false,"outputs":2,"x":330,"y":240,"wires":[["441083fd.53bc6c"],["54723040.784cf"]]},{"id":"441083fd.53bc6c","type":"template","z":"21e77168.c3a01e","name":"led0-1","field":"payload","fieldType":"msg","format":"json","syntax":"mustache","template":"{\"led0\": 1}","output":"str","x":540,"y":220,"wires":[["e12e623.940f0a"]]},{"id":"54723040.784cf","type":"template","z":"21e77168.c3a01e","name":"led0-0","field":"payload","fieldType":"msg","format":"json","syntax":"mustache","template":"{\"led0\": 0}","output":"str","x":540,"y":260,"wires":[["e12e623.940f0a"]]},{"id":"e12e623.940f0a","type":"mqtt out","z":"21e77168.c3a01e","name":"","topic":"node/e0f2/actuators","qos":"","retain":"","broker":"d97b4423.5d2e78","x":790,"y":240,"wires":[]},{"id":"d97b4423.5d2e78","type":"mqtt-broker","z":"","name":"","broker":"infvopedia.nl","port":"1883","clientid":"","usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthRetain":"false","birthPayload":"","closeTopic":"","closeQos":"0","closeRetain":"false","closePayload":"","willTopic":"","willQos":"0","willRetain":"false","willPayload":""}]
+* importeren en exporteren van NodeRed-flows
+* berichten van TTN gateways (via MQTT)
+    * welke informatie voegt een TTN gateway toe aan de "payload" van een IoT-knoop?

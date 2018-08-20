@@ -83,150 +83,12 @@ JavaScript-functies in een app communiceren vanuit de browser met de server,
 met (naar verhouding) kleine hoeveelheden data.
 Deze communicatie gebruikt het compacte en leesbare JSON-formaat, in plaats van complete HTML-documenten.</p>
 </div>
-<div class="section" id="json-voor-iot-knopen">
-<h2>JSON voor IoT-knopen<a class="headerlink" href="#json-voor-iot-knopen" title="Permalink naar deze titel">¶</a></h2>
-<p>In de software bij deze module gebruiken we een vast JSON-formaat voor de verschillende soorten IoT-knopen.
-Hierdoor kunnen we in de toepassingen de data van deze knopen op eenzelfde manier behandelen.
-Dit JSON-formaat is een variant van het binaire Cayenne low power payload (LPP) formaat.</p>
-<p class="rubric">Uplink-formaat</p>
-<p>Voor de <em>uplink</em> berichten van de IoT-knopen gebruiken we de volgende elementen:</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>metadata:</dt>
-<dd><ul class="first last">
-<li><code class="docutils literal notranslate"><span class="pre">nodeid</span></code>: de identificatie van een node (een string, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">&quot;fe3d&quot;</span></code>).</li>
-<li><code class="docutils literal notranslate"><span class="pre">counter</span></code>: het volgnummer van een bericht (pakket)</li>
-<li><code class="docutils literal notranslate"><span class="pre">rssi</span></code>: (optioneel) de signaalsterkte</li>
-<li><code class="docutils literal notranslate"><span class="pre">time</span></code>: (optioneel) het tijdstip van de communicatie (ontvangst)</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>payload:</dt>
-<dd><ul class="first last">
-<li>per sensor of actuator een <em>channel</em>, weergegeven voor een getal.</li>
-<li>per channel: een object met (naam, waarde)-paren,</li>
-<li>waarbij we vaste namen gebruiken, met een vaste betekenis van de waarden.</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p>De onderstaande tabel geeft de namen voor de sensor-waarden en de betekenis van de bijbehorende waarden.</p>
-<table border="1" class="colwidths-given docutils" id="id1">
-<caption><span class="caption-text">JSON-LPP types</span><a class="headerlink" href="#id1" title="Permalink naar deze tabel">¶</a></caption>
-<colgroup>
-<col width="33%" />
-<col width="22%" />
-<col width="11%" />
-<col width="33%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Sensor</th>
-<th class="head">Naam</th>
-<th class="head">Bytes</th>
-<th class="head">Resolutie</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Digitale input</td>
-<td>dIn</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="row-odd"><td>Digitale output</td>
-<td>dOut</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="row-even"><td>Analoge input</td>
-<td>aIn</td>
-<td>2</td>
-<td>0.01 signed</td>
-</tr>
-<tr class="row-odd"><td>Analoge output</td>
-<td>aOut</td>
-<td>2</td>
-<td>0.01 signed</td>
-</tr>
-<tr class="row-even"><td>Lichtniveau</td>
-<td>illuminance</td>
-<td>2</td>
-<td>1 Lux unsigned</td>
-</tr>
-<tr class="row-odd"><td>Aanwezigheid</td>
-<td>presence</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="row-even"><td>Temperatuur</td>
-<td>temperature</td>
-<td>2</td>
-<td>0.1 °C signed</td>
-</tr>
-<tr class="row-odd"><td>Rel. Luchtvochtigheid</td>
-<td>humidity</td>
-<td>1</td>
-<td>0.5% unsigned</td>
-</tr>
-<tr class="row-even"><td>Luchtdruk</td>
-<td>barometer</td>
-<td>2</td>
-<td>0.1 hPa unsigned</td>
-</tr>
-</tbody>
-</table>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Voorbeeld</span><a class="headerlink" href="#id2" title="Permalink naar deze broncode">¶</a></div>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;nodeid&quot;</span><span class="p">:</span> <span class="s2">&quot;fe3d&quot;</span><span class="p">,</span>
- <span class="nt">&quot;counter&quot;</span><span class="p">:</span> <span class="mi">3027</span><span class="p">,</span>
- <span class="nt">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
-   <span class="nt">&quot;0&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span> <span class="mi">235</span><span class="p">},</span>
-   <span class="nt">&quot;1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;barometer&quot;</span><span class="p">:</span> <span class="mi">10093</span><span class="p">},</span>
-   <span class="nt">&quot;2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;dOut&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-   <span class="nt">&quot;8&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;aOut&quot;</span><span class="p">:</span> <span class="mi">255</span><span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<p>Opmerkingen:</p>
-<ul class="simple">
-<li>het aantal bytes geeft aan welke waarden maximaal gerepresenteerd kunnen worden,
-bijvoorbeeld: 1 byte unsigned: 0..255, 2 bytes unsigned: 0..65536, 2 bytes signed: -32768..32767.
-De gebruikelijke waarden vallen hier ruimschoots binnen.</li>
-<li>we gebruiken als waarden alleen <em>gehele getallen</em>.
-Bij het weergeven in een gebruikersinterface rekenen we deze om naar de gebruikelijke eenheden.
-Bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">&quot;temperature&quot;:</span> <span class="pre">235</span></code> geven we dan weer als “23.5 ‘C”, en
-<code class="docutils literal notranslate"><span class="pre">&quot;barometer&quot;:</span> <span class="pre">10097</span></code> als “1009.7 hPa”.</li>
-<li>een IoT-knoop geeft in het uplink-bericht ook de waarden van de <em>actuatoren</em> (dOut en aOut).
-Sommige toepassingen gebruiken dit om automatisch een besturingswidget voor een actuator te maken.</li>
-<li>je moet zelf bijhouden welke sensor overeenkomt met “channel 1, nodeid 3ef2”;
-bijvoorbeeld: de temperatuursensor in de woonkomer.
-De toepassing zou deze administratie bij kunnen houden.</li>
-</ul>
-<p class="rubric">Downlink-formaat</p>
-<p>Het formaat van de downlink-berichten is wat eenvoudiger.</p>
-<ul class="simple">
-<li>er is geen metadata; de nodeid volgt uit het MQTT-topic;</li>
-<li>de payload bevat alleen de gegevens van één of meer outputs (actuators).</li>
-</ul>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Voorbeeld</span><a class="headerlink" href="#id3" title="Permalink naar deze broncode">¶</a></div>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;dOut&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
- <span class="nt">&quot;8&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;aOut&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
 <p class="rubric">Links</p>
 <ul class="simple">
 <li>referentie: <a class="reference external" href="https://www.json.org/">https://www.json.org/</a></li>
 <li>referentie: <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON</a></li>
 <li>tutorial: <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON</a></li>
 </ul>
-</div>
 </div>
 
 
@@ -251,17 +113,14 @@ De toepassing zou deze administratie bij kunnen houden.</li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="mqtt-pubsub.html">MQTT: publish-subscribe</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">JSON</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#json-voor-iot-knopen">JSON voor IoT-knopen</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
