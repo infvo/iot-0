@@ -14,13 +14,11 @@ De IoT-knopen en gateways vormen de rand (*edge*) van het Internet of Things.
 
 In deze module ligt de focus op deze edge: de IoT-knopen en gateways,
 en de communicatie daartussen.
-De eisen aan deze edge en de bijbehorende communicatie volgen voor een deel uit de fysieke eigenschappen van de toepassingen,
-zoals de gebruiker deze ervaart.
-Met andere woorden: je kunt als gebruiker zonder kennis van de IoT-technologie beschrijven aan welke eisen deze edge(-communicatie) moet voldoen.
-Deze eisen hebben gevolgen voor de technologische keuzes die je voor die edge maakt.
+De eisen aan de IoT-knopen en de bijbehorende communicatie volgen voor een deel uit de fysieke eigenschappen van de toepassing op het niveau van de gebruiker.
+Met andere woorden: je kunt als gebruiker deze eisen beschrijven, zonder kennis van de IoT-technologie.
 
-We beschrijven in dit gedeelte de eisen die van belang zijn voor deze keuzes.
-Later behandelen we hoe je op grond van deze eisen de passende technologie kunt kiezen.
+We beschrijven in dit gedeelte de soorten eisen die van belang zijn.
+Later behandelen we hoe je op grond van deze eisen de passende IoT-technologie kunt kiezen.
 
 .. rubric:: snelheid: bitrate
 
