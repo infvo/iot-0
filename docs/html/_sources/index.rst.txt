@@ -12,13 +12,13 @@ IoT-0: IoT voor gebruikers
    ten-geleide.rst
    inleiding.rst
    bouwstenen.rst
-   mqtt.rst
-   nodered.rst
    webserver.rst
    wifi.rst
    rfm69.rst
    lora.rst
    glossary.rst
+   nodered.rst
+   mqtt.rst
    todo.rst
 
 .. toctree::

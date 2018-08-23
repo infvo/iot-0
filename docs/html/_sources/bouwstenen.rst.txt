@@ -2,17 +2,6 @@
 Bouwstenen
 **********
 
-.. todo::
-
-  * IoT-knopen
-  * protocol: HTTP (met HTML)
-  * protocol: MQTT (ipv. HTTP) - met JSON
-  * ketens: cleint-server; client-broker-client - PubSub; gateway;
-  * NodeRed (als "lijm"); gebruik van externe diensten etc.
-  * externe diensten (bijv. weer? https://openweathermap.org? twitter?)
-
-
-
 In dit hoofdstuk geven we een overzicht van de bouwstenen van het Internet of Things.
 We geven verschillende voorbeelden van de manier waarop deze bouwstenen tot een IoT-keten gecombineerd worden.
 In de volgende hoofdstukken werken we deze bouwstenen en IoT-ketens verder uit.

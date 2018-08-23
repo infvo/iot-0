@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Opdrachten" href="opdrachten.html" />
-    <link rel="prev" title="Eisen" href="iot-eisen.html" />
+    <link rel="prev" title="Gebruikerseisen" href="iot-eisen.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,6 +35,85 @@
             
   <div class="section" id="overzicht">
 <h1>Overzicht<a class="headerlink" href="#overzicht" title="Permalink naar deze titel">¶</a></h1>
+<p>Het Internet of Things koppelt de fysieke wereld aan de virtuele wereld van het internet.
+De eerste stap in deze koppeling zijn de <em>sensoren en actuatoren</em> verbonden met een “ding” in de fysieke wereld.
+Deze sensoren en actuatoren zijn onderdeel van een <em>IoT-knoop</em>;
+de andere onderdelen van deze knoop zorgen voor de verwerking van de data en voor de verbinding met het internet.
+Voor de koppeling tussen een IoT-knoop en het internet kunnen we kiezen uit verschillende technologische oplossingen,
+bijvoorbeeld voor verschillende soorten radio’s.
+De keuze voor een bepaalde technologie hangt af van de gebruikerseisen.</p>
+<p>In deze module maak je kennis met een aantal mogelijkheden voor de koppeling tussen een IoT-knoop en het internet.
+Met deze kennis kun je voor een bepaalde IoT-toepassing een passende technologische oplossing kiezen.</p>
+<blockquote>
+<div>We behandelen een aantal representatieve mogelijkheden, waarbij verschillende problemen aan de orde komen.
+Het is in het kader van deze module niet mogelijk om alle beschikbare oplossingen te behandelen.</div></blockquote>
+<p>Een ander belangrijk thema in deze module is de koppeling tussen de gegevens van de IoT-knoop en de uiteindelijke toepassing (“app”).
+We laten zien hoe je deze koppeling zo kunt maken dat deze onafhankelijk is van de koppeling tussen de IoT-knoop en het internet.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Te doen</p>
+<p class="last">Inleiding-overzicht: &lt;&lt;fig met beide koppelingen&gt;&gt;</p>
+</div>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Te doen</p>
+<p class="last">NB: er ontbreekt één belangrijke technologie: BLE.</p>
+</div>
+<p class="rubric">Bouwstenen</p>
+<p>In het volgende hoofdstuk geven we een overzicht van de bouwstenen van het Internet of Things.
+Hierbij gaat het vooral om de koppeling tussen de IoT-knoop en het internet.
+We kunnen daarvoor kiezen uit verschillende radio’s, interacties en protocollen.
+Deze bouwstenen combineren we tot een complete “IoT-keten”, van IoT-knoop tot web-toepassing (“app”).</p>
+<div class="admonition note">
+<p class="first admonition-title">Notitie</p>
+<p class="last">Dit hoofdstuk is bedoeld als globaal overzicht.
+Hierbij komen veel nieuwe begrippen aan de orde: dat kan intimiderend zijn.
+Het is geen probleem als je die eerst niet begrijpt: in de volgende hoofdstukken komen die in detail terug.
+Je kunt dan later dit overzicht gebruiken om te begrijpen hoe die details in het geheel passen.</p>
+</div>
+<p>In de opdrachten gebruik je een IoT-keten met een gesimuleerde IoT-knoop.
+Dit is ook een handig hulpmiddel voor de volgende hoofdstukken.</p>
+<p class="rubric">IoT-knoop met webserver</p>
+<p>Soms bevat een IoT-knoop een webserver:
+deze levert de toepassing (“app”) waarmee je het “ding” kunt besturen.
+Een voorbeeld hiervan is een netwerkprinter.
+In dit geval gebruikt de koppeling tussen de IoT-knoop en de “app” het HTTP-protocol,
+voor een client-server interactie tussen de app op de browser en de webserver op de IoT-knooop.</p>
+<p>Je gaat met een IoT-knoop met een webserver aan de slag.
+Vanuit je eigen browser bestuur je enkele LEDs, en meet je de temperatuur, luchtdruk en lichtniveau.
+Met behulp van de browser-ontwikkelaarstools bestudeer je het HTTP-protocol met de IoT-knoop.
+In NodeRed maak je een eigen webserver, om het HTTP-protocol vanuit de server te bestuderen.</p>
+<blockquote>
+<div>NodeRed is een toepassing waarmee je op een grafische manier allerlei protocollen en diensten kunt koppelen.
+Hiermee kun je op een eenvoudige manier experimenteren, en snel een eigen toepassing maken.</div></blockquote>
+<p class="rubric">WiFi/MQTT-IoT-knoop</p>
+<p>Een webserver moet altijd beschikbaar (online) zijn: dat is niet handig als je een IoT energiezuinig wilt maken.
+Met een Publish-Subscribe interactie kunnen zowel de IoT-knoop als de toepassing (“app”) <em>client</em> zijn van een gemeenschappelijk <em>broker</em>.
+Het MQTT-protocol biedt dit, in een vorm die goed past bij het Internet of Things.</p>
+<p>In dit hoofdstuk maak je kennis met het MQTT-protocol.
+Je communiceert met een aparte toepassing via MQTT en de MQTT-broker met je IoT-knoop.
+Daarmee kun je weer de sensoren van de IoT-knoop uitlezen en de LEDs besturen.</p>
+<p>In NodeRed gebruik je de MQTT-nodes om met je IoT-knoop de communiceren.
+Je kunt daarmee een eigen “app” maken, bijvoorbeeld een dashboard voor de IoT-knoop.</p>
+<p class="rubric">RFM69</p>
+<p>Een WiFi-radio is niet echt energiezuinig, en heeft naar verhouding een klein bereik.
+Een RFM69-radio is zuiniger en heeft een redelijk groot bereik (tot enkele honderden meters).
+Dit gaat ten koste van de <em>bitrate</em>.
+Dit betekent dat je voor deze radio een eenvoudig protocol gebruikt.
+Voor de aansluiting op het internet is dan een <em>gateway</em>: deze zet het RFM69-protocol om in MQTT.</p>
+<p>In dit gedeelte gebruik je een IoT-knoop met een RFM69-radio, en een gateway met zowel een RFM69-radio als een WiFi-radio.
+Deze gateway communiceert via MQTT (over WiFi) met de MQTT-broker.
+Voor het uitlezen en aansturen van de sensoren en actuatoren van de IoT-knoop kun je dan dezelfde aanpak gebruiken als hiervoor.</p>
+<p>In NodeRed koppel je de verschillende IoT-knopen aan elkaar.</p>
+<p class="rubric">LoRa(Wan)</p>
+<p>De LoRa-radio (Long Range) heeft een groter bereik dan de RFM69-radio: tot enkele kilometers.
+Dit grote bereik gaat ten koste van de bitrate: je kunt maar een tiental kleine berichten per uur versturen.
+Een LoRaWan-netwerk, op basis van deze LoRa radio, gebruikt <em>gateways</em> voor de verbinding tussen de IoT-knoop en het internet.
+Er zijn enkele LoRaWan-netwerken met landelijke dekking (of groter), onder andere van KPN.</p>
+<p>In de opdrachten gebruik je een LoRaWan-IoT-knoop met het TTN-netwerk.
+Dit is een netwerk opgezet door een wereldwijde community, in plaats van door een bedrijf of een overheid.
+Je gebruikt een <em>TTN-application</em> via één van de TTN-servers/brokers.
+Daarbij bestudeer je de gevolgen van de lage bitrate.
+Via MQTT communiceer je met de IoT-node(s) (<em>device</em>) in deze application: je kunt hiervoor bijvoorbeeld je eigen dashboard maken.</p>
+<hr class="docutils" />
 <p class="rubric">Bouwstenen</p>
 <p>Als eerste stap beschrijven we de bouwstenen van de internet of things.
 Deze bouwstenen kunnen we op verschillende manieren combineren tot een IoT-keten:
@@ -48,8 +127,10 @@ op het niveau van de toepassingen kun je deze dan gelijk behandelen.</li>
 <li>Een IoT-knoop is vaak draadloos:
 er zijn verschillende soorten radio’s om de verbinding met het internet te maken,
 afhankelijk van de eisen die het “ding” en de toepassing stellen.</li>
-<li></li>
 </ul>
+<p>De gebruikerseisen zoals we die hiervoor gezien hebben, bepalen voor een belangrijk deel welke technologie je kunt gebruiken.
+Allereeerst maak je een keuze voor de verbinding tussen de IoT-knoop en het internet.
+De keuze van de protocollen volgt daarna: deze wordt voor een deel bepaald door de communicatiemogelijkheden.</p>
 <p class="rubric">MQTT</p>
 <p>MQTT is een veelgebruikt protocol voor het internet of things.
 MQTT is een publish-subscribe-protocol: dit maakt het mogelijk om gegevens te <em>pushen</em> naar de bestemming.
@@ -57,7 +138,7 @@ MQTT is een publish-subscribe-protocol: dit maakt het mogelijk om gegevens te <e
 <p>De oefeningen in dit deel zijn gericht op het leren werken met MQTT.
 dit vormt de basis van de IoT-ketens die later aan de orde komen.)
 Bij deze oefeningen gebruik je een paar eenvoudige hulpprogramma’s die later ook van pas komen.</p>
-<div class="admonition-todo admonition" id="index-0">
+<div class="admonition-todo admonition" id="index-2">
 <p class="first admonition-title">Te doen</p>
 <p class="last">&lt;&lt;JSON&gt;&gt;</p>
 </div>
@@ -67,15 +148,18 @@ Bij deze oefeningen gebruik je een paar eenvoudige hulpprogramma’s die later o
 Dit tutorial behandelt een aantal NodeRed-flows voor het koppelen van IoT-knopen en toepassingen.
 Een eenvoudige toepassing is een <em>dashboard</em> waarin je de sensorgegevens van één of meer IoT-knopen kunt volgen.</p>
 <p>Sommige IoT-knopen beschikken over een webserver.
-Zo’n knoop je bewaken en besturen via een browser, via het HTTP-protocol.</p>
+Zo’n knoop kun je bewaken en besturen via een browser, via het HTTP-protocol.
+Deze oplossing kun je gebruiken als de IoT-knoop verbonden is via Ethernet (bedraad) of via WiFi (draadloos).</p>
 <p class="rubric">WiFi-knopen</p>
-<div class="admonition-todo admonition" id="index-1">
+<div class="admonition-todo admonition" id="index-3">
 <p class="first admonition-title">Te doen</p>
 <ul class="last simple">
 <li>MQTT; MQTT-broker (publiek - op afstand besturen; eventueel lokaal);</li>
 <li>JSON (JSON-formaat voor sensorknopen)</li>
 </ul>
 </div>
+<p>Een veel gebruikt protocol voor het Internet of Things is MQTT.
+Dit past beter dan HTTP bij de eisen</p>
 <p class="rubric">RFM69-knopen</p>
 <p>We gebruiken de RFM69-radio als voorbeeld van <em>pakketcommunicatie</em>.
 Deze radio gebruikt een vrije ISM-band (868MHz).
@@ -116,20 +200,20 @@ Met hardware-knopen met LoRaWan/TTN-software kun je een eigen TTN-toepassing mak
 <li class="toctree-l1 current"><a class="reference internal" href="../inleiding.html">Inleiding</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="voorbeelden.html">Voorbeelden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Eisen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Gebruikerseisen</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Overzicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
@@ -143,7 +227,7 @@ Met hardware-knopen met LoRaWan/TTN-software kun je een eigen TTN-toepassing mak
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../inleiding.html">Inleiding</a><ul>
-      <li>Previous: <a href="iot-eisen.html" title="vorig hoofdstuk">Eisen</a></li>
+      <li>Previous: <a href="iot-eisen.html" title="vorig hoofdstuk">Gebruikerseisen</a></li>
       <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
   </ul></li>
   </ul></li>

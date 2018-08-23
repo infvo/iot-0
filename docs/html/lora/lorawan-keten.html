@@ -211,6 +211,51 @@ Aan welke eisen moeten deze voldoen?</p>
 </dl>
 </li>
 </ul>
+<p class="rubric">LoRaWan en TheThingsNetwork</p>
+<p><em>LoRaWan</em> is een netwerkprotocol op basis van LoRa.
+Een typisch LoRaWan-netwerk bestaat (naast de LoRa-IoT-knopen) uit één of meer <em>gateways</em>,
+die verbonden zijn met een <em>server</em>.
+Deze server coördineert het verkeer van en naar de gateways,
+en zorgt voor de interactie met de rest van het internet.</p>
+<p>Je kunt een gateway in dit verband vergelijken met een mobiele zendmast:
+deze zorgt voor het verkeer tussen de (mobiele) IoT-knopen en de rest van het netwerk.
+Overigens kan een bericht van een IoT-knoop door meerdere gateways ontvangen worden.</p>
+<p>Er zijn verschillende aanbieders met een eigen LoRaWan-netwerk,
+in Nederland onder andere KPN.</p>
+<p>Een bijzondere aanbieder is TheThingsNetwork:
+dit netwerk is georganiseerd rond een <em>community</em> van individuen, groepen en bedrijven,
+die hun eigen gateways aanbieden voor dit netwerk.
+Iedereen kan in deze community meedoen, en gratis deze infrastructuur gebruiken.</p>
+<p class="rubric">gateways</p>
+<p class="rubric">TTN-server</p>
+<p class="rubric">TTN - Fair use regels</p>
+<p>Er zijn wel enkele regels voor het eerlijk gebruik (“fair use”):
+één van die regels is dat een radio niet meer dan 30 seconden per dag mag zenden.
+Op die manier geef je de andere IoT-knopen ook de gelegenheid om het netwerk te gebruiken.</p>
+<p>Je kunt de tijd die een radio (van een IoT-knoop) zendt beperken door:</p>
+<ul class="simple">
+<li>korte berichten te versturen, van enkele bytes;</li>
+<li>het aantal berichten per uur te beperken (tot 10-20);</li>
+<li>waar mogelijk gebruik te maken van een gateway in de buurt.</li>
+</ul>
+<p>Deze regels zijn ook gunstig voor het verlengen van de batterijduur van de IoT-knoop.</p>
+<p class="rubric">LoRaWan-toepassingen</p>
+<p>Voor welke toepassingen is LoRaWan geschikt?</p>
+<ul class="simple">
+<li></li>
+<li>veiligheid (security): de communicatie gebruikt “end-to-end encryptie”,
+van de IoT-knoop tot de toepassing in de TTN-server.</li>
+</ul>
+<p>Voor welke toepassingen is LoraWan <em>niet</em> geschikt?</p>
+<ul class="simple">
+<li>veel berichten per uur;</li>
+<li>grote berichten (meer dan een 10-tal bytes);</li>
+<li>grote betrouwbaarheid;</li>
+</ul>
+<p class="rubric">links</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about">https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about</a></li>
+</ul>
 </div>
 <div class="section" id="links">
 <h2>Links<a class="headerlink" href="#links" title="Permalink naar deze titel">¶</a></h2>
@@ -243,8 +288,6 @@ Aan welke eisen moeten deze voldoen?</p>
 <li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
@@ -262,6 +305,8 @@ Aan welke eisen moeten deze voldoen?</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>

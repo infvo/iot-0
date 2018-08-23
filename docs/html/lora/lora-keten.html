@@ -1,0 +1,168 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LoRa-keten &#8212; iot-0  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Opdrachten" href="opdrachten.html" />
+    <link rel="prev" title="LoRa-knopen" href="../lora.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="lora-keten">
+<h1>LoRa-keten<a class="headerlink" href="#lora-keten" title="Permalink naar deze titel">¶</a></h1>
+<p class="rubric">LoRaWan en TheThingsNetwork</p>
+<p><em>LoRaWan</em> is een netwerkprotocol op basis van LoRa.
+Een typisch LoRaWan-netwerk bestaat (naast de LoRa-IoT-knopen) uit één of meer <em>gateways</em>,
+die verbonden zijn met een <em>server</em>.
+Deze server coördineert het verkeer van en naar de gateways,
+en zorgt voor de interactie met de rest van het internet.</p>
+<p>Je kunt een gateway in dit verband vergelijken met een mobiele zendmast:
+deze zorgt voor het verkeer tussen de (mobiele) IoT-knopen en de rest van het netwerk.
+Overigens kan een bericht van een IoT-knoop door meerdere gateways ontvangen worden.</p>
+<p>Er zijn verschillende aanbieders met een eigen LoRaWan-netwerk,
+in Nederland onder andere KPN.</p>
+<p>Een bijzondere aanbieder is TheThingsNetwork:
+dit netwerk is georganiseerd rond een <em>community</em> van individuen, groepen en bedrijven,
+die hun eigen gateways aanbieden voor dit netwerk.
+Iedereen kan in deze community meedoen, en gratis deze infrastructuur gebruiken.</p>
+<p class="rubric">gateways</p>
+<p class="rubric">TTN-server</p>
+<p class="rubric">TTN - Fair use regels</p>
+<p>Er zijn wel enkele regels voor het eerlijk gebruik (“fair use”):
+één van die regels is dat een radio niet meer dan 30 seconden per dag mag zenden.
+Op die manier geef je de andere IoT-knopen ook de gelegenheid om het netwerk te gebruiken.</p>
+<p>Je kunt de tijd die een radio (van een IoT-knoop) zendt beperken door:</p>
+<ul class="simple">
+<li>korte berichten te versturen, van enkele bytes;</li>
+<li>het aantal berichten per uur te beperken (tot 10-20);</li>
+<li>waar mogelijk gebruik te maken van een gateway in de buurt.</li>
+</ul>
+<p>Deze regels zijn ook gunstig voor het verlengen van de batterijduur van de IoT-knoop.</p>
+<p class="rubric">LoRaWan-toepassingen</p>
+<p>Voor welke toepassingen is LoRaWan geschikt?</p>
+<ul class="simple">
+<li></li>
+<li>veiligheid (security): de communicatie gebruikt “end-to-end encryptie”,
+van de IoT-knoop tot de toepassing in de TTN-server.</li>
+</ul>
+<p>Voor welke toepassingen is LoraWan <em>niet</em> geschikt?</p>
+<ul class="simple">
+<li>veel berichten per uur;</li>
+<li>grote berichten (meer dan een 10-tal bytes);</li>
+<li>grote betrouwbaarheid;</li>
+</ul>
+<p class="rubric">links</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about">https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about</a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lora.html">LoRa-knopen</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LoRa-keten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../lora.html">LoRa-knopen</a><ul>
+      <li>Previous: <a href="../lora.html" title="vorig hoofdstuk">LoRa-knopen</a></li>
+      <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/lora/lora-keten.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

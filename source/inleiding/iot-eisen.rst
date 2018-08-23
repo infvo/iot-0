@@ -1,6 +1,6 @@
-*****
-Eisen
-*****
+***************
+Gebruikerseisen
+***************
 
 .. bij de Inleiding
 
@@ -99,6 +99,56 @@ Dit geeft de volgende vragen voor de gebruiker:
 * veiligheid is essentieel - zowel vanwege de veiligheid van de "dingen" als van de privacy van mensen in hun omgeving.
     * vooral bij besturingstoepassingen is dit van belang
     * (opmerking: het IoT kan ook bijdragen aan de fysieke veiligheid...)
+
+Een ander soort eisen heeft te maken met veiligheid (security) en privacy.
+Het Internet of Things kan erg "invasief" zijn in de omgeving van mensen.
+Aan de hand van informatie over de "dingen" is veel op te maken over het gedrag van mensen in de omgeving daarvan.
+Sommige IoT-toepassingen stellen daarom hoge eisen aan de *privacy*.
+
+In andere gevallen hebben we te maken met veiligheideisen:
+een apparaat mag alleen bediend worden door personen (of programma's) met de juiste autorisatie.
+
+Beveiligde verbindingen vormen een essentieel middel voor zowel veiligheid als privacy.
+Daarnaast zijn er nog aanvullende maatregelen nodig: zowel veiligheid als privacy zijn systeem-issues,
+die niet alleen op een technologische manier opgelost kunnen worden.
+
+Als gebruiker of opdrachtgever moet je van te voren nadenken over de eisen op het gebied van privacy en veiligheid,
+zowel van jezelf als van anderen.
+Hierbij moet je bedenken dat de nadelen van een IoT-toepassing soms andere mensen treffen dan de voordelen.
+
+.. rubric:: Voorbeeld(en)
+
+*klimaatbeheersing*
+
+* per vertrek 1 of 2 IoT-knopen met sensoren voor de temperatuur en luchtvochtichtigheid.
+* *bitrate* Voor de temperatuur zijn 2 bytes voldoende (0..500, in 1/10 graad Celcius: 234 staat dan voor 23,4 graad Celcius).
+  Voor de luchtvochtigheid is 1 byte genoeg (0-200, in 1/2%).
+* *bitrate* We hoeven de sensoren niet vaker dan eens in de 5 minuten uit te lezen.
+* *latency* Een sensoruitlezing moet binnen 60 seconden na de meting beschikbaar zijn voor de toepassing
+  (de besturing van de verwarming of airconditioning).
+* *betrouwbaarheid* Het is niet erg als 1 of 2 opeenvolgende sensor-uitlezingen ontbreken.
+* *veiligheid* Sensoruitlezingen mogen niet door derden gelezen kunnen worden;
+  een sensoruitlezing mag ook niet vervalst kunnen worden.
+* Er zijn geen aanvullende privacy-eisen.
+
+*Opmerking* we werken in het geval van sensorwaarden vaak met gehele getallen,
+waarbij een vaste schaalfactor gebruikt wordt om tot de gebruikelijke eenheid te komen.
+
+*verlichting*
+
+* elke lamp bevat een IoT-knoop om deze aan te sturen;
+* daarnaast zijn er sensoren die als automatische en handbediende lichtschakelaars werken.
+* *bitrate*: voor het instellen van een lamp zijn 4 bytes nodig: voor de lichtintensiteit en voor de kleuren.
+* *bitrate*: voor het instellen van een lamp zijn soms meerdere berichten nodig, bijvoorbeeld 10 berichten in 5 seconden.
+* *bitrate*: gewoonlijk wordt een lamp niet vaker dan eens in de 30 minuten bediend.
+* *latency*: een lamp moet binnen 0,5 seconde reageren op het bedienen van een schakelaar.
+* veiligheid*: sensoruitlezingen en besturingsberichten mogen niet door derden gelezen kunnen worden;
+  deze mogen ook niet vervalst kunnen worden.
+* er zijn geen aanvullende privacy-eisen.
+
+*Opmerking*: voor de latency werken we hier met een *end-to-end* eis:
+voor de gebruiker maakt het niet welk onderdeel voor de vertraging verantwoordelijk is,
+het gaat alleen om de totale vertraging.
 
 
 .. rubric:: Verschillen tussen IoT en het web
