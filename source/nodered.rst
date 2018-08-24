@@ -1,6 +1,11 @@
-*******
-NodeRed
-*******
+*********
+(NodeRed)
+*********
+
+..todo::
+
+  De stof van dit hoofdstuk wordt verdeeld over de andere hoofdstukken.
+  Als dat compleet is, kan dit weg.
 
 .. todo::
 

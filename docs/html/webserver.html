@@ -74,7 +74,7 @@ De client-server interactie via HTTP is een “pull” interactie: het initiatie
 <li><dl class="first docutils">
 <dt>de IoT-knoop-webserver is verbonden in het <em>lokale netwerk</em>, via WiFi of Ethernet;</dt>
 <dd><ul class="first last">
-<li>gevolg: het apparaat alleen te bedienen binnen het lokale netwerk;</li>
+<li>gevolg: het apparaat is alleen te bedienen binnen het lokale netwerk;</li>
 </ul>
 </dd>
 </dl>
@@ -82,23 +82,15 @@ De client-server interactie via HTTP is een “pull” interactie: het initiatie
 <li><dl class="first docutils">
 <dt>de IoT-knoop-webserver moet altijd bereikbaar (online) zijn;</dt>
 <dd><ul class="first last">
-<li>gevolg: niet geschikt voor batterijvoeding van de IoT-knoop;</li>
+<li>gevolg: IoT-knoop niet geschikt voor batterijvoeding;</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>de IoT-knoop-webserver moet te vinden zijn via de browser-URL;</dt>
+<dt>de browser neemt het initiatief in de interactie met de IoT-knoop-webserver;</dt>
 <dd><ul class="first last">
-<li>gevolg: je moet het IP-adres of de lokale domeinnaam van de IoT-knoop kennen;</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>de browser neemt het initiatief in de client-server interactie met de IoT-knoop-webserver;</dt>
-<dd><ul class="first last">
-<li>gevolg: deze HTTP-client-server interactie is geschikt voor actuatoren (bediening), minder voor sensoren (monitoring).</li>
+<li>gevolg: geschikt voor actuatoren (bediening), minder geschikt voor sensoren (monitoring).</li>
 </ul>
 </dd>
 </dl>
@@ -140,8 +132,8 @@ De client-server interactie via HTTP is een “pull” interactie: het initiatie
 <li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nodered.html">NodeRed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodered.html">(NodeRed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt.html">(MQTT en JSON)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>

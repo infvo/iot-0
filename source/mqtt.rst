@@ -1,6 +1,11 @@
-************
-MQTT en JSON
-************
+**************
+(MQTT en JSON)
+**************
+
+..todo::
+
+  De stof van dit hoofdstuk wordt verdeeld over de andere hoofdstukken.
+  Als dat compleet is, kan dit weg.
 
 .. admonition:: Leerdoelen en concepten
 

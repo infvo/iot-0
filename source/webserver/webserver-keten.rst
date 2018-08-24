@@ -28,8 +28,8 @@ Dit betekent dat je het apparaat alleen via smartphones en computers in het loka
   Deze kleine webservers gebruiken dezelfde protocollen en formaten als de webservers die bijvoorbeeld voor Wikipedia gebruikt worden:
   de servers voor dergelijke grote websites staan opgesteld in *server farms*, vaak in de buurt van een energiecentrale.
 
-Client-server
--------------
+Client-server interactie
+------------------------
 
 .. figure:: IoT-client-server-0.png
    :width: 500 px
@@ -52,9 +52,10 @@ Voor monitoring van sensoren is deze aanpak minder geschikt.
 
   Andere voorbeelden:
 
-  * server kan als client optreden van andere server (->NodeRed voorbeeld)
   * mail: server voor versturen (SMTP) en server voor ontvangen (POP, IMAP) van mail
   * time server
   * DNS-server
+  * (web)server kan als client optreden van andere server (->NodeRed voorbeeld)
   * in al deze voorbeelden: initiatief bij client;
-    client hoeft alleen tijdens interactie verbonden te zijn.
+    client hoeft alleen tijdens interactie verbonden te zijn aan het internet;
+    server moet altijd online zijn.

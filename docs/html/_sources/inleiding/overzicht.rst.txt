@@ -38,13 +38,6 @@ Hierbij gaat het vooral om de koppeling tussen de IoT-knoop en het internet.
 We kunnen daarvoor kiezen uit verschillende radio's, interacties en protocollen.
 Deze bouwstenen combineren we tot een complete "IoT-keten", van IoT-knoop tot web-toepassing ("app").
 
-.. note::
-
-  Dit hoofdstuk is bedoeld als globaal overzicht.
-  Hierbij komen veel nieuwe begrippen aan de orde: dat kan intimiderend zijn.
-  Het is geen probleem als je die eerst niet begrijpt: in de volgende hoofdstukken komen die in detail terug.
-  Je kunt dan later dit overzicht gebruiken om te begrijpen hoe die details in het geheel passen.
-
 In de opdrachten gebruik je een IoT-keten met een gesimuleerde IoT-knoop.
 Dit is ook een handig hulpmiddel voor de volgende hoofdstukken.
 

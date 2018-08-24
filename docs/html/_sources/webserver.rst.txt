@@ -50,13 +50,11 @@ De client-server interactie via HTTP is een "pull" interactie: het initiatief vo
 .. rubric:: Belangrijke eigenschappen van deze aanpak
 
 * de IoT-knoop-webserver is verbonden in het *lokale netwerk*, via WiFi of Ethernet;
-   * gevolg: het apparaat alleen te bedienen binnen het lokale netwerk;
+   * gevolg: het apparaat is alleen te bedienen binnen het lokale netwerk;
 * de IoT-knoop-webserver moet altijd bereikbaar (online) zijn;
-   * gevolg: niet geschikt voor batterijvoeding van de IoT-knoop;
-* de IoT-knoop-webserver moet te vinden zijn via de browser-URL;
-   * gevolg: je moet het IP-adres of de lokale domeinnaam van de IoT-knoop kennen;
-* de browser neemt het initiatief in de client-server interactie met de IoT-knoop-webserver;
-   * gevolg: deze HTTP-client-server interactie is geschikt voor actuatoren (bediening), minder voor sensoren (monitoring).
+   * gevolg: IoT-knoop niet geschikt voor batterijvoeding;
+* de browser neemt het initiatief in de interactie met de IoT-knoop-webserver;
+   * gevolg: geschikt voor actuatoren (bediening), minder geschikt voor sensoren (monitoring).
 
 .. toctree::
    :maxdepth: 2
@@ -65,5 +63,5 @@ De client-server interactie via HTTP is een "pull" interactie: het initiatief vo
    webserver/webserver-keten.rst
    webserver/webserver-protocol.rst
    webserver/opdrachten.rst
-   webserver/nodered-opdrachten.rst 
+   webserver/nodered-opdrachten.rst
    webserver/toetsvragen.rst

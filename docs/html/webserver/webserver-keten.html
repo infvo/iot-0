@@ -57,8 +57,8 @@ Dit betekent dat je het apparaat alleen via smartphones en computers in het loka
 Deze kleine webservers gebruiken dezelfde protocollen en formaten als de webservers die bijvoorbeeld voor Wikipedia gebruikt worden:
 de servers voor dergelijke grote websites staan opgesteld in <em>server farms</em>, vaak in de buurt van een energiecentrale.</p>
 </div>
-<div class="section" id="client-server">
-<h2>Client-server<a class="headerlink" href="#client-server" title="Permalink naar deze titel">¶</a></h2>
+<div class="section" id="client-server-interactie">
+<h2>Client-server interactie<a class="headerlink" href="#client-server-interactie" title="Permalink naar deze titel">¶</a></h2>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/IoT-client-server-0.png"><img alt="../_images/IoT-client-server-0.png" src="../_images/IoT-client-server-0.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">Client-server interactie</span></p>
@@ -76,12 +76,13 @@ Voor monitoring van sensoren is deze aanpak minder geschikt.</p>
 <p class="topic-title first">Client-server in het internet</p>
 <p>Andere voorbeelden:</p>
 <ul class="simple">
-<li>server kan als client optreden van andere server (-&gt;NodeRed voorbeeld)</li>
 <li>mail: server voor versturen (SMTP) en server voor ontvangen (POP, IMAP) van mail</li>
 <li>time server</li>
 <li>DNS-server</li>
+<li>(web)server kan als client optreden van andere server (-&gt;NodeRed voorbeeld)</li>
 <li>in al deze voorbeelden: initiatief bij client;
-client hoeft alleen tijdens interactie verbonden te zijn.</li>
+client hoeft alleen tijdens interactie verbonden te zijn aan het internet;
+server moet altijd online zijn.</li>
 </ul>
 </div>
 </div>
@@ -109,7 +110,7 @@ client hoeft alleen tijdens interactie verbonden te zijn.</li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../webserver.html">Webserver-knopen</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Webserver-keten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#client-server">Client-server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client-server-interactie">Client-server interactie</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="webserver-protocol.html">Protocollen</a></li>
@@ -122,8 +123,8 @@ client hoeft alleen tijdens interactie verbonden te zijn.</li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nodered.html">NodeRed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">MQTT en JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nodered.html">(NodeRed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mqtt.html">(MQTT en JSON)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
