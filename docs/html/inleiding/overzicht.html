@@ -38,25 +38,22 @@
 <p>Het Internet of Things koppelt de fysieke wereld aan de virtuele wereld van het internet.
 De eerste stap in deze koppeling zijn de <em>sensoren en actuatoren</em> verbonden met een “ding” in de fysieke wereld.
 Deze sensoren en actuatoren zijn onderdeel van een <em>IoT-knoop</em>;
-de andere onderdelen van deze knoop zorgen voor de verwerking van de data en voor de verbinding met het internet.
-Voor de koppeling tussen een IoT-knoop en het internet kunnen we kiezen uit verschillende technologische oplossingen,
+de andere onderdelen van deze knoop zorgen voor de verwerking van de data en voor de verbinding met het internet.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/IoT-knoop-01.png"><img alt="../_images/IoT-knoop-01.png" src="../_images/IoT-knoop-01.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding</span></p>
+</div>
+<p>Voor de koppeling tussen een IoT-knoop en het internet kunnen we kiezen uit verschillende technologische oplossingen,
 bijvoorbeeld voor verschillende soorten radio’s.
 De keuze voor een bepaalde technologie hangt af van de gebruikerseisen.</p>
 <p>In deze module maak je kennis met een aantal mogelijkheden voor de koppeling tussen een IoT-knoop en het internet.
 Met deze kennis kun je voor een bepaalde IoT-toepassing een passende technologische oplossing kiezen.</p>
-<blockquote>
-<div>We behandelen een aantal representatieve mogelijkheden, waarbij verschillende problemen aan de orde komen.
-Het is in het kader van deze module niet mogelijk om alle beschikbare oplossingen te behandelen.</div></blockquote>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/IoT-keten-0.png"><img alt="../_images/IoT-keten-0.png" src="../_images/IoT-keten-0.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">IoT-keten: van IoT-knoop via “???” naar het internet, en via <em>mqtt/json</em> naar de web-toepassing</span></p>
+</div>
 <p>Een ander belangrijk thema in deze module is de koppeling tussen de gegevens van de IoT-knoop en de uiteindelijke toepassing (“app”).
 We laten zien hoe je deze koppeling zo kunt maken dat deze onafhankelijk is van de koppeling tussen de IoT-knoop en het internet.</p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<p class="last">Inleiding-overzicht: &lt;&lt;fig met beide koppelingen&gt;&gt;</p>
-</div>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Te doen</p>
-<p class="last">NB: er ontbreekt één belangrijke technologie: BLE.</p>
-</div>
 <p class="rubric">Bouwstenen</p>
 <p>In het volgende hoofdstuk geven we een overzicht van de bouwstenen van het Internet of Things.
 Hierbij gaat het vooral om de koppeling tussen de IoT-knoop en het internet.
@@ -113,70 +110,10 @@ Dit is een netwerk opgezet door een wereldwijde community, in plaats van door ee
 Je gebruikt een <em>TTN-application</em> via één van de TTN-servers/brokers.
 Daarbij bestudeer je de gevolgen van de lage bitrate.
 Via MQTT communiceer je met de IoT-node(s) (<em>device</em>) in deze application: je kunt hiervoor bijvoorbeeld je eigen dashboard maken.</p>
-<hr class="docutils" />
-<p class="rubric">Bouwstenen</p>
-<p>Als eerste stap beschrijven we de bouwstenen van de internet of things.
-Deze bouwstenen kunnen we op verschillende manieren combineren tot een IoT-keten:
-van “ding” tot toepassing.</p>
-<ul class="simple">
-<li>Een IoT-knoop koppelt een fysiek “ding” aan de virtuele wereld.</li>
-<li>Het MQTT-protocol koppelt een IoT-knoop aan de toepassingen in het internet.</li>
-<li>We gebruiken een uniform JSON-formaat voor de verschillende soorten IoT-knopen:
-op het niveau van de toepassingen kun je deze dan gelijk behandelen.</li>
-<li>Met NodeRed kun je IoT-knopen, diensten en toepassingen op een grafische manier aan elkaar verbinden.</li>
-<li>Een IoT-knoop is vaak draadloos:
-er zijn verschillende soorten radio’s om de verbinding met het internet te maken,
-afhankelijk van de eisen die het “ding” en de toepassing stellen.</li>
-</ul>
-<p>De gebruikerseisen zoals we die hiervoor gezien hebben, bepalen voor een belangrijk deel welke technologie je kunt gebruiken.
-Allereeerst maak je een keuze voor de verbinding tussen de IoT-knoop en het internet.
-De keuze van de protocollen volgt daarna: deze wordt voor een deel bepaald door de communicatiemogelijkheden.</p>
-<p class="rubric">MQTT</p>
-<p>MQTT is een veelgebruikt protocol voor het internet of things.
-MQTT is een publish-subscribe-protocol: dit maakt het mogelijk om gegevens te <em>pushen</em> naar de bestemming.
-(In de client-server interactie in het web, via het HTTP-protocol haalt de browser de gegevens van de server (<em>pull</em>).)</p>
-<p>De oefeningen in dit deel zijn gericht op het leren werken met MQTT.
-dit vormt de basis van de IoT-ketens die later aan de orde komen.)
-Bij deze oefeningen gebruik je een paar eenvoudige hulpprogramma’s die later ook van pas komen.</p>
-<div class="admonition-todo admonition" id="index-2">
+<div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Te doen</p>
-<p class="last">&lt;&lt;JSON&gt;&gt;</p>
+<p class="last">NB: er ontbreekt één belangrijke technologie: BLE.</p>
 </div>
-<p class="rubric">NodeRed</p>
-<p>Met NodeRed kun je IoT-knopen, diensten en toepassingen op een grafische manier aan elkaar verbinden.</p>
-<p>Dit onderdeel vormt een tutorial in het gebruik van NodeRed, gericht op het gebruik in deze module.
-Dit tutorial behandelt een aantal NodeRed-flows voor het koppelen van IoT-knopen en toepassingen.
-Een eenvoudige toepassing is een <em>dashboard</em> waarin je de sensorgegevens van één of meer IoT-knopen kunt volgen.</p>
-<p>Sommige IoT-knopen beschikken over een webserver.
-Zo’n knoop kun je bewaken en besturen via een browser, via het HTTP-protocol.
-Deze oplossing kun je gebruiken als de IoT-knoop verbonden is via Ethernet (bedraad) of via WiFi (draadloos).</p>
-<p class="rubric">WiFi-knopen</p>
-<div class="admonition-todo admonition" id="index-3">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>MQTT; MQTT-broker (publiek - op afstand besturen; eventueel lokaal);</li>
-<li>JSON (JSON-formaat voor sensorknopen)</li>
-</ul>
-</div>
-<p>Een veel gebruikt protocol voor het Internet of Things is MQTT.
-Dit past beter dan HTTP bij de eisen</p>
-<p class="rubric">RFM69-knopen</p>
-<p>We gebruiken de RFM69-radio als voorbeeld van <em>pakketcommunicatie</em>.
-Deze radio gebruikt een vrije ISM-band (868MHz).
-Voor het gebruik van deze radioband gelden enkele beperkingen.
-Het bereik van deze radio is 20-200 meter, afhankelijk van het zendvermogen, de antenne en de bitrate.
-Net als vergelijkbare radio’s zoals ZigBee en Z-wave is deze radio goed te gebruiken voor toepassingen in en rond het huis,
-zoals <em>domotica</em>.</p>
-<p>Voor het aansluiten van het RFM69-netwerk op het internet gebruiken we een gateway.
-Deze zorgt onder andere voor de protocol-conversie, van het binaire LPP-formaat naar het tekst-gebaseerde JSON-formaat.</p>
-<p class="rubric">LoRa-knopen</p>
-<p>De LoRa-radio heeft een bereik van enkele kilometers:
-deze is dan ook vooral geschikt voor IoT-knopen die mobiel zijn in een groot gebied.
-Dit grote bereik gaat wel ten koste van de bitrate:
-een IoT-knoop kan maar een tiental keren per uur een klein bericht versturen.</p>
-<p>In dit onderdeel gebruiken we het publieke netwerk van TheThingsNetwork (TTN).
-Je koppelt IoT-knopen in een gegeven TTN-toepassing aan een eigen dashboard.
-Met hardware-knopen met LoRaWan/TTN-software kun je een eigen TTN-toepassing maken.</p>
 </div>
 
 

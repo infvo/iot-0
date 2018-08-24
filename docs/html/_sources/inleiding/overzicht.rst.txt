@@ -8,6 +8,13 @@ Het Internet of Things koppelt de fysieke wereld aan de virtuele wereld van het 
 De eerste stap in deze koppeling zijn de *sensoren en actuatoren* verbonden met een "ding" in de fysieke wereld.
 Deze sensoren en actuatoren zijn onderdeel van een *IoT-knoop*;
 de andere onderdelen van deze knoop zorgen voor de verwerking van de data en voor de verbinding met het internet.
+
+.. figure:: IoT-knoop-0.png
+  :width: 350px
+  :align: center
+
+  IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding
+
 Voor de koppeling tussen een IoT-knoop en het internet kunnen we kiezen uit verschillende technologische oplossingen,
 bijvoorbeeld voor verschillende soorten radio's.
 De keuze voor een bepaalde technologie hangt af van de gebruikerseisen.
@@ -15,19 +22,14 @@ De keuze voor een bepaalde technologie hangt af van de gebruikerseisen.
 In deze module maak je kennis met een aantal mogelijkheden voor de koppeling tussen een IoT-knoop en het internet.
 Met deze kennis kun je voor een bepaalde IoT-toepassing een passende technologische oplossing kiezen.
 
-  We behandelen een aantal representatieve mogelijkheden, waarbij verschillende problemen aan de orde komen.
-  Het is in het kader van deze module niet mogelijk om alle beschikbare oplossingen te behandelen.
+.. figure:: IoT-keten-0.png
+  :width: 500px
+  :align: center
+
+  IoT-keten: van IoT-knoop via "???" naar het internet, en via *mqtt/json* naar de web-toepassing
 
 Een ander belangrijk thema in deze module is de koppeling tussen de gegevens van de IoT-knoop en de uiteindelijke toepassing ("app").
 We laten zien hoe je deze koppeling zo kunt maken dat deze onafhankelijk is van de koppeling tussen de IoT-knoop en het internet.
-
-.. todo::
-
-  Inleiding-overzicht: <<fig met beide koppelingen>>
-
-.. todo::
-
-  NB: er ontbreekt één belangrijke technologie: BLE.
 
 .. rubric:: Bouwstenen
 
@@ -102,85 +104,6 @@ Je gebruikt een *TTN-application* via één van de TTN-servers/brokers.
 Daarbij bestudeer je de gevolgen van de lage bitrate.
 Via MQTT communiceer je met de IoT-node(s) (*device*) in deze application: je kunt hiervoor bijvoorbeeld je eigen dashboard maken.
 
--------
-
-.. rubric:: Bouwstenen
-
-Als eerste stap beschrijven we de bouwstenen van de internet of things.
-Deze bouwstenen kunnen we op verschillende manieren combineren tot een IoT-keten:
-van "ding" tot toepassing.
-
-* Een IoT-knoop koppelt een fysiek "ding" aan de virtuele wereld.
-* Het MQTT-protocol koppelt een IoT-knoop aan de toepassingen in het internet.
-* We gebruiken een uniform JSON-formaat voor de verschillende soorten IoT-knopen:
-  op het niveau van de toepassingen kun je deze dan gelijk behandelen.
-* Met NodeRed kun je IoT-knopen, diensten en toepassingen op een grafische manier aan elkaar verbinden.
-* Een IoT-knoop is vaak draadloos:
-  er zijn verschillende soorten radio's om de verbinding met het internet te maken,
-  afhankelijk van de eisen die het "ding" en de toepassing stellen.
-
-De gebruikerseisen zoals we die hiervoor gezien hebben, bepalen voor een belangrijk deel welke technologie je kunt gebruiken.
-Allereeerst maak je een keuze voor de verbinding tussen de IoT-knoop en het internet.
-De keuze van de protocollen volgt daarna: deze wordt voor een deel bepaald door de communicatiemogelijkheden.
-
-.. rubric:: MQTT
-
-MQTT is een veelgebruikt protocol voor het internet of things.
-MQTT is een publish-subscribe-protocol: dit maakt het mogelijk om gegevens te *pushen* naar de bestemming.
-(In de client-server interactie in het web, via het HTTP-protocol haalt de browser de gegevens van de server (*pull*).)
-
-De oefeningen in dit deel zijn gericht op het leren werken met MQTT.
-dit vormt de basis van de IoT-ketens die later aan de orde komen.)
-Bij deze oefeningen gebruik je een paar eenvoudige hulpprogramma's die later ook van pas komen.
-
 .. todo::
 
-  <<JSON>>
-
-.. rubric:: NodeRed
-
-Met NodeRed kun je IoT-knopen, diensten en toepassingen op een grafische manier aan elkaar verbinden.
-
-Dit onderdeel vormt een tutorial in het gebruik van NodeRed, gericht op het gebruik in deze module.
-Dit tutorial behandelt een aantal NodeRed-flows voor het koppelen van IoT-knopen en toepassingen.
-Een eenvoudige toepassing is een *dashboard* waarin je de sensorgegevens van één of meer IoT-knopen kunt volgen.
-
-.. rubric: Webserver-knopen
-
-Sommige IoT-knopen beschikken over een webserver.
-Zo'n knoop kun je bewaken en besturen via een browser, via het HTTP-protocol.
-Deze oplossing kun je gebruiken als de IoT-knoop verbonden is via Ethernet (bedraad) of via WiFi (draadloos).
-
-
-.. rubric:: WiFi-knopen
-
-.. todo::
-
-  * MQTT; MQTT-broker (publiek - op afstand besturen; eventueel lokaal);
-  * JSON (JSON-formaat voor sensorknopen)
-
-Een veel gebruikt protocol voor het Internet of Things is MQTT.
-Dit past beter dan HTTP bij de eisen
-
-.. rubric:: RFM69-knopen
-
-We gebruiken de RFM69-radio als voorbeeld van *pakketcommunicatie*.
-Deze radio gebruikt een vrije ISM-band (868MHz).
-Voor het gebruik van deze radioband gelden enkele beperkingen.
-Het bereik van deze radio is 20-200 meter, afhankelijk van het zendvermogen, de antenne en de bitrate.
-Net als vergelijkbare radio's zoals ZigBee en Z-wave is deze radio goed te gebruiken voor toepassingen in en rond het huis,
-zoals *domotica*.
-
-Voor het aansluiten van het RFM69-netwerk op het internet gebruiken we een gateway.
-Deze zorgt onder andere voor de protocol-conversie, van het binaire LPP-formaat naar het tekst-gebaseerde JSON-formaat.
-
-.. rubric:: LoRa-knopen
-
-De LoRa-radio heeft een bereik van enkele kilometers:
-deze is dan ook vooral geschikt voor IoT-knopen die mobiel zijn in een groot gebied.
-Dit grote bereik gaat wel ten koste van de bitrate:
-een IoT-knoop kan maar een tiental keren per uur een klein bericht versturen.
-
-In dit onderdeel gebruiken we het publieke netwerk van TheThingsNetwork (TTN).
-Je koppelt IoT-knopen in een gegeven TTN-toepassing aan een eigen dashboard.
-Met hardware-knopen met LoRaWan/TTN-software kun je een eigen TTN-toepassing maken.
+  NB: er ontbreekt één belangrijke technologie: BLE.
