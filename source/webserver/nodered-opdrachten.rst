@@ -200,6 +200,8 @@ Als voorbeeld geven we de functie ``updateLed``: deze wordt uitgevoerd nadat een
 **(2)** Plaats een debug-node aan de output van de http-input-node ``leds/0``.
 Gebruik deze om het ontvangen request te bekijken.
 Stel de output van deze debug-node in als "complete msg object".
+Je gebruikt deze flow als webserver met de URL: ``<<nodered>>/led-control``,
+waarin ``<<nodered>>`` de URL van je NodeRed-server is.
 
 1. wat is de method van het request?
 2. wat is de URL van het request?
