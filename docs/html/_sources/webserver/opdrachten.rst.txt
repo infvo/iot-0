@@ -56,7 +56,7 @@ Voor zover bekend ondersteunen OS X, iOS en Android mDNS.
 
 Opmerkingen:
 
-* je kunt het IP-adres vinden via de ontwikkelaarstools in de browser, zie opdracht XXX.
+* je kunt het IP-adres vinden via de ontwikkelaarstools in de browser, zie opdracht (3).
 * je kunt het IP-adres vinden via het ``ping``-commando (in Unix/Linux), bijvoorbeeld:
   ``ping esp8266-8f12.local``
 * je kunt het IP-adres vinden in de DHCP-tabel van de lokale router/gateway (als je daar toegang toe hebt).
@@ -113,7 +113,10 @@ De server verwerkt het verzoek als volgt:
 (3) Browser-ontwikkelaarstools
 ------------------------------
 
-* bestudeer de brontekst van het html-document, via de browser webtools, bronbestanden-sectie.
+* bestudeer de brontekst van het html-document, via de browser ontwikkelaarstools, bronbestanden-sectie.
+    * deze vind je bij Chrome: Weergave->Ontwikkelaar->Ontwikkelaarstools
+    * bij FireFox: Extra->Webontwikkelaar->Hulpmiddelen in-/uitschakelen
+    * bij Safari: Ontwikkel->Toon webinfovenster (mogelijk moet je in de voorkeuren instellen dat dit menu getoond wordt: )
 * ga via de browser webtools na wat het IP-adres is van de webserver (netwerk-sectie, "headers"/"kopteksten" gedeelte)
     * soms krijg je meer informatie als je op de naam van het document klikt
     * uit hoeveel tekens (bytes) bestaat het brondocument?

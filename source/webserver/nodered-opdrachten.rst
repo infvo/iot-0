@@ -1,14 +1,6 @@
 NodeRed-opdrachten
 ==================
 
-.. todo::
-
-  * Inleiding NodeRed-hoofdstuk: vooral opdrachten, geen theorie
-  * focus in eerste instantie op web/http (webserver-knopen)
-  * opdracht: dashboard voor webserver-knoop
-      * andere presentatie van gegevens
-      * automatisch opvragen van gegevens
-
 .. admonition:: Leerdoelen en concepten
 
   * Kennismaking met NodeRed, voor het configureren van datastromen, koppelen van data, acties en diensten;
@@ -19,16 +11,8 @@ De module "web voor makers" geeft een uitgebreidere handleiding in het gebruik v
 
 .. admonition:: Wat heb je nodig?
 
-  * NodeRed-installatie met daarin geïnstalleerd:
-      * UI-nodes (voor dashboard)
-      * TTN-nodes
-  * sensordata
-      * via MQTT van een publieke broker, of
-      * via MQTT van een lokale broker (alleen met een lokale NodeRed-installatie)
-  * IoT-knoop
-      * een eigen hardware IoT-knoop; of
-      * een gesimuleerde IoT-knoop; of
-      * sensordata van een IoT-knoop elders.
+  * NodeRed-installatie
+      * bijvoorbeeld: FRED - https://fred.sensetecnic.com (gratis versie)
 
 Nodes en flows
 --------------
@@ -158,9 +142,9 @@ via een GPIO-poort.
    :width: 600 px
    :align: center
 
-   Webserver-flow met 3 URLs
+   Webserver-flow met 2 URLs
 
-Deze flow bevat 3 http-input-nodes: voor elke URL een node.
+Deze flow bevat 2 http-input-nodes: voor elke URL een node.
 Elk van deze nodes wordt gevolgd door een functie-node,
 waarin de parameters voor de response op het URL-request ingevuld worden.
 Deze parameters worden vervolgens gecombineerd met het HTML-template,
@@ -170,43 +154,31 @@ en als response teruggestuurd, via de HTTP-output-node.
 
 .. code-block:: JSON
 
-  [{"id":"24edc609.6dc6da","type":"http in","z":"b888923a.1b7b88","name":"",
-  "url":"/node","method":"get","upload":false,"swaggerDoc":"","x":120,"y":120,
-  "wires":[["18f4426b.2abe56"]]},{"id":"e25a9256.eab99","type":"http in",
-  "z":"b888923a.1b7b88","name":"","url":"/ledon","method":"get","upload":false,
-  "swaggerDoc":"","x":130,"y":180,"wires":[["f2a0db0e.53519"]]},
-  {"id":"88f42a11.0e20a8","type":"http in","z":"b888923a.1b7b88","name":"",
-  "url":"/ledoff","method":"get","upload":false,"swaggerDoc":"","x":130,"y":240,
-  "wires":[["88a7405c.8558"]]},{"id":"f8934fcf.cda0b","type":"http response",
-  "z":"b888923a.1b7b88","name":"","statusCode":"","headers":{},"x":770,"y":120,
-  "wires":[]},{"id":"52a74722.96bfb","type":"template","z":"b888923a.1b7b88",
-  "name":"","field":"payload","fieldType":"msg","format":"handlebars",
-  "syntax":"mustache","template":"<html>\n  <head> <title>ESP8266 Sensor server</title> </head>\n  <body> <h1>ESP8266 Sensor & Led control</h1>\n    <p>\n      <a href=\"/ledon\"> On </a> &gt;\n      <span style=\"font-weight:bold;color:{{color}};\"> [[LED]] </span> &lt;\n      <a href=\"/ledoff\"> Off </a>\n    </p>\n    <p>\n      Temperature: {{temp}} &deg;C <br>\n      Atm.pressure: {{press}} hPa\n    </p>\n  </body>\n</html>\n","output":"str","x":580,"y":120,"wires":[["f8934fcf.cda0b"]]},
-  {"id":"18f4426b.2abe56","type":"function","z":"b888923a.1b7b88","name":"node",
-  "func":"var led = flow.get(\"led\")||0;\nflow.set(\"led\", led);\nif (led == 1) {\n    msg.color = \"red\";    \n} else {\n    msg.color = \"black\";\n}\nnode.warn(\"/node \" + msg.color);\nmsg.temp = 21.3;\nmsg.press = 1019.12;\nreturn msg;","outputs":1,"noerr":0,"x":330,"y":120,"wires":[["52a74722.96bfb"]]},{"id":"88a7405c.8558","type":"function","z":"b888923a.1b7b88","name":"led-off","func":"node.warn(\"/ledoff\");\nflow.set(\"led\", 0);\nmsg.color = \"black\";\nmsg.temp = 21.4;\nmsg.press = 1019.11;\nreturn msg;","outputs":1,"noerr":0,"x":330,"y":240,
-  "wires":[["52a74722.96bfb"]]},{"id":"f2a0db0e.53519","type":"function",
-  "z":"b888923a.1b7b88","name":"led-on",
-  "func":"node.warn(\"/ledon\");\nflow.set(\"led\", 1);\nmsg.color = \"red\";\nmsg.temp = 21.5;\nmsg.press = 1019.12;\nreturn msg;",
-  "outputs":1,"noerr":0,"x":330,"y":180,"wires":[["52a74722.96bfb"]]}]
+  [{"id":"1da46194.2d9ac6","type":"http in","z":"798cb349.253754","name":"","url":"/leds/0","method":"post","upload":false,"swaggerDoc":"","x":130,"y":200,"wires":[["7c2fe0e4.f7a1f"]]},{"id":"7c2fe0e4.f7a1f","type":"function","z":"798cb349.253754","name":"updateLed","func":"if (msg.payload.on == \"1\") {\n    flow.set(\"ledOn\", true);\n} else if (msg.payload.on == \"0\") {\n    flow.set(\"ledOn\", false);\n}\nreturn msg;","outputs":1,"noerr":0,"x":330,"y":200,"wires":[["1b698b9d.d59cf4"]]},{"id":"a26ef255.d64668","type":"http in","z":"798cb349.253754","name":"","url":"/led-control","method":"get","upload":false,"swaggerDoc":"","x":140,"y":100,"wires":[["1b698b9d.d59cf4"]]},{"id":"a6316fe5.e385d","type":"http response","z":"798cb349.253754","name":"","statusCode":"","headers":{},"x":650,"y":100,"wires":[]},{"id":"c12705b8.6d89b8","type":"template","z":"798cb349.253754","name":"","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"<html>\n  <head>\n      <title>LED server</title>\n  </head>\n  <body> <h1>LED control</h1>\n    <p>\n      <form action=\"/leds/0\" method=\"post\">\n         <button type=\"submit\" name=\"on\" value=\"1\">On</button>\n         <span style=\"font-weight:bold;color:{{color}};\"> [[LED]] </span>\n         <button type=\"submit\" name=\"on\" value=\"0\">Off</button>\n      </form>\n    </p>\n    <table>\n        <tr><td>Temperature</td>   <td>{{temperature}} &deg;C</td></tr>\n        <tr><td>Atm.pressure</td>  <td>{{barometer}} hPa</td> </tr>\n    </table>\n    <p><a href=\"/led-control\">refresh</a></p>\n  </body>\n</html>","output":"str","x":500,"y":100,"wires":[["a6316fe5.e385d"]]},{"id":"1b698b9d.d59cf4","type":"function","z":"798cb349.253754","name":"Properties","func":"if (flow.get(\"ledOn\") || false) {\n    msg.color = \"red\";\n    msg.led = 100;\n} else {\n    msg.color = \"black\";\n    msg.led = 0;\n}\n\nmsg.temperature = 23.4;\nmsg.barometer = 2014.5;\nreturn msg;","outputs":1,"noerr":0,"x":330,"y":100,"wires":[["c12705b8.6d89b8","3a7d94d1.f202dc"]]},{"id":"3a7d94d1.f202dc","type":"ui_gauge","z":"798cb349.253754","name":"LED","group":"6ab33fd6.a18d4","order":0,"width":0,"height":0,"gtype":"gage","title":"gauge","label":"units","format":"{{led}}","min":0,"max":"100","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":510,"y":200,"wires":[]},{"id":"6ab33fd6.a18d4","type":"ui_group","z":"","name":"Simulated LED","tab":"8ac9c2af.6b6b3","disp":true,"width":"6","collapse":false},{"id":"8ac9c2af.6b6b3","type":"ui_tab","z":"","name":"Simulator","icon":"dashboard"}]
 
 Het html-template in de template-node heeft 3 parameters: ``{{color}}``,
-``{{temp}}``, en ``{{press}}`` - respectievelijk de kleur van de LED-tekst,
+``{{temperature}}``, en ``{{barometer}}`` - respectievelijk de kleur van de LED-tekst,
 de temperatuur, en de luchtdruk.
 
 .. code-block:: jinja
 
   <html>
-    <head> <title>ESP8266 Sensor server</title> </head>
-    <body> <h1>ESP8266 Sensor & Led control</h1>
+    <head>
+        <title>LED server</title>
+    </head>
+    <body> <h1>LED control</h1>
       <p>
-        <a href="/ledon"> On </a> &gt;
-        <span style="font-weight:bold;color:{{color}};"> [[LED]] </span> &lt;
-        <a href="/ledoff"> Off </a>
+        <form action="/leds/0" method="post">
+           <button type="submit" name="on" value="1">On</button>
+           <span style="font-weight:bold;color:{{color}};"> [[LED]] </span>
+           <button type="submit" name="on" value="0">Off</button>
+        </form>
       </p>
-      <p>
-        Temperature: {{temp}} &deg;C <br>
-        Atm.pressure: {{press}} hPa
-      </p>
+      <table>
+          <tr><td>Temperature</td>   <td>{{temperature}} &deg;C</td></tr>
+          <tr><td>Atm.pressure</td>  <td>{{barometer}} hPa</td> </tr>
+      </table>
+      <p><a href="/led-control">refresh</a></p>
     </body>
   </html>
 
@@ -214,25 +186,27 @@ In de functienodes tussen de HTML-input-nodes en de template-node worden deze pa
 De waarden voor de temperatuur en de luchtdruk zijn fantasiewaarden:
 we hebben in deze gesimuleerde knoop geen echte sensoren.
 
-Als voorbeeld geven we de functie led-on: deze wordt uitgevoerd nadat een HTTP-request met de URL ``/ledon`` ontvangen is.
+Als voorbeeld geven we de functie ``updateLed``: deze wordt uitgevoerd nadat een HTTP-POST-request met de URL ``/leds/0`` ontvangen is.
 
 .. code-block:: javascript
 
-  node.warn("/ledon");
-  flow.set("led", 1);
-  msg.color = "red";
-  msg.temp = 21.5;
-  msg.press = 1019.12;
+  if (msg.payload.on == "1") {
+      flow.set("ledOn", true);
+  } else if (msg.payload.on == "0") {
+      flow.set("ledOn", false);
+  }
   return msg;
 
-**(2)** Plaats een debug-node aan de output van de http-input-node ``ledon``.
+**(2)** Plaats een debug-node aan de output van de http-input-node ``leds/0``.
 Gebruik deze om het ontvangen request te bekijken.
 Stel de output van deze debug-node in als "complete msg object".
 
 1. wat is de method van het request?
 2. wat is de URL van het request?
-3. wat is de "user agent" (d.w.z., de browser)?
-4. welk soort resultaat wordt verwacht ("accept"-header)?
+3. wat is de body van het request?
+4. wat is de "user agent" (d.w.z., de browser)?
+5. welk soort resultaat wordt verwacht ("accept"-header)?
+6. wat is de payload?
 
 Knipperende LED
 ---------------
@@ -245,4 +219,4 @@ Nachtlamp
   * gebruik van inject-node om led te laten knipperen
     (nb: we hebben dan wel een webserver-knoop in het publieke internet nodig, of tenminste een gesmuleerde versie daarvan).
   * gebruik van schedule-node om led via tijd te besturen
-  * dashboard voor een webserver-knoop; gebaseerd op "polling" van deze webserver-knoop.
+  * dashboard voor een webserver-knoop; gebaseerd op "polling" van deze webserver-knoop; andere presentatie van gegevens.
