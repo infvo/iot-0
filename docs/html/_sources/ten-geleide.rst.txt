@@ -43,7 +43,7 @@ Dit kan in het kader van een project dat speciaal op dit doel gericht is.
 
 Zoals gezegd is de aanpak van IoT-0 *top-down*.
 Leerlingen die in een vroeg stadium meer "grond onder de voeten" nodig hebben,
-kunnen (eventueel als zelfstudie, in eigen tempo) daarvoor het materiaal van IoT-0 gebruiken.
+kunnen (eventueel als zelfstudie, in eigen tempo) daarvoor het materiaal van Com-0 gebruiken.
 
 .. todo::
 
