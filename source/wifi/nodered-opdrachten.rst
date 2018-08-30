@@ -10,16 +10,11 @@ Met deze MQTT-knopen sluiten we deze flows aan op de IoT-knopen.
   * MQTT-broker in het publieke netwerk, bijvoorbeeld: ``infvopedia.nl:1884``
   * mqttt web-app: http://infvopedia.nl:1884/mqttt.html
   * zo mogelijk: IoT-knoop (ESP8266) met toepassing: ``mqtt-node-0``,
-      * met WiFi toegang tot een lokaal netwerk, en
-      * met MQTT-toegang tot publieke MQTT-broker
-      * broker: MQTT-protocol op port 1883
-      * broker: HTTP/websockets-protocol op port 1884
-      * (gratis) FRED-account voor NodeRed (in het publieke internet)
   * alternatief: IoT-knoop-simulator: http://infvopedia.nl:1884/iotnode-app.html
 
+Je hebt de toegangsgegevens van deze broker nodig voor het de onderstaande opdrachten.
 De IoT-knoop moet geconfigureerd zijn voor WiFi-toegang tot een lokaal netwerk,
 en voor MQTT-toegang tot de genoemde publieke MQTT-broker.
-Je hebt de toegangsgegevens van deze broker nodig voor het de onderstaande opdrachten.
 Je kunt werken met een voorgeconfigureerde IoT-knoop.
 Voor het configureren van de IoT-knoop, zie IoT-1.
 
