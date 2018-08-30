@@ -6,14 +6,22 @@ Met deze MQTT-knopen sluiten we deze flows aan op de IoT-knopen.
 
 .. admonition:: Je hebt nodig
 
-  * IoT-knoop (ESP8266) met toepassing: ``mqtt-node-0``,
+  * (gratis) FRED-account voor NodeRed (in het publieke internet)
+  * MQTT-broker in het publieke netwerk, bijvoorbeeld: ``infvopedia.nl:1884``
+  * mqttt web-app: http://infvopedia.nl:1884/mqttt.html
+  * zo mogelijk: IoT-knoop (ESP8266) met toepassing: ``mqtt-node-0``,
       * met WiFi toegang tot een lokaal netwerk, en
       * met MQTT-toegang tot publieke MQTT-broker
       * broker: MQTT-protocol op port 1883
       * broker: HTTP/websockets-protocol op port 1884
-  * MQTT-broker in het publieke netwerk
-  * met web-app mqttt (bijvoorbeeld via de publieke broker)
-  * (gratis) FRED-account voor NodeRed (in het publieke internet)
+      * (gratis) FRED-account voor NodeRed (in het publieke internet)
+  * alternatief: IoT-knoop-simulator: http://infvopedia.nl:1884/iotnode-app.html
+
+De IoT-knoop moet geconfigureerd zijn voor WiFi-toegang tot een lokaal netwerk,
+en voor MQTT-toegang tot de genoemde publieke MQTT-broker.
+Je hebt de toegangsgegevens van deze broker nodig voor het de onderstaande opdrachten.
+Je kunt werken met een voorgeconfigureerde IoT-knoop.
+Voor het configureren van de IoT-knoop, zie IoT-1.
 
 .. rubric:: MQTT-nodes
 
@@ -84,14 +92,14 @@ Hiermee stuur je JSON berichten naar een IoT-knoop.
 * controleer eventueel de MQTT-berichten met de MQTTT-app.
 
 .. figure:: mqtt-actuator-flow-0.png
-   :width: 600 px
+   :width: 500 px
    :align: center
 
    MQTT actuator flow
 
 .. code-block:: json
 
-  [{"id":"c9b1e2b5.78e5e","type":"inject","z":"ffc7967f.8cd98","name":"","topic":"","payload":"{\"led0\": 1}","payloadType":"json","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":180,"y":300,"wires":[["ab359f6d.215e78"]]},{"id":"ab359f6d.215e78","type":"mqtt out","z":"ffc7967f.8cd98","name":"","topic":"node/ec54/actuators","qos":"","retain":"","broker":"f4b28537.29eb48","x":460,"y":300,"wires":[]},{"id":"93df0f8c.4a27","type":"inject","z":"ffc7967f.8cd98","name":"","topic":"","payload":"{\"led0\": 0}","payloadType":"json","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":180,"y":360,"wires":[["ab359f6d.215e78"]]},{"id":"f4b28537.29eb48","type":"mqtt-broker","z":"","name":"","broker":"localhost","port":"1883","clientid":"","usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"willTopic":"","willQos":"0","willPayload":"","birthTopic":"","birthQos":"0","birthPayload":""}]
+  [{"id":"d5114a87.c3aa2","type":"inject","z":"fd9cc71d.7f5e1","name":"Led-on","topic":"","payload":"{\"0\":{\"dOut\":1}}","payloadType":"json","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":210,"y":180,"wires":[["e0dcf3ba.5bdc68"]]},{"id":"e0dcf3ba.5bdc68","type":"mqtt out","z":"fd9cc71d.7f5e1","name":"","topic":"node/ec54/actuators","qos":"","retain":"","broker":"","x":500,"y":180,"wires":[]},{"id":"916570d.f38be9","type":"inject","z":"fd9cc71d.7f5e1","name":"Led-off","topic":"","payload":"{\"0\":{\"dOut\":0}}","payloadType":"json","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":210,"y":240,"wires":[["e0dcf3ba.5bdc68"]]}]
 
 (7) Een eigen dashboard
 -----------------------
@@ -99,9 +107,9 @@ Hiermee stuur je JSON berichten naar een IoT-knoop.
 In deze opdracht maak je een eigen dashboard voor de IoT-knoop,
 met behulp van NodeRed.
 
-* Als je een publieke NodeRed-server in het publieke internet gebruikt,
+* Als je een NodeRed-server in het publieke internet gebruikt,
   dan is dit dashboard toegankelijke voor computers in het internet (lokaal en publiek).
-* Als je een lokale NodeRed-server in het lokale netwerk gebruikt,
+* Als je een NodeRed-server in het lokale netwerk gebruikt,
   bijvoorbeeld op een Raspberry Pi,
   dan is het dashboard alleen toegankelijk voor computers in het lokale netwerk.
 
