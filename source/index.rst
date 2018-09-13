@@ -17,8 +17,8 @@ IoT-0: IoT voor gebruikers
    rfm69.rst
    lora.rst
    glossary.rst
-   nodered.rst
    mqtt.rst
+   nodered.rst
    todo.rst
 
 .. toctree::

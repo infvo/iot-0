@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="next" title="(NodeRed)" href="nodered.html" />
+    <link rel="next" title="(MQTT en JSON)" href="mqtt.html" />
     <link rel="prev" title="Toetsvragen" href="lora/toetsvragen.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -36,32 +36,27 @@
   <div class="section" id="glossary">
 <h1>Glossary<a class="headerlink" href="#glossary" title="Permalink naar deze titel">¶</a></h1>
 <dl class="glossary docutils">
-</dl>
-<dl class="docutils">
-<dt>downlink</dt>
-<dd><p class="first">van de toepassing naar de IoT-knoop; tegenover uplink.</p>
-<dl class="last docutils">
-<dt>gateway</dt>
+<dt id="term-downlink">downlink</dt>
+<dd>van de toepassing naar de IoT-knoop; tegenover uplink.</dd>
+<dt id="term-gateway">gateway</dt>
 <dd>verbinding tussen twee netwerken.
 Als de protocollen van deze netwerken verschillen,
 dan verzorgt de gateway de <em>protocol-conversie</em>.</dd>
-<dt>payload</dt>
+<dt id="term-payload">payload</dt>
 <dd>De “eigenlijke data” die getransporteerd wordt als onderdeel van een pakket of frame.
 Zie ook <em>metadata</em>.</dd>
-<dt>metadata</dt>
+<dt id="term-metadata">metadata</dt>
 <dd>“data over data”. In het geval van communicatie, meestal data over de communicatie,
 bijvoorbeeld het volgnummer van een bericht, tijdstip van de communicatie,
 of de signaalsterkte bij de communicatie.</dd>
-<dt>replay-attack</dt>
+<dt id="term-replay-attack">replay-attack</dt>
 <dd>poging om in te breken in een beveiligde communicatie, door het herhalen van een vroeger bericht.
 Stel dat je altijd hetzelfde (radio)bericht gebruik om een deur te openen:
 iemand kan dit bericht opvangen en opnieuw afspelen als het hem uitkomt.
 Je kunt dit voorkomen door elk bericht van een volgnummer te voorzien:
 een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
-<dt>uplink</dt>
+<dt id="term-uplink">uplink</dt>
 <dd>van de IoT-knoop naar de toepassing; tegenover downlink.</dd>
-</dl>
-</dd>
 </dl>
 </div>
 
@@ -90,8 +85,8 @@ een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
 <li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nodered.html">(NodeRed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mqtt.html">(MQTT en JSON)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nodered.html">(NodeRed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
@@ -105,7 +100,7 @@ een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="lora/toetsvragen.html" title="vorig hoofdstuk">Toetsvragen</a></li>
-      <li>Next: <a href="nodered.html" title="volgend hoofdstuk">(NodeRed)</a></li>
+      <li>Next: <a href="mqtt.html" title="volgend hoofdstuk">(MQTT en JSON)</a></li>
   </ul></li>
 </ul>
 </div>

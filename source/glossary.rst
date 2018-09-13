@@ -4,8 +4,8 @@ Glossary
 
 .. glossary::
 
-downlink
-  van de toepassing naar de IoT-knoop; tegenover uplink.
+  downlink
+    van de toepassing naar de IoT-knoop; tegenover uplink.
 
   gateway
     verbinding tussen twee netwerken.
