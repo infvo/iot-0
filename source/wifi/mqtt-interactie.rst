@@ -35,7 +35,10 @@ Client C heeft zich niet geabonneerd op topic T, en ontvangt bericht M dus niet.
 Op een volgend moment kan client B een bericht publiceren met een topic waar bijvoorbeeld A, C en D op geabonneerd zijn.
 Client B is dan zowel *publisher* als *subscriber*.
 
-.. todo::
+Ook in andere contexten wordt de Publish-Subscribe-interactie gebruikt,
+onder andere met allerlei soorten *Message brokers*.
 
-  * Publish-subscribe interactie in andere contexten
-  * Wikipedia-link Pub-Sub 
+Zie:
+
+* https://en.wikipedia.org/wiki/Publish–subscribe_pattern
+* https://en.wikipedia.org/wiki/Message_broker

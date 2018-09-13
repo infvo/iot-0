@@ -83,6 +83,19 @@ Voor de *uplink* berichten van de IoT-knopen gebruiken we de volgende elementen:
     * per channel: een object met (naam, waarde)-paren,
     * waarbij we vaste namen gebruiken, met een vaste betekenis van de waarden.
 
+.. code-block:: json
+   :caption: Voorbeeld json-lpp uplink bericht
+
+   {"nodeid": "fe3d",
+    "counter": 3027,
+    "payload": {
+      "0": {"temperature": 235},
+      "1": {"barometer": 10093},
+      "2": {"dOut": 1},
+      "8": {"aOut": 255}
+     }
+   }
+
 De onderstaande tabel geeft de namen voor de sensor-waarden en de betekenis van de bijbehorende waarden.
 
 .. csv-table:: JSON-LPP types
@@ -98,20 +111,6 @@ De onderstaande tabel geeft de namen voor de sensor-waarden en de betekenis van 
    "Temperatuur",       "temperature", 	2, "0.1 °C signed"
    "Rel. Luchtvochtigheid", "humidity", 1, "0.5% unsigned"
    "Luchtdruk",         "barometer",    2, "0.1 hPa unsigned"
-
-
-.. code-block:: json
-   :caption: Voorbeeld json-lpp uplink bericht
-
-   {"nodeid": "fe3d",
-    "counter": 3027,
-    "payload": {
-      "0": {"temperature": 235},
-      "1": {"barometer": 10093},
-      "2": {"dOut": 1},
-      "8": {"aOut": 255}
-     }
-   }
 
 Opmerkingen:
 

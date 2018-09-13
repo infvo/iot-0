@@ -4,7 +4,7 @@ Protocol: MQTT
 MQTT is een publish-subscribe-protocol dat je in allerlei omgevingen kunt gebruiken.
 In het bijzonder is MQTT geschikt voor het Internet of Things.
 In die context zijn zowel IoT-knopen als IoT-toepassingen (apps) clients van de MQTT-broker.
-De interactie is in principe symmetrisch: zowel een IoT-knoop als een IoT-toepassing kan een bericht publiceren naar de broker.
+De interactie is symmetrisch: zowel een IoT-knoop als een IoT-toepassing kan een bericht publiceren naar de broker.
 
 Een typisch gebruik van MQTT voor IoT-toepassingen:
 
@@ -40,9 +40,10 @@ Uitleg:
 Protocolstack
 -------------
 
-* MQTT op basis van TCP
-* alternatief: MQTT op basis van websockets (op basis van TCP)
-
+* MQTT gebruikt het TCP-protocol;
+* voor beveiligde verbindingen kan TLS gebruikt worden (tussen TCP en MQTT);
+* MQTT-brokers bieden soms ook MQTT via het *websockets*-protocol;
+  dit werkt naast HTTP, op basis van TCP (en eventueel TLS).
 
 Adressering: topic
 ------------------
@@ -59,7 +60,7 @@ Bij een *subscribe* kun je in de topic-string ook wildcards opnemen:
 * voorbeeld: ``node/+/sensors`` matcht met ``node/12/sensors`` en ``node/432/sensors``.
 * voorbeeld: ``node/#`` matcht met ``node/12/sensors`` en ``node/432/led``
 
-.. rubric Gebruik van topics in onze voorbeelden
+.. rubric:: Gebruik van topics in de voorbeelden
 
 We gebruiken in de software bij deze module een aantal vaste afspraken voor MQTT-topics.
 Hierdoor kunnen we de verschillende soorten IoT-knopen combineren met de verschillende toepassingen.
@@ -73,5 +74,6 @@ Payload: JSON
 -------------
 
 Er is geen vast voorgeschreven payload-formaat voor MQTT.
-In onze voorbeelden gebruiken we JSON (JavaScript Object Notation) als MQTT-payload:
-dit is een tekst-gebaseerd formaat voor objecten.
+Een formaat dat veel gebruikt wordt is JSON: JavaScript Object Notation.
+Dit is een tekst-gebaseerd formaat voor objecten.
+Ook in de voorbeelden gebruiken we JSON als MQTT-payload.

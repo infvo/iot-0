@@ -6,12 +6,14 @@ MQTT-opdrachten
 .. topic:: Wat heb je nodig?
 
   * MQTT broker in publieke internet;
+      * bijvoorbeeld: ``http://infvopedia.nl:1883``;
       * de MQTT-broker fungeert ook als statische webserver,
         voor de app MQTTT en voor de knoop-simulator;
-      * je moet de domeinnaam, het poortnummer, en eventueel een gebruikersnaam/wachtwoord kennen.
+      * je moet de domeinnaam, het poortnummer, en eventueel een gebruikersnaam/wachtwoord kennen;
+        vraag dit eventueel aan je docent.
   * zo mogelijk: IoT knoop (hardware),
-      * met software: MQTT-XXXX;
-      * verbonden met de MQTT broker;
+      * met software: ``mqtt-node-0``;
+      * verbonden met de MQTT broker, via het lokale WiFi-netwerk;
       * de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
         deze ID staat ook op de knoop zelf.
 
@@ -50,10 +52,10 @@ Voor de communicatie tussen MQTTT en de IoT-knoop met ID ``xxxx`` gebruiken we d
 * ``node/xxxx/actuators`` - voor de actuatorwaarden.
 
 Met het wildcard-topic ``node/+/+`` ontvang je alle sensor/actuatorwaarden van alle knopen.
-Er is geen standaard die de vorm van deze topics afdwingt: het is onze eigen, praktische keuze.
-Deze keuze gebruiken we in onze IoT-knopen en in onze toepassingen (apps).
+Er is geen standaard die de vorm van deze topics afdwingt: het is een eigen, praktische keuze.
+Deze keuze gebruiken we in de IoT-knopen en in de toepassingen (apps).
 
-(stap 1) Eerst moeten we de ID van een bestaande knoop zien te vinden.
+(**stap 1**) Eerst moeten we de ID van een bestaande knoop zien te vinden.
 Dit doen we door voor het subscribe-veld een *wildcard*-topic in te vullen.
 
 1. vul als subscribe-topic in: ``node/+/sensors``;
@@ -65,7 +67,7 @@ De node-ID bestaat uit de laatste 4 tekens van het MAC-adres.
 Controleer of je knoop actief is: er moeten dan regelmatig JSON-berichten langskomen in het subscribe-venster
 (bijvoorbeeld elke 1-2 minuten).
 
-(stap 2) We willen de sensordata weergeven in het bovenste deel van MQTTT.
+(**stap 2**) We willen de sensordata weergeven in het bovenste deel van MQTTT.
 
 4. vul bij ``IoT-node`` de ID in van je gekozen knoop.
 5. vul als subscribe-topic in: ``node/xxxx/+`` (waarin ``xxxx`` staat voor de gekozen ID).

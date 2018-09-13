@@ -38,6 +38,12 @@ Deze publish/subscribe-aanpak heeft de volgende eigenschappen:
   de clients communiceren via een topic, en weten niet welke clients aan dat topic gekoppeld zijn.
   In het bijzonder weet een publisher niet welke clients op het topic geabonneerd zijn.
 
+Ook in andere contexten wordt de Publish-Subscribe-interactie gebruikt.
+
+Zie:
+
+* https://en.wikipedia.org/wiki/Publish–subscribe_pattern
+* https://en.wikipedia.org/wiki/Message_broker
 
 MQTT in het IoT
 ===============
