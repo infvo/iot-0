@@ -8,7 +8,7 @@ als context voor de concepten van computernetwerken en van het internet.
 
 Dit is de centrale module voor het keuzethema "Netwerken"
 van het vernieuwde examenprogramma Informatica in de bovenbouw van het VO.
-De andere modules zijn: *Inleiding communicatie en netwerken* (Com-0)
+De andere (optionele) modules zijn: *Inleiding communicatie en netwerken* (Com-0)
 en *Het Internet of Things voor makers* (IoT-1).
 
 .. admonition:: Thema Netwerken/Internet of Things
@@ -58,6 +58,7 @@ met ca. 4-5 SLU per week (totaal 40 SLU).
 Leerlingen kunnen met het meeste materiaal ook thuis aan de slag,
 door gebruik te maken van gesimuleerde IoT-knopen,
 en van ondersteunende software "in the cloud".
+Ook is de gebruikte hardware eenvoudig en goedkoop genoeg voor leerlingen om thuis te gebruiken.
 
 Na de behandeling van IoT-0 kunnen de leerlingen met een project IoT aan de slag.
 Suggesties hiervoor worden later beschreven.
