@@ -94,6 +94,8 @@ Daaronder, van links naar rechts:
     * de info-tab geeft informatie over de geselecteerde node in het flow-gedeelte.
     * de debug-tab geeft de debug-output van de huidige flow, of van alle flows.
     * via de dashboard-tab kun je de UI-instellingen van het dashboard veranderen.
+* (alleen FRED) FRED-sidebar (links)
+    * met het pijltje linksonder maak je deze (on)zichtbaar
 
 De volgende opdrachten zijn bedoeld om vertrouwd te raken met het user interface.
 Deze opdrachten hebben nog geen effect op de flows zelf.
@@ -110,6 +112,8 @@ Deze opdrachten hebben nog geen effect op de flows zelf.
     * Twitter output-node
 * voeg een nieuwe flow-tab toe (via "+")
     * hernoem deze tot "Test-flow"
+* (alleen voor FRED):
+    * maak de FRED-sidebar (links) onzichtbaar en weer zichtbaar
 
 Eerste flow
 -----------
@@ -170,10 +174,15 @@ je kunt hiermee ook de LED van de IoT-knoop aansturen.
 
    NodeRed dashboard flow
 
+De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
+
+* op GitHub: `NodeRed dashboard (flow 1) <https://gist.github.com/eelcodijkstra/1f5e6bc7cab88e7fd230cdee8cb94d73>`_
+* op NodeRed-library: `ieni2018-iot-flow-1 <https://flows.nodered.org/flow/1f5e6bc7cab88e7fd230cdee8cb94d73>`_
+
 .. rubric:: Opdracht
 
 * importeer de dashboard-flow:
-    * selecteer de flow-tekst hierboven, en kopieer deze naar het Clipboard
+    * selecteer de flow-tekst (in JSON-formaat)), en kopieer deze naar het Clipboard
       (via "Copy" van het operating system).
     * in NodeRed: selecteer hamburgenmenu->Import->Clipboard
     * "Paste" de inhoud van het Clipboard in het input-venster.

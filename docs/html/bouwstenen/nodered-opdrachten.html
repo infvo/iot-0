@@ -154,6 +154,14 @@ Hiermee kun je de flow hernoemen, tijdelijk uitschakelen (disable), of verwijder
 </dd>
 </dl>
 </li>
+<li><dl class="first docutils">
+<dt>(alleen FRED) FRED-sidebar (links)</dt>
+<dd><ul class="first last">
+<li>met het pijltje linksonder maak je deze (on)zichtbaar</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 <p>De volgende opdrachten zijn bedoeld om vertrouwd te raken met het user interface.
 Deze opdrachten hebben nog geen effect op de flows zelf.</p>
@@ -183,6 +191,14 @@ Deze opdrachten hebben nog geen effect op de flows zelf.</p>
 <dt>voeg een nieuwe flow-tab toe (via “+”)</dt>
 <dd><ul class="first last">
 <li>hernoem deze tot “Test-flow”</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>(alleen voor FRED):</dt>
+<dd><ul class="first last">
+<li>maak de FRED-sidebar (links) onzichtbaar en weer zichtbaar</li>
 </ul>
 </dd>
 </dl>
@@ -254,12 +270,17 @@ je kunt hiermee ook de LED van de IoT-knoop aansturen.</p>
 <a class="reference internal image-reference" href="../_images/nodered-dashboard-flow-1.png"><img alt="../_images/nodered-dashboard-flow-1.png" src="../_images/nodered-dashboard-flow-1.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed dashboard flow</span></p>
 </div>
+<p>De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:</p>
+<ul class="simple">
+<li>op GitHub: <a class="reference external" href="https://gist.github.com/eelcodijkstra/1f5e6bc7cab88e7fd230cdee8cb94d73">NodeRed dashboard (flow 1)</a></li>
+<li>op NodeRed-library: <a class="reference external" href="https://flows.nodered.org/flow/1f5e6bc7cab88e7fd230cdee8cb94d73">ieni2018-iot-flow-1</a></li>
+</ul>
 <p class="rubric">Opdracht</p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>importeer de dashboard-flow:</dt>
 <dd><ul class="first last">
-<li>selecteer de flow-tekst hierboven, en kopieer deze naar het Clipboard
+<li>selecteer de flow-tekst (in JSON-formaat)), en kopieer deze naar het Clipboard
 (via “Copy” van het operating system).</li>
 <li>in NodeRed: selecteer hamburgenmenu-&gt;Import-&gt;Clipboard</li>
 <li>“Paste” de inhoud van het Clipboard in het input-venster.</li>

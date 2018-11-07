@@ -176,13 +176,13 @@ je kunt hiermee ook de LED van de IoT-knoop aansturen.
 
 De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
 
-* op GitHub: [NodeRed dashboard (flow 1)](https://gist.github.com/eelcodijkstra/1f5e6bc7cab88e7fd230cdee8cb94d73)
-* op NodeRed-library: [ieni2018-iot-flow-1](https://flows.nodered.org/flow/1f5e6bc7cab88e7fd230cdee8cb94d73)
+* op GitHub: `NodeRed dashboard (flow 1) <https://gist.github.com/eelcodijkstra/1f5e6bc7cab88e7fd230cdee8cb94d73>`_
+* op NodeRed-library: `ieni2018-iot-flow-1 <https://flows.nodered.org/flow/1f5e6bc7cab88e7fd230cdee8cb94d73>`_
 
 .. rubric:: Opdracht
 
 * importeer de dashboard-flow:
-    * selecteer de flow-tekst hierboven, en kopieer deze naar het Clipboard
+    * selecteer de flow-tekst (in JSON-formaat)), en kopieer deze naar het Clipboard
       (via "Copy" van het operating system).
     * in NodeRed: selecteer hamburgenmenu->Import->Clipboard
     * "Paste" de inhoud van het Clipboard in het input-venster.
