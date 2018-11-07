@@ -61,5 +61,6 @@ Eén van de ontwerpvragen bij een Internet of Things-toepassing is hoe het reken
   bouwstenen/iot-ketens.rst
   bouwstenen/iot-interacties.rst
   bouwstenen/iot-protocollen.rst
-  bouwstenen/opdrachten
-  bouwstenen/toetsvragen
+  bouwstenen/opdrachten.rst
+  bouwstenen/nodered-opdrachten.rst
+  bouwstenen/toetsvragen.rst
