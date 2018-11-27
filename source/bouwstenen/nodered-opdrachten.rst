@@ -16,7 +16,8 @@ Wat is NodeRed? P.M.
   * een IoT-knoop, bijvoorbeeld:
       * een gesimuleerde IoT-knoop
       * een IoT-knoop "elders"
-      * een eigen hardware IoT-knoop
+      * een eigen hardware IoT-knoop, bijvoorbeeld een ESP8266-knoop met het programma ``esp8266-node-0``
+        (zie https://infvo.github.io/iot-1/html/combinatie.html)
 
 **Nodes en knopen**: om verwarring te voorkomen gebruiken we in deze opdrachten het woord "knoop" voor een IoT-knoop,
 en "node" voor een NodeRed-nodes
