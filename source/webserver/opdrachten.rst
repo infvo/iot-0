@@ -114,9 +114,11 @@ De server verwerkt het verzoek als volgt:
 ------------------------------
 
 * bestudeer de brontekst van het html-document, via de browser ontwikkelaarstools, bronbestanden-sectie.
-    * deze vind je bij Chrome: Weergave->Ontwikkelaar->Ontwikkelaarstools
-    * bij FireFox: Extra->Webontwikkelaar->Hulpmiddelen in-/uitschakelen
-    * bij Safari: Ontwikkel->Toon webinfovenster (mogelijk moet je in de voorkeuren instellen dat dit menu getoond wordt: )
+  Deze vind je bij:
+    * Chrome (OS X): Weergave->Ontwikkelaar->Ontwikkelaarstools
+    * Chrome (Windows 10): Meer hulpprogramma’s->hulpprogramma’s voor ontwikkelaars (of “F12”)
+    * FireFox: Extra->Webontwikkelaar->Hulpmiddelen in-/uitschakelen
+    * Safari: Ontwikkel->Toon webinfovenster (mogelijk moet je in de voorkeuren instellen dat dit menu getoond wordt: )
 * ga via de browser webtools na wat het IP-adres is van de webserver (netwerk-sectie, "headers"/"kopteksten" gedeelte)
     * soms krijg je meer informatie als je op de naam van het document klikt
     * uit hoeveel tekens (bytes) bestaat het brondocument?
@@ -144,6 +146,7 @@ Via de webserver lees je ook de waarden van de sensoren in de IoT-knoop uit.
 
 In de programmatekst van de IoT-knoop kun je zien hoe de server een verzoek afhandelt,
 en op basis van het URL-pad beslist welke actie op de LED plaatsvindt.
+De programmatekst vind je via: `sensor-webserver-0 <https://github.com/infvo/iot2018/tree/master/sensor-webserver-0>`_
 
 * welke functie bevat de tekst van de webpagina?
 * welke functie wordt aangeroepen bij een request met URL ``/``?
