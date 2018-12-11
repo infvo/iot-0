@@ -1,0 +1,437 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>NodeRed-opdrachten-1 &#8212; iot-0  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Toetsvragen" href="toetsvragen.html" />
+    <link rel="prev" title="NodeRed-opdrachten" href="nodered-opdrachten.html" />
+
+<script type="application/json" class="js-hypothesis-config">
+{
+"showHighlights": false
+}
+</script>
+<script async src="https://hypothes.is/embed.js"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nodered-opdrachten-1">
+<h1>NodeRed-opdrachten-1<a class="headerlink" href="#nodered-opdrachten-1" title="Permalink naar deze titel">¶</a></h1>
+<div class="admonition-leerdoelen-en-concepten admonition">
+<p class="first admonition-title">Leerdoelen en concepten</p>
+<ul class="last simple">
+<li>Kennismaking met NodeRed, voor het configureren van datastromen, koppelen van data, acties en diensten;</li>
+<li>Gebruik van NodeRed als Webserver;</li>
+<li>Kennismaking met het HTTP-protocol, met behulp van NodeRed;</li>
+<li>NodeRed voorbeeld: dashboard van sensordata</li>
+<li>NodeRed voorbeeld: bediening van de actuatoren (LED)</li>
+</ul>
+</div>
+<div class="admonition-wat-heb-je-nodig admonition">
+<p class="first admonition-title">Wat heb je nodig?</p>
+<ul class="last">
+<li><p class="first">NodeRed-installatie, bijvoorbeeld:</p>
+<blockquote>
+<div><ul class="simple">
+<li>FRED - <a class="reference external" href="https://fred.sensetecnic.com">https://fred.sensetecnic.com</a> (gratis versie)</li>
+<li>NodeRed op Raspberry Pi (onderdeel van standaardsoftware)</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="eerste-flow-vervolg">
+<h2>1. Eerste flow (vervolg)<a class="headerlink" href="#eerste-flow-vervolg" title="Permalink naar deze titel">¶</a></h2>
+<p>Maak onderstaande flow in een nieuw flow-venster:</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/Nodered-flow11.png"><img alt="../_images/Nodered-flow11.png" src="../_images/Nodered-flow11.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed: eerste flow</span></p>
+</div>
+<p>Bekijk eventueel de opdracht in het vorige hoofdstuk (REF).</p>
+<p>Deze beide nodes, de inject-node en de debug-node, gebruik je vaak voor het testen en debuggen van een flow.
+Het is handig als je weet hoe je deze kunt gebruiken.</p>
+<p><strong>N.B.: vergeet niet na elke verandering de flow opnieuw te activeren (rode Deploy-knop, rechts boven).</strong></p>
+<ol class="arabic simple">
+<li>Door op de knop links op de debug-node te klikken “injecteer” je een timestamp in de flow:
+de huidige tijd, als geheel getal. Via de debug-node krijg je dit te zien in het debug-venster.
+Controleer of dit werkt.</li>
+<li>Met de knop rechts op de debug-node kun je deze node tijdelijk uitschakelen. Controleer of dit werkt.
+(Vergeet niet te “deploy”-en!)</li>
+<li>Je kunt de inject-node ook automatisch laten werken; configureer deze node (dubbel-klik op de node):
+zet “Repeat” van “none” naar “interval” (every 1 seconds). Bewaar deze aanpassing (“Done” knop).
+Controleer of dit werkt.</li>
+<li>Je kunt de inject-node ook andere waarden laten injecteren. Configureer deze node:
+selecteer als “payload”: string, en vul als waarde in: “Hallo wereld”.
+Bewaar deze aanpassing, en controleer of dit werkt.</li>
+</ol>
+<p>Opmerkingen:</p>
+<ul class="simple">
+<li>je kunt in het debug-venster aangeven dat je alleen de “current flow” wilt zien;</li>
+<li>je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).</li>
+</ul>
+</div>
+<div class="section" id="eerste-webserver">
+<h2>2. Eerste webserver<a class="headerlink" href="#eerste-webserver" title="Permalink naar deze titel">¶</a></h2>
+<p>NodeRed is een webserver op basis van Node.js.
+Dit kun je vergelijken met Apache of Nginx op andere systemen.
+Met NodeRed kun je snel een simpele webserver maken.
+We gebruiken dit voor het bestuderen van het HTTP-protocol.</p>
+<p>We gebruiken hiervoor de volgende knopen:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="32%" />
+<col width="32%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>figuur</strong></td>
+<td><strong>naam</strong></td>
+<td><strong>soort node</strong></td>
+</tr>
+<tr class="row-even"><td><img alt="http-input-node" src="../_images/nodered-http-input-node1.png" /></td>
+<td>http-input-node</td>
+<td>input</td>
+</tr>
+<tr class="row-odd"><td><img alt="http-output-node" src="../_images/nodered-http-output-node1.png" /></td>
+<td>http-output-node</td>
+<td>output</td>
+</tr>
+<tr class="row-even"><td><img alt="template-node" src="../_images/nodered-template-node1.png" /></td>
+<td>template-node</td>
+<td>in-out</td>
+</tr>
+</tbody>
+</table>
+<p>Een HTTP-request van een browser bevat onder andere de volgende onderdelen:</p>
+<ul class="simple">
+<li>het pad-gedeelte van de URL van het HTTP-request, bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">/mypage</span></code>.</li>
+<li>de HTTP-request <em>method</em>, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">GET</span></code> of <code class="docutils literal notranslate"><span class="pre">POST</span></code>.</li>
+</ul>
+<p>Maak met deze nodes de volgende flow:</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/Nodered-hello1.png"><img alt="../_images/Nodered-hello1.png" src="../_images/Nodered-hello1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed http flow-voorbeeld</span></p>
+</div>
+<p>(De namen van de knopen hoef je niet aan te passen.)</p>
+<p>Door het configureren van de nodes maken we een eigen webserver,
+voor het afhandelen van een eigen pagina.</p>
+<ol class="arabic simple">
+<li>De eerste stap in een HTTP-flow is een http-input-node.
+Deze configureren we als volgt (dubbel-klik op de node):
+1. gebruik als <em>method</em>: <code class="docutils literal notranslate"><span class="pre">GET</span></code>
+2. gebruik als <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">/mypage</span></code></li>
+<li>verbind een debug-node met de output van deze http-input-node.
+De andere verbindingen kun je laten zoals ze zijn.</li>
+<li>Configureer de debug-node <em>Output</em>: <code class="docutils literal notranslate"><span class="pre">complete</span> <span class="pre">msg</span> <span class="pre">object</span></code> (en “Done”).</li>
+<li>“Deploy”</li>
+<li>Nu kun je testen of een GET-request voor <code class="docutils literal notranslate"><span class="pre">/mypage</span></code> afgehandeld wordt.</li>
+</ol>
+<p>Gebruik hiervoor als URL in een browser:</p>
+<ul class="simple">
+<li>voor FRED: de URL van je NodeRed-instantie, gevolgd door <code class="docutils literal notranslate"><span class="pre">/api/mypage</span></code>.
+Bijvoorbeeld:  <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/mypage</span></code></li>
+<li>voor een Raspberry Pi: de URL van de NodeRed-instantie, gevolgd door <code class="docutils literal notranslate"><span class="pre">/mypage</span></code>.</li>
+</ul>
+<p>In het geval van FRED moet je dit doen in een venster van de browser waarin je ook je NodeRed-flows geopend hebt;
+dit is een beperking van de gratis versie van FRED.</p>
+<p>Een “normale” NodeRed-installatie heeft deze beperking niet: iedereen kan dan je webpagina zien.</p>
+<p>Als response in de browser krijg je:  <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">payload:</span> <span class="pre">[object</span> <span class="pre">Object]</span> <span class="pre">!</span></code></p>
+<ol class="arabic simple" start="6">
+<li>zoek in de debug-output naar het <code class="docutils literal notranslate"><span class="pre">req</span></code>-deel van het msg-object.
+Daarin vind je onder andere de velden <code class="docutils literal notranslate"><span class="pre">URL</span></code> en <code class="docutils literal notranslate"><span class="pre">method</span></code>.
+Controleer of deze kloppen met wat je verwacht.</li>
+<li>De volgende stap is het aanpassen van de webpagina.
+Configureer de template-node, en vul als template-waarde in:</li>
+</ol>
+<p>Vul als <em>Name</em> in: <code class="docutils literal notranslate"><span class="pre">mypage</span></code>.
+En “Done” en “Deploy”.</p>
+<p>Open nu in de browser een webpagina met de URL van je NodeRed-pagina.
+(Bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/mypage</span></code>.)
+Controleer of je nu je eigen webpagina te zien krijgt.</p>
+</div>
+<div class="section" id="een-tweede-pagina">
+<h2>3. Een tweede pagina<a class="headerlink" href="#een-tweede-pagina" title="Permalink naar deze titel">¶</a></h2>
+<p>De volgende stap is het maken van een tweede pagina voor je website.</p>
+<ol class="arabic simple">
+<li>Kopieer de flow met de 3 nodes: http-input, template, http-output.
+Hiervoor kun je in NodeRed Copy-Paste gebruiken: (i) selecteer de nodes;
+(ii) Copy; (iii) Paste.</li>
+<li>Configureer de tweede http-input-node, met <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">my2ndpage</span></code>.
+Als <em>method</em> laat je <code class="docutils literal notranslate"><span class="pre">GET</span></code> staan. En “Done”.</li>
+<li>Configureer de template-node, en vul als <em>template</em> in:</li>
+</ol>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype HTML&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My 2nd page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Mijn tweede pagina<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>“Done” en “Deploy”.</p>
+<ol class="arabic simple" start="4">
+<li>Controleer in een browser-venster of deze URL werkt.
+(Bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/my2ndpage</span></code>)</li>
+<li>Maak nu een link van deze pagina naar de vorige.
+Pas de template-tekst van de template node daarvoor aan,
+en voeg toe onder <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;...&lt;/h1&gt;</span></code>:</li>
+</ol>
+<p>Voor NodeRed via FRED:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+  Dit is mijn tweede webpagina.
+  De eerste vind je via deze link:
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/api/mypage&quot;</span><span class="p">&gt;</span>Home page<span class="p">&lt;</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Voor andere NodeRed-installaties:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+  Dit is mijn tweede webpagina.
+  De eerste vind je via deze link:
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/mypage&quot;</span><span class="p">&gt;</span>Home page<span class="p">&lt;</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>“Done” en “Deploy”.</p>
+<p>Bezoek deze pagina in de brower,
+en controleer of de link naar de homepagina werkt.</p>
+<ol class="arabic simple" start="6">
+<li>Voeg op dezelfde manier een link toe van je eerste pagina naar je tweede.
+Controleer of deze werkt.</li>
+</ol>
+<p>Je hebt nu een website met twee pagina’s die onderling verbonden zijn.</p>
+<p>Je kunt de tekst van de pagina’s zo groot maken als je wilt.
+Vaak is het handig om grotere teksten in een bestand op te slaan.
+Dit kun je dan inlezen via de file-node;
+in FRED is deze helaas niet beschikbaar.</p>
+</div>
+<div class="section" id="een-teller">
+<h2>4. Een teller<a class="headerlink" href="#een-teller" title="Permalink naar deze titel">¶</a></h2>
+<p>Een volgende stap is dat we de website voorzien van een bezoekers-teller:
+elke keer als er een http-verzoek voor een webpagina binnenkomt,
+verhogen we deze teller.
+We laten de huidige waarde van de teller in de webpagina zien.</p>
+<p>Hiervoor maken we gebruik van context-variabelen in NodeRed,
+zie: <a class="reference external" href="https://nodered.org/docs/user-guide/context">https://nodered.org/docs/user-guide/context</a>.
+In een context kun je een waarde opslaan die tussen de verschillende request bewaard blijft.
+We gebruiken de <em>flow-context</em>: deze is gemeenschappelijk voor de flows op één pagina.</p>
+<p>Deze opdracht is ook een demonstratie van het gebruik van <em>templates</em>:
+een tekst waarin je de waarde van variabelen kunt invullen.
+NodeRed gebruikt voor deze templates de Mustache-notatie,
+zie: <a class="reference external" href="https://mustache.github.io">https://mustache.github.io</a>.</p>
+<ol class="arabic simple">
+<li>Voeg een functie-node in tussen de http-input-node (<code class="docutils literal notranslate"><span class="pre">api/mypage</span></code>) en de template-node:
+Verwijder eerst de verbinding tussen de http-input-node en de template-node.
+Sleep een function node naar de flow.
+Verbind de output van de http-input-node met de input van de function-node.
+Verbind de output van de function-node met de input van de template-node.
+(En maak de layout weer netjes.)</li>
+<li>Configureer de function-node: <em>Name</em>: <code class="docutils literal notranslate"><span class="pre">inc-count</span></code>; <em>Function</em>:</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">flow</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">flow</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="nx">count</span><span class="p">);</span>
+<span class="nx">msg</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span><span class="p">;</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In de eerste regel halen we de waarde van de flow-variabele “count” op.
+Als deze nog niet gedefinieerd is, gebruiken we de waarde 0.
+(Dit is een veel-voorkomende JavaScript-constructie.)
+Deze waarde hogen we met 1 op, en bewaren deze weer in de flow-variabele “count”.
+De nieuwe waarde voegen we toe aan de NodeRed-message <code class="docutils literal notranslate"><span class="pre">msg</span></code>,
+om later in het template in te vullen.</p>
+<ol class="arabic simple" start="3">
+<li>Configureer de template-node.
+Voeg in, vóór  <code class="docutils literal notranslate"><span class="pre">&lt;/body&gt;</span></code>:</li>
+</ol>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span> visits: {{payload.count}} <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Via de constructie <code class="docutils literal notranslate"><span class="pre">{{payload.count}}</span></code> wordt de waarde van de variable <code class="docutils literal notranslate"><span class="pre">msg.payload.count</span></code> in de template-tekst ingevuld.</p>
+<ol class="arabic simple" start="4">
+<li>“Deploy”</li>
+</ol>
+<p>Controleer via de browser of je bij elke reload van de pagina
+(bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/mypage</span></code> )
+een volgende waarde van de teller krijgt.</p>
+</div>
+<div class="section" id="led-besturing">
+<h2>5. LED-besturing<a class="headerlink" href="#led-besturing" title="Permalink naar deze titel">¶</a></h2>
+<p>In deze opdracht werken we uit hoe je via een webserver een LED kunt aansturen.
+In de FRED-versie hebben we geen toegang tot een LED;
+we simuleren deze door de kleur in de webpagina.</p>
+<p>In de Raspberry Pi-versie heb je vanuit NodeRed toegang tot de GPIO-pinnen.
+Daarmee kun je eventueel een LED aansturen.</p>
+<p>Voor het aansturen van de LED gebruiken we twee URLs: <code class="docutils literal notranslate"><span class="pre">/ledon</span></code> en <code class="docutils literal notranslate"><span class="pre">/ledoff</span></code>.
+Hiervoor maken we twee flows, met voor elk dezelfde opzet als bij de teller:
+een http-input-node, een function-node, een template-node, en een http-output-node.</p>
+<ol class="arabic simple">
+<li>Maak deze flow voor <code class="docutils literal notranslate"><span class="pre">ledon</span></code>, door de nodes naar het flow-venster te slepen en verbinden.</li>
+<li>Configureer de http-input-node: <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">/ledon</span></code>, <em>method</em>: <code class="docutils literal notranslate"><span class="pre">GET</span></code>.</li>
+<li>Configureer de function node: <em>Name</em>: <code class="docutils literal notranslate"><span class="pre">led-on</span></code>, <code class="docutils literal notranslate"><span class="pre">Function</span></code>:</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">msg</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Als je toegang hebt tot hardware zul je in deze functie de LED uitschakelen.</p>
+<ol class="arabic simple" start="4">
+<li>Configureer de template node: <em>Template</em>:</li>
+</ol>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype HTML&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>LED control<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>LED control<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/api/ledon&quot;</span><span class="p">&gt;</span>on<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: {{color}}&quot;</span><span class="p">&gt;</span> [[LED]]<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/api/ledoff&quot;</span><span class="p">&gt;</span>off<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Kopieer deze flow voor <code class="docutils literal notranslate"><span class="pre">ledoff</span></code></li>
+<li>Configureer in deze kopie de http-input-node: <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">/ledoff</span></code>.</li>
+<li>Configureer de function-node: <em>Name</em>: <code class="docutils literal notranslate"><span class="pre">led-off</span></code>, <code class="docutils literal notranslate"><span class="pre">Function</span></code>:</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">msg</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">;</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Als je toegang hebt tot hardware zul je in deze functie de LED uitschakelen.</p>
+<ol class="arabic simple" start="8">
+<li>De template-node hoef je niet aan te passen.</li>
+<li>“Deploy” en controleer via de browser de werking van de webpagina’s.
+(bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/ledon</span></code>)</li>
+<li>Je kunt deze flows vereenvoudigen: voor beide flows zijn de “staarten” gelijk.
+Deze kun je combineren: verbind de output van function-node <code class="docutils literal notranslate"><span class="pre">led-off</span></code>
+met de template-node in de flow van <code class="docutils literal notranslate"><span class="pre">/ledon</span></code>.
+Verwijder de tweede template-node en de bijbehorende http-output-node.
+Je krijgt dan onderstaande flow:</li>
+</ol>
+<p>Door slim gebruik te maken van templates kun je vaker flows op zo’n manier combineren.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../webserver.html">Webserver-knopen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="webserver-keten.html">Webserver-keten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webserver-protocol.html">Protocollen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Webserver-Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodered-opdrachten.html">NodeRed-opdrachten</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NodeRed-opdrachten-1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#eerste-flow-vervolg">1. Eerste flow (vervolg)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eerste-webserver">2. Eerste webserver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#een-tweede-pagina">3. Een tweede pagina</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#een-teller">4. Een teller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#led-besturing">5. LED-besturing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../webserver.html">Webserver-knopen</a><ul>
+      <li>Previous: <a href="nodered-opdrachten.html" title="vorig hoofdstuk">NodeRed-opdrachten</a></li>
+      <li>Next: <a href="toetsvragen.html" title="volgend hoofdstuk">Toetsvragen</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/webserver/nodered-opdrachten-1.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

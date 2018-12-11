@@ -1,0 +1,368 @@
+NodeRed-opdrachten-1
+====================
+
+.. bij webserver-keten
+
+.. admonition:: Leerdoelen en concepten
+
+  * Kennismaking met NodeRed, voor het configureren van datastromen, koppelen van data, acties en diensten;
+  * Gebruik van NodeRed als Webserver;
+  * Kennismaking met het HTTP-protocol, met behulp van NodeRed;
+  * NodeRed voorbeeld: dashboard van sensordata
+  * NodeRed voorbeeld: bediening van de actuatoren (LED)
+
+.. admonition:: Wat heb je nodig?
+
+  * NodeRed-installatie, bijvoorbeeld:
+
+      * FRED - https://fred.sensetecnic.com (gratis versie)
+      * NodeRed op Raspberry Pi (onderdeel van standaardsoftware)
+
+
+1. Eerste flow (vervolg)
+------------------------
+
+Maak onderstaande flow in een nieuw flow-venster:
+
+.. figure:: Nodered-flow1.png
+   :width: 500 px
+   :align: center
+
+   NodeRed: eerste flow
+
+Bekijk eventueel de opdracht in het vorige hoofdstuk (REF).
+
+Deze beide nodes, de inject-node en de debug-node, gebruik je vaak voor het testen en debuggen van een flow.
+Het is handig als je weet hoe je deze kunt gebruiken.
+
+**N.B.: vergeet niet na elke verandering de flow opnieuw te activeren (rode Deploy-knop, rechts boven).**
+
+1. Door op de knop links op de debug-node te klikken "injecteer" je een timestamp in de flow:
+   de huidige tijd, als geheel getal. Via de debug-node krijg je dit te zien in het debug-venster.
+   Controleer of dit werkt.
+2. Met de knop rechts op de debug-node kun je deze node tijdelijk uitschakelen. Controleer of dit werkt.
+   (Vergeet niet te "deploy"-en!)
+3. Je kunt de inject-node ook automatisch laten werken; configureer deze node (dubbel-klik op de node):
+   zet "Repeat" van "none" naar "interval" (every 1 seconds). Bewaar deze aanpassing ("Done" knop).
+   Controleer of dit werkt.
+4. Je kunt de inject-node ook andere waarden laten injecteren. Configureer deze node:
+   selecteer als "payload": string, en vul als waarde in: "Hallo wereld".
+   Bewaar deze aanpassing, en controleer of dit werkt.
+
+Opmerkingen:
+
+* je kunt in het debug-venster aangeven dat je alleen de "current flow" wilt zien;
+* je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).
+
+2. Eerste webserver
+-------------------
+
+NodeRed is een webserver op basis van Node.js.
+Dit kun je vergelijken met Apache of Nginx op andere systemen.
+Met NodeRed kun je snel een simpele webserver maken.
+We gebruiken dit voor het bestuderen van het HTTP-protocol.
+
+We gebruiken hiervoor de volgende knopen:
+
++--------------------+------------------+------------------+
+| **figuur**         | **naam**         | **soort node**   |
++--------------------+------------------+------------------+
+| |http-input-node|  | http-input-node  |  input           |
++--------------------+------------------+------------------+
+| |http-output-node| | http-output-node |  output          |
++--------------------+------------------+------------------+
+| |template-node|    | template-node    |  in-out          |
++--------------------+------------------+------------------+
+
+.. |http-input-node| image:: nodered-http-input-node.png
+.. |http-output-node| image:: nodered-http-output-node.png
+.. |template-node| image:: nodered-template-node.png
+
+Een HTTP-request van een browser bevat onder andere de volgende onderdelen:
+
+* het pad-gedeelte van de URL van het HTTP-request, bijvoorbeeld: ``/mypage``.
+* de HTTP-request *method*, bijvoorbeeld ``GET`` of ``POST``.
+
+Maak met deze nodes de volgende flow:
+
+.. figure:: Nodered-hello.png
+   :width: 600 px
+   :align: center
+
+   NodeRed http flow-voorbeeld
+
+(De namen van de knopen hoef je niet aan te passen.)
+
+Door het configureren van de nodes maken we een eigen webserver,
+voor het afhandelen van een eigen pagina.
+
+1. De eerste stap in een HTTP-flow is een http-input-node.
+   Deze configureren we als volgt (dubbel-klik op de node):
+   1. gebruik als *method*: ``GET``
+   2. gebruik als *URL*: ``/mypage``
+2. verbind een debug-node met de output van deze http-input-node.
+   De andere verbindingen kun je laten zoals ze zijn.
+3. Configureer de debug-node *Output*: ``complete msg object`` (en "Done").
+4. "Deploy"
+
+5. Nu kun je testen of een GET-request voor ``/mypage`` afgehandeld wordt.
+
+Gebruik hiervoor als URL in een browser:
+
+* voor FRED: de URL van je NodeRed-instantie, gevolgd door ``/api/mypage``.
+  Bijvoorbeeld:  ``https://anna.fred.sensetecnic.com/api/mypage``
+* voor een Raspberry Pi: de URL van de NodeRed-instantie, gevolgd door ``/mypage``.
+
+In het geval van FRED moet je dit doen in een venster van de browser waarin je ook je NodeRed-flows geopend hebt;
+dit is een beperking van de gratis versie van FRED.
+
+Een "normale" NodeRed-installatie heeft deze beperking niet: iedereen kan dan je webpagina zien.
+
+Als response in de browser krijg je:  ``This is the payload: [object Object] !``
+
+6. zoek in de debug-output naar het ``req``-deel van het msg-object.
+   Daarin vind je onder andere de velden ``URL`` en ``method``.
+   Controleer of deze kloppen met wat je verwacht.
+
+7. De volgende stap is het aanpassen van de webpagina.
+   Configureer de template-node, en vul als template-waarde in:
+
+.. code-block::html
+
+  <!doctype HTML>
+  <html>
+    <head>
+      <title>My page</title>
+    </head>
+    <body>
+      <h1>Welkom op mijn website</h1>
+    </body>
+  </html>
+
+Vul als *Name* in: ``mypage``.
+En "Done" en "Deploy".
+
+Open nu in de browser een webpagina met de URL van je NodeRed-pagina.
+(Bijvoorbeeld: ``https://anna.fred.sensetecnic.com/api/mypage``.)
+Controleer of je nu je eigen webpagina te zien krijgt.
+
+3. Een tweede pagina
+--------------------
+
+De volgende stap is het maken van een tweede pagina voor je website.
+
+1. Kopieer de flow met de 3 nodes: http-input, template, http-output.
+   Hiervoor kun je in NodeRed Copy-Paste gebruiken: (i) selecteer de nodes;
+   (ii) Copy; (iii) Paste.
+2. Configureer de tweede http-input-node, met *URL*: ``my2ndpage``.
+   Als *method* laat je ``GET`` staan. En "Done".
+3. Configureer de template-node, en vul als *template* in:
+
+.. code-block:: html
+
+  <!doctype HTML>
+  <html>
+    <head>
+      <title>My 2nd page</title>
+    </head>
+    <body>
+      <h1>Mijn tweede pagina</h1>
+    </body>
+  </html>
+
+"Done" en "Deploy".
+
+4. Controleer in een browser-venster of deze URL werkt.
+   (Bijvoorbeeld: ``https://anna.fred.sensetecnic.com/api/my2ndpage``)
+5. Maak nu een link van deze pagina naar de vorige.
+   Pas de template-tekst van de template node daarvoor aan,
+   en voeg toe onder ``<h1>...</h1>``:
+
+Voor NodeRed via FRED:
+
+.. code-block:: html
+
+  <p>
+    Dit is mijn tweede webpagina.
+    De eerste vind je via deze link:
+    <a href="/api/mypage">Home page<a>
+  </p>
+
+Voor andere NodeRed-installaties:
+
+.. code-block:: html
+
+  <p>
+    Dit is mijn tweede webpagina.
+    De eerste vind je via deze link:
+    <a href="/mypage">Home page<a>
+  </p>
+
+"Done" en "Deploy".
+
+Bezoek deze pagina in de brower,
+en controleer of de link naar de homepagina werkt.
+
+6. Voeg op dezelfde manier een link toe van je eerste pagina naar je tweede.
+   Controleer of deze werkt.
+
+Je hebt nu een website met twee pagina's die onderling verbonden zijn.
+
+Je kunt de tekst van de pagina's zo groot maken als je wilt.
+Vaak is het handig om grotere teksten in een bestand op te slaan.
+Dit kun je dan inlezen via de file-node;
+in FRED is deze helaas niet beschikbaar.
+
+4. Een teller
+-------------
+
+Een volgende stap is dat we de website voorzien van een bezoekers-teller:
+elke keer als er een http-verzoek voor een webpagina binnenkomt,
+verhogen we deze teller.
+We laten de huidige waarde van de teller in de webpagina zien.
+
+Hiervoor maken we gebruik van context-variabelen in NodeRed,
+zie: https://nodered.org/docs/user-guide/context.
+In een context kun je een waarde opslaan die tussen de verschillende request bewaard blijft.
+We gebruiken de *flow-context*: deze is gemeenschappelijk voor de flows op één pagina.
+
+Deze opdracht is ook een demonstratie van het gebruik van *templates*:
+een tekst waarin je de waarde van variabelen kunt invullen.
+NodeRed gebruikt voor deze templates de Mustache-notatie,
+zie: https://mustache.github.io.
+
+1. Voeg een functie-node in tussen de http-input-node (``api/mypage``) en de template-node:
+   Verwijder eerst de verbinding tussen de http-input-node en de template-node.
+   Sleep een function node naar de flow.
+   Verbind de output van de http-input-node met de input van de function-node.
+   Verbind de output van de function-node met de input van de template-node.
+   (En maak de layout weer netjes.)
+2. Configureer de function-node: *Name*: ``inc-count``; *Function*:
+
+.. code-block:: javascript
+
+  var count = flow.get("count") || 0;
+  count = count + 1;
+  flow.set("count", count);
+  msg.count = count;
+  return msg;
+
+In de eerste regel halen we de waarde van de flow-variabele "count" op.
+Als deze nog niet gedefinieerd is, gebruiken we de waarde 0.
+(Dit is een veel-voorkomende JavaScript-constructie.)
+Deze waarde hogen we met 1 op, en bewaren deze weer in de flow-variabele "count".
+De nieuwe waarde voegen we toe aan de NodeRed-message ``msg``,
+om later in het template in te vullen.
+
+3. Configureer de template-node.
+   Voeg in, vóór  ``</body>``:
+
+.. code-block:: html
+
+  <p> visits: {{payload.count}} </p>
+
+Via de constructie ``{{payload.count}}`` wordt de waarde van de variable ``msg.payload.count`` in de template-tekst ingevuld.
+
+4. "Deploy"
+
+Controleer via de browser of je bij elke reload van de pagina
+(bijvoorbeeld ``https://anna.fred.sensetecnic.com/api/mypage`` )
+een volgende waarde van de teller krijgt.
+
+5. LED-besturing
+----------------
+
+In deze opdracht werken we uit hoe je via een webserver een LED kunt aansturen.
+In de FRED-versie hebben we geen toegang tot een LED;
+we simuleren deze door de kleur in de webpagina.
+
+In de Raspberry Pi-versie heb je vanuit NodeRed toegang tot de GPIO-pinnen.
+Daarmee kun je eventueel een LED aansturen.
+
+Voor het aansturen van de LED gebruiken we twee URLs: ``/ledon`` en ``/ledoff``.
+Hiervoor maken we twee flows, met voor elk dezelfde opzet als bij de teller:
+een http-input-node, een function-node, een template-node, en een http-output-node.
+
+1. Maak deze flow voor ``ledon``, door de nodes naar het flow-venster te slepen en verbinden.
+2. Configureer de http-input-node: *URL*: ``/ledon``, *method*: ``GET``.
+3. Configureer de function node: *Name*: ``led-on``, ``Function``:
+
+.. code-block:: javascript
+
+  msg.color = "red";
+  return msg;
+
+Als je toegang hebt tot hardware zul je in deze functie de LED uitschakelen.
+
+4. Configureer de template node: *Template*:
+
+.. code-block:: html
+
+  <!doctype HTML>
+  <html>
+    <head>
+      <title>LED control</title>
+    </head>
+    <body>
+      <h1>LED control</h1>
+      <p>
+        <a href="/api/ledon">on</a>
+        <span style="color: {{color}}"> [[LED]]</span>
+        <a href="/api/ledoff">off</a>
+      </p>
+    </body>
+  </html>
+
+5. Kopieer deze flow voor ``ledoff``
+6. Configureer in deze kopie de http-input-node: *URL*: ``/ledoff``.
+7. Configureer de function-node: *Name*: ``led-off``, ``Function``:
+
+.. code-block:: javascript
+
+  msg.color = "black";
+  return msg;
+
+Als je toegang hebt tot hardware zul je in deze functie de LED uitschakelen.
+
+8. De template-node hoef je niet aan te passen.
+9. "Deploy" en controleer via de browser de werking van de webpagina's.
+   (bijvoorbeeld: ``https://anna.fred.sensetecnic.com/api/ledon``)
+10. Je kunt deze flows vereenvoudigen: voor beide flows zijn de "staarten" gelijk.
+    Deze kun je combineren: verbind de output van function-node ``led-off``
+    met de template-node in de flow van ``/ledon``.
+    Verwijder de tweede template-node en de bijbehorende http-output-node.
+    Je krijgt dan onderstaande flow:
+
+Door slim gebruik te maken van templates kun je vaker flows op zo'n manier combineren.
+
+6. Webformulieren
+-----------------
+
+In deze opdracht gaan we aan de slag met een webformulier:
+de waarden in het formulier vul je in in de browser.
+De browser stuurt het formulier via een POST-request (in plaats van GET) naar de server.
+De server verwerkt dit request, en stuurt een (HTML)document terug.
+
+Waarom gebruiken we hier een formulier en een POST-request?
+
+Binnen het web is de afspraak dat GET *idempotent* is:
+de betekenis blijft gelijk, of je deze éénmaal of vaker uitvoert.
+Met andere woorden: je kunt ongestraft een *reload* in de browser doen.
+
+Bij een formulier is dit vaak niet het geval:
+een formulier heeft een verandering bij de server tot gevolg,
+bijvoorbeeld een bestelling bij een webwinkel.
+Als je het formulier nog een keer opstuurt,
+bestel je de inhoud van de winkelmand mogelijk nog een keer.
+In dat geval gebruik je een POST-request: dat is niet idempotent,
+en de browser vraagt je bij een "reload" of je zeker weet dat je dat wilt.
+(Probeer maar eens!)
+
+*Ga na* dat de URLs ``ledon`` en ``ledoff`` idempotent zijn.
+
+  Als je een lamp met een drukknop aan- en uitschakelt, dan is dat geen idempotente operatie.
+  Immers, elke volgende keer drukken heeft een andere betekenis.
+  Idempotente operaties zijn belangrijk voor communicatie die niet absoluut betrouwbaar is:
+  je kunt dan "voor de zekerheid" de opdracht nog een keer uitvoeren,
+  bijvoorbeeld als je niet op tijd een reactie gekregen hebt.
+  Deze extra opdracht heeft geen effect als de eerste opdracht al uitgevoerd was.
