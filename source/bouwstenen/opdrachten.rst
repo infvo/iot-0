@@ -16,6 +16,8 @@ Deze broker fungeert ook als webserver voor de statische webtoepassing ``mqttt``
   alle actie en interactie vindt plaats in de browser, via JavaScript.
   De server gebruikt geen server-scripting (zoals PHP of Python) en geen server-database.
 
+.. _MQTTT:
+
 .. rubric:: De app MQTTT
 
 Bij veel opdrachten gebruiken we de app MQTTT:
@@ -47,6 +49,11 @@ De app heeft de volgende invoervelden en knoppen:
 * ``publish to topic``: het topic waarvoor je berichten wilt versturen:
     * het bericht voer je daaronder in, en
     * met de "publish"-knop verstuur je het bericht.
+
+.. admonition:: Let op
+
+  Een nieuwe waarde in een invoerveld wordt actief zodra de cursor dat invoerveld verlaat.
+  Je ziet dan geen blauwe rand meer om het veld.
 
 
 .. rubric:: Alternatief: MQTT-box

@@ -9,11 +9,13 @@ MQTT-opdrachten
       * bijvoorbeeld: ``http://infvopedia.nl:1883``;
       * de MQTT-broker fungeert ook als statische webserver,
         voor de app MQTTT en voor de knoop-simulator;
-      * je moet de domeinnaam, het poortnummer, en een gebruikersnaam/wachtwoord kennen;
-        vraag dit eventueel aan je docent.
+  * de app MQTTT (zie :ref:`MQTTT`)
   * zo mogelijk: IoT knoop (hardware),
       * met software: ``mqtt-node-0``;
       * verbonden met de MQTT broker, via het lokale WiFi-netwerk;
+      * daarvoor moet je van deze broker de domeinnaam, het poortnummer,
+        en een gebruikersnaam/wachtwoord kennen;
+        vraag dit eventueel aan je docent.
       * de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
         deze ID staat ook op de knoop zelf.
 
