@@ -55,6 +55,11 @@ De app heeft de volgende invoervelden en knoppen:
   Een nieuwe waarde in een invoerveld wordt actief zodra de cursor dat invoerveld verlaat.
   Je ziet dan geen blauwe rand meer om het veld.
 
+  Als je een nieuw topic invult of een nieuwe IoT-node ID,
+  vindt er automatisch een *subscribe* op dit nieuwe topic plaats,
+  en een *unsubscribe* op het vorige topic.
+  Na het invullen verschijnen dan automatisch de ontvangen berichten voor dat topic.
+
 
 .. rubric:: Alternatief: MQTT-box
 

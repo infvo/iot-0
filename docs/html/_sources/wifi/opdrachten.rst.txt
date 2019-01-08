@@ -6,18 +6,67 @@ MQTT-opdrachten
 .. topic:: Wat heb je nodig?
 
   * MQTT broker in publieke internet;
-      * bijvoorbeeld: ``http://infvopedia.nl:1883``;
+      * bijvoorbeeld: ``infvopedia.nl:1883``;
       * de MQTT-broker fungeert ook als statische webserver,
-        voor de app MQTTT en voor de knoop-simulator;
-  * de app MQTTT (zie :ref:`MQTTT`)
+        voor de app MQTTT en voor de IoT-knoop-simulator;
+  * de app MQTTT (`<http://infvopedia.nl:1884/mqttt.html>`_, zie ook :ref:`MQTTT`)
   * zo mogelijk: IoT knoop (hardware),
-      * met software: ``mqtt-node-0``;
-      * verbonden met de MQTT broker, via het lokale WiFi-netwerk;
-      * daarvoor moet je van deze broker de domeinnaam, het poortnummer,
-        en een gebruikersnaam/wachtwoord kennen;
-        vraag dit eventueel aan je docent.
+      * met software: ``wifi-node-0``;
+      * geconfigureerd voor het lokale WiFi-netwerk en de MQTT-broker,
+        zie hieronder;
       * de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
         deze ID staat ook op de knoop zelf.
+  * als alternatief: een gesimuleerde IoT-knoop,
+    via `<http://infvopedia.nl:1884//iotnode-app.html>`_.
+    Geef deze zelf een unieke ID.
+
+.. rubric: IoT-knoop configureren
+
+Voor het configureren van een IoT-knoop met de software ``wifi-node-0`` heb je nodig:
+
+* de gegevens van het lokale WiFi-netwerk: SSID (netwerknaam) en wachtwoord (van het netwerk)
+* de MQTT-broker-gegevens: domeinnaam, poortnummer, gebruikersnaam, wachtwoord
+
+Vraag deze gegevens eventueel aan je docent.
+
+.. adminition: Let op
+
+  N.B. de knopen werken niet met WiFI-netwerken die voor elke gebruiker naam/wachtwoord-combinatie hebben,
+  zoals veel schoolnetwerken.
+  Eenvoudige WiFi-netwerken, zoals een thuisnetwerk of een telefoon als access point,
+  kun je wel met een SSID/wachtwoord benaderen.
+
+Stappen voor het configureren:
+
+1. Reset de knoop in "Access Point" mode:
+    1. druk *button 0* in;
+    2. druk de *reset-knop* in (links van de USB-aansluiting),
+       en laat deze weer los (led0 brandt nu);
+    3. laat *button 0* na 3 seconden los (als led1 ook brandt);
+    4. NB: in een oudere versie van de software krijg je niet de feedback van de leds,
+       voor het overige werkt de Access-point reset op dezelfde manier.
+2. Maak via de browser contact met de knoop:
+    1. selecteer in je computer het WiFi-netwerk van de knoop;
+       dit heeft als naam ``ESPAP-`` gevolgd door de ID van de knoop,
+       bijvoorbeeld ``ESPAP-8f12``
+    2. geef in de browser het IP-adres van het access point op: ``192.168.4.1``.
+       Je krijgt nu de homepagina van de webserver van de knoop te zien,
+       met onder andere de waarden van de sensoren.
+3. Klik in de homepagina op de link: ``Setup``; op de setup-pagina kun je de configuratie-parameters instellen.
+   Vul alleen die gegevens in die nieuw zijn: al eerder ingevulde gegevens (ook niet-getoonde wachtwoorden) blijven bewaard.
+4. "Submit" de ingevulde gegevens.
+5. Reset de knoop: de software-reset via de link ``[[Reset]]`` werkt soms,
+   een hardware-reset werkt altijd.
+   De knoop probeert nu verbinding te maken met het lokale WiFi netwerk,
+   en vervolgens met de broker.
+   Tijdens het zoeken naar het lokale WiFi-netwerk brandt de blauwe LED op de knoop;
+   als dit lang duurt, probeer je nog een hardware-reset.
+6. Selecteer weer het normale WiFi-netwerk in je computer.
+7. Via :ref:`MQTTT` kun je nu controleren of de MQTT-broker de berichten van de IoT-knoop ontvangt.
+   Stel in het ``IoT-node``-venster de ID van de knoop in, bijvoorbeeld ``8f12``.
+   Na enige tijd moeten dan de waarden van de sensoren verschijnen.
+   Je kunt ook de LED aan- en uitschakelen.
+
 
 (1) MQTT-chat
 -------------
