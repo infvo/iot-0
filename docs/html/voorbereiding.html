@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>LoRa-knopen &#8212; iot-0  documentatie</title>
+    <title>Voorbereiding &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
-    <link rel="next" title="LoRaWan-keten" href="lora/lorawan-keten.html" />
-    <link rel="prev" title="Toetsvragen" href="rfm69/toetsvragen.html" />
+    <link rel="next" title="Inleiding" href="inleiding.html" />
+    <link rel="prev" title="Ten geleide" href="ten-geleide.html" />
 
 <script type="application/json" class="js-hypothesis-config">
 {
@@ -36,39 +36,85 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="lora-knopen">
-<h1>LoRa-knopen<a class="headerlink" href="#lora-knopen" title="Permalink naar deze titel">¶</a></h1>
+  <div class="section" id="voorbereiding">
+<h1>Voorbereiding<a class="headerlink" href="#voorbereiding" title="Permalink naar deze titel">¶</a></h1>
+<p>De uitwerking van de opdrachten vereist een IoT-infrastructuur.
+De docent moet deze van te voren beschikbaar maken voor de leerlingen.</p>
+<p>Voor de IoT-knopen zijn er verschillende alternatieven:</p>
+<ol class="loweralpha simple">
+<li>gesimuleerde IoT-knopen en IoT-knopen elders.</li>
+<li><dl class="first docutils">
+<dt>(a), aangevuld met hardware IoT-knopen:</dt>
+<dd><ol class="first last arabic">
+<li>WiFi-knopen (ESP8266)</li>
+<li>RFM69-knopen met WiFi gateway</li>
+<li>LoRa knopen met LoRa gateway</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+<p>Het is niet nodig om alle varianten direct beschikbaar te hebben:
+je kunt dit in de loop van de tijd uitbreiden.
+Het gebruik van hardware IoT-knopen maakt het materiaal wel veel aantrekkelijker voor leerlingen.</p>
+<p>Naast deze IoT-knopen zijn er nog nodig:</p>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>NodeRed server “in the cloud”</dt>
+<dd><ul class="first last">
+<li>voor het oefenen met NodeRed kan FRED (fred.sensetecnic.com) gebruikt worden.</li>
+<li>voor een langduriger</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>MQTT broker “in the cloud”</dt>
+<dd><ul class="first last">
+<li>als onderdeel van het lesmateriaal is een MQTT-broker “in the cloud” beschikbaar.</li>
+<li>als docent kun je hiervoor een account aanvragen (mail naar info at infvo.nl).</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Te doen</p>
 <ul class="last simple">
-<li>LoRa</li>
-<li>LoRaWan</li>
-<li>TTN</li>
-<li>gateway; protocol-conversie (van binair naar JSON)</li>
-<li>LoRaWan-server; protocol-conversie, formaat-conversie (van payload)</li>
+<li>gebruik van een lokale Raspberry Pi</li>
 </ul>
 </div>
-<p>De LoRa (long range) radio werkt in dezelfde vrije ISM-frequentieband (868MHz) als bijvoorbeeld SigFox, RFM69, ZigBee en Z-wave.
-Dit betekent dat deze radio dezelfde beperkingen heeft:
-ten hoogste 1% van de tijd zenden met een beperkt vermogen.
-De LoRa-radio (long range) heeft een bereik van een paar kilometer;
-een groter bereik gaat ten koste van de bitrate (bits/s):
-je gebruikt dan meer energie per bit, over de tijd uitgesmeerd.
-Je kunt het bereik aanpassen aan de omstandigheden:
-dit betekent dat de bit-rate groter kan zijn als je een kleinere afstand hoeft te overbruggen.
-Eenzelfde bericht kan dan in kortere tijd verstuurd worden, met minder energie.
-Dit laatste betekent een langere batterijduur voor een low-power IoT-knoop.</p>
-<p>Het bereik (en daarmee de bitrate) wordt aangegeven door de <em>Spreading Factor</em> (SF),
-gebruikelijk van SF7 tot SF12.
-Een volgende SF-waarde geeft een halvering van de bitrate,
-een verdubbeling van de energie per bit, en een groter bereik.</p>
-<p>Als een LoRa-IoT-knoop zich aanmeldt bij een gateway,
-onderhandelen deze om de laagst bruikbare SF te vinden.
-Dit verkleint de belasting van het netwerk en de energie die de IoT-knoop nodig heeft.</p>
-<p>De LoRa-radio biedt <em>best-effort</em> <em>pakketcommunicatie</em>,
-waarbij een pakket gewoonlijk een <em>payload</em> heeft van een 10-tal bytes.
-Door het gebruik van opeenvolgend genummerde pakketten kun je zien of er pakketten verloren zijn gegaan.</p>
-<div class="toctree-wrapper compound">
+<p>Een uitgebreide uitleg van de verschillende IoT-knopen is te vinden op IoT-1.
+Daar zijn de hardware-schema’s te vinden, en de gegevens voor het configureren en programmeren.
+De software is te vinden op GitHub:</p>
+<ul class="simple">
+<li>MQTTT</li>
+<li>IoT-knoop simulator</li>
+</ul>
+<p>Wat moeten leerlingen zelf doen?</p>
+<ul class="simple">
+<li>aanmelden bij FRED, voor een gratis account;</li>
+<li>aanmelden bij TTN (gratis).</li>
+</ul>
+<div class="section" id="thethingsnetwork">
+<h2>TheThingsNetwork<a class="headerlink" href="#thethingsnetwork" title="Permalink naar deze titel">¶</a></h2>
+<p>Leerlingen moeten toegang hebben tot de TTN-application met de actieve IoT-knopen.
+Voor de oefenopdrachten kun je met één account per school of per klas werken.</p>
+</div>
+<div class="section" id="problemen-met-het-schoolnetwerk">
+<h2>Problemen met het schoolnetwerk<a class="headerlink" href="#problemen-met-het-schoolnetwerk" title="Permalink naar deze titel">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>schoolnetwerk heeft WiFi-toegang via persoonlijke wachtwoorden</dt>
+<dd><ul class="first last">
+<li>de WiFi IoT-knopen en de RFM69-gateways zijn hier niet op voorbereid.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>schoolnetwerk blokkeert MQTT-poorten (1883, 1884).</li>
+<li>schoolnetwerk blokkeert UDP-verkeer voor LoRaWan/TTN gateway.</li>
+</ul>
 </div>
 </div>
 
@@ -90,18 +136,17 @@ Door het gebruik van opeenvolgend genummerde pakketten kun je zien of er pakkett
 <h3>Navigatie</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ten-geleide.html">Ten geleide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="voorbereiding.html">Voorbereiding</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Voorbereiding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#thethingsnetwork">TheThingsNetwork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#problemen-met-het-schoolnetwerk">Problemen met het schoolnetwerk</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webserver.html">Webserver-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wifi.html">WiFi-MQTT-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rfm69.html">RFM69-knopen</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">LoRa-knopen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lora/lorawan-keten.html">LoRaWan-keten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lora/opdrachten.html">Opdrachten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lora/toetsvragen.html">Toetsvragen</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
 </ul>
@@ -115,8 +160,8 @@ Door het gebruik van opeenvolgend genummerde pakketten kun je zien of er pakkett
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="rfm69/toetsvragen.html" title="vorig hoofdstuk">Toetsvragen</a></li>
-      <li>Next: <a href="lora/lorawan-keten.html" title="volgend hoofdstuk">LoRaWan-keten</a></li>
+      <li>Previous: <a href="ten-geleide.html" title="vorig hoofdstuk">Ten geleide</a></li>
+      <li>Next: <a href="inleiding.html" title="volgend hoofdstuk">Inleiding</a></li>
   </ul></li>
 </ul>
 </div>
@@ -144,7 +189,7 @@ Door het gebruik van opeenvolgend genummerde pakketten kun je zien of er pakkett
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/lora.rst.txt"
+      <a href="_sources/voorbereiding.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
