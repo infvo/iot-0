@@ -1,0 +1,349 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Enkele voorbeelden &#8212; iot-0  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Voorbeelden" href="voorbeelden.html" />
+    <link rel="prev" title="Inleiding" href="../inleiding.html" />
+
+<script type="application/json" class="js-hypothesis-config">
+{
+"showHighlights": false
+}
+</script>
+<script async src="https://hypothes.is/embed.js"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="enkele-voorbeelden">
+<h1>Enkele voorbeelden<a class="headerlink" href="#enkele-voorbeelden" title="Permalink naar deze titel">¶</a></h1>
+<p>We geven hier enkele voorbeelden in meer detail.
+Daarna geven we een grotere lijst van voorbeelden waarvan je de details elders in het web kunt vinden.</p>
+<div class="section" id="voorbeeld-watersproeier">
+<h2>Voorbeeld: watersproeier<a class="headerlink" href="#voorbeeld-watersproeier" title="Permalink naar deze titel">¶</a></h2>
+<p>Als voorbeeld van een IoT-toepassingen kijken we naar het besproeien van een sportveld.
+We beginnen met een eenvoudige, lokale oplossing.
+Deze breiden we stapsgewijs uit naar een “slimme” oplossing door steeds meer aspecten van het internet of things te gebruiken.</p>
+<div class="section" id="actuator-en-controller">
+<h3>Actuator en controller<a class="headerlink" href="#actuator-en-controller" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/actuator-controller.png"><img alt="../_images/actuator-controller.png" src="../_images/actuator-controller.png" style="width: 300px;" /></a>
+</div>
+<p>De eerste oplossing is een automatische sproei-installatie.
+Deze bestaat uit sproeiers (<em>actuatoren</em>) en de besturing daarvan;
+een dergelijke besturingscomputer noemen we een <em>controller</em>.
+De eenvoudigste automatische besturing is op basis van tijd, bijvoorbeeld:
+besproei de komende week van 22:00 uur tot 4:00 uur.</p>
+<p>Met deze oplossing kunnen we sproeien op momenten dat dit het meeste zin heeft,
+zonder dat we er zelf bij hoeven te zijn.</p>
+<div class="admonition-wat-is-een-controller admonition">
+<p class="first admonition-title">Wat is een controller?</p>
+<p class="last">Een controller is een besturingscomputer.
+Dit kan variëren van een <em>microcontroller</em>: een complete computer op een chip,
+met analoge en digitale aansluitingen voor sensoren en actuatoren,
+tot een NodeRed-server.
+In NodeRed kun je allerlei protocollen en diensten, van laag tot hoog niveau,
+aan elkaar verbinden en combineren met regels voor de besturing.</p>
+</div>
+</div>
+<div class="section" id="sensoren">
+<h3>Sensoren<a class="headerlink" href="#sensoren" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/actuator-sensor-controller.png"><img alt="../_images/actuator-sensor-controller.png" src="../_images/actuator-sensor-controller.png" style="width: 300px;" /></a>
+</div>
+<p>Deze eerste  oplossing is nog niet optimaal.
+Een nadeel is dat er volgens dit schema altijd gesproeid wordt - ook als de grond niet droog is, of als het regent.
+Dit betekent op z’n minst een verspilling van water;
+bovendien kan  het veld hierdoor te drassig worden, wat ook niet de bedoeling is.</p>
+<p>We kunnen deze problemen voorkomen door (lokale) <em>sensoren</em> te gebruiken,
+om de bodemvochtigheid te meten, om te meten of het regent,
+en bijvoorbeeld om de luchtvochtigheid en de temperatuur te meten.
+Hiermee kunnen we al zuiniger met water omspringen.</p>
+</div>
+<div class="section" id="aan-het-internet">
+<h3>Aan het internet<a class="headerlink" href="#aan-het-internet" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/controller-internet.png"><img alt="../_images/controller-internet.png" src="../_images/controller-internet.png" style="width: 500px;" /></a>
+</div>
+<p>Als volgende stap <em>verbinden we de controller met het internet</em>.
+Hiermee kunnen we de installatie <em>op afstand bedienen</em>, via een app,
+waarin we ook in een dashboard de gegevens van de sensoren kunnen bekijken.</p>
+</div>
+<div class="section" id="slimme-diensten">
+<h3>“Slimme” diensten<a class="headerlink" href="#slimme-diensten" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/controller-diensten.png"><img alt="../_images/controller-diensten.png" src="../_images/controller-diensten.png" style="width: 500px;" /></a>
+</div>
+<p>Als de controller verbonden is aan het internet,
+kunnen we bij de besturing ook gebruik maken van <em>diensten elders in het internet</em>,
+zoals bijvoorbeeld de weersverwachting:
+het geen zin om te sproeien als er regen verwacht wordt.
+Op deze manier kunnen we nog meer water besparen.</p>
+<p>Door gebruik te maken van de gegevens van de sensoren over langere tijd,
+en door deze te combineren met gegevens van sproei-installaties elders,
+kunnen we het algoritme voor het besproeien steeds verder optimaliseren.
+Dit is een voorbeeld van het combineren van het Internet of Things met Data Science (Big Data).</p>
+<p>Uiteindelijk wil je een sproeisysteem dat optimaal gebruik maakt van de omstandigheden.
+Je wilt daarmee het gras zo laten groeien dat het goed gebruik maakt van het water in de bodem -
+bijvoorbeeld door lange wortels te ontwikkelen.
+Dat betekent bijvoorbeeld dat je niet altijd moet sproeien als alleen de bovenste laag van de bodem droog is.
+Hiervoor is kennis nodig van de manier waarop gras groeit, en van de lokale bodem- en weersomstandigheden.
+Externe diensten spelen daarvoor een belangrijke rol.</p>
+</div>
+<div class="section" id="meerdere-controllers">
+<h3>Meerdere controllers<a class="headerlink" href="#meerdere-controllers" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/controller-controller.png"><img alt="../_images/controller-controller.png" src="../_images/controller-controller.png" style="width: 500px;" /></a>
+</div>
+<p>Vaak heeft het zin om controllers op meerdere niveaus te gebruiken,
+bijvoorbeeld een controller direct bij de sensoren/actuatoren,
+een controler in de buurt van de eigenlijke toepassing,
+en een controller die bereikbaar is in het publieke internet.</p>
+<p>De lokale controller(s) zorgen voor lokale autonomie,
+voor snelle beslissingen (door lage latency),
+en verminderen de druk op de communicatie naar en het rekenwerk in de <em>cloud</em>.
+Omdat je dit kunt zien als een lokaal verlengstuk van de <em>cloud</em> heet dit wel <em>fog computing</em>.</p>
+<p>De globale controller zorgt voor de bereikbaarheid in het internet,
+en voor de koppeling met diensten elders.</p>
+</div>
+<div class="section" id="eisen-aan-de-communicatie">
+<h3>Eisen aan de communicatie<a class="headerlink" href="#eisen-aan-de-communicatie" title="Permalink naar deze titel">¶</a></h3>
+<p>We gaan in een volgend hoofdstuk dieper in op de manier waarop we de verschillende onderdelen kunnen verbinden.
+Op basis van kennis van de toepassing kunnen we al wel de eisen aan de communicatie formuleren.
+Enkele voorbeelden van eisen:</p>
+<ul class="simple">
+<li>bandbreedte (bitrate): voor de toepassing kunnen we bepalen hoeveel berichten we in een bepaalde tijd willen sturen,
+en wat de omvang van die berichten is (in bits of in bytes);</li>
+<li>latency (vertraging): in het bijzonder bij een besturingstoepassing moeten we ervoor zorgen
+dat de tijd tussen het signaleren van een <em>event</em> (gebeurtenis) door een sensor en
+het aansturen van de actuator(en) niet te groot is:
+de maximale reactietijd wordt bepaald door de snelheid van het (fysieke) proces dat je aanstuurt.</li>
+<li>draadloos of bedraad: veel toepassingen eisen dat de verbinding tussen de sensoren/actuatoren en de controller draadloos is:
+draden belemmeren bijvoorbeeld de plaatsing of de beweging van de sensoren, en daarmee van het “ding” waaraan deze sensoren gekoppeld zijn.</li>
+<li>andere eisen, bijvoorbeeld beveiliging en privacy;
+je wilt bijvoorbeeld niet dat een besturing door anderen overgenomen kan worden.</li>
+</ul>
+<p>In het voorbeeld van de sproeier hebben we de volgende eisen:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>bandbreedte (bitrate):</dt>
+<dd><ul class="first last">
+<li>bodemvochtigheid: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
+<li>actuator: 1 bericht per 30 minuten(?), 1 byte per bericht;</li>
+<li>temperatuursensor: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
+<li>regensensor: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>latency: deze is niet kritisch (minuten), het fysische proces van besproeien van een grasveld is langzaam.</li>
+<li>draadloos of bedraad: de verbinding tussen de controller, de actuator(s) en de sensoren is bij voorkeur draadloos.</li>
+</ul>
+<div class="admonition-hoeveel-bits-heb-je-nodig admonition">
+<p class="first admonition-title">Hoeveel bits heb je nodig?</p>
+<p>Bij het bepalen van het aantal bits (of bytes) voor een sensormeting of een actuator-aansturing
+moet je weten (i) wat het <em>bereik</em> is, en (2) wat de vereiste <em>precisie</em> is.</p>
+<p>Bijvoorbeeld: je wilt temperatuur meten in het bereik -20..50 (Celcius),
+met een precisie van 0,5 graad.
+Je gebruik dan het bereik -40..100, waarbij je dit getal later door 2 deelt.</p>
+<p>Voor een getal in het bereik 0..255 heb je 8 bits nodig (1 byte).
+Je kunt dit bereik ook verschuiven, bijvoorbeeld -128..127, of -100..155.
+Het aantal bits blijft dan gelijk.
+Je kunt het bereik ook schalen (de komma verschuiven), bijvoorbeeld 0,0..25,5 (Celsius).
+Vaak is het bij deze schaling handiger om door een macht van 2 te delen,
+dan door een macht van 10.</p>
+<p class="last">Je kunt ook met grotere getallen werken: 0..1023 (10 bits), 0..1000000 (20 bits), enz.</p>
+</div>
+</div>
+<div class="section" id="samenvatting">
+<h3>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h3>
+<p>Samenvattend zien we de volgende stappen:</p>
+<ol class="arabic simple">
+<li>automatisch besturen van actuatoren met een controller;</li>
+<li>aansluiten van sensoren op de controller, om een slimmere besturing mogelijk te maken;</li>
+<li>aansluiten van de controller op het internet, voor bewaken (monitoring) en besturen op afstand - via een app;</li>
+<li>gebruik van diensten in het internet om tot een “slimme oplossing” te komen.</li>
+</ol>
+<p>Elke volgende stap helpt om meer water te besparen en om een beter sproei-resultaat te krijgen.
+De eerste stappen zijn voorbeelden van traditionele automatisering.
+De stappen 3 en 4 zijn voorbeelden van het internet of things:
+de verbinding met het internet geeft veel extra mogelijkheden.</p>
+</div>
+</div>
+<div class="section" id="voorbeeld-verlichting">
+<h2>Voorbeeld: verlichting<a class="headerlink" href="#voorbeeld-verlichting" title="Permalink naar deze titel">¶</a></h2>
+<p>Als volgend voorbeeld gebruiken we een domotica-voorbeeld: verlichting in huis.
+We behandelen dit aan de hand van het Philips Hue systeem.</p>
+<div class="section" id="actuatoren-sensoren-en-controller">
+<h3>Actuatoren, sensoren en controller<a class="headerlink" href="#actuatoren-sensoren-en-controller" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/hue-local.png"><img alt="../_images/hue-local.png" src="../_images/hue-local.png" style="width: 400px;" /></a>
+</div>
+<p>De actuatoren zijn in dit geval de lampen.
+Deze kun je bedienen met drukknoppen en met (bewegings)sensoren.
+De controller (“bridge”) zorgt voor de koppeling tussen de sensoren en de actuatoren.
+De controller heeft geen eigen user interface:
+hiervoor gebruik je de app die via het lokale (WiFi) netwerk verbinding maakt met de controller.</p>
+</div>
+<div class="section" id="id1">
+<h3>Aan het internet<a class="headerlink" href="#id1" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/hue-server.png"><img alt="../_images/hue-server.png" src="../_images/hue-server.png" style="width: 500px;" /></a>
+</div>
+<p>Je kunt met de app de lampen ook op afstand bedienen, via het internet.
+Hiervoor maakt de app contact met de hue-server/controller in het publieke internet,
+die weer contact maakt met de lokale controller.</p>
+</div>
+<div class="section" id="andere-controllers">
+<h3>Andere controllers<a class="headerlink" href="#andere-controllers" title="Permalink naar deze titel">¶</a></h3>
+<p>De lokale controller is in eerste instantie bedoeld voor verlichting.
+Je kunt de lokale controller ook verbinden met andere “domotica”-controllers voor bijvoorbeeld verwarming, koeling, veiligheid e.d.
+Voorbeelden van controller-software voor domotica-toepassingen zijn OpenHAB (<a class="reference external" href="https://www.openhab.org">https://www.openhab.org</a>) en Home Assist (<a class="reference external" href="https://www.home-assistant.io">https://www.home-assistant.io</a>).
+Via de hue-webserver kun je verbinding maken met controller-diensten als Apple Home Kit en Amazon Alexa.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>figuur van Hue met andere controller(s)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="voorbeeld-monitoring">
+<h2>Voorbeeld: monitoring<a class="headerlink" href="#voorbeeld-monitoring" title="Permalink naar deze titel">¶</a></h2>
+<p>In de bovenstaande voorbeelden is er steeds sprake van besturing (<em>control</em>), via actuatoren.
+Ook met alleen sensoren, voor bewaking (<em>monitoring</em>), zijn al veel zinvolle IoT-toepassingen te maken.</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>Monitoring voorbeeld(en)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../inleiding.html">Inleiding</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Enkele voorbeelden</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#voorbeeld-watersproeier">Voorbeeld: watersproeier</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#actuator-en-controller">Actuator en controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensoren">Sensoren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aan-het-internet">Aan het internet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slimme-diensten">“Slimme” diensten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#meerdere-controllers">Meerdere controllers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eisen-aan-de-communicatie">Eisen aan de communicatie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#samenvatting">Samenvatting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#voorbeeld-verlichting">Voorbeeld: verlichting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#actuatoren-sensoren-en-controller">Actuatoren, sensoren en controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Aan het internet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#andere-controllers">Andere controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#voorbeeld-monitoring">Voorbeeld: monitoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="voorbeelden.html">Voorbeelden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Gebruikerseisen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overzicht.html">Overzicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../inleiding.html">Inleiding</a><ul>
+      <li>Previous: <a href="../inleiding.html" title="vorig hoofdstuk">Inleiding</a></li>
+      <li>Next: <a href="voorbeelden.html" title="volgend hoofdstuk">Voorbeelden</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/inleiding/voorbeelden-in-detail.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -104,6 +104,7 @@ Een dergelijke automatische verwerking stelt extra hoge eisen aan de sensordata 
   :maxdepth: 2
   :hidden:
 
+  inleiding/voorbeelden-in-detail.rst
   inleiding/voorbeelden.rst
   inleiding/gevolgen.rst
   inleiding/iot-eisen.rst

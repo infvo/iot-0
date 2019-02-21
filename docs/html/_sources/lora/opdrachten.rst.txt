@@ -86,20 +86,25 @@ Deze knopen gebruiken het MQTT-interface van de TTN-server.
 .. rubric:: Installeren van de TTN-nodes in NodeRed
 
 Voordat je de TTN-nodes kunt gebruiken moet je deze (eenmalig) installeren in NodeRed.
-Dit doe je op de volgende manier:
+
+.. Admonition:: Let op
+
+  Het installeren van de TTN-nodes werkt bij FRED anders dan bij een normale NodeRed-installatie.
+
+In het geval van een **FRED-account** (https://fred.sensetecnic.com) gebruik je de volgende stappen:
+
+  * selecteer in het FRED-menu links onder "Tools": "Add or remove nodes";
+  * type in het zoekveld: ``ttn``
+  * vink aan: TTN - TheThingsNetwork NodeRed application
+
+In een **normale NodeRed-installatie** installeer je de TTN-Nodes als volgt:
 
 * selecteer in het NodeRed UI in het "hamburger menu" rechts boven: "Manage Palette".
 * selecteer de tab "install", en type in het zoekveld: ``ttn``
 * selecteer het item ``node-red-contrib-ttn``, en klik op "install".
 * als het goed is, worden nu de knopen geïnstalleerd.
 
-(Als "Manage Palette" niet beschikbaar is, moet de NodeRed-installatie aangepast worden.)
-
-In het geval van een FRED-account (https://fred.sensetecnic.com) voor gebruik je de volgende stappen:
-
-* selecteer in het FRED-menu links onder "Tools": "Add or remove nodes";
-* type in het zoekveld: ``ttn``
-* vink aan: TTN - TheThingsNetwork NodeRed application
+Als "Manage Palette" niet beschikbaar is, moet de NodeRed-installatie aangepast worden.
 
 Dashboard-flow
 --------------

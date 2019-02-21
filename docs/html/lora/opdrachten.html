@@ -156,21 +156,27 @@ Downlink-berichten zijn in een LoRaWan-netwerk maar heel beperkt mogelijk.</li>
 Een typisch voorbeeld van een event is de registratie van een device bij een gateway.</li>
 </ul>
 <p class="rubric">Installeren van de TTN-nodes in NodeRed</p>
-<p>Voordat je de TTN-nodes kunt gebruiken moet je deze (eenmalig) installeren in NodeRed.
-Dit doe je op de volgende manier:</p>
+<p>Voordat je de TTN-nodes kunt gebruiken moet je deze (eenmalig) installeren in NodeRed.</p>
+<div class="admonition-let-op admonition">
+<p class="first admonition-title">Let op</p>
+<p class="last">Het installeren van de TTN-nodes werkt bij FRED anders dan bij een normale NodeRed-installatie.</p>
+</div>
+<p>In het geval van een <strong>FRED-account</strong> (<a class="reference external" href="https://fred.sensetecnic.com">https://fred.sensetecnic.com</a>) gebruik je de volgende stappen:</p>
+<blockquote>
+<div><ul class="simple">
+<li>selecteer in het FRED-menu links onder “Tools”: “Add or remove nodes”;</li>
+<li>type in het zoekveld: <code class="docutils literal notranslate"><span class="pre">ttn</span></code></li>
+<li>vink aan: TTN - TheThingsNetwork NodeRed application</li>
+</ul>
+</div></blockquote>
+<p>In een <strong>normale NodeRed-installatie</strong> installeer je de TTN-Nodes als volgt:</p>
 <ul class="simple">
 <li>selecteer in het NodeRed UI in het “hamburger menu” rechts boven: “Manage Palette”.</li>
 <li>selecteer de tab “install”, en type in het zoekveld: <code class="docutils literal notranslate"><span class="pre">ttn</span></code></li>
 <li>selecteer het item <code class="docutils literal notranslate"><span class="pre">node-red-contrib-ttn</span></code>, en klik op “install”.</li>
 <li>als het goed is, worden nu de knopen geïnstalleerd.</li>
 </ul>
-<p>(Als “Manage Palette” niet beschikbaar is, moet de NodeRed-installatie aangepast worden.)</p>
-<p>In het geval van een FRED-account (<a class="reference external" href="https://fred.sensetecnic.com">https://fred.sensetecnic.com</a>) voor gebruik je de volgende stappen:</p>
-<ul class="simple">
-<li>selecteer in het FRED-menu links onder “Tools”: “Add or remove nodes”;</li>
-<li>type in het zoekveld: <code class="docutils literal notranslate"><span class="pre">ttn</span></code></li>
-<li>vink aan: TTN - TheThingsNetwork NodeRed application</li>
-</ul>
+<p>Als “Manage Palette” niet beschikbaar is, moet de NodeRed-installatie aangepast worden.</p>
 <div class="section" id="dashboard-flow">
 <h3>Dashboard-flow<a class="headerlink" href="#dashboard-flow" title="Permalink naar deze titel">¶</a></h3>
 <div class="figure align-center" id="id1">
