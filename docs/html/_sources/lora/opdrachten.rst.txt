@@ -18,7 +18,13 @@ Je bestudeert de berichten die deze knopen versturen naar het netwerk.
    * een bestaande TTN-toepassing (application) met actieve IoT-knopen (via je docent).
    * een (gratis) TTN-account, met toegang tot deze TTN-toepassing.
 
-De berichten van de LoRa IoT-knopen vind je via het TTN console:
+.. figure:: IoT-LoRaWan-console.png
+  :width: 600
+  :align: center
+
+  LoRaWan toepassing: van IoT-knoop tot TTN-console
+
+De berichten van de LoRa IoT-knopen vind je via het TTN-console:
 
 * log in bij TTN (https://www.thethingsnetwork.org/), en ga naar je *console*;
 * selecteer de gegeven *application*;
@@ -69,6 +75,13 @@ Hierbij gebruik je de NodeRed-nodes voor TTN.
   * een bestaande TTN-toepassing (application) met actieve IoT-knopen (via je docent);
   * een (gratis) TTN-account, met toegang tot deze TTN-toepassing;
   * een (gratis) FRED-account, of andere NodeRed-server.
+
+.. figure:: IoT-LoRaWan-NodeRed.png
+  :width: 600
+  :align: center
+
+  NodeRed-dashboard voor TTN
+
 
 NodeRed heeft de volgende knopen voor de verbinding met de TTN-server:
 
