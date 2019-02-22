@@ -38,102 +38,45 @@
             
   <div class="section" id="lorawan-keten">
 <h1>LoRaWan-keten<a class="headerlink" href="#lorawan-keten" title="Permalink naar deze titel">¶</a></h1>
+<div class="section" id="de-lorawan-keten">
+<h2>De LoRaWan-keten<a class="headerlink" href="#de-lorawan-keten" title="Permalink naar deze titel">¶</a></h2>
 <div class="figure align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/IoT-publieke-gateway-11.png"><img alt="../_images/IoT-publieke-gateway-11.png" src="../_images/IoT-publieke-gateway-11.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">LoRaWan-keten met publieke gateway</span></p>
+<a class="reference internal image-reference" href="../_images/IoT-LoRaWan.png"><img alt="../_images/IoT-LoRaWan.png" src="../_images/IoT-LoRaWan.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">LoRaWan-keten, van IoT-knoop tot dashboard</span></p>
 </div>
-<ul class="simple">
-<li>lora: best-effort pakketcommunicatie</li>
-<li>pakket:</li>
-<li>adressering:</li>
-<li>payload: zo compact mogelijk; binaire codering</li>
-<li>volgnummers: (detectie van verloren pakket)</li>
-<li><dl class="first docutils">
-<dt>gateway:</dt>
-<dd><ul class="first last">
-<li>protocol-conversie</li>
-<li>metadata</li>
-<li>onderhandeling met IoT-knoop</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>server:</dt>
-<dd><ul class="first last">
-<li>application:</li>
-<li>device: (IoT-knoop)</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>toepassing: (bijv. dashboard)</dt>
-<dd><ul class="first last">
-<li>communicatie via mqtt</li>
-<li>hoe gebeurt authenticatie van gebruiker?</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li><dl class="first docutils">
-<dt>LoRa radio: eigenschappen, regels voor gebruikers</dt>
-<dd><ul class="first last">
-<li>begrip payload</li>
-<li>adressering</li>
-<li>best-effort pakketcommunicatie</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>LoRaWan netwerk: architectuur; div. aanbieders</li>
-<li>TheThingsNetwork: wereldwijd LoRaWan netwerk</li>
-<li>LoRa radio module: RFM95 (880 MHz)</li>
-<li>LoRa radio module - driver (Arduino)</li>
-<li>wat zijn typische LoRa-toepassingen?</li>
-</ul>
+<p>De IoT-knopen zijn via de LoRa-radio en het LoRaWan-protocol verbonden met de LoRaWan-gateway(s).
+Door het grote bereik van de radio kan een bericht van een IoT-knoop door meerdere gateways ontvangen worden.
+Deze gateways sturen de “upstream” berichten van de IoT-knopen door naar de TTN/LoRaWan-server.
+Deze combineert de berichten van meerdere gateways afkomstig van een enkele IoT-knoop tot één bericht.
+Dit gecombineerde bericht kun je bekijken via de TTN-console.
+De TTN-server kan dit ook doorsturen via het MQTT-protocol naar een NodeRed-server,
+die dit bericht kan gebruiken in een dashboard.</p>
+<p>Vanuit NodeRed kun je ook “downstream” berichten sturen naar de IoT-knoop.
+De TTN-server kiest hiervoor een gateway dichtbij de knoop.
+Deze bewaart het bericht totdat er een bericht van de IoT-knoop binnenkomt:
+als reactie stuurt de gateway het downstream-bericht naar de IoT-knoop.
+Met andere woorden: de IoT-knoop bepaalt wanneer deze een downstream-bericht kan ontvangen.</p>
+<p>Zowel de gateways als de TTN-server behandelen de berichten van meerdere toepassingen.
+Deze toepassingen worden van elkaar afgeschermd door middel van encryptie:
+de eigenaar van een toepassing bepaalt welke IoT-knopen gekoppeld zijn aan de toepassing,
+en wie toegang tot de data van deze IoT-knopen heeft.</p>
 </div>
-<p>In dit hoofdstuk maken we kennis met LoRaWan: een netwerk voor IoT-knopen met een LoRa (long range) radio.
-Deze LoRa radio biedt een groot bereik,tot enkele kilometers;
-dit gaat ten koste van de bitrate en van het aantal berichten per uur, maximaal ca. 10-20.
-We beschrijven eerst de eigenschappen van de LoRa radio,
-vervolgens de opzet van een LoRaWan netwerk,
-en daarna een speciale aanbieder van dit netwerk: TheThingsNetwork.</p>
-<p>Tenslotte beschrijven we een aantal opdrachten en experimenten met voorgeconfigureerde LoRaWan-knopen.
-Voor een beschrijving van de gebruikte onderdelen in meer detail verwijzen we weer naar IoT-2: IoT voor makers.</p>
-<p>Typische toepassingen van LoRaWan</p>
 <div class="section" id="lora-radio">
 <h2>LoRa-radio<a class="headerlink" href="#lora-radio" title="Permalink naar deze titel">¶</a></h2>
-<p>De LoRa-radio gebruikt de 868MHz band (tenminste, in Europa; elders worden ook 433MHz en 915MHz gebruikt).
+<p>De LoRa-radio (“long range”) is een <em>pakketradio</em> bedoeld voor communicatie over grotere afstanden,
+van enkele honderden meters tot enkele kilometers.
+De communicatie is <em>best effort</em>, met beperkte mogelijkheden voor ontvangstbevestiging.</p>
+<p>De LoRa-radio gebruikt (in Europa) de 868MHz ISM-band.
 Deze band kun je zonder vergunning gebruiken, mits je je houdt aan de volgende regels:</p>
 <ul class="simple">
 <li>een radio mag zenden met een maximaal vermogen van +20dB;</li>
 <li>een radio mag maximaal 1% van de tijd zenden, (gemiddeld over een uur?)</li>
 </ul>
-<p>Zie:</p>
-<p>(Ook de RFM69-radio gebruikt deze radioband, en heeft dezelfde beperkingen.)</p>
-<p>Bij IoT-radio’s heb je te maken met een afweging tussen het bereik en de beschikbare bandbreedte (bitrate).
-Bij de LoRa radio is gekozen voor een groot bereik, ten koste van de bitrate.</p>
-<p>De afweging tussen bereik en bitrate wordt dynamisch gemaakt:
-als een LoRa-radio voor het eerst verbinding zoekt met een LoRa gateway,
-bepalen deze samen de beste verdeling tussen bereik en bitrate.
-Een lage “spreading factor” (SF) geeft een hoge bitrate met een beperkt bereik.
-Een hoge SF geeft een groter bereik, maar met een beperkte bitrate.
-Elke volgende SF (tussen SF7 en SF12) geeft de helft van de bitrate van de vorige.</p>
-<p>De <em>airtime</em> van een radio-bericht is de tijd dat dit bericht het radiokanaal gebruikt.
-Gedurende het verzenden van een bericht kan het radiokanaal niet door anderen gebruikt worden.
-Eenzelfde bericht neemt bij een volgende SF tweemaal zoveel airtime.
-Een bericht dat bij SF7 10ms kost, neemt bij SF12 2^5 = 32 * 10 ms.</p>
-<p>Het is dus belangrijk om bij een lage bitrate de berichten <em>zo kort mogelijk</em> te houden.
-Een speciale binaire codering van sensorwaarden is (aanmerkelijk) korter dan een JSON-formaat.
-(TheThingsNetwork heeft speciale voorzieningen voor de decodering van zo’n speciaal binair formaat.)</p>
-<p>Een lage bitrate heeft nog een nadeel: de latency neemt erdoor toe.
-Immers, de latency is tenminste even groot als de airtime.</p>
-<p>De Sigfox-radio is een ander voorbeeld waarbij dezelfde keuze gemaakt is.
+<p>Bij een IoT-radio kun je een afweging maken tussen bitrate en bereik.
+De LoRa-radio maakt een groot bereik mogelijk, met als gevolg een lage bitrate.
+In combinatie met de beperkingen van de ISM-band betekent dit dat een LoRa-radio maar een klein aantal kleine pakketten per uur mag versturen.</p>
+<blockquote>
+<div><p>De Sigfox-radio is een ander voorbeeld van een radio met groot bereik en lage bitrate.
 Voor Sigfox gelden de volgende regels/eigenschappen:</p>
 <blockquote>
 <div><ul class="simple">
@@ -142,18 +85,57 @@ Voor Sigfox gelden de volgende regels/eigenschappen:</p>
 <li>low bitrate: 100-600 bit/s (26*8 bits = 208 bits: ca. 2 sec per message)</li>
 </ul>
 </div></blockquote>
-<p>Voor de radioband (880MHz) die LoRa gebruikt gelden de volgende regels:</p>
+</div></blockquote>
+<p>Ook de gateway moet voldoen aan de 1%-beperking van de ISM-band.
+Omdat een gateway mogelijk enkele honderden IoT-knopen kan bedienen,
+is het aantal uitgaande (downstream) berichten van een gateway <em>per IoT-knoop</em> veel beperker dan het aantal uitgaande (upstream) berichten van een IoT-knoop.</p>
+<div class="section" id="spreading-factor-en-airtime">
+<h3>Spreading factor en airtime<a class="headerlink" href="#spreading-factor-en-airtime" title="Permalink naar deze titel">¶</a></h3>
+<p>De afweging tussen bereik en bitrate wordt dynamisch gemaakt:
+als een LoRa-radio voor het eerst verbinding zoekt met een LoRa gateway,
+bepalen de radio en de gateway samen de beste verdeling tussen bereik en bitrate.
+Een lage “spreading factor” (SF) geeft een hoge bitrate met een beperkt bereik.
+Een hoge SF geeft een groter bereik, maar met een beperkte bitrate.
+Elke volgende SF (tussen SF7 en SF12) geeft de helft van de bitrate van de vorige.</p>
+<p>De <em>airtime</em> van een radio-bericht is de tijd dat dit bericht het radiokanaal gebruikt.
+Gedurende het verzenden van een bericht kan het radiokanaal niet door anderen gebruikt worden.
+Eenzelfde bericht neemt bij een volgende SF tweemaal zoveel airtime.
+Een bericht dat bij SF7 50ms kost, neemt bij SF12 2^5 * 50 = 32 * 50 ms = 1,6 s.
+Bij SF7 mag je ruim 30 maal meer berichten per uur sturen dan bij SF12.</p>
+</div>
+<div class="section" id="binaire-codering-van-berichten">
+<h3>Binaire codering van berichten<a class="headerlink" href="#binaire-codering-van-berichten" title="Permalink naar deze titel">¶</a></h3>
+<p>Bij een lage bitrate is het belangrijk om  de berichten kort te houden.
+Voor LoRa-berichten gebruik je daarom meestal een binaire formaat (zoals Cayenne LPP),
+in plaats van een tekstformaat zoals JSON.
+TheThingsNetwork heeft voorzieningen voor het decoderen van een binair formaat van een application.</p>
+</div>
 </div>
 <div class="section" id="lorawan">
 <h2>LoRaWan<a class="headerlink" href="#lorawan" title="Permalink naar deze titel">¶</a></h2>
-<p>De LoRa-radio biedt alleen elementaire pakket-communicatie: voor het communiceren in een netwerk heb je nog een extra protocol daarboven nodig.
-LoRaWan is het netwerk-protocol voor LoRa-radio’s.</p>
+<p><em>LoRaWan</em> is een netwerkprotocol op basis van LoRa.
+Een typisch LoRaWan-netwerk bestaat (naast de LoRa-IoT-knopen) uit één of meer <em>gateways</em>,
+die verbonden zijn met een <em>server</em>.
+Deze server coördineert het verkeer van en naar de gateways,
+en zorgt voor de interactie met de rest van het internet.</p>
+<blockquote>
+<div>Je kunt een gateway in dit verband vergelijken met een mobiele zendmast:
+deze zorgt voor het verkeer tussen de (mobiele) IoT-knopen en de rest van het netwerk.
+Overigens kan een bericht van een IoT-knoop door meerdere gateways ontvangen worden.</div></blockquote>
+<p>Er zijn verschillende aanbieders met een eigen LoRaWan-netwerk,
+in Nederland onder andere KPN.</p>
+<p>Een bijzondere aanbieder is TheThingsNetwork:
+dit netwerk is georganiseerd rond een <em>community</em> van individuen, groepen en bedrijven,
+die hun eigen gateways aanbieden voor dit netwerk.
+Iedereen kan in deze community meedoen, en gratis deze infrastructuur gebruiken.</p>
+<p>==&gt; Wat zijn de eigenschappen van LoRaWan?</p>
+<p>LoRaWan is het netwerk-protocol voor LoRa-radio’s.</p>
 <p>Er zijn allerlei aanbieders voor LoRaWan-netwerken: via deze aanbieders kun je je eigen LoRaWan-knopen aansluiten op het internet.
 Je kunt deze aanbieders vergelijken met de aanbieders van mobiele telefonie:
 een aanbieder heeft verspreid over het land LoRaWan-gateways staan voor de communicatie met LoRaWan-knopen.
 Deze gateways sturen de LoRa-berichten door naar de LoRaWan-servers, die zorgen voor de aansluiting op het internet.
 LoRaWan-toepassingen communiceren met deze LoRaWan-servers.</p>
-<div class="admonition-todo admonition" id="index-1">
+<div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Te doen</p>
 <ul class="last simple">
 <li>Figuur van LoRaWan-keten.</li>
@@ -167,21 +149,29 @@ LoRaWan-toepassingen communiceren met deze LoRaWan-servers.</p>
 <li>TheThingsNetwork</li>
 </ul>
 </div>
+<hr class="docutils" />
 <div class="section" id="thethingsnetwork">
 <h2>TheThingsNetwork<a class="headerlink" href="#thethingsnetwork" title="Permalink naar deze titel">¶</a></h2>
 <p>TheThingsNetwork is een speciale LoRaWan-aanbieder: het netwerk is opgebouwd door een <em>community</em>.
 Het netwerk is gratis te gebruiken.
 Er zijn overal in de wereld, en vooral in Nederland, lokale <em>communities</em> die ervaringen uitwisselen,
 en die zorgen voor de lokale LoRaWan-dekking door eigen gateways aan te bieden.</p>
-<p>Voor TheThingsNetwork gelden nog een extra regel:</p>
+<blockquote>
+<div>Als school (of als hobbyist) kun je je eigen TTN-gateway installeren, en daarmee het TTN-netwerk versterken.</div></blockquote>
+<div class="section" id="fair-access-policy">
+<h3>Fair access policy<a class="headerlink" href="#fair-access-policy" title="Permalink naar deze titel">¶</a></h3>
+<p>Het gebruik van de TTN infrastructuur is gratis,
+maar gebruikers moeten zich wel “netjes gedragen”.
+TTN gebruikt als “fair access policy”:</p>
 <ul class="simple">
 <li>de totale duur (airtime) van de berichten van een radio (IoT-knoop) mag per dag niet meer dan 30 s. zijn.</li>
 </ul>
-<p>Deze beperking is bedoeld om het TTN-netwerk op een eerlijke manier te gebruiken (“fair use”):
-iedereen kan dit netwerk gratis gebruiken, maar de gebruikers moeten wel rekening houden met elkaar.</p>
+<p>Deze voorwaarde komt bovenop de 1%-eis van de ISM-band.</p>
 </div>
-<div class="section" id="typische-lora-wan-toepassingen">
-<h2>Typische LoRa(Wan)-toepassingen<a class="headerlink" href="#typische-lora-wan-toepassingen" title="Permalink naar deze titel">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="lorawan-toepassingen">
+<h2>LoRaWan-toepassingen<a class="headerlink" href="#lorawan-toepassingen" title="Permalink naar deze titel">¶</a></h2>
 <p>Wat zijn typische LoRa-toepassingen?
 Aan welke eisen moeten deze voldoen?</p>
 <ul class="simple">
@@ -215,26 +205,7 @@ Aan welke eisen moeten deze voldoen?</p>
 </li>
 </ul>
 <p class="rubric">LoRaWan en TheThingsNetwork</p>
-<p><em>LoRaWan</em> is een netwerkprotocol op basis van LoRa.
-Een typisch LoRaWan-netwerk bestaat (naast de LoRa-IoT-knopen) uit één of meer <em>gateways</em>,
-die verbonden zijn met een <em>server</em>.
-Deze server coördineert het verkeer van en naar de gateways,
-en zorgt voor de interactie met de rest van het internet.</p>
-<p>Je kunt een gateway in dit verband vergelijken met een mobiele zendmast:
-deze zorgt voor het verkeer tussen de (mobiele) IoT-knopen en de rest van het netwerk.
-Overigens kan een bericht van een IoT-knoop door meerdere gateways ontvangen worden.</p>
-<p>Er zijn verschillende aanbieders met een eigen LoRaWan-netwerk,
-in Nederland onder andere KPN.</p>
-<p>Een bijzondere aanbieder is TheThingsNetwork:
-dit netwerk is georganiseerd rond een <em>community</em> van individuen, groepen en bedrijven,
-die hun eigen gateways aanbieden voor dit netwerk.
-Iedereen kan in deze community meedoen, en gratis deze infrastructuur gebruiken.</p>
-<p class="rubric">gateways</p>
-<p class="rubric">TTN-server</p>
-<p class="rubric">TTN - Fair use regels</p>
-<p>Er zijn wel enkele regels voor het eerlijk gebruik (“fair use”):
-één van die regels is dat een radio niet meer dan 30 seconden per dag mag zenden.
-Op die manier geef je de andere IoT-knopen ook de gelegenheid om het netwerk te gebruiken.</p>
+<p>(mogelijk voor vragen:)</p>
 <p>Je kunt de tijd die een radio (van een IoT-knoop) zendt beperken door:</p>
 <ul class="simple">
 <li>korte berichten te versturen, van enkele bytes;</li>
@@ -259,7 +230,59 @@ van de IoT-knoop tot de toepassing in de TTN-server.</li>
 <ul class="simple">
 <li><a class="reference external" href="https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about">https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about</a></li>
 </ul>
+<hr class="docutils" />
+<p>Beveiliging: volgnummers (en voor controle op verloren berichten). (Wordt bij OOTA automatisch op 0 gezet.)</p>
+<p>Details bij IoT-1: OOTA vs. ABP; wanneer wel/niet ontvangstbevestiging.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>gateway:</dt>
+<dd><ul class="first last">
+<li>protocol-conversie</li>
+<li>metadata</li>
+<li>onderhandeling met IoT-knoop</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>server:</dt>
+<dd><ul class="first last">
+<li>application:</li>
+<li>device: (IoT-knoop)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>toepassing: (bijv. dashboard)</dt>
+<dd><ul class="first last">
+<li>communicatie via mqtt</li>
+<li>hoe gebeurt authenticatie van gebruiker?</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>LoRa radio: adressering</li>
+<li>volgnummers, voor beveiliging, en controle op ontvangst</li>
+<li>LoRaWan netwerk/protocol: architectuur; div. aanbieders</li>
+<li>TheThingsNetwork: wereldwijd LoRaWan netwerk</li>
+</ul>
 </div>
+<p>In dit hoofdstuk maken we kennis met LoRaWan: een netwerk voor IoT-knopen met een LoRa (long range) radio.
+Deze LoRa radio biedt een groot bereik,tot enkele kilometers;
+dit gaat ten koste van de bitrate en van het aantal berichten per uur, maximaal ca. 10-20.
+We beschrijven eerst de eigenschappen van de LoRa radio,
+vervolgens de opzet van een LoRaWan netwerk,
+en daarna een speciale aanbieder van dit netwerk: TheThingsNetwork.</p>
+<p>Tenslotte beschrijven we een aantal opdrachten en experimenten met voorgeconfigureerde LoRaWan-knopen.
+Voor een beschrijving van de gebruikte onderdelen in meer detail verwijzen we weer naar IoT-2: IoT voor makers.</p>
+<p>Typische toepassingen van LoRaWan</p>
+</div>
+<hr class="docutils" />
 <div class="section" id="links">
 <h2>Links<a class="headerlink" href="#links" title="Permalink naar deze titel">¶</a></h2>
 <ul class="simple">
@@ -297,10 +320,18 @@ van de IoT-knoop tot de toepassing in de TTN-server.</li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../lora.html">LoRa-knopen</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">LoRaWan-keten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#lora-radio">LoRa-radio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#de-lorawan-keten">De LoRaWan-keten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lora-radio">LoRa-radio</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spreading-factor-en-airtime">Spreading factor en airtime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#binaire-codering-van-berichten">Binaire codering van berichten</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#lorawan">LoRaWan</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#thethingsnetwork">TheThingsNetwork</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#typische-lora-wan-toepassingen">Typische LoRa(Wan)-toepassingen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thethingsnetwork">TheThingsNetwork</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fair-access-policy">Fair access policy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lorawan-toepassingen">LoRaWan-toepassingen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#links">Links</a></li>
 </ul>
 </li>
