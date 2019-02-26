@@ -146,15 +146,19 @@ Dashboard-flow
 
   [{"id":"7865201f.d5d3b","type":"ttn uplink","z":"6a5e1255.8509ec","name":"ttn uplink","app":"","dev_id":"","field":"","x":480,"y":200,"wires":[["bff21cee.9ce63","3a0067cc.cf7f2","f0805976.ff9328","b234b34e.3fc96","a72147cb.239e38"]]},{"id":"bff21cee.9ce63","type":"debug","z":"6a5e1255.8509ec","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","x":770,"y":200,"wires":[]},{"id":"3a0067cc.cf7f2","type":"ui_gauge","z":"6a5e1255.8509ec","name":"Temperature","group":"397ba453.3b0e0c","order":0,"width":0,"height":0,"gtype":"gage","title":"Temp","label":"'C","format":"{{payload.celcius}}","min":0,"max":"50","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":810,"y":280,"wires":[]},{"id":"f0805976.ff9328","type":"ui_gauge","z":"6a5e1255.8509ec","name":"","group":"febde8db.f65de8","order":0,"width":0,"height":0,"gtype":"gage","title":"Barometer","label":"hPa","format":"{{payload.mbar}}","min":"970","max":"1040","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":810,"y":320,"wires":[]},{"id":"af880438.e2c1a8","type":"ui_chart","z":"6a5e1255.8509ec","name":"Temperature","group":"397ba453.3b0e0c","order":0,"width":0,"height":0,"label":"Temperature","chartType":"line","legend":"false","xformat":"HH:mm","interpolate":"linear","nodata":"","dot":false,"ymin":"0","ymax":"50","removeOlder":1,"removeOlderPoints":"","removeOlderUnit":"86400","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"x":810,"y":380,"wires":[[],[]]},{"id":"85ed9f09.ee6ce8","type":"ui_chart","z":"6a5e1255.8509ec","name":"Barometer","group":"febde8db.f65de8","order":0,"width":0,"height":0,"label":"Barometer","chartType":"line","legend":"false","xformat":"HH:mm","interpolate":"linear","nodata":"","dot":false,"ymin":"990","ymax":"1030","removeOlder":1,"removeOlderPoints":"","removeOlderUnit":"86400","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"x":810,"y":420,"wires":[[],[]]},{"id":"b234b34e.3fc96","type":"change","z":"6a5e1255.8509ec","name":"select payload.celcius","rules":[{"t":"set","p":"payload","pt":"msg","to":"payload.celcius","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":600,"y":380,"wires":[["af880438.e2c1a8"]]},{"id":"a72147cb.239e38","type":"change","z":"6a5e1255.8509ec","name":"select payload.mbar","rules":[{"t":"set","p":"payload","pt":"msg","to":"payload.mbar","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":600,"y":420,"wires":[["85ed9f09.ee6ce8"]]},{"id":"397ba453.3b0e0c","type":"ui_group","z":"","name":"TTN-device-1-temperature","tab":"18f86ddf.f7110a","disp":true,"width":"6","collapse":false},{"id":"febde8db.f65de8","type":"ui_group","z":"","name":"TTN-device-1-barometer","tab":"18f86ddf.f7110a","disp":true,"width":"6","collapse":false},{"id":"18f86ddf.f7110a","type":"ui_tab","z":"","name":"TTN-device-1","icon":"dashboard"}]
 
-* configureer de TTN-uplink-node: vul alleen het App-veld in. Selecteer "Add new ttn app...", en vul de gegevens uit het TTN-console voor de application in (Overview tab):
+* configureer de TTN-uplink-node:
+    * *App*: selecteer "Add new ttn app...", en vul de gegevens uit het TTN-console voor de application in (Overview tab):
     * *App ID*: de Application-ID (bovenin de Overview);
     * *Access Key*: één van de Access Keys (onderaan in de Overview);
-    * "Add" en "Done".
+    * *Discovery address*: (default-waarde laten staan)
+    * "Add"
+    * *Device ID*: de naam van de node (uit het TTN-console) voor het dashboard
+    * "Done"
 * configureer de debug-node, met output: complete msg object
 * "Deploy".
 
-Je ziet nu (als het goed is) in het bijbehorende dashboard de gegevens van de IoT-knoop(en) verschijnen.
-Dit kan even duren, omdat de IoT-knopen met tussenperioden van enkele minuten zenden.
+Je ziet nu (als het goed is) in het bijbehorende dashboard de gegevens van de IoT-knoop verschijnen.
+Dit kan even duren, omdat een IoT-knoop met tussenperioden van enkele minuten zendt.
 
 Via de debug-node kun je de metadata van de communicatie tussen de IoT-knoop en de gateway volgen.
 Een voorbeeld hiervan zie je hieronder:

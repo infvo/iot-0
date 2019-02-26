@@ -1,0 +1,276 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TTN-console &#8212; iot-0  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Opdrachten" href="opdrachten.html" />
+    <link rel="prev" title="LoRaWan-keten" href="lorawan-keten.html" />
+
+<script type="application/json" class="js-hypothesis-config">
+{
+"showHighlights": false
+}
+</script>
+<script async src="https://hypothes.is/embed.js"></script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ttn-console">
+<h1>TTN-console<a class="headerlink" href="#ttn-console" title="Permalink naar deze titel">¶</a></h1>
+<p>Via het console van TheThingsNetwork kun je de TTN-<em>application</em> en de bijbehorende <em>devices</em> (IoT-knopen) configureren.
+Ook kun je de data van deze knopen zichtbaar maken.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/IoT-TTN-console.png"><img alt="../_images/IoT-TTN-console.png" src="../_images/IoT-TTN-console.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">TTN application - met IoT-knopen (devices) en externe toepassingen (integrations)</span></p>
+<div class="legend">
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/IoT-TTN-model.png"><img alt="../_images/IoT-TTN-model.png" src="../_images/IoT-TTN-model.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">TTN model - application, devices (IoT-knopen) en externe toepassingen.
+(key): gegenereerde waarde; de data onderin zorgen voor de koppeling (pijl).</span></p>
+</div>
+</div>
+</div>
+<p>Als je je <em>application</em> selecteert, krijg je in het <em>Overview</em> de volgende gegevens te zien:</p>
+<ul class="simple">
+<li>Application ID: de logische naam van de application, zoals deze bij TTN bekend is.
+De Application ID naam kies je bij het aanmaken van de application; deze kun je later niet meer veranderen.
+Deze naam moet je o.a. invullen in de TTN-nodes in NodeRed.</li>
+<li>Application EUI: de numerieke ID van de application.
+Deze EUI is een TTN-gegenereerde waarde van 8 bytes/64 bits.</li>
+<li>Devices: de IoT-knopen bij deze application. Een device hoort altijd bij één toepassing.</li>
+<li>Collaborators: de personen die toegang hebben tot deze application.</li>
+<li>Access keys: de sleutels waarmee externe toepassingen toegang hebben tot deze application.
+De toegangsrechten kun je per access key instellen.
+Deze access key moet je bijvoorbeeld invullen in de TTN-nodes in NodeRed.</li>
+</ul>
+<p>Je ziet hier ook de tabs voor de andere gegevens:</p>
+<ul class="simple">
+<li>Devices - de IoT-knopen;</li>
+<li>Payload formats - voor de conversie van het interne LoRa payload-formaat naar een extern (leesbaar) formaat.</li>
+<li><dl class="first docutils">
+<dt>Integrations - voor de koppeling met externe toepassingen</dt>
+<dd><ul class="first last">
+<li>voor NodeRed is deze koppeling al voorbereid.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Data - de berichten van en naar de devices (IoT-knopen).</li>
+<li>Settings - voor het aanpassen van de verschillende onderdelen van de application.</li>
+</ul>
+<div class="section" id="device">
+<h2>Device<a class="headerlink" href="#device" title="Permalink naar deze titel">¶</a></h2>
+<p>Per <em>device</em> (IoT-knoop) vind je de volgende gegevens:</p>
+<ul class="simple">
+<li>Device ID: de logische naam van het device in de toepassing.
+Deze naam kies je bij het aanmaken van het device in de application;
+deze kun je later niet meer veranderen.</li>
+<li>Activation method: OTAA of ABP (zie verderop).</li>
+<li>Device EUI: de 64-bits unieke identificatie van het device.
+Het <em>MAC-address</em> van het device, door de fabrikant vastgelegd.
+Deze EUI vul je hier in aan de hand van de fabrikantgegevens van het device.
+(Maar, zie verderop.)</li>
+<li>Application EUI: zie hierboven, bij Application.</li>
+<li>App key: op basis van de bovenstaande gegevens, device EUI en application EUI,
+genereert TTN de App key.
+Deze App key moet je <em>in het device</em> invoeren, samen met de Application EUI;
+bijvoorbeeld in de programmatekst van het device.</li>
+<li>Device address: 32-bits adres gebruikt voor de communicatie in het netwerk.
+Dit adres wordt toegewezen bij de <em>device activation</em>, bijvoorbeeld de <em>join</em>-operatie bij OTAA.</li>
+</ul>
+<div class="section" id="device-activation-otaa-of-abp">
+<h3>Device Activation: OTAA of ABP<a class="headerlink" href="#device-activation-otaa-of-abp" title="Permalink naar deze titel">¶</a></h3>
+<p><em>Device activation</em> is het koppelen van het device (de IoT-knoop) aan het TTN-netwerk.
+Hierbij wordt onder meer het 32-bits <em>device address</em> voor de communicatie in het netwerk bepaald.
+Er zijn twee manieren voor device activation:</p>
+<ul class="simple">
+<li>OTAA: over the air activation: het device stuurt een “join” verzoek naar het netwerk (via een gateway).
+In de interactie tussen device en netwerk wordt naast get device address o.a. de encryptiesleutel bepaald.
+Bij elke join begint de <em>frame counter</em> weer bij 0 (zie verderop).</li>
+<li>ABP: activation bij personalization: je maakt van te voren de koppeling tussen het device en het TTN-netwerk.
+De gegevens van deze koppeling, onder andere de encryptiesleutel, leg je vast in het device (meestal in de programmatekst).</li>
+</ul>
+<p>In de TTN-voorbeelden gebruiken wij meestal OTAA.
+Zodra een IoT-knoop aangezet wordt, verstuurt deze een join-verzoek naar het netwerk.</p>
+<blockquote>
+<div><p>Het <em>device address</em> kun je vergelijken met het (lokale) IP-adres dat je computer krijgt via DHCP.
+Dit is het adres dat gebruikt wordt voor de communicatie.
+Elke keer als je computer een IP-adres aanvraagt, kan dit een ander adres zijn: het is <em>dynamisch</em>.
+De <em>device EUI</em> kun je vergelijken met het MAC-adres van je computer.
+Dit verandert niet: het is <em>statisch</em>, aangemaakt door de fabrikant.</p>
+<p>Het <em>device address</em> hoeft binnen het netwerk niet uniek te zijn:
+de combinatie van device address en cryptografische sleutel identificeert het device (de IoT-knoop).</p>
+</div></blockquote>
+</div>
+<div class="section" id="device-eui">
+<h3>Device EUI<a class="headerlink" href="#device-eui" title="Permalink naar deze titel">¶</a></h3>
+<p>In de meeste gevallen wijst de fabrikant het Device EUI toe.
+Dit staat soms op het device gedrukt; soms kun je dit via software achterhalen.</p>
+<p>Soms moet je zelf een EUI toewijzen.
+Het TTN console kan een EUI voor je genereren:</p>
+<ul class="simple">
+<li>P.M.</li>
+</ul>
+</div>
+<div class="section" id="frame-counter">
+<h3>Frame counter<a class="headerlink" href="#frame-counter" title="Permalink naar deze titel">¶</a></h3>
+<p>De berichten van een device zijn opeenvolgend genummerd: de <em>frame counter</em>
+geeft het nummer van het laatst ontvangen bericht aan.</p>
+<p>Deze nummering heeft twee doelen:</p>
+<ol class="arabic simple">
+<li>betrouwbaarheid: je kunt zien of en hoeveel berichten er verloren geraakt zijn;</li>
+<li>veiligheid: een vorig bericht kan niet door een derde partij herhaald worden (“replay attack”).
+Alleen berichten met (iets) hogere nummers worden geaccepteerd door het netwerk.</li>
+</ol>
+<p>Bij een “join” (OTAA) wordt de framecounter automatisch op 0 gezet.
+In andere gevallen moet je soms zelf zorgen voor de framecounter-reset in het console,
+bijvoorbeeld als het device door een reset weer bij 0 begint.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>waarom meerdere EUIs per application?</li>
+<li>genereren van device EUI</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="aanmaken-van-een-application">
+<h2>Aanmaken van een application<a class="headerlink" href="#aanmaken-van-een-application" title="Permalink naar deze titel">¶</a></h2>
+<p>(Dit materiaal moet opgenomen worden in IoT-1?)</p>
+</div>
+<div class="section" id="toevoegen-van-een-device">
+<h2>Toevoegen van een device<a class="headerlink" href="#toevoegen-van-een-device" title="Permalink naar deze titel">¶</a></h2>
+<ol class="arabic simple">
+<li><em>registreren</em> van het device bij de application (<a class="reference external" href="https://www.thethingsnetwork.org/docs/devices/registration.html">https://www.thethingsnetwork.org/docs/devices/registration.html</a>);</li>
+<li><dl class="first docutils">
+<dt>programmeren of configureren van het device, met de volgende gegevens:</dt>
+<dd><ol class="first last arabic">
+<li>(als er geen hardware device EUI is): device EUI</li>
+<li>Application EUI</li>
+<li>App key</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li>als je het device aanzet: “device activation”, device stuurt een <em>join</em>-bericht naar het netwerk.
+Het device wordt gekoppeld aan het netwerk en krijgt een <em>device address</em>.</li>
+</ol>
+<p>Deze eerste twee stappen hoef je maar één keer per device uit te voeren.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../voorbereiding.html">Voorbereiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lora.html">LoRa-knopen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lorawan-keten.html">LoRaWan-keten</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TTN-console</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#device">Device</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#device-activation-otaa-of-abp">Device Activation: OTAA of ABP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#device-eui">Device EUI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frame-counter">Frame counter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#aanmaken-van-een-application">Aanmaken van een application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toevoegen-van-een-device">Toevoegen van een device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../lora.html">LoRa-knopen</a><ul>
+      <li>Previous: <a href="lorawan-keten.html" title="vorig hoofdstuk">LoRaWan-keten</a></li>
+      <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/lora/ttn-console.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

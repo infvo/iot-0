@@ -17,7 +17,8 @@ Glossary
     Zie ook *metadata*.
 
   metadata
-    "data over data". In het geval van communicatie, meestal data over de communicatie,
+    "data voor het beschrijven van data".
+    In het geval van communicatie, meestal data over de communicatie,
     bijvoorbeeld het volgnummer van een bericht, tijdstip van de communicatie,
     of de signaalsterkte bij de communicatie.
 
@@ -30,3 +31,13 @@ Glossary
 
   uplink
     van de IoT-knoop naar de toepassing; tegenover downlink.
+
+  pakketradio
+    radio voor pakket-georiënteerde communicatie. Pakketten voor IoT-radio's zijn vaak vrij klein,
+    met bijvoorbeeld een maximale payload van 60 bytes (RFM69) of 51 bytes (LoRaWan - KPN).
+
+  best effort communicatie
+    communicatie zonder garantie voor de betrouwbare aflevering. Veel basisprotocollen zijn best effort,
+    bijvoorbeeld: Ethernet, IP, RFM69, LoRa.
+    Betrouwbare communicatie moet dan (als dat nodig is) door een protocol in een hogere laag gerealiseerd worden.
+    ("best effort" zegt niets over de daadwerkelijke betrouwbaarheid van de communicatie.)

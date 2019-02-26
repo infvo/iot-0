@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Toetsvragen" href="toetsvragen.html" />
-    <link rel="prev" title="LoRaWan-keten" href="lorawan-keten.html" />
+    <link rel="prev" title="TTN-console" href="ttn-console.html" />
 
 <script type="application/json" class="js-hypothesis-config">
 {
@@ -210,11 +210,15 @@ Een typisch voorbeeld van een event is de registratie van een device bij een gat
 </div>
 <ul class="simple">
 <li><dl class="first docutils">
-<dt>configureer de TTN-uplink-node: vul alleen het App-veld in. Selecteer “Add new ttn app…”, en vul de gegevens uit het TTN-console voor de application in (Overview tab):</dt>
+<dt>configureer de TTN-uplink-node:</dt>
 <dd><ul class="first last">
+<li><em>App</em>: selecteer “Add new ttn app…”, en vul de gegevens uit het TTN-console voor de application in (Overview tab):</li>
 <li><em>App ID</em>: de Application-ID (bovenin de Overview);</li>
 <li><em>Access Key</em>: één van de Access Keys (onderaan in de Overview);</li>
-<li>“Add” en “Done”.</li>
+<li><em>Discovery address</em>: (default-waarde laten staan)</li>
+<li>“Add”</li>
+<li><em>Device ID</em>: de naam van de node (uit het TTN-console) voor het dashboard</li>
+<li>“Done”</li>
 </ul>
 </dd>
 </dl>
@@ -222,8 +226,8 @@ Een typisch voorbeeld van een event is de registratie van een device bij een gat
 <li>configureer de debug-node, met output: complete msg object</li>
 <li>“Deploy”.</li>
 </ul>
-<p>Je ziet nu (als het goed is) in het bijbehorende dashboard de gegevens van de IoT-knoop(en) verschijnen.
-Dit kan even duren, omdat de IoT-knopen met tussenperioden van enkele minuten zenden.</p>
+<p>Je ziet nu (als het goed is) in het bijbehorende dashboard de gegevens van de IoT-knoop verschijnen.
+Dit kan even duren, omdat een IoT-knoop met tussenperioden van enkele minuten zendt.</p>
 <p>Via de debug-node kun je de metadata van de communicatie tussen de IoT-knoop en de gateway volgen.
 Een voorbeeld hiervan zie je hieronder:</p>
 <div class="figure align-center" id="id4">
@@ -327,6 +331,7 @@ en de mogelijke nadelen voor anderen in deze omgeving.</li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../lora.html">LoRa-knopen</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="lorawan-keten.html">LoRaWan-keten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttn-console.html">TTN-console</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Opdrachten</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ttn-application">1. TTN-application</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nodered-ttn-dashboard">2. Nodered-TTN-Dashboard</a><ul>
@@ -354,7 +359,7 @@ en de mogelijke nadelen voor anderen in deze omgeving.</li>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../lora.html">LoRa-knopen</a><ul>
-      <li>Previous: <a href="lorawan-keten.html" title="vorig hoofdstuk">LoRaWan-keten</a></li>
+      <li>Previous: <a href="ttn-console.html" title="vorig hoofdstuk">TTN-console</a></li>
       <li>Next: <a href="toetsvragen.html" title="volgend hoofdstuk">Toetsvragen</a></li>
   </ul></li>
   </ul></li>

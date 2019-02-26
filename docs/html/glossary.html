@@ -49,7 +49,8 @@ dan verzorgt de gateway de <em>protocol-conversie</em>.</dd>
 <dd>De “eigenlijke data” die getransporteerd wordt als onderdeel van een pakket of frame.
 Zie ook <em>metadata</em>.</dd>
 <dt id="term-metadata">metadata</dt>
-<dd>“data over data”. In het geval van communicatie, meestal data over de communicatie,
+<dd>“data voor het beschrijven van data”.
+In het geval van communicatie, meestal data over de communicatie,
 bijvoorbeeld het volgnummer van een bericht, tijdstip van de communicatie,
 of de signaalsterkte bij de communicatie.</dd>
 <dt id="term-replay-attack">replay-attack</dt>
@@ -60,6 +61,14 @@ Je kunt dit voorkomen door elk bericht van een volgnummer te voorzien:
 een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
 <dt id="term-uplink">uplink</dt>
 <dd>van de IoT-knoop naar de toepassing; tegenover downlink.</dd>
+<dt id="term-pakketradio">pakketradio</dt>
+<dd>radio voor pakket-georiënteerde communicatie. Pakketten voor IoT-radio’s zijn vaak vrij klein,
+met bijvoorbeeld een maximale payload van 60 bytes (RFM69) of 51 bytes (LoRaWan - KPN).</dd>
+<dt id="term-best-effort-communicatie">best effort communicatie</dt>
+<dd>communicatie zonder garantie voor de betrouwbare aflevering. Veel basisprotocollen zijn best effort,
+bijvoorbeeld: Ethernet, IP, RFM69, LoRa.
+Betrouwbare communicatie moet dan (als dat nodig is) door een protocol in een hogere laag gerealiseerd worden.
+(“best effort” zegt niets over de daadwerkelijke betrouwbaarheid van de communicatie.)</dd>
 </dl>
 </div>
 

@@ -40,5 +40,6 @@ Tenslotte geven we enkele voorbeelden van LoRaWan-toepassingen.
   :hidden:
 
   lora/lorawan-keten.rst
+  lora/ttn-console.rst
   lora/opdrachten.rst
   lora/toetsvragen.rst
