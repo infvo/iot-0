@@ -69,55 +69,6 @@ via <a class="reference external" href="http://infvopedia.nl:1884//iotnode-app.h
 Geef deze zelf een unieke ID.</li>
 </ul>
 </div>
-<p>Voor het configureren van een IoT-knoop met de software <code class="docutils literal notranslate"><span class="pre">wifi-node-0</span></code> heb je nodig:</p>
-<ul class="simple">
-<li>de gegevens van het lokale WiFi-netwerk: SSID (netwerknaam) en wachtwoord (van het netwerk)</li>
-<li>de MQTT-broker-gegevens: domeinnaam, poortnummer, gebruikersnaam, wachtwoord</li>
-</ul>
-<p>Vraag deze gegevens eventueel aan je docent.</p>
-<p>Stappen voor het configureren:</p>
-<ol class="arabic simple">
-<li><dl class="first docutils">
-<dt>Reset de knoop in “Access Point” mode:</dt>
-<dd><ol class="first last arabic">
-<li>druk <em>button 0</em> in;</li>
-<li>druk de <em>reset-knop</em> in (links van de USB-aansluiting),
-en laat deze weer los (led0 brandt nu);</li>
-<li>laat <em>button 0</em> na 3 seconden los (als led1 ook brandt);</li>
-<li>NB: in een oudere versie van de software krijg je niet de feedback van de leds,
-voor het overige werkt de Access-point reset op dezelfde manier.</li>
-</ol>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Maak via de browser contact met de knoop:</dt>
-<dd><ol class="first last arabic">
-<li>selecteer in je computer het WiFi-netwerk van de knoop;
-dit heeft als naam <code class="docutils literal notranslate"><span class="pre">ESPAP-</span></code> gevolgd door de ID van de knoop,
-bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">ESPAP-8f12</span></code></li>
-<li>geef in de browser het IP-adres van het access point op: <code class="docutils literal notranslate"><span class="pre">192.168.4.1</span></code>.
-Je krijgt nu de homepagina van de webserver van de knoop te zien,
-met onder andere de waarden van de sensoren.</li>
-</ol>
-</dd>
-</dl>
-</li>
-<li>Klik in de homepagina op de link: <code class="docutils literal notranslate"><span class="pre">Setup</span></code>; op de setup-pagina kun je de configuratie-parameters instellen.
-Vul alleen die gegevens in die nieuw zijn: al eerder ingevulde gegevens (ook niet-getoonde wachtwoorden) blijven bewaard.</li>
-<li>“Submit” de ingevulde gegevens.</li>
-<li>Reset de knoop: de software-reset via de link <code class="docutils literal notranslate"><span class="pre">[[Reset]]</span></code> werkt soms,
-een hardware-reset werkt altijd.
-De knoop probeert nu verbinding te maken met het lokale WiFi netwerk,
-en vervolgens met de broker.
-Tijdens het zoeken naar het lokale WiFi-netwerk brandt de blauwe LED op de knoop;
-als dit lang duurt, probeer je nog een hardware-reset.</li>
-<li>Selecteer weer het normale WiFi-netwerk in je computer.</li>
-<li>Via <a class="reference internal" href="../bouwstenen/opdrachten.html#mqttt"><span class="std std-ref">De app MQTTT</span></a> kun je nu controleren of de MQTT-broker de berichten van de IoT-knoop ontvangt.
-Stel in het <code class="docutils literal notranslate"><span class="pre">IoT-node</span></code>-venster de ID van de knoop in, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">8f12</span></code>.
-Na enige tijd moeten dan de waarden van de sensoren verschijnen.
-Je kunt ook de LED aan- en uitschakelen.</li>
-</ol>
 <div class="section" id="mqtt-chat">
 <h2>(1) MQTT-chat<a class="headerlink" href="#mqtt-chat" title="Permalink naar deze titel">¶</a></h2>
 <p><strong>(stap 1)</strong> Je kunt met MQTT op een eenvoudige manier met een groep gebruikers chatten,
@@ -245,8 +196,7 @@ Bestudeer de volgende manieren van gebruik:</p>
 
 <h3>Navigatie</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Ten geleide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../voorbereiding.html">Voorbereiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Voor de docent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
@@ -268,6 +218,7 @@ Bestudeer de volgende manieren van gebruik:</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configureren.html">Configureren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo</a></li>
 </ul>

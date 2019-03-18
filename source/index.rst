@@ -10,13 +10,13 @@ IoT-0: IoT voor gebruikers
    :maxdepth: 4
 
    ten-geleide.rst
-   voorbereiding.rst
    inleiding.rst
    bouwstenen.rst
    webserver.rst
    wifi.rst
    rfm69.rst
    lora.rst
+   configureren.rst
    glossary.rst
    todo.rst
 
