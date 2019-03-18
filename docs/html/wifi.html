@@ -29,39 +29,8 @@
 
 
   </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="wifi-mqtt-knopen">
-<h1>WiFi-MQTT-knopen<a class="headerlink" href="#wifi-mqtt-knopen" title="Permalink naar deze titel">¶</a></h1>
-<p>In dit hoofdstuk behandelen we IoT-knopen gebaseerd op WiFi radio’s.
-Deze knopen communiceren via het MQTT-protocol met de IoT-toepassing (app).
-MQTT is een veel gebruikt protocol voor het het Internet of Things.
-Dit protocol heeft een aantal voordelen ten opzichte van HTTP:</p>
-<ul class="simple">
-<li>de interactie via MQTT is <em>publish-subscribe</em> tussen MQTT-clients en de MQTT-broker,
-in plaats van <em>client-server</em> zoals bij HTTP;</li>
-<li>dit maakt het “pushen” van berichten in beide richtingen mogelijk:
-van IoT-knoop naar IoT-toepassing, en van toepassing naar IoT-knoop;</li>
-<li>MQTT is daarmee geschikt voor het bewaken van sensoren (monitoring) en voor het besturen van actuatoren (control).</li>
-<li>alleen de MQTT-broker moet altijd online zijn;
-clients zoals IoT-knopen of toepassingen hoeven dat niet.
-Dit heeft grote voordelen voor draadloze IoT-knopen.</li>
-</ul>
-<p>Als payload voor MQTT gebruiken we in onze voorbeelden JSON,
-meestal in een variant afgeleid van het Cayenne Low Power Payload (LPP) formaat.</p>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-
-
-          </div>
-        </div>
-      </div>
+  <div class="document">
+    
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="index.html">iot-0</a></h1>
@@ -75,7 +44,6 @@ meestal in een variant afgeleid van het Cayenne Low Power Payload (LPP) formaat.
 
 <h3>Navigatie</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ten-geleide.html">Voor de docent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webserver.html">Webserver-knopen</a></li>
@@ -93,7 +61,7 @@ meestal in een variant afgeleid van het Cayenne Low Power Payload (LPP) formaat.
 <li class="toctree-l1"><a class="reference internal" href="lora.html">LoRa-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configureren.html">Configureren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ten-geleide.html">Voor de docent</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
 <ul>
@@ -124,8 +92,38 @@ meestal in een variant afgeleid van het Cayenne Low Power Payload (LPP) formaat.
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wifi-mqtt-knopen">
+<h1>WiFi-MQTT-knopen<a class="headerlink" href="#wifi-mqtt-knopen" title="Permalink naar deze titel">¶</a></h1>
+<p>In dit hoofdstuk behandelen we IoT-knopen gebaseerd op WiFi radio’s.
+Deze knopen communiceren via het MQTT-protocol met de IoT-toepassing (app).
+MQTT is een veel gebruikt protocol voor het het Internet of Things.
+Dit protocol heeft een aantal voordelen ten opzichte van HTTP:</p>
+<ul class="simple">
+<li>de interactie via MQTT is <em>publish-subscribe</em> tussen MQTT-clients en de MQTT-broker,
+in plaats van <em>client-server</em> zoals bij HTTP;</li>
+<li>dit maakt het “pushen” van berichten in beide richtingen mogelijk:
+van IoT-knoop naar IoT-toepassing, en van toepassing naar IoT-knoop;</li>
+<li>MQTT is daarmee geschikt voor het bewaken van sensoren (monitoring) en voor het besturen van actuatoren (control).</li>
+<li>alleen de MQTT-broker moet altijd online zijn;
+clients zoals IoT-knopen of toepassingen hoeven dat niet.
+Dit heeft grote voordelen voor draadloze IoT-knopen.</li>
+</ul>
+<p>Als payload voor MQTT gebruiken we in onze voorbeelden JSON,
+meestal in een variant afgeleid van het Cayenne Low Power Payload (LPP) formaat.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer">
       &copy;2018, SLO.
       

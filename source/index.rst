@@ -9,7 +9,6 @@ IoT-0: IoT voor gebruikers
 .. toctree::
    :maxdepth: 4
 
-   ten-geleide.rst
    inleiding.rst
    bouwstenen.rst
    webserver.rst
@@ -18,7 +17,7 @@ IoT-0: IoT voor gebruikers
    lora.rst
    configureren.rst
    glossary.rst
-   todo.rst
+   ten-geleide.rst
 
 .. toctree::
    :caption: Andere modules

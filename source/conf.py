@@ -87,7 +87,8 @@ html_theme = 'alabaster'
 # html_theme_options = {}
 html_theme_options = {
   'show_related': True,
-  'fixed_sidebar': False,
+  'fixed_sidebar': True,
+  'sidebar_collapse': True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
