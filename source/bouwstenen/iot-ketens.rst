@@ -66,7 +66,7 @@ deze stuurt de sensorwaarden door naar de web-app die zich eerder op deze sensor
 Omgekeerd kan de web-app actuator-berichten naar de broker publiceren;
 de IoT-knoop abonneert zich op de (eigen) actuatorwaarden.
 
-rubric:: NodeRed als IoT-schakelstation
+.. rubric:: NodeRed als IoT-schakelstation
 
 .. figure:: IoT-nobridge-2.png
    :width: 500 px
