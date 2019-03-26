@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Voorbeelden in detail &#8212; iot-0  documentatie</title>
+    <title>Voorbeelden &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="Voorbeelden" href="voorbeelden.html" />
+    <link rel="next" title="Eisen aan de communicatie" href="iot-eisen.html" />
     <link rel="prev" title="Inleiding" href="../inleiding.html" />
 
 <script type="application/json" class="js-hypothesis-config">
@@ -45,14 +45,13 @@
 <h3>Navigatie</h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../inleiding.html">Inleiding</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Voorbeelden in detail</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Voorbeelden</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#voorbeeld-watersproeier">Voorbeeld: watersproeier</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#actuator-en-controller">Actuator en controller</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sensoren">Sensoren</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#aan-het-internet">Aan het internet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#slimme-diensten">“Slimme” diensten</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#meerdere-controllers">Meerdere controllers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#eisen-aan-de-communicatie">Eisen aan de communicatie</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#samenvatting">Samenvatting</a></li>
 </ul>
 </li>
@@ -65,9 +64,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#voorbeeld-monitoring">Voorbeeld: monitoring</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="voorbeelden.html">Voorbeelden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Eisen aan de communicatie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Gebruikerseisen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="voorbeelden.html">Meer voorbeelden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overzicht.html">Overzicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
@@ -94,7 +93,7 @@
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../inleiding.html">Inleiding</a><ul>
       <li>Previous: <a href="../inleiding.html" title="vorig hoofdstuk">Inleiding</a></li>
-      <li>Next: <a href="voorbeelden.html" title="volgend hoofdstuk">Voorbeelden</a></li>
+      <li>Next: <a href="iot-eisen.html" title="volgend hoofdstuk">Eisen aan de communicatie</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -117,10 +116,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="voorbeelden-in-detail">
-<h1>Voorbeelden in detail<a class="headerlink" href="#voorbeelden-in-detail" title="Permalink naar deze titel">¶</a></h1>
-<p>We geven hier enkele voorbeelden in meer detail.
-Daarna geven we een grotere lijst van voorbeelden waarvan je de details elders in het web kunt vinden.</p>
+  <div class="section" id="voorbeelden">
+<h1>Voorbeelden<a class="headerlink" href="#voorbeelden" title="Permalink naar deze titel">¶</a></h1>
+<p>We geven hier enkele uitgebreidere voorbeelden.
+Verder in dit hoofdstuk geven we een grotere lijst van voorbeelden waarvan je de details elders in het web kunt vinden.</p>
 <div class="section" id="voorbeeld-watersproeier">
 <h2>Voorbeeld: watersproeier<a class="headerlink" href="#voorbeeld-watersproeier" title="Permalink naar deze titel">¶</a></h2>
 <p>Als voorbeeld van een IoT-toepassingen kijken we naar het besproeien van een sportveld.
@@ -208,55 +207,6 @@ Omdat je dit kunt zien als een lokaal verlengstuk van de <em>cloud</em> heet dit
 <p>De globale controller zorgt voor de bereikbaarheid in het internet,
 en voor de koppeling met diensten elders.</p>
 </div>
-<div class="section" id="eisen-aan-de-communicatie">
-<h3>Eisen aan de communicatie<a class="headerlink" href="#eisen-aan-de-communicatie" title="Permalink naar deze titel">¶</a></h3>
-<p>We gaan in een volgend hoofdstuk dieper in op de manier waarop we de verschillende onderdelen kunnen verbinden.
-Op basis van kennis van de toepassing kunnen we al wel de eisen aan de communicatie formuleren.
-Enkele voorbeelden van eisen:</p>
-<ul class="simple">
-<li>bandbreedte (bitrate): voor de toepassing kunnen we bepalen hoeveel berichten we in een bepaalde tijd willen sturen,
-en wat de omvang van die berichten is (in bits of in bytes);</li>
-<li>latency (vertraging): in het bijzonder bij een besturingstoepassing moeten we ervoor zorgen
-dat de tijd tussen het signaleren van een <em>event</em> (gebeurtenis) door een sensor en
-het aansturen van de actuator(en) niet te groot is:
-de maximale reactietijd wordt bepaald door de snelheid van het (fysieke) proces dat je aanstuurt.</li>
-<li>draadloos of bedraad: veel toepassingen eisen dat de verbinding tussen de sensoren/actuatoren en de controller draadloos is:
-draden belemmeren bijvoorbeeld de plaatsing of de beweging van de sensoren, en daarmee van het “ding” waaraan deze sensoren gekoppeld zijn.</li>
-<li>andere eisen, bijvoorbeeld beveiliging en privacy;
-je wilt bijvoorbeeld niet dat een besturing door anderen overgenomen kan worden.</li>
-</ul>
-<p>In het voorbeeld van de sproeier hebben we de volgende eisen:</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>bandbreedte (bitrate):</dt>
-<dd><ul class="first last">
-<li>bodemvochtigheid: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
-<li>actuator: 1 bericht per 30 minuten(?), 1 byte per bericht;</li>
-<li>temperatuursensor: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
-<li>regensensor: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>latency: deze is niet kritisch (minuten), het fysische proces van besproeien van een grasveld is langzaam.</li>
-<li>draadloos of bedraad: de verbinding tussen de controller, de actuator(s) en de sensoren is bij voorkeur draadloos.</li>
-</ul>
-<div class="admonition-hoeveel-bits-heb-je-nodig admonition">
-<p class="first admonition-title">Hoeveel bits heb je nodig?</p>
-<p>Bij het bepalen van het aantal bits (of bytes) voor een sensormeting of een actuator-aansturing
-moet je weten (i) wat het <em>bereik</em> is, en (2) wat de vereiste <em>precisie</em> is.</p>
-<p>Bijvoorbeeld: je wilt temperatuur meten in het bereik -20..50 (Celcius),
-met een precisie van 0,5 graad.
-Je gebruik dan het bereik -40..100, waarbij je dit getal later door 2 deelt.</p>
-<p>Voor een getal in het bereik 0..255 heb je 8 bits nodig (1 byte).
-Je kunt dit bereik ook verschuiven, bijvoorbeeld -128..127, of -100..155.
-Het aantal bits blijft dan gelijk.
-Je kunt het bereik ook schalen (de komma verschuiven), bijvoorbeeld 0,0..25,5 (Celsius).
-Vaak is het bij deze schaling handiger om door een macht van 2 te delen,
-dan door een macht van 10.</p>
-<p class="last">Je kunt ook met grotere getallen werken: 0..1023 (10 bits), 0..1000000 (20 bits), enz.</p>
-</div>
-</div>
 <div class="section" id="samenvatting">
 <h3>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h3>
 <p>Samenvattend zien we de volgende stappen:</p>
@@ -318,6 +268,7 @@ Ook met alleen sensoren, voor bewaking (<em>monitoring</em>), zijn al veel zinvo
 <p class="first admonition-title">Te doen</p>
 <ul class="last simple">
 <li>Monitoring voorbeeld(en)</li>
+<li>bijvoorbeeld: monitoring van bijenkast</li>
 </ul>
 </div>
 </div>
@@ -330,7 +281,7 @@ Ook met alleen sensoren, voor bewaking (<em>monitoring</em>), zijn al veel zinvo
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

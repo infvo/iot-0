@@ -5,11 +5,10 @@ NodeRed-opdrachten-1
 
 .. admonition:: Leerdoelen en concepten
 
-  * Kennismaking met NodeRed, voor het configureren van datastromen, koppelen van data, acties en diensten;
   * Gebruik van NodeRed als Webserver;
   * Kennismaking met het HTTP-protocol, met behulp van NodeRed;
-  * NodeRed voorbeeld: dashboard van sensordata
-  * NodeRed voorbeeld: bediening van de actuatoren (LED)
+  * NodeRed voorbeeld: dashboard van sensordata;
+  * NodeRed voorbeeld: bediening van de actuatoren (LED);
 
 .. admonition:: Wat heb je nodig?
 
@@ -18,46 +17,12 @@ NodeRed-opdrachten-1
       * FRED - https://fred.sensetecnic.com (gratis versie)
       * NodeRed op Raspberry Pi (onderdeel van standaardsoftware)
 
+Voorkennis: elementaire HTML-kennis.
 
-1. Eerste flow (vervolg)
-------------------------
-
-Maak onderstaande flow in een nieuw flow-venster:
-
-.. figure:: Nodered-flow1.png
-   :width: 500 px
-   :align: center
-
-   NodeRed: eerste flow
-
-Bekijk eventueel de opdracht in het vorige hoofdstuk (REF).
-
-Deze beide nodes, de inject-node en de debug-node, gebruik je vaak voor het testen en debuggen van een flow.
-Het is handig als je weet hoe je deze kunt gebruiken.
-
-**N.B.: vergeet niet na elke verandering de flow opnieuw te activeren (rode Deploy-knop, rechts boven).**
-
-1. Door op de knop links op de debug-node te klikken "injecteer" je een timestamp in de flow:
-   de huidige tijd, als geheel getal. Via de debug-node krijg je dit te zien in het debug-venster.
-   Controleer of dit werkt.
-2. Met de knop rechts op de debug-node kun je deze node tijdelijk uitschakelen. Controleer of dit werkt.
-   (Vergeet niet te "deploy"-en!)
-3. Je kunt de inject-node ook automatisch laten werken; configureer deze node (dubbel-klik op de node):
-   zet "Repeat" van "none" naar "interval" (every 1 seconds). Bewaar deze aanpassing ("Done" knop).
-   Controleer of dit werkt.
-4. Je kunt de inject-node ook andere waarden laten injecteren. Configureer deze node:
-   selecteer als "payload": string, en vul als waarde in: "Hallo wereld".
-   Bewaar deze aanpassing, en controleer of dit werkt.
-
-Opmerkingen:
-
-* je kunt in het debug-venster aangeven dat je alleen de "current flow" wilt zien;
-* je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).
-
-2. Eerste webserver
+1. Eerste webserver
 -------------------
 
-NodeRed is een webserver op basis van Node.js.
+NodeRed is een HTTP-server op basis van Node.js.
 Dit kun je vergelijken met Apache of Nginx op andere systemen.
 Met NodeRed kun je snel een simpele webserver maken.
 We gebruiken dit voor het bestuderen van het HTTP-protocol.
@@ -113,8 +78,9 @@ Gebruik hiervoor als URL in een browser:
   Bijvoorbeeld:  ``https://anna.fred.sensetecnic.com/api/mypage``
 * voor een Raspberry Pi: de URL van de NodeRed-instantie, gevolgd door ``/mypage``.
 
-In het geval van FRED moet je dit doen in een venster van de browser waarin je ook je NodeRed-flows geopend hebt;
-dit is een beperking van de gratis versie van FRED.
+In het geval van FRED moet je dit doen in een venster van de browser waarmee je ingelogd bent bij FRED.
+Dit betekent dat alleen jij deze website kunt zien, anderen niet.
+Dit is een beperking van de gratis versie van FRED.
 
 Een "normale" NodeRed-installatie heeft deze beperking niet: iedereen kan dan je webpagina zien.
 
@@ -146,7 +112,7 @@ Open nu in de browser een webpagina met de URL van je NodeRed-pagina.
 (Bijvoorbeeld: ``https://anna.fred.sensetecnic.com/api/mypage``.)
 Controleer of je nu je eigen webpagina te zien krijgt.
 
-3. Een tweede pagina
+2. Een tweede pagina
 --------------------
 
 De volgende stap is het maken van een tweede pagina voor je website.
@@ -190,7 +156,7 @@ Voor NodeRed via FRED:
 
 *Opmerking*: in deze html-code gebruiken we de URL ``/api/mypage``.
 Dit is nodig voor de FRED-versie.
-Voor andere NodeRed-installaties laat je het ``/api``-deel weg.
+Voor andere NodeRed-installaties gebruik je als URL: ``/mypage``.
 
 "Done" en "Deploy".
 
@@ -207,13 +173,18 @@ Vaak is het handig om grotere teksten in een bestand op te slaan.
 Dit kun je dan inlezen via de file-node;
 in FRED is deze helaas niet beschikbaar.
 
-4. Een teller
+3. Een teller
 -------------
+
+De website die we tot nu toe gemaakt hebben is *statisch*:
+dat wil zeggen dat de inhoud niet afhangt van de toestand van de server.
+Bij eenzelfde URL krijg je altijd hetzelfde resultaat.
 
 Een volgende stap is dat we de website voorzien van een bezoekers-teller:
 elke keer als er een http-verzoek voor een webpagina binnenkomt,
 verhogen we deze teller.
 We laten de huidige waarde van de teller in de webpagina zien.
+Dit is een eenvoudig voorbeeld van een *dynamische website*.
 
 Hiervoor maken we gebruik van context-variabelen in NodeRed,
 zie: https://nodered.org/docs/user-guide/context.
@@ -263,7 +234,7 @@ Controleer via de browser of je bij elke reload van de pagina
 (bijvoorbeeld ``https://anna.fred.sensetecnic.com/api/mypage`` )
 een volgende waarde van de teller krijgt.
 
-5. LED-besturing
+4. LED-besturing
 ----------------
 
 In deze opdracht werken we uit hoe je via een webserver een LED kunt aansturen.
@@ -370,7 +341,7 @@ Door slim gebruik te maken van templates kun je vaker flows op zo'n manier combi
 
   *Vraag*: welke knoppen op een TV-afstandsbediening zijn idempotent?
 
-6. Webformulieren
+5. Webformulieren
 -----------------
 
 In deze opdracht gaan we aan de slag met een webformulier:
@@ -551,6 +522,6 @@ Voor andere NodeRed-installaties laat je het ``/api``-deel weg.
     Voorlopig behelpen we ons hier met een POST:
     we houden ons daarmee niet aan de regels voor REST API's.
 
-  *Vraag*: bestudeer de (onoffiële) documentatie van de Philips Hue Bridge
+  *Vraag*: bestudeer de (onofficiële) documentatie van de Philips Hue Bridge
   (http://www.burgestrand.se/hue-api/api/lights/).
   Met welke opdracht zet je een lamp aan? Met welke uit?

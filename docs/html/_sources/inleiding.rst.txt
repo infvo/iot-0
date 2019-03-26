@@ -105,9 +105,9 @@ Een dergelijke automatische verwerking stelt extra hoge eisen aan de sensordata 
   :hidden:
 
   inleiding/voorbeelden-in-detail.rst
-  inleiding/voorbeelden.rst
-  inleiding/gevolgen.rst
   inleiding/iot-eisen.rst
+  inleiding/gevolgen.rst
+  inleiding/voorbeelden.rst  
   inleiding/overzicht.rst
   inleiding/opdrachten.rst
   inleiding/toetsvragen.rst

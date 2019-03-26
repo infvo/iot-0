@@ -52,11 +52,15 @@
 <li class="toctree-l2"><a class="reference internal" href="iot-protocollen.html">Protocollen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">NodeRed opdrachten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#nodes-en-flows">Nodes en flows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nodered-ui">NodeRed UI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#eerste-flow">Eerste flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#een-iot-dashboard">Een IoT-dashboard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#automatiseren">Automatiseren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#voorbereiding">Voorbereiding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nodes-en-flows">Nodes en flows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nodered-ui">NodeRed UI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dashboard-nodes-installeren">Dashboard-nodes installeren</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#eerste-flow">1. Eerste flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#een-iot-dashboard">2. Een IoT-dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#automatiseren">3. Automatiseren</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nodered-faq">NodeRed FAQ</a></li>
 </ul>
 </li>
@@ -109,10 +113,11 @@
   <div class="section" id="nodered-opdrachten">
 <h1>NodeRed opdrachten<a class="headerlink" href="#nodered-opdrachten" title="Permalink naar deze titel">¶</a></h1>
 <p>In deze opdrachten maak je kennis met NodeRed.
-Je gebruik NodeRed voor een eenvoudige IoT-toepassing: een dashboard van een IoT-knoop.
+Je gebruikt NodeRed voor een eenvoudige IoT-toepassing: een dashboard van een IoT-knoop.
 Met dit dashboard kun je op een computer of op een smartphone de toestand van de IoT-knoop waarnemen,
 en de IoT-knoop besturen.</p>
-<p>Wat is NodeRed? P.M.</p>
+<p>Met NodeRed kun je allerlei protocollen, diensten en besturingen aan elkaar koppelen, op een grafische manier.
+Hiermee kun je je IoT-keten samenstellen van sensoren en actuatoren tot Data Science- en Artificial Intelligence-diensten.</p>
 <div class="admonition-wat-heb-je-nodig admonition">
 <p class="first admonition-title">Wat heb je nodig?</p>
 <ul class="last simple">
@@ -137,12 +142,17 @@ en de IoT-knoop besturen.</p>
 </li>
 </ul>
 </div>
+<div class="section" id="voorbereiding">
+<h2>Voorbereiding<a class="headerlink" href="#voorbereiding" title="Permalink naar deze titel">¶</a></h2>
+<p>Lees als voorbereiding op de NodeRed-opdrachten eerst onderstaande tekst.
+Doe dit bij voorkeur met een geopende versie van NodeRed,
+zodat je de verschillende onderdelen direct kunt vinden en uitproberen.</p>
 <p><strong>Nodes en knopen</strong>: om verwarring te voorkomen gebruiken we in deze opdrachten het woord “knoop” voor een IoT-knoop,
-en “node” voor een NodeRed-nodes</p>
+en “node” voor een NodeRed-node.</p>
 <div class="section" id="nodes-en-flows">
-<h2>Nodes en flows<a class="headerlink" href="#nodes-en-flows" title="Permalink naar deze titel">¶</a></h2>
+<h3>Nodes en flows<a class="headerlink" href="#nodes-en-flows" title="Permalink naar deze titel">¶</a></h3>
 <div class="figure align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/Nodered-hello2.png"><img alt="../_images/Nodered-hello2.png" src="../_images/Nodered-hello2.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/Nodered-hello.png"><img alt="../_images/Nodered-hello.png" src="../_images/Nodered-hello.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed http flow-voorbeeld</span></p>
 </div>
 <p>Een <em>flow</em> in NodeRed bestaat uit een netwerk van <em>nodes</em> en <em>verbindingen</em>.
@@ -162,15 +172,15 @@ Een node zonder aansluiting rechts is een <em>output-node</em>, met een externe 
 <td><strong>naam</strong></td>
 <td><strong>soort node</strong></td>
 </tr>
-<tr class="row-even"><td><img alt="http-input-node" src="../_images/nodered-http-input-node2.png" /></td>
+<tr class="row-even"><td><img alt="http-input-node" src="../_images/nodered-http-input-node.png" /></td>
 <td>http-input-node</td>
 <td>input</td>
 </tr>
-<tr class="row-odd"><td><img alt="http-output-node" src="../_images/nodered-http-output-node2.png" /></td>
+<tr class="row-odd"><td><img alt="http-output-node" src="../_images/nodered-http-output-node.png" /></td>
 <td>http-output-node</td>
 <td>output</td>
 </tr>
-<tr class="row-even"><td><img alt="template-node" src="../_images/nodered-template-node2.png" /></td>
+<tr class="row-even"><td><img alt="template-node" src="../_images/nodered-template-node.png" /></td>
 <td>template-node</td>
 <td>in-out</td>
 </tr>
@@ -192,7 +202,7 @@ en stuurt een message met dit document naar
 Deze node stuurt de response naar de afzender van het http-request.</p>
 </div>
 <div class="section" id="nodered-ui">
-<h2>NodeRed UI<a class="headerlink" href="#nodered-ui" title="Permalink naar deze titel">¶</a></h2>
+<h3>NodeRed UI<a class="headerlink" href="#nodered-ui" title="Permalink naar deze titel">¶</a></h3>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/nodered-ui.png"><img alt="../_images/nodered-ui.png" src="../_images/nodered-ui.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed user interface</span></p>
@@ -234,9 +244,9 @@ Hiermee kun je de flow hernoemen, tijdelijk uitschakelen (disable), of verwijder
 </dl>
 </li>
 </ul>
-<p>De volgende opdrachten zijn bedoeld om vertrouwd te raken met het user interface.
-Deze opdrachten hebben nog geen effect op de flows zelf.</p>
-<p class="rubric">Opdrachten</p>
+<p>De volgende oefeningen zijn bedoeld om vertrouwd te raken met het user interface.
+Deze oefeningen hebben geen effect op de flows zelf.</p>
+<p class="rubric">Oefenen met het NodeRed interface</p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>klik op het hamburgermenu, en zoek de instellingen voor:</dt>
@@ -276,11 +286,33 @@ Deze opdrachten hebben nog geen effect op de flows zelf.</p>
 </li>
 </ul>
 </div>
+<div class="section" id="dashboard-nodes-installeren">
+<h3>Dashboard-nodes installeren<a class="headerlink" href="#dashboard-nodes-installeren" title="Permalink naar deze titel">¶</a></h3>
+<div class="admonition-installeren-van-dashboard-nodes admonition">
+<p class="first admonition-title">Installeren van dashboard-nodes</p>
+<p>De dashboard-nodes zijn niet altijd beschikbaar in het node-palet links.
+Voor het toevoegen van deze nodes aan NodeRed gebruik je de volgende stappen:</p>
+<ul class="simple">
+<li>selecteer hamburger-menu (rechts) -&gt; Manage Palette</li>
+<li>selecteer de tab <em>Install</em></li>
+<li>type in het zoekveld: dashboard</li>
+<li>klik op “install” voor <em>node-red-dashboard</em> <em>(A set of dashboard nodes for Node-RED)</em></li>
+<li>na deze installatie zijn de nodes in het palet links beschikbaar.</li>
+</ul>
+<p>Als je FRED gebruikt, dan installeer je de nodes als volgt:</p>
+<ul class="last simple">
+<li>selecteer in de FRED-zijbalk (helemaal links): Tools-&gt; add or remove nodes</li>
+<li>type in het zoekveld: dashboard</li>
+<li>vink aan: <em>Dashboard (a set of dashboard nodes for NodeRed)</em>.</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="section" id="eerste-flow">
-<h2>Eerste flow<a class="headerlink" href="#eerste-flow" title="Permalink naar deze titel">¶</a></h2>
+<h2>1. Eerste flow<a class="headerlink" href="#eerste-flow" title="Permalink naar deze titel">¶</a></h2>
 <p>Met deze eerste flow kun je zien of alles werkt:</p>
 <div class="figure align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/Nodered-flow12.png"><img alt="../_images/Nodered-flow12.png" src="../_images/Nodered-flow12.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/Nodered-flow1.png"><img alt="../_images/Nodered-flow1.png" src="../_images/Nodered-flow1.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed: eerste flow</span></p>
 </div>
 <p>Hiervoor gebruik je de volgende nodes:</p>
@@ -295,17 +327,17 @@ Deze opdrachten hebben nog geen effect op de flows zelf.</p>
 <td><strong>naam</strong></td>
 <td><strong>soort node</strong></td>
 </tr>
-<tr class="row-even"><td><img alt="inject-node" src="../_images/inject-node2.png" /></td>
+<tr class="row-even"><td><img alt="inject-node" src="../_images/inject-node.png" /></td>
 <td>inject-node</td>
 <td>input</td>
 </tr>
-<tr class="row-odd"><td><img alt="debug-node" src="../_images/debug-node2.png" /></td>
+<tr class="row-odd"><td><img alt="debug-node" src="../_images/debug-node.png" /></td>
 <td>debug-node</td>
 <td>output</td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Opdracht 1</p>
+<p class="rubric">Opdracht 1.1</p>
 <p>Voer de onderstaande opdrachten uit in een lege (flow)tab in NodeRed.</p>
 <ul class="simple">
 <li>sleep een inject-node vanuit de lijst met nodes links naar het lege vlak in het midden</li>
@@ -317,23 +349,24 @@ Deze opdrachten hebben nog geen effect op de flows zelf.</p>
 </ul>
 <p>Als het goed is, krijg je in het debug-venster rechts nu de output van deze flow te zien.
 Elke keer als je op de input-node klikt, genereert deze een timestamp-event.</p>
-<p class="rubric">Opdracht 2</p>
+<p class="rubric">Opdracht 1.2</p>
+<p>Voor onderstaande opdrachten uit; test de uitwerking (na “Deploy”) via de debug-tab.</p>
 <ul class="simple">
 <li><dl class="first docutils">
-<dt>verander de configuratie van de inject-knoop: zorg ervoor dat deze elke minuut een timestamp oplevert.</dt>
+<dt>verander de configuratie van de inject-knoop: zorg ervoor dat deze elke 10 seconden een timestamp oplevert.</dt>
 <dd><ul class="first last">
-<li>double-click op een knoop geeft het configuratie-vensterde</li>
+<li>double-click op een knoop geeft het configuratie-venster;</li>
 <li>bewaar de nieuwe configuratie via de “Done”-knop.</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>verander de configuratie van de inject-knoop: zorg ervoor dat deze een tekst levert als payload.</li>
-<li>verbind meerdere inject-knopen met dezelfde debug-knoop.</li>
+<li>verander de configuratie van de inject-knoop: zorg ervoor dat deze een tekst levert als inhoud van het bericht (payload).</li>
+<li>verbind meerdere inject-knopen met herhalende berichten met dezelfde debug-knoop.</li>
 </ul>
 </div>
 <div class="section" id="een-iot-dashboard">
-<h2>Een IoT-dashboard<a class="headerlink" href="#een-iot-dashboard" title="Permalink naar deze titel">¶</a></h2>
+<h2>2. Een IoT-dashboard<a class="headerlink" href="#een-iot-dashboard" title="Permalink naar deze titel">¶</a></h2>
 <p>Als voorbeeld van een complete flow gebruiken we een dashboard voor een IoT-knoop.
 Dit dashboard maakt de sensorwaarden van de IoT-knoop zichtbaar;
 je kunt hiermee ook de LED van de IoT-knoop aansturen.</p>
@@ -346,7 +379,7 @@ je kunt hiermee ook de LED van de IoT-knoop aansturen.</p>
 <li>op GitHub: <a class="reference external" href="https://gist.github.com/eelcodijkstra/1f5e6bc7cab88e7fd230cdee8cb94d73">NodeRed dashboard (flow 1)</a></li>
 <li>op NodeRed-library: <a class="reference external" href="https://flows.nodered.org/flow/1f5e6bc7cab88e7fd230cdee8cb94d73">ieni2018-iot-flow-1</a></li>
 </ul>
-<p class="rubric">Opdracht</p>
+<p class="rubric">Opdracht 2.1</p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>importeer de dashboard-flow:</dt>
@@ -414,10 +447,49 @@ je kunt hiermee ook de LED van de IoT-knoop aansturen.</p>
 </ul>
 </div>
 <div class="section" id="automatiseren">
-<h2>Automatiseren<a class="headerlink" href="#automatiseren" title="Permalink naar deze titel">¶</a></h2>
+<h2>3. Automatiseren<a class="headerlink" href="#automatiseren" title="Permalink naar deze titel">¶</a></h2>
 <p>Via NodeRed kun je allerlei protocollen en toepassingen koppelen.
 Je kunt ook allerlei zaken automatiseren, bijvoorbeeld een lamp inschakelen als je thuiskomt.</p>
-<p>Een eenvoudige automatisering is het laten knipperen van de LED op de IoT-knoop.</p>
+<p>Een eenvoudige automatisering is het laten knipperen van LED-0 op de IoT-knoop.</p>
+<p class="rubric">Opdracht 3.1</p>
+<p>Maak een NodeRed-flow waarmee je LED-0 van een (gesimuleerde) IoT-knoop laat knipperen.
+Begin met de eenvoudige flow van Opdracht 1, en breid deze later uit met een MQTT-output-node.
+Vergeet niet aan het eind van elke opdracht de flow te activeren (“Deploy”);
+controleer bij elke stap of het werkt.</p>
+<ol class="arabic simple">
+<li>Door op de knop links op de debug-node te klikken “injecteer” je een timestamp in de flow:
+de huidige tijd, als geheel getal. Via de debug-node krijg je dit te zien in het debug-venster.</li>
+<li>Met de knop rechts op de debug-node kun je deze node tijdelijk uitschakelen.</li>
+<li>Laat de inject-node automatisch werken. Configureer deze node (dubbel-klik op de node):
+zet “Repeat” van “none” naar “interval” (every 10 seconds). Bewaar deze aanpassing (“Done” knop).</li>
+<li>Laat de inject-node een ander soort waarde injecteren. Configureer deze node:
+selecteer als “payload” (inhoud van het bericht): string, en vul als waarde in: “Hallo wereld”.
+Bewaar deze aanpassing.</li>
+<li>Idem, maar nu met de JSON-waarde: <code class="docutils literal notranslate"><span class="pre">{&quot;0&quot;:</span> <span class="pre">{&quot;dOut&quot;:</span> <span class="pre">1}}</span></code> (Mogelijk komt deze waarde je bekend voor.)
+Tip: bij het invoeren van een JSON-waarde kun je de JSON-editor gebruiken,
+via de <code class="docutils literal notranslate"><span class="pre">...</span></code> rechts in het edit-venster.</li>
+<li>Maak een kopie van de inject-node, en laat deze als JSON-waarde genereren: <code class="docutils literal notranslate"><span class="pre">{&quot;0&quot;:</span> <span class="pre">{&quot;dOut&quot;:</span> <span class="pre">0}}</span></code>.
+Verbind deze inject-node met dezelfde debug-node.</li>
+<li>Zorg ervoor dat de tweede inject-node 5 seconden later begint dan de eerste:
+<code class="docutils literal notranslate"><span class="pre">inject</span> <span class="pre">once</span> <span class="pre">after</span> <span class="pre">5</span> <span class="pre">seconds</span></code> (in de node-configuration).
+Als het goed is krijg je nu om de 5 seconden een bericht te zien.</li>
+<li>Voeg een MQTT output-node toe (als in het dashboard).
+Verbind de output van beide inject-nodes met de MQTT output-node.
+Configureer de MQTT output-node (zoals bij de dashboard-opdracht);
+gebruik als topic: <code class="docutils literal notranslate"><span class="pre">node/xxxx/actuators</span></code>,
+waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> de ID van het IOT-knoop is.</li>
+</ol>
+<p>Als het goed is knippert de LED van je IoT-knoop nu: 5 seconden aan, 5 uit, enz.</p>
+<p>Deze manier van werken is typisch voor NodeRed: je bouwt een flow beetje voor beetje op,
+waarbij je in het begin veel gebruik maakt van inject- en debug-nodes.
+Je test hiermee elke stap.
+Deze nodes kun je laten zitten tijdens het gebruik:
+een debug-node kun je eenvoudig uitschakelen als je deze even niet nodig hebt.</p>
+<p>Opmerkingen:</p>
+<ul class="simple">
+<li>je kunt in het debug-venster aangeven dat je alleen de “current flow” wilt zien;</li>
+<li>je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).</li>
+</ul>
 </div>
 <div class="section" id="nodered-faq">
 <h2>NodeRed FAQ<a class="headerlink" href="#nodered-faq" title="Permalink naar deze titel">¶</a></h2>
@@ -461,7 +533,7 @@ Daar tellen ook de verborgen nodes in mee.</p>
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

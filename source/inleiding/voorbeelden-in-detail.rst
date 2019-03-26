@@ -1,9 +1,9 @@
-*********************
-Voorbeelden in detail
-*********************
+***********
+Voorbeelden
+***********
 
-We geven hier enkele voorbeelden in meer detail.
-Daarna geven we een grotere lijst van voorbeelden waarvan je de details elders in het web kunt vinden.
+We geven hier enkele uitgebreidere voorbeelden.
+Verder in dit hoofdstuk geven we een grotere lijst van voorbeelden waarvan je de details elders in het web kunt vinden.
 
 Voorbeeld: watersproeier
 ========================
@@ -110,51 +110,6 @@ Omdat je dit kunt zien als een lokaal verlengstuk van de *cloud* heet dit wel *f
 De globale controller zorgt voor de bereikbaarheid in het internet,
 en voor de koppeling met diensten elders.
 
-Eisen aan de communicatie
--------------------------
-
-We gaan in een volgend hoofdstuk dieper in op de manier waarop we de verschillende onderdelen kunnen verbinden.
-Op basis van kennis van de toepassing kunnen we al wel de eisen aan de communicatie formuleren.
-Enkele voorbeelden van eisen:
-
-* bandbreedte (bitrate): voor de toepassing kunnen we bepalen hoeveel berichten we in een bepaalde tijd willen sturen,
-  en wat de omvang van die berichten is (in bits of in bytes);
-* latency (vertraging): in het bijzonder bij een besturingstoepassing moeten we ervoor zorgen
-  dat de tijd tussen het signaleren van een *event* (gebeurtenis) door een sensor en
-  het aansturen van de actuator(en) niet te groot is:
-  de maximale reactietijd wordt bepaald door de snelheid van het (fysieke) proces dat je aanstuurt.
-* draadloos of bedraad: veel toepassingen eisen dat de verbinding tussen de sensoren/actuatoren en de controller draadloos is:
-  draden belemmeren bijvoorbeeld de plaatsing of de beweging van de sensoren, en daarmee van het "ding" waaraan deze sensoren gekoppeld zijn.
-* andere eisen, bijvoorbeeld beveiliging en privacy;
-  je wilt bijvoorbeeld niet dat een besturing door anderen overgenomen kan worden.
-
-In het voorbeeld van de sproeier hebben we de volgende eisen:
-
-* bandbreedte (bitrate):
-    * bodemvochtigheid: 1 bericht per 5-10 minuten, 1 byte per bericht;
-    * actuator: 1 bericht per 30 minuten(?), 1 byte per bericht;
-    * temperatuursensor: 1 bericht per 5-10 minuten, 1 byte per bericht;
-    * regensensor: 1 bericht per 5-10 minuten, 1 byte per bericht;
-* latency: deze is niet kritisch (minuten), het fysische proces van besproeien van een grasveld is langzaam.
-* draadloos of bedraad: de verbinding tussen de controller, de actuator(s) en de sensoren is bij voorkeur draadloos.
-
-.. admonition:: Hoeveel bits heb je nodig?
-
-  Bij het bepalen van het aantal bits (of bytes) voor een sensormeting of een actuator-aansturing
-  moet je weten (i) wat het *bereik* is, en (2) wat de vereiste *precisie* is.
-
-  Bijvoorbeeld: je wilt temperatuur meten in het bereik -20..50 (Celcius),
-  met een precisie van 0,5 graad.
-  Je gebruik dan het bereik -40..100, waarbij je dit getal later door 2 deelt.
-
-  Voor een getal in het bereik 0..255 heb je 8 bits nodig (1 byte).
-  Je kunt dit bereik ook verschuiven, bijvoorbeeld -128..127, of -100..155.
-  Het aantal bits blijft dan gelijk.
-  Je kunt het bereik ook schalen (de komma verschuiven), bijvoorbeeld 0,0..25,5 (Celsius).
-  Vaak is het bij deze schaling handiger om door een macht van 2 te delen,
-  dan door een macht van 10.
-
-  Je kunt ook met grotere getallen werken: 0..1023 (10 bits), 0..1000000 (20 bits), enz.
 
 
 Samenvatting
@@ -224,3 +179,4 @@ Ook met alleen sensoren, voor bewaking (*monitoring*), zijn al veel zinvolle IoT
 .. todo::
 
   * Monitoring voorbeeld(en)
+  * bijvoorbeeld: monitoring van bijenkast

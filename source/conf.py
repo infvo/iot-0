@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'iot-0'
-copyright = '2018, SLO'
+copyright = '2019, SLO'
 author = 'Eelco Dijkstra'
 
 # The short X.Y version

@@ -1,6 +1,6 @@
-***********
-Voorbeelden
-***********
+****************
+Meer voorbeelden
+****************
 
 .. bij de inleiding
 

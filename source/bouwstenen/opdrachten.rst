@@ -67,8 +67,8 @@ Er zijn ook desktop-applicaties waarmee je deze opdrachten kunt uitvoeren.
 Een voorbeeld is MQTTbox (http://workswithweb.com/mqttbox.html).
 
 
-(1) Een eerste IoT-keten
-========================
+1. Een eerste IoT-keten
+=======================
 
 Een eerste voorbeeld van een IoT-keten, van IoT-knoop tot toepassings ("app"), bestaat uit de volgende onderdelen:
 
@@ -83,6 +83,8 @@ Een eerste voorbeeld van een IoT-keten, van IoT-knoop tot toepassings ("app"), b
    :align: center
 
    IoT-knoop simulator
+
+.. rubric:: Opdracht 1.1 
 
 Voer de onderstaande stappen uit:
 
@@ -108,8 +110,8 @@ Opmerkingen:
 * je kunt meerdere (gesimuleerde) IoT-knopen hebben met dezelfde node-ID:
   deze zijn op het MQTT-niveau niet van elkaar te onderscheiden.
 
-(2) een tweede IoT-keten
-========================
+2. een tweede IoT-keten
+=======================
 
 .. todo::
 
