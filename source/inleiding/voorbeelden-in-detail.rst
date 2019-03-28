@@ -93,23 +93,25 @@ Externe diensten spelen daarvoor een belangrijke rol.
 Meerdere controllers
 --------------------
 
-.. figure:: controller-controller.png
-    :width: 500px
+.. figure:: IoT-node-controller-controller.png
+    :width: 600px
     :align: center
 
 Vaak heeft het zin om controllers op meerdere niveaus te gebruiken,
-bijvoorbeeld een controller direct bij de sensoren/actuatoren,
-een controler in de buurt van de eigenlijke toepassing,
+bijvoorbeeld een (micro)controller direct bij de sensoren/actuatoren (in een "IoT-knoop"),
+een controller in de buurt van de eigenlijke toepassing,
 en een controller die bereikbaar is in het publieke internet.
 
-De lokale controller(s) zorgen voor lokale autonomie,
-voor snelle beslissingen (door lage latency),
-en verminderen de druk op de communicatie naar en het rekenwerk in de *cloud*.
-Omdat je dit kunt zien als een lokaal verlengstuk van de *cloud* heet dit wel *fog computing*.
+De IoT-knoop controller en de lokale controller zorgen voor lokale autonomie,
+voor snelle beslissingen (door lage latency vanwege de kleine afstand),
+verminderen de druk op de communicatie met en het rekenwerk in de *cloud*,
+en maken een betere beveiliging mogelijk.
+Omdat je het rekenwerk in de lokale controllers kunt zien als een lokaal verlengstuk van de *cloud* heet dit wel *fog computing*.
 
 De globale controller zorgt voor de bereikbaarheid in het internet,
 en voor de koppeling met diensten elders.
 
+Dit gebruik van meerdere controllers is een voorbeeld van *distributie* van functionaliteit in een netwerk.
 
 
 Samenvatting
@@ -157,6 +159,13 @@ Aan het internet
 Je kunt met de app de lampen ook op afstand bedienen, via het internet.
 Hiervoor maakt de app contact met de hue-server/controller in het publieke internet,
 die weer contact maakt met de lokale controller.
+
+We hebben hier te maken met 3 lagen van controllers:
+
+* de lampen en de schakelaars zijn IoT-knopen, met lokaal sensor(en)/actuator(en),
+  een microcontroller, en een radio;
+* de bridge is de lokale controller;
+* de server in het publieke internet is de globale controller. 
 
 Andere controllers
 ------------------

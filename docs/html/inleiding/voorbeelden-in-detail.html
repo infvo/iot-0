@@ -194,18 +194,20 @@ Externe diensten spelen daarvoor een belangrijke rol.</p>
 <div class="section" id="meerdere-controllers">
 <h3>Meerdere controllers<a class="headerlink" href="#meerdere-controllers" title="Permalink naar deze titel">¶</a></h3>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/controller-controller.png"><img alt="../_images/controller-controller.png" src="../_images/controller-controller.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/IoT-node-controller-controller.png"><img alt="../_images/IoT-node-controller-controller.png" src="../_images/IoT-node-controller-controller.png" style="width: 600px;" /></a>
 </div>
 <p>Vaak heeft het zin om controllers op meerdere niveaus te gebruiken,
-bijvoorbeeld een controller direct bij de sensoren/actuatoren,
-een controler in de buurt van de eigenlijke toepassing,
+bijvoorbeeld een (micro)controller direct bij de sensoren/actuatoren (in een “IoT-knoop”),
+een controller in de buurt van de eigenlijke toepassing,
 en een controller die bereikbaar is in het publieke internet.</p>
-<p>De lokale controller(s) zorgen voor lokale autonomie,
-voor snelle beslissingen (door lage latency),
-en verminderen de druk op de communicatie naar en het rekenwerk in de <em>cloud</em>.
-Omdat je dit kunt zien als een lokaal verlengstuk van de <em>cloud</em> heet dit wel <em>fog computing</em>.</p>
+<p>De IoT-knoop controller en de lokale controller zorgen voor lokale autonomie,
+voor snelle beslissingen (door lage latency vanwege de kleine afstand),
+verminderen de druk op de communicatie met en het rekenwerk in de <em>cloud</em>,
+en maken een betere beveiliging mogelijk.
+Omdat je het rekenwerk in de lokale controllers kunt zien als een lokaal verlengstuk van de <em>cloud</em> heet dit wel <em>fog computing</em>.</p>
 <p>De globale controller zorgt voor de bereikbaarheid in het internet,
 en voor de koppeling met diensten elders.</p>
+<p>Dit gebruik van meerdere controllers is een voorbeeld van <em>distributie</em> van functionaliteit in een netwerk.</p>
 </div>
 <div class="section" id="samenvatting">
 <h3>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h3>
@@ -245,6 +247,13 @@ hiervoor gebruik je de app die via het lokale (WiFi) netwerk verbinding maakt me
 <p>Je kunt met de app de lampen ook op afstand bedienen, via het internet.
 Hiervoor maakt de app contact met de hue-server/controller in het publieke internet,
 die weer contact maakt met de lokale controller.</p>
+<p>We hebben hier te maken met 3 lagen van controllers:</p>
+<ul class="simple">
+<li>de lampen en de schakelaars zijn IoT-knopen, met lokaal sensor(en)/actuator(en),
+een microcontroller, en een radio;</li>
+<li>de bridge is de lokale controller;</li>
+<li>de server in het publieke internet is de globale controller.</li>
+</ul>
 </div>
 <div class="section" id="andere-controllers">
 <h3>Andere controllers<a class="headerlink" href="#andere-controllers" title="Permalink naar deze titel">¶</a></h3>
