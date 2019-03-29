@@ -6,7 +6,7 @@ Publieke broker
 Met een MQTT-broker in het publieke netwerk kunnen we toepassingen in het internet koppelen aan lokale IoT-knopen.
 Via deze broker kunnen we de IoT-knoop op afstand bedienen, bijvoorbeeld via een web-toepassing.
 
-.. figure:: IoT-nobridge-1.png
+.. figure:: IoT-keten-WiFi-MQTT.png
    :width: 600 px
    :align: center
 
@@ -22,11 +22,11 @@ en (ii) de communicatie verloopt via het publieke internet, met meer veiligheids
 Lokale broker
 -------------
 
-.. figure:: IoT-lokale-gateway-1.png
+.. figure:: IoT-keten-local-broker.png
    :width: 600 px
    :align: center
 
-   Lokale MQTT-broker als bridge naar publieke broker
+   Lokale MQTT-broker en lokale controller
 
 Door het gebruik van een lokale broker kunnen we de lokale interacties binnen het lokale netwerk houden:
 dit komt de latency en de veiligheid ten goede.

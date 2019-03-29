@@ -48,7 +48,7 @@ In deze keten komen we meestal de volgende onderdelen tegen:
 * *gateways*, om deze IoT-knopen aan het internet te verbinden;
 * *servers en brokers* in het publieke internet, als publiek toegangspunt voor de data van de IoT-knopen;
 * *diensten* op het gebied van Data Science, Artificial Intelligence, visualisatie e.d.;
-* *controllers*, voor het besturen van de IoT-knopen, in combinatie met verschillende diensten en toepassingen;
+* *controllers*, bijvoorbeeld op basis van NodeRed, voor het besturen van de IoT-knopen, in combinatie met verschillende diensten en toepassingen;
 * *protocollen* voor datatransporten en voor interactie tussen de verschillende onderdelen.
 
 De IoT-knopen vormen de buitenkant ("edge") van het Internet of Things.

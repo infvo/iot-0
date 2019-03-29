@@ -1,8 +1,8 @@
 Webserver-keten
 ===============
 
-.. figure:: IoT-webserver-1.png
-   :width: 300 px
+.. figure:: IoT-keten-WiFi-HTTP.png
+   :width: 500 px
    :align: center
 
    IoT-knoop als webserver
@@ -16,7 +16,7 @@ In de webserver-keten hebben we te maken met de volgende spelers (*agents*):
 * *webclient*: een browser op een computer of smartphone,
   draadloos (WiFi) of bedraad (Ethernet)verbonden in het lokale netwerk.
 
-Een derde speler is de lokale WiFi-router: deze zorgt voor de fysieke verbinding tussen deze spelers.
+Een derde speler is het lokale WiFi-access point/router: deze zorgt voor de fysieke verbinding tussen deze spelers.
 Deze heeft verder geen invloed op de interactie tussen de webclient en de webserver.
 
 De webserver is in het lokale netwerk verbonden, en daardoor (meestal) niet toegankelijk via het publieke internet.

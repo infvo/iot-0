@@ -41,8 +41,8 @@ de webserver stuurt in de *response* een HTML-document, dat de browser vervolgen
 Het HTML-document is in dit geval het gebruikersinterface van het apparaat.
 De client-server interactie via HTTP is een "pull" interactie: het initiatief voor de interactie ligt bij de browser.
 
-.. figure:: webserver/IoT-webserver-1.png
-   :width: 300 px
+.. figure:: webserver/IoT-keten-WiFi-HTTP.png
+   :width: 600 px
    :align: center
 
    IoT-knopen met webserver

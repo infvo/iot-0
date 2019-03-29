@@ -5,7 +5,7 @@ LoRaWan-keten
 De LoRaWan-keten
 ================
 
-.. figure:: IoT-LoRaWan.png
+.. figure:: IoT-keten-LoRaWan.png
   :width: 600px
   :align: center
 

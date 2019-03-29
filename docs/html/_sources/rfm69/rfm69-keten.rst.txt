@@ -2,7 +2,7 @@
 RFM69 keten
 ===========
 
-.. figure:: IoT-rfm69-keten.png
+.. figure:: IoT-keten-RFM69.png
   :width: 600 px
   :align: center
 
