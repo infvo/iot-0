@@ -83,8 +83,8 @@ De figuur hierboven geeft de verschillende onderdelen weer van een IoT-knoop "ki
 sensoren/actuatoren, controller, radio, batterij.
 In de praktijk worden deze onderdelen verder geïntegreerd.
 
-NodeRed
-=======
+Controller: NodeRed
+===================
 
 .. figure:: Nodered-chat-flow.png
    :width: 500 px

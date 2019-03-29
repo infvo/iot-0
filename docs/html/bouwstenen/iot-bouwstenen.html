@@ -264,7 +264,7 @@ We gebruiken dan een <em>gateway</em> om het IoT-knoop-protocol om te zetten naa
 </div>
 <p>Bij een dergelijke omzetting (protocolconversie) moeten we rekening houden met de complete protocolstack,
 tot en met de toepassing.
-Bijvoorbeeld, in de RFM69-gateway moeten we de berichten van de IoT-knopen omzetten naar MQTT-berichten in het formaat van onze toepassing.</p>
+Voorbeeld: in de RFM69-gateway moeten we de berichten van de IoT-knopen omzetten naar MQTT-berichten in het formaat van onze toepassing.</p>
 </div>
 <div class="section" id="mqtt-broker">
 <h2>MQTT-broker<a class="headerlink" href="#mqtt-broker" title="Permalink naar deze titel">¶</a></h2>
@@ -277,7 +277,7 @@ van IoT-knopen tot controllers en servers.</p>
 <p class="caption"><span class="caption-text">Publish-subscribe interactie (MQTT)</span></p>
 </div>
 <p>Een MQTT-client <em>publiceert</em> een MQTT-bericht naar de broker, gelabeld met een bepaald <em>topic</em>.
-De MQTT-broker stuurt dit bericht door naar alle clients
+De MQTT-broker stuurt dit bericht door (“push”) naar alle clients
 die eerder via <em>subscribe</em> hun interesse voor berichten in dit topic aangegeven hebben.</p>
 </div>
 </div>

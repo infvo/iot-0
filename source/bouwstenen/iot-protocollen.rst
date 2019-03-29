@@ -68,3 +68,48 @@ Protocol-conversie
 ------------------
 
 * gateway (...toepassing in de gateway...)
+
+Inleiding
+=========
+
+Concepten
+
+* end-to-end protocol
+* adressering (in de verschillende protocollen)
+* protocol-stack (stapeling van protocollen)
+* interactie: client-server, publish-subscribe
+
+
+Bij de communicatie tussen de onderdelen van een IoT-keten hebben we te maken met verschillende *protocollen*.
+op meerdere niveau's.
+
+In het internet ziet de *protocolstack* er als volgt uit:
+
+* toepassingenlaag - met protocollen als MQTT en HTTP, en de protocollen daarboven
+* transportlaag - TCP (en TLS, voor veilge verbindingen), UDP
+* netwerklaag - IP ("internet protocol")
+* datalink-laag - (fysieke laag) op basis van Ethernet, WiFi, enz.
+
+De onderste twee lagen vormen de verbinding in het netwerk.
+De lagen daarboven zijn *end-to-end* protocollen: deze vind je in de *end devices*, niet in het (IP)netwerk.
+Voorbeelden van end-devices: IoT-knoop, controller, server, browser.
+Voorbeelden van network-devices: gateway, router, firewall,
+
+Een bijzonder geval in deze context is een MQTT-broker:
+vanuit de toepassingen bekenen is dit eigenlijk een network-device,
+vanuit het internet-netwerk is dit een end-device.
+
+We kunnen bovenop MQTT en HTTP onze eigen end-to-end toepassingsprotocol bedenken.
+In de voorbeelden gebruiken we een protocol voor de sensor/actuatordata van de IoT-knopen.
+Door hetzelfde protocol te gebruiken voor de verschillende IoT-ketens,
+met verschillende radio's in de "edge", kunnen we de rest van de keten grotendeels gelijk houden.
+
+
+Interactie
+----------
+
+Het webprotocol HTTP gebruikt een *client-server* interactie;
+de browser is client van de webserver.
+(Ook andere programma's kunnen als webclient optreden.)
+
+Het IoT-protocol MQTT gebruikt een *publish-subscribe* interactie.
