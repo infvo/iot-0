@@ -34,25 +34,25 @@ hoe kleiner en lichter (en goedkoper) een IoT-knoop, voor des te meer "dingen" k
 
 .. rubric:: De IoT-keten: van sensoren en actuatoren tot beslissingen
 
-.. figure:: bouwstenen/IoT-lokale-gateway-1.png
-  :width: 600px
+.. figure:: bouwstenen/IoT-keten-RFM69.png
+  :width: 500px
   :align: center
 
   Voorbeeld van een IoT-keten
 
-Een IoT-toepassing omvat een keten van onderdelen, van sensoren en actuatoren tot besluitvorming, mogelijk ondersteund door Data Science en Artificial Intelligence.
+Een IoT-toepassing omvat een keten van onderdelen, van sensoren en actuatoren tot besluitvorming,
+mogelijk ondersteund door Data Science en Artificial Intelligence.
 In deze keten komen we meestal de volgende onderdelen tegen:
 
 * *IoT-knopen*, met sensoren en actuatoren verbonden aan de fysieke wereld;
 * *gateways*, om deze IoT-knopen aan het internet te verbinden;
 * *servers en brokers* in het publieke internet, als publiek toegangspunt voor de data van de IoT-knopen;
 * *diensten* op het gebied van Data Science, Artificial Intelligence, visualisatie e.d.;
-* *schakelpunten*, om verschillende diensten, data en protocollen te combineren;
+* *controllers*, voor het besturen van de IoT-knopen, in combinatie met verschillende diensten en toepassingen;
 * *protocollen* voor datatransporten en voor interactie tussen de verschillende onderdelen.
 
 De IoT-knopen vormen de buitenkant ("edge") van het Internet of Things.
 Eén van de ontwerpvragen bij een Internet of Things-toepassing is hoe het rekenwerk verdeeld moet worden over de "edge" en de kern (servers) van het IoT.
-
 
 .. toctree::
   :hidden:
