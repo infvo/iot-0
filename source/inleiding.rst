@@ -99,10 +99,10 @@ Tenslotte geven we een lijst van mogelijke IoT-toepassingen op allerlei gebied.
   :maxdepth: 2
   :hidden:
 
-  inleiding/voorbeelden-in-detail.rst
+  inleiding/voorbeelden.rst
   inleiding/iot-eisen.rst
   inleiding/gevolgen.rst
-  inleiding/voorbeelden.rst
+  inleiding/meer-voorbeelden.rst
   inleiding/overzicht.rst
   inleiding/opdrachten.rst
   inleiding/toetsvragen.rst
