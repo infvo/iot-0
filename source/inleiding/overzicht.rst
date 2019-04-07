@@ -15,11 +15,11 @@ de andere onderdelen van deze knoop zorgen voor de verwerking van de data en voo
 
   IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding
 
-  .. figure:: tripler-node-display.jpg
-    :width: 350px
+  .. figure:: swing-m0-rfm69-accu-1.jpg
+    :width: 500px
     :align: center
 
-    IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding
+    IoT-knoop: sensoren, microcontroller, radio, batterij
 
 
 

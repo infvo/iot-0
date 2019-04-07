@@ -169,6 +169,10 @@ Zo’n knoop omvat gewoonlijk:</p>
 </ul>
 <p>Voor de draadloze communicatie gebruiken we verschillende radio’s (WiFi, RFM69, LoRa).
 De eisen die het “ding” stelt aan bitrate, bereik, mobiliteit en energieverbruik bepalen de keuze voor de radio.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/IoT-knoop-rfm69-2.png"><img alt="../_images/IoT-knoop-rfm69-2.png" src="../_images/IoT-knoop-rfm69-2.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Een IoT-knoop: sensoren, radio, microcontroller</span></p>
+</div>
 <p>Voor de microcontroller voor de besturing zijn er ook meerdere alternatieven, zoals Atmega AVR (Arduino), ESP8266, ESP32, ARM.
 De keuze voor de microcontroller hangt meer af van de eigen voorkeur en omstandigheden dan van de eisen van de toepassing.
 We gaan hier niet verder in op deze keuzemogelijkheden.</p>
@@ -178,7 +182,7 @@ In de praktijk worden deze onderdelen verder geïntegreerd.</p>
 </div>
 <div class="section" id="controller-nodered">
 <h2>Controller: NodeRed<a class="headerlink" href="#controller-nodered" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id5">
 <a class="reference internal image-reference" href="../_images/Nodered-chat-flow.png"><img alt="../_images/Nodered-chat-flow.png" src="../_images/Nodered-chat-flow.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed Chat flow</span></p>
 </div>
@@ -194,7 +198,7 @@ Een NodeRed-server is in onze voorbeelden vrijwel altijd onderdeel van de IoT-ke
 </div>
 <div class="section" id="app-dashboard">
 <h2>App: dashboard<a class="headerlink" href="#app-dashboard" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id6">
 <a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-0.png"><img alt="../_images/Nodered-dashboard-display-0.png" src="../_images/Nodered-dashboard-display-0.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">Web-app voorbeeld: dashboard</span></p>
 </div>
@@ -258,7 +262,7 @@ We proberen deze in een toekomstige versie van dit materiaal toe te voegen.</p>
 <p>Soms kunnen we de IoT-knopen niet rechstreeks in het internet verbinden,
 bijvoorbeeld omdat deze knopen een ander (eenvoudiger) protocol gebruiken.
 We gebruiken dan een <em>gateway</em> om het IoT-knoop-protocol om te zetten naar het IP-protocol, en omgekeerd.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id7">
 <a class="reference internal image-reference" href="../_images/IoT-0-stacks-gateway.png"><img alt="../_images/IoT-0-stacks-gateway.png" src="../_images/IoT-0-stacks-gateway.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-text">IoT-gateway</span></p>
 </div>
@@ -272,7 +276,7 @@ Voorbeeld: in de RFM69-gateway moeten we de berichten van de IoT-knopen omzetten
 MQTT gebruikt een <em>Publish-Subscribe</em> interactie - in plaats van de Client-Server interactie van het web (HTTP).
 De MQTT-broker verbindt de verschillende soorten clients op een symmetrische manier,
 van IoT-knopen tot controllers en servers.</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id8">
 <a class="reference internal image-reference" href="../_images/MQTT.png"><img alt="../_images/MQTT.png" src="../_images/MQTT.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-text">Publish-subscribe interactie (MQTT)</span></p>
 </div>
