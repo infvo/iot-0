@@ -9,11 +9,11 @@ Met de MQTT-input- en output-nodes sluiten we deze flows aan op de IoT-knopen.
 .. admonition:: Je hebt nodig
 
   * (gratis) FRED-account voor NodeRed (in het publieke internet)
-  * MQTT-broker in het publieke netwerk, bijvoorbeeld: ``infvopedia.nl:1884``;
+  * MQTT-broker in het publieke netwerk, bijvoorbeeld: ``infvopedia.nl:1883``;
     Vraag de toegangsgegevens hiervoor aan je docent;
-  * mqttt web-app: http://infvopedia.nl:1884/mqttt.html;
-  * zo mogelijk: IoT-knoop (ESP8266) met toepassing: ``mqtt-node-0``;
-  * alternatief: IoT-knoop-simulator: http://infvopedia.nl:1884/iotnode-app.html
+  * mqt3 web-app: http://infvopedia.nl/mqt3.html;
+  * zo mogelijk: IoT-knoop (ESP8266) met toepassing: ``mqtt-node-x``;
+  * alternatief: IoT-knoop-simulator: http://infvopedia.nl/iotnode-app.html
 
 Je kunt werken met een voorgeconfigureerde IoT-knoop.
 Voor het configureren van de IoT-knoop, zie IoT-1.

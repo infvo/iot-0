@@ -17,8 +17,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="Toetsvragen" href="toetsvragen.html" />
-    <link rel="prev" title="NodeRed-opdrachten" href="nodered-opdrachten.html" />
 
 <script type="application/json" class="js-hypothesis-config">
 {
@@ -43,26 +41,10 @@
 
 
 <h3>Navigatie</h3>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../webserver.html">Webserver-knopen</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="webserver-keten.html">Webserver-keten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webserver-protocol.html">Protocollen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Webserver-Opdrachten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nodered-opdrachten.html">NodeRed-opdrachten</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">NodeRed-opdrachten-1</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#eerste-flow-vervolg">1. Eerste flow (vervolg)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#eerste-webserver">2. Eerste webserver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#een-tweede-pagina">3. Een tweede pagina</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#een-teller">4. Een teller</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#led-besturing">5. LED-besturing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#webformulieren">6. Webformulieren</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
@@ -80,10 +62,6 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../webserver.html">Webserver-knopen</a><ul>
-      <li>Previous: <a href="nodered-opdrachten.html" title="vorig hoofdstuk">NodeRed-opdrachten</a></li>
-      <li>Next: <a href="toetsvragen.html" title="volgend hoofdstuk">Toetsvragen</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -110,11 +88,10 @@
 <div class="admonition-leerdoelen-en-concepten admonition">
 <p class="first admonition-title">Leerdoelen en concepten</p>
 <ul class="last simple">
-<li>Kennismaking met NodeRed, voor het configureren van datastromen, koppelen van data, acties en diensten;</li>
 <li>Gebruik van NodeRed als Webserver;</li>
 <li>Kennismaking met het HTTP-protocol, met behulp van NodeRed;</li>
-<li>NodeRed voorbeeld: dashboard van sensordata</li>
-<li>NodeRed voorbeeld: bediening van de actuatoren (LED)</li>
+<li>NodeRed voorbeeld: dashboard van sensordata;</li>
+<li>NodeRed voorbeeld: bediening van de actuatoren (LED);</li>
 </ul>
 </div>
 <div class="admonition-wat-heb-je-nodig admonition">
@@ -130,39 +107,10 @@
 </li>
 </ul>
 </div>
-<div class="section" id="eerste-flow-vervolg">
-<h2>1. Eerste flow (vervolg)<a class="headerlink" href="#eerste-flow-vervolg" title="Permalink naar deze titel">¶</a></h2>
-<p>Maak onderstaande flow in een nieuw flow-venster:</p>
-<div class="figure align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/Nodered-flow11.png"><img alt="../_images/Nodered-flow11.png" src="../_images/Nodered-flow11.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed: eerste flow</span></p>
-</div>
-<p>Bekijk eventueel de opdracht in het vorige hoofdstuk (REF).</p>
-<p>Deze beide nodes, de inject-node en de debug-node, gebruik je vaak voor het testen en debuggen van een flow.
-Het is handig als je weet hoe je deze kunt gebruiken.</p>
-<p><strong>N.B.: vergeet niet na elke verandering de flow opnieuw te activeren (rode Deploy-knop, rechts boven).</strong></p>
-<ol class="arabic simple">
-<li>Door op de knop links op de debug-node te klikken “injecteer” je een timestamp in de flow:
-de huidige tijd, als geheel getal. Via de debug-node krijg je dit te zien in het debug-venster.
-Controleer of dit werkt.</li>
-<li>Met de knop rechts op de debug-node kun je deze node tijdelijk uitschakelen. Controleer of dit werkt.
-(Vergeet niet te “deploy”-en!)</li>
-<li>Je kunt de inject-node ook automatisch laten werken; configureer deze node (dubbel-klik op de node):
-zet “Repeat” van “none” naar “interval” (every 1 seconds). Bewaar deze aanpassing (“Done” knop).
-Controleer of dit werkt.</li>
-<li>Je kunt de inject-node ook andere waarden laten injecteren. Configureer deze node:
-selecteer als “payload”: string, en vul als waarde in: “Hallo wereld”.
-Bewaar deze aanpassing, en controleer of dit werkt.</li>
-</ol>
-<p>Opmerkingen:</p>
-<ul class="simple">
-<li>je kunt in het debug-venster aangeven dat je alleen de “current flow” wilt zien;</li>
-<li>je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).</li>
-</ul>
-</div>
+<p>Voorkennis: elementaire HTML-kennis.</p>
 <div class="section" id="eerste-webserver">
-<h2>2. Eerste webserver<a class="headerlink" href="#eerste-webserver" title="Permalink naar deze titel">¶</a></h2>
-<p>NodeRed is een webserver op basis van Node.js.
+<h2>1. Eerste webserver<a class="headerlink" href="#eerste-webserver" title="Permalink naar deze titel">¶</a></h2>
+<p>NodeRed is een HTTP-server op basis van Node.js.
 Dit kun je vergelijken met Apache of Nginx op andere systemen.
 Met NodeRed kun je snel een simpele webserver maken.
 We gebruiken dit voor het bestuderen van het HTTP-protocol.</p>
@@ -198,7 +146,7 @@ We gebruiken dit voor het bestuderen van het HTTP-protocol.</p>
 <li>de HTTP-request <em>method</em>, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">GET</span></code> of <code class="docutils literal notranslate"><span class="pre">POST</span></code>.</li>
 </ul>
 <p>Maak met deze nodes de volgende flow:</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/Nodered-hello1.png"><img alt="../_images/Nodered-hello1.png" src="../_images/Nodered-hello1.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed http flow-voorbeeld</span></p>
 </div>
@@ -222,8 +170,9 @@ De andere verbindingen kun je laten zoals ze zijn.</li>
 Bijvoorbeeld:  <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/mypage</span></code></li>
 <li>voor een Raspberry Pi: de URL van de NodeRed-instantie, gevolgd door <code class="docutils literal notranslate"><span class="pre">/mypage</span></code>.</li>
 </ul>
-<p>In het geval van FRED moet je dit doen in een venster van de browser waarin je ook je NodeRed-flows geopend hebt;
-dit is een beperking van de gratis versie van FRED.</p>
+<p>In het geval van FRED moet je dit doen in een venster van de browser waarmee je ingelogd bent bij FRED.
+Dit betekent dat alleen jij deze website kunt zien, anderen niet.
+Dit is een beperking van de gratis versie van FRED.</p>
 <p>Een “normale” NodeRed-installatie heeft deze beperking niet: iedereen kan dan je webpagina zien.</p>
 <p>Als response in de browser krijg je:  <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">payload:</span> <span class="pre">[object</span> <span class="pre">Object]</span> <span class="pre">!</span></code></p>
 <ol class="arabic simple" start="6">
@@ -240,7 +189,7 @@ En “Done” en “Deploy”.</p>
 Controleer of je nu je eigen webpagina te zien krijgt.</p>
 </div>
 <div class="section" id="een-tweede-pagina">
-<h2>3. Een tweede pagina<a class="headerlink" href="#een-tweede-pagina" title="Permalink naar deze titel">¶</a></h2>
+<h2>2. Een tweede pagina<a class="headerlink" href="#een-tweede-pagina" title="Permalink naar deze titel">¶</a></h2>
 <p>De volgende stap is het maken van een tweede pagina voor je website.</p>
 <ol class="arabic simple">
 <li>Kopieer de flow met de 3 nodes: http-input, template, http-output.
@@ -279,7 +228,7 @@ en voeg toe onder <code class="docutils literal notranslate"><span class="pre">&
 </div>
 <p><em>Opmerking</em>: in deze html-code gebruiken we de URL <code class="docutils literal notranslate"><span class="pre">/api/mypage</span></code>.
 Dit is nodig voor de FRED-versie.
-Voor andere NodeRed-installaties laat je het <code class="docutils literal notranslate"><span class="pre">/api</span></code>-deel weg.</p>
+Voor andere NodeRed-installaties gebruik je als URL: <code class="docutils literal notranslate"><span class="pre">/mypage</span></code>.</p>
 <p>“Done” en “Deploy”.</p>
 <p>Bezoek deze pagina in de brower,
 en controleer of de link naar de homepagina werkt.</p>
@@ -294,11 +243,15 @@ Dit kun je dan inlezen via de file-node;
 in FRED is deze helaas niet beschikbaar.</p>
 </div>
 <div class="section" id="een-teller">
-<h2>4. Een teller<a class="headerlink" href="#een-teller" title="Permalink naar deze titel">¶</a></h2>
+<h2>3. Een teller<a class="headerlink" href="#een-teller" title="Permalink naar deze titel">¶</a></h2>
+<p>De website die we tot nu toe gemaakt hebben is <em>statisch</em>:
+dat wil zeggen dat de inhoud niet afhangt van de toestand van de server.
+Bij eenzelfde URL krijg je altijd hetzelfde resultaat.</p>
 <p>Een volgende stap is dat we de website voorzien van een bezoekers-teller:
 elke keer als er een http-verzoek voor een webpagina binnenkomt,
 verhogen we deze teller.
-We laten de huidige waarde van de teller in de webpagina zien.</p>
+We laten de huidige waarde van de teller in de webpagina zien.
+Dit is een eenvoudig voorbeeld van een <em>dynamische website</em>.</p>
 <p>Hiervoor maken we gebruik van context-variabelen in NodeRed,
 zie: <a class="reference external" href="https://nodered.org/docs/user-guide/context">https://nodered.org/docs/user-guide/context</a>.
 In een context kun je een waarde opslaan die tussen de verschillende request bewaard blijft.
@@ -345,7 +298,7 @@ Voeg in, vóór  <code class="docutils literal notranslate"><span class="pre">&l
 een volgende waarde van de teller krijgt.</p>
 </div>
 <div class="section" id="led-besturing">
-<h2>5. LED-besturing<a class="headerlink" href="#led-besturing" title="Permalink naar deze titel">¶</a></h2>
+<h2>4. LED-besturing<a class="headerlink" href="#led-besturing" title="Permalink naar deze titel">¶</a></h2>
 <p>In deze opdracht werken we uit hoe je via een webserver een LED kunt aansturen.
 In de FRED-versie hebben we geen toegang tot een LED;
 we simuleren deze door de kleur in de webpagina.</p>
@@ -354,7 +307,7 @@ Daarmee kun je eventueel een LED aansturen.</p>
 <p>Voor het aansturen van de LED gebruiken we twee URLs: <code class="docutils literal notranslate"><span class="pre">/ledon</span></code> en <code class="docutils literal notranslate"><span class="pre">/ledoff</span></code>.
 Hiervoor maken we twee flows, met voor elk dezelfde opzet als bij de teller:
 een http-input-node, een function-node, een template-node, en een http-output-node.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/Nodered-flow-led-on-off.png"><img alt="../_images/Nodered-flow-led-on-off.png" src="../_images/Nodered-flow-led-on-off.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed flow voor led-besturing</span></p>
 </div>
@@ -410,7 +363,7 @@ met de template-node in de flow van <code class="docutils literal notranslate"><
 Verwijder de tweede template-node en de bijbehorende http-output-node.
 Je krijgt dan onderstaande flow:</li>
 </ol>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/Nodered-flow-led-on-off-combined.png"><img alt="../_images/Nodered-flow-led-on-off-combined.png" src="../_images/Nodered-flow-led-on-off-combined.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Ledbesturing met gedeelde response-“staart”</span></p>
 </div>
@@ -438,7 +391,7 @@ je loopt bijvoorbeeld het risico dat je een artikel nog een keer bestelt.</p>
 </div>
 </div>
 <div class="section" id="webformulieren">
-<h2>6. Webformulieren<a class="headerlink" href="#webformulieren" title="Permalink naar deze titel">¶</a></h2>
+<h2>5. Webformulieren<a class="headerlink" href="#webformulieren" title="Permalink naar deze titel">¶</a></h2>
 <p>In deze opdracht gaan we aan de slag met een webformulier:
 in de browser vul je de waarden in het formulier in;
 de browser stuurt het formulier via een POST-request (in plaats van GET) naar de server;
@@ -490,7 +443,7 @@ maar als parameter van de formulier-URL.</p>
 <ol class="arabic simple">
 <li>Maak de volgende flow, door de nodes naar het flow-deel te slepen en te verbinden.</li>
 </ol>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/Nodered-form-flow-0.png"><img alt="../_images/Nodered-form-flow-0.png" src="../_images/Nodered-form-flow-0.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed form flow</span></p>
 </div>
@@ -551,7 +504,7 @@ Voor andere NodeRed-installaties laat je het <code class="docutils literal notra
 <ol class="arabic simple" start="7">
 <li>“Deploy” en test de website.</li>
 </ol>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id5">
 <a class="reference internal image-reference" href="../_images/Nodered-form-gauge.png"><img alt="../_images/Nodered-form-gauge.png" src="../_images/Nodered-form-gauge.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed flow: formulier met dashboard-meter</span></p>
 </div>
@@ -601,7 +554,7 @@ dat kan alleen vanuit JavaScript.
 Voorlopig behelpen we ons hier met een POST:
 we houden ons daarmee niet aan de regels voor REST API’s.</li>
 </ul>
-<p><em>Vraag</em>: bestudeer de (onoffiële) documentatie van de Philips Hue Bridge
+<p><em>Vraag</em>: bestudeer de (onofficiële) documentatie van de Philips Hue Bridge
 (<a class="reference external" href="http://www.burgestrand.se/hue-api/api/lights/">http://www.burgestrand.se/hue-api/api/lights/</a>).
 Met welke opdracht zet je een lamp aan? Met welke uit?</p>
 </div>
@@ -615,7 +568,7 @@ Met welke opdracht zet je een lamp aan? Met welke uit?</p>
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

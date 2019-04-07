@@ -44,11 +44,11 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bouwstenen</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bouwstenen/iot-bouwstenen.html">IoT-bouwstenen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bouwstenen/iot-ketens.html">IoT-ketens</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bouwstenen/iot-interacties.html">Interacties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bouwstenen/iot-protocollen.html">Protocollen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bouwstenen/opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bouwstenen/nodered-opdrachten.html">NodeRed opdrachten</a></li>
@@ -65,8 +65,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
 <div class="relations">
@@ -125,17 +125,18 @@ Tenslotte zijn de fysieke afmetingen en het gewicht van de IoT-knoop belang:
 hoe kleiner en lichter (en goedkoper) een IoT-knoop, voor des te meer “dingen” kun je deze gebruiken.</p>
 <p class="rubric">De IoT-keten: van sensoren en actuatoren tot beslissingen</p>
 <div class="figure align-center" id="id2">
-<a class="reference internal image-reference" href="_images/IoT-lokale-gateway-1.png"><img alt="_images/IoT-lokale-gateway-1.png" src="_images/IoT-lokale-gateway-1.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="_images/IoT-keten-RFM69.png"><img alt="_images/IoT-keten-RFM69.png" src="_images/IoT-keten-RFM69.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">Voorbeeld van een IoT-keten</span></p>
 </div>
-<p>Een IoT-toepassing omvat een keten van onderdelen, van sensoren en actuatoren tot besluitvorming, mogelijk ondersteund door Data Science en Artificial Intelligence.
+<p>Een IoT-toepassing omvat een keten van onderdelen, van sensoren en actuatoren tot besluitvorming,
+mogelijk ondersteund door Data Science en Artificial Intelligence.
 In deze keten komen we meestal de volgende onderdelen tegen:</p>
 <ul class="simple">
 <li><em>IoT-knopen</em>, met sensoren en actuatoren verbonden aan de fysieke wereld;</li>
 <li><em>gateways</em>, om deze IoT-knopen aan het internet te verbinden;</li>
 <li><em>servers en brokers</em> in het publieke internet, als publiek toegangspunt voor de data van de IoT-knopen;</li>
 <li><em>diensten</em> op het gebied van Data Science, Artificial Intelligence, visualisatie e.d.;</li>
-<li><em>schakelpunten</em>, om verschillende diensten, data en protocollen te combineren;</li>
+<li><em>controllers</em>, bijvoorbeeld op basis van NodeRed, voor het besturen van de IoT-knopen, in combinatie met verschillende diensten en toepassingen;</li>
 <li><em>protocollen</em> voor datatransporten en voor interactie tussen de verschillende onderdelen.</li>
 </ul>
 <p>De IoT-knopen vormen de buitenkant (“edge”) van het Internet of Things.
@@ -151,7 +152,7 @@ Eén van de ontwerpvragen bij een Internet of Things-toepassing is hoe het reken
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

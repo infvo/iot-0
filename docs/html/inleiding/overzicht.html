@@ -17,8 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="Opdrachten" href="opdrachten.html" />
-    <link rel="prev" title="Gebruikerseisen" href="iot-eisen.html" />
+    <link rel="next" title="Meer voorbeelden" href="meer-voorbeelden.html" />
+    <link rel="prev" title="Eisen aan de communicatie" href="iot-eisen.html" />
 
 <script type="application/json" class="js-hypothesis-config">
 {
@@ -44,12 +44,13 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../inleiding.html">Inleiding</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="voorbeelden-in-detail.html">Voorbeelden in detail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="voorbeelden.html">Voorbeelden</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Gebruikerseisen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Eisen aan de communicatie</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Overzicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meer-voorbeelden.html">Meer voorbeelden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>
@@ -65,8 +66,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
 <div class="relations">
@@ -74,8 +75,8 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../inleiding.html">Inleiding</a><ul>
-      <li>Previous: <a href="iot-eisen.html" title="vorig hoofdstuk">Gebruikerseisen</a></li>
-      <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
+      <li>Previous: <a href="iot-eisen.html" title="vorig hoofdstuk">Eisen aan de communicatie</a></li>
+      <li>Next: <a href="meer-voorbeelden.html" title="volgend hoofdstuk">Meer voorbeelden</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -107,13 +108,19 @@ de andere onderdelen van deze knoop zorgen voor de verwerking van de data en voo
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/IoT-knoop-01.png"><img alt="../_images/IoT-knoop-01.png" src="../_images/IoT-knoop-01.png" style="width: 350px;" /></a>
 <p class="caption"><span class="caption-text">IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding</span></p>
+<div class="legend">
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/tripler-node-display.jpg"><img alt="../_images/tripler-node-display.jpg" src="../_images/tripler-node-display.jpg" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding</span></p>
+</div>
+</div>
 </div>
 <p>Voor de koppeling tussen een IoT-knoop en het internet kunnen we kiezen uit verschillende technologische oplossingen,
 bijvoorbeeld voor verschillende soorten radio’s.
 De keuze voor een bepaalde technologie hangt af van de gebruikerseisen.</p>
 <p>In deze module maak je kennis met een aantal mogelijkheden voor de koppeling tussen een IoT-knoop en het internet.
 Met deze kennis kun je voor een bepaalde IoT-toepassing een passende technologische oplossing kiezen.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/IoT-keten-0.png"><img alt="../_images/IoT-keten-0.png" src="../_images/IoT-keten-0.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-text">IoT-keten: van IoT-knoop via “???” naar het internet, en via <em>mqtt/json</em> naar de web-toepassing</span></p>
 </div>
@@ -181,7 +188,7 @@ Via MQTT communiceer je met de IoT-node(s) (<em>device</em>) in deze application
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

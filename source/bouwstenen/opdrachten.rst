@@ -16,11 +16,11 @@ Deze broker fungeert ook als webserver voor de statische webtoepassing ``mqttt``
   alle actie en interactie vindt plaats in de browser, via JavaScript.
   De server gebruikt geen server-scripting (zoals PHP of Python) en geen server-database.
 
-.. _MQTTT:
+.. _MQT3:
 
-.. rubric:: De app MQTTT
+.. rubric:: De app MQT3
 
-Bij veel opdrachten gebruiken we de app MQTTT:
+Bij veel opdrachten gebruiken we de app MQT3:
 dit is een mqtt-client waarmee we mqtt-berichten kunnen sturen en ontvangen.
 Door de aard van het mqtt-protocol kunnen we daarmee ook *topics* "afluisteren".
 
@@ -28,12 +28,12 @@ Door de aard van het mqtt-protocol kunnen we daarmee ook *topics* "afluisteren".
    :width: 400 px
    :align: center
 
-   MQTTTest app
+   MQTTTest app (MQT3)
 
-De  web-app kun je vinden via de broker: http://infvopedia.nl:1884/mqttt.html.
+De  web-app kun je vinden via de broker: http://infvopedia.nl/mqt3.html.
 Hierin is ``infvopedia.nl`` de domeinnaam van de broker.
-``1884`` is het HTTP-poortnummer van de broker: de broker fungeert ook als (statische) webserver.
-MQTTT communiceert met de MQTT-broker via het *websockets* protocol (via poort 1884).
+De broker fungeert ook als (statische) webserver.
+MQT3 communiceert met de MQTT-broker via het *websockets* protocol.
 Het MQTT-protocol gebruikt poort ``1883``.
 
 De app heeft de volgende invoervelden en knoppen:
@@ -67,22 +67,24 @@ Er zijn ook desktop-applicaties waarmee je deze opdrachten kunt uitvoeren.
 Een voorbeeld is MQTTbox (http://workswithweb.com/mqttbox.html).
 
 
-(1) Een eerste IoT-keten
-========================
+1. Een eerste IoT-keten
+=======================
 
 Een eerste voorbeeld van een IoT-keten, van IoT-knoop tot toepassings ("app"), bestaat uit de volgende onderdelen:
 
 * een gesimuleerde IoT-knoop
-    * http://infvopedia.nl:1884/iotnode-app.html
+    * http://infvopedia.nl/iotnode-app.html
 * een MQTT-broker in het publieke internet;
-* het programma MQTTT, waarmee je het mqtt-verkeer van de sensor kunt bekijken.
-    * http://infvopedia.nl:1884/mqttt.html
+* het programma MQT3, waarmee je het mqtt-verkeer van de sensor kunt bekijken.
+    * http://infvopedia.nl/mqt3.html
 
 .. figure:: Iotnode-simulator-0.png
    :width: 400 px
    :align: center
 
    IoT-knoop simulator
+
+.. rubric:: Opdracht 1.1
 
 Voer de onderstaande stappen uit:
 
@@ -108,8 +110,8 @@ Opmerkingen:
 * je kunt meerdere (gesimuleerde) IoT-knopen hebben met dezelfde node-ID:
   deze zijn op het MQTT-niveau niet van elkaar te onderscheiden.
 
-(2) een tweede IoT-keten
-========================
+2. een tweede IoT-keten
+=======================
 
 .. todo::
 

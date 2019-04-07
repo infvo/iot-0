@@ -44,6 +44,7 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
@@ -63,8 +64,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
 <div class="relations">
@@ -99,7 +100,7 @@
   <div class="section" id="rfm69-keten">
 <h1>RFM69 keten<a class="headerlink" href="#rfm69-keten" title="Permalink naar deze titel">¶</a></h1>
 <div class="figure align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/IoT-rfm69-keten.png"><img alt="../_images/IoT-rfm69-keten.png" src="../_images/IoT-rfm69-keten.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/IoT-keten-RFM691.png"><img alt="../_images/IoT-keten-RFM691.png" src="../_images/IoT-keten-RFM691.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">De RFM69 keten</span></p>
 </div>
 <p>We gebruiken een eigen protocol voor de RFM69-radio:
@@ -295,6 +296,23 @@ de <em>nodeid</em> in het RFM69-LPP-pakket wordt ingevuld in het MQTT-topic <cod
 De gateway houdt daarom een tabel bij: nodeid -&gt; RFM69-adres.
 Als de gateway een RFM69-LPP-bericht ontvangt (in het formaat hierboven) wordt deze tabel bijgewerkt.
 Als de gateway vervolgens een MQTT-bericht ontvangt voor een topic met de nodeid van een lokale node, wordt dit (na omzetting) verstuurd naar de bijbehorende RFM69-node.</p>
+<hr class="docutils" />
+<div class="admonition-gateway-versus-bridge admonition">
+<p class="first admonition-title">Gateway versus bridge</p>
+<p class="last">We maken hier onderscheid tussen ‘’gateways’’ en ‘’bridges’‘:
+een bridge verbindt netwerken met eenzelfde protocol(stack),
+een gateway verbindt netwerken met verschillende protocollen.
+De omzetting in een bridge is dan beperkt tot de gemeenschappelijke onderste laag van de protocollen.
+Bij een gateway moet je de hele protocolstack hierbij betrekken.
+Een gateway is  vaak (aanzienlijk) complexer dan een bridge.
+Bovendien hebben veranderingen in de toepassing mogelijk gevolgen voor de gateway.
+Voor een bridge is de toepassing niet van belang.
+Overigens wordt deze terminologie, met een duidelijk onderscheid tussen bridge en gateway,
+niet overal op dezelfde manier gebruikt.</p>
+</div>
+<p>Ook als de IoT-knoop zelf de internet-protocolstack gebruikt kan het zinvol zijn om een bridge te gebruiken,
+om de lokale communicatie te scheiden van het publieke internet.
+Deze bridge kan er bijvoorbeeld zorgen voor de versleuteling van het verkeer naar het publieke internet.</p>
 </div>
 
 
@@ -304,7 +322,7 @@ Als de gateway vervolgens een MQTT-bericht ontvangt voor een topic met de nodeid
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

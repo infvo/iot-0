@@ -3,11 +3,12 @@ NodeRed opdrachten
 ******************
 
 In deze opdrachten maak je kennis met NodeRed.
-Je gebruik NodeRed voor een eenvoudige IoT-toepassing: een dashboard van een IoT-knoop.
+Je gebruikt NodeRed voor een eenvoudige IoT-toepassing: een dashboard van een IoT-knoop.
 Met dit dashboard kun je op een computer of op een smartphone de toestand van de IoT-knoop waarnemen,
 en de IoT-knoop besturen.
 
-Wat is NodeRed? P.M.
+Met NodeRed kun je allerlei protocollen, diensten en besturingen aan elkaar koppelen, op een grafische manier.
+Hiermee kun je je IoT-keten samenstellen van sensoren en actuatoren tot Data Science- en Artificial Intelligence-diensten.
 
 .. admonition:: Wat heb je nodig?
 
@@ -19,8 +20,15 @@ Wat is NodeRed? P.M.
       * een eigen hardware IoT-knoop, bijvoorbeeld een ESP8266-knoop met het programma ``esp8266-node-0``
         (zie https://infvo.github.io/iot-1/html/combinatie.html)
 
+Voorbereiding
+=============
+
+Lees als voorbereiding op de NodeRed-opdrachten eerst onderstaande tekst.
+Doe dit bij voorkeur met een geopende versie van NodeRed,
+zodat je de verschillende onderdelen direct kunt vinden en uitproberen.
+
 **Nodes en knopen**: om verwarring te voorkomen gebruiken we in deze opdrachten het woord "knoop" voor een IoT-knoop,
-en "node" voor een NodeRed-nodes
+en "node" voor een NodeRed-node.
 
 Nodes en flows
 --------------
@@ -98,10 +106,10 @@ Daaronder, van links naar rechts:
 * (alleen FRED) FRED-sidebar (links)
     * met het pijltje linksonder maak je deze (on)zichtbaar
 
-De volgende opdrachten zijn bedoeld om vertrouwd te raken met het user interface.
-Deze opdrachten hebben nog geen effect op de flows zelf.
+De volgende oefeningen zijn bedoeld om vertrouwd te raken met het user interface.
+Deze oefeningen hebben geen effect op de flows zelf.
 
-.. rubric:: Opdrachten
+.. rubric:: Oefenen met het NodeRed interface
 
 * klik op het hamburgermenu, en zoek de instellingen voor:
     * het (on)zichtbaar maken van de sidebar (info/debug/dashboard)
@@ -116,8 +124,30 @@ Deze opdrachten hebben nog geen effect op de flows zelf.
 * (alleen voor FRED):
     * maak de FRED-sidebar (links) onzichtbaar en weer zichtbaar
 
-Eerste flow
------------
+Dashboard-nodes installeren
+---------------------------
+
+.. admonition:: Installeren van dashboard-nodes
+
+  De dashboard-nodes zijn niet altijd beschikbaar in het node-palet links.
+  Voor het toevoegen van deze nodes aan NodeRed gebruik je de volgende stappen:
+
+  * selecteer hamburger-menu (rechts) -> Manage Palette
+  * selecteer de tab *Install*
+  * type in het zoekveld: dashboard
+  * klik op "install" voor *node-red-dashboard* *(A set of dashboard nodes for Node-RED)*
+  * na deze installatie zijn de nodes in het palet links beschikbaar.
+
+  Als je FRED gebruikt, dan installeer je de nodes als volgt:
+
+  * selecteer in de FRED-zijbalk (helemaal links): Tools-> add or remove nodes
+  * type in het zoekveld: dashboard
+  * vink aan: *Dashboard (a set of dashboard nodes for NodeRed)*.
+
+
+
+1. Eerste flow
+==============
 
 Met deze eerste flow kun je zien of alles werkt:
 
@@ -140,7 +170,7 @@ Hiervoor gebruik je de volgende nodes:
 .. |inject-node| image:: inject-node.png
 .. |debug-node| image:: debug-node.png
 
-.. rubric:: Opdracht 1
+.. rubric:: Opdracht 1.1
 
 Voer de onderstaande opdrachten uit in een lege (flow)tab in NodeRed.
 
@@ -154,16 +184,18 @@ Voer de onderstaande opdrachten uit in een lege (flow)tab in NodeRed.
 Als het goed is, krijg je in het debug-venster rechts nu de output van deze flow te zien.
 Elke keer als je op de input-node klikt, genereert deze een timestamp-event.
 
-.. rubric:: Opdracht 2
+.. rubric:: Opdracht 1.2
 
-* verander de configuratie van de inject-knoop: zorg ervoor dat deze elke minuut een timestamp oplevert.
-    * double-click op een knoop geeft het configuratie-vensterde
+Voor onderstaande opdrachten uit; test de uitwerking (na "Deploy") via de debug-tab.
+
+* verander de configuratie van de inject-knoop: zorg ervoor dat deze elke 10 seconden een timestamp oplevert.
+    * double-click op een knoop geeft het configuratie-venster;
     * bewaar de nieuwe configuratie via de "Done"-knop.
-* verander de configuratie van de inject-knoop: zorg ervoor dat deze een tekst levert als payload.
-* verbind meerdere inject-knopen met dezelfde debug-knoop.
+* verander de configuratie van de inject-knoop: zorg ervoor dat deze een tekst levert als inhoud van het bericht (payload).
+* verbind meerdere inject-knopen met herhalende berichten met dezelfde debug-knoop.
 
-Een IoT-dashboard
------------------
+2. Een IoT-dashboard
+====================
 
 Als voorbeeld van een complete flow gebruiken we een dashboard voor een IoT-knoop.
 Dit dashboard maakt de sensorwaarden van de IoT-knoop zichtbaar;
@@ -180,7 +212,7 @@ De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
 * op GitHub: `NodeRed dashboard (flow 1) <https://gist.github.com/eelcodijkstra/1f5e6bc7cab88e7fd230cdee8cb94d73>`_
 * op NodeRed-library: `ieni2018-iot-flow-1 <https://flows.nodered.org/flow/1f5e6bc7cab88e7fd230cdee8cb94d73>`_
 
-.. rubric:: Opdracht
+.. rubric:: Opdracht 2.1
 
 * importeer de dashboard-flow:
     * selecteer de flow-tekst (in JSON-formaat)), en kopieer deze naar het Clipboard
@@ -210,16 +242,58 @@ De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
     * "Done"
 * idem, voor de MQTT-output-node.
 
-Automatiseren
--------------
+3. Automatiseren
+================
 
 Via NodeRed kun je allerlei protocollen en toepassingen koppelen.
 Je kunt ook allerlei zaken automatiseren, bijvoorbeeld een lamp inschakelen als je thuiskomt.
 
-Een eenvoudige automatisering is het laten knipperen van de LED op de IoT-knoop.
+Een eenvoudige automatisering is het laten knipperen van LED-0 op de IoT-knoop.
+
+.. rubric:: Opdracht 3.1
+
+Maak een NodeRed-flow waarmee je LED-0 van een (gesimuleerde) IoT-knoop laat knipperen.
+Begin met de eenvoudige flow van Opdracht 1, en breid deze later uit met een MQTT-output-node.
+Vergeet niet aan het eind van elke opdracht de flow te activeren ("Deploy");
+controleer bij elke stap of het werkt.
+
+1. Door op de knop links op de debug-node te klikken "injecteer" je een timestamp in de flow:
+   de huidige tijd, als geheel getal. Via de debug-node krijg je dit te zien in het debug-venster.
+2. Met de knop rechts op de debug-node kun je deze node tijdelijk uitschakelen.
+3. Laat de inject-node automatisch werken. Configureer deze node (dubbel-klik op de node):
+   zet "Repeat" van "none" naar "interval" (every 10 seconds). Bewaar deze aanpassing ("Done" knop).
+4. Laat de inject-node een ander soort waarde injecteren. Configureer deze node:
+   selecteer als "payload" (inhoud van het bericht): string, en vul als waarde in: "Hallo wereld".
+   Bewaar deze aanpassing.
+5. Idem, maar nu met de JSON-waarde: ``{"0": {"dOut": 1}}`` (Mogelijk komt deze waarde je bekend voor.)
+   Tip: bij het invoeren van een JSON-waarde kun je de JSON-editor gebruiken,
+   via de ``...`` rechts in het edit-venster.
+6. Maak een kopie van de inject-node, en laat deze als JSON-waarde genereren: ``{"0": {"dOut": 0}}``.
+   Verbind deze inject-node met dezelfde debug-node.
+7. Zorg ervoor dat de tweede inject-node 5 seconden later begint dan de eerste:
+   ``inject once after 5 seconds`` (in de node-configuration).
+   Als het goed is krijg je nu om de 5 seconden een bericht te zien.
+8. Voeg een MQTT output-node toe (als in het dashboard).
+   Verbind de output van beide inject-nodes met de MQTT output-node.
+   Configureer de MQTT output-node (zoals bij de dashboard-opdracht);
+   gebruik als topic: ``node/xxxx/actuators``,
+   waarin ``xxxx`` de ID van het IOT-knoop is.
+
+Als het goed is knippert de LED van je IoT-knoop nu: 5 seconden aan, 5 uit, enz.
+
+Deze manier van werken is typisch voor NodeRed: je bouwt een flow beetje voor beetje op,
+waarbij je in het begin veel gebruik maakt van inject- en debug-nodes.
+Je test hiermee elke stap.
+Deze nodes kun je laten zitten tijdens het gebruik:
+een debug-node kun je eenvoudig uitschakelen als je deze even niet nodig hebt.
+
+Opmerkingen:
+
+* je kunt in het debug-venster aangeven dat je alleen de "current flow" wilt zien;
+* je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).
 
 NodeRed FAQ
------------
+===========
 
 .. rubric:: hoe (de)activeer ik een hele flow?
 

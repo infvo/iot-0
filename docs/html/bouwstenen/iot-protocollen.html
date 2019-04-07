@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Opdrachten" href="opdrachten.html" />
-    <link rel="prev" title="Interacties" href="iot-interacties.html" />
+    <link rel="prev" title="IoT-ketens" href="iot-ketens.html" />
 
 <script type="application/json" class="js-hypothesis-config">
 {
@@ -44,18 +44,17 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="iot-bouwstenen.html">IoT-bouwstenen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iot-ketens.html">IoT-ketens</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iot-interacties.html">Interacties</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Protocollen</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#http-web">HTTP (web)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mqtt-iot">MQTT (IoT)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#protocol-stack">Protocol-stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protocolstack">Protocolstack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interactie">Interactie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adressering">Adressering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#payload">Payload</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#protocol-conversie">Protocol-conversie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overzicht">Overzicht</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
@@ -73,8 +72,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
 <div class="relations">
@@ -82,7 +81,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../bouwstenen.html">Bouwstenen</a><ul>
-      <li>Previous: <a href="iot-interacties.html" title="vorig hoofdstuk">Interacties</a></li>
+      <li>Previous: <a href="iot-ketens.html" title="vorig hoofdstuk">IoT-ketens</a></li>
       <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
   </ul></li>
   </ul></li>
@@ -108,67 +107,125 @@
             
   <div class="section" id="protocollen">
 <h1>Protocollen<a class="headerlink" href="#protocollen" title="Permalink naar deze titel">¶</a></h1>
-<div class="section" id="http-web">
-<h2>HTTP (web)<a class="headerlink" href="#http-web" title="Permalink naar deze titel">¶</a></h2>
-<p>HTTP is het basisprotocol voor het web.
-De <em>client-server interactie</em> tussen de browser en de webserver gebruikt dit protocol.
-Door middel van een URL (Uniform Resource Locator) adresseert de browser een element (“<em>resource</em>”)” in het web.
-Deze URL bevat het adres van de server, en het adres (“pad”) van het eigenlijke web-element.
-Als resultaat krijgt de browser een HTML-document, als “payload” in de response van de server.</p>
-<p>Sommige IoT-knopen (of bridges) gebruiken het HTTP-protocol.
-We bespreken dit in meer detail in het hoofdstuk over Webserver-knopen.</p>
-</div>
-<div class="section" id="mqtt-iot">
-<h2>MQTT (IoT)<a class="headerlink" href="#mqtt-iot" title="Permalink naar deze titel">¶</a></h2>
-<p>Het Internet of Things stelt andere eisen aan de communicatie dan het web:
-HTTP is voor het IoT niet bijzonder geschikt.
-Een veelgebruikt IoT-protocol is MQTT (Message Queuing Telemetry Transport;
-zie <a class="reference external" href="https://en.wikipedia.org/wiki/MQTT">https://en.wikipedia.org/wiki/MQTT</a>, <a class="reference external" href="http://mqtt.org">http://mqtt.org</a>):</p>
+<div class="section" id="protocolstack">
+<h2>Protocolstack<a class="headerlink" href="#protocolstack" title="Permalink naar deze titel">¶</a></h2>
+<p>Bij de communicatie tussen de onderdelen van een IoT-keten hebben we te maken met verschillende <em>protocollen</em>.
+op meerdere niveau’s.
+De <em>protocolstack</em> van het internet er als volgt uit:</p>
 <ul class="simple">
-<li>MQTT is een <em>publish/subscribe</em>-protocol, waarbij een <em>broker</em> als tussenschakel fungeert tussen de clients;</li>
+<li>toepassingenlaag - MQTT, HTTP enz., en de protocollen daarboven</li>
+<li>transportlaag - TCP (en TLS, voor veilige verbindingen), UDP</li>
+<li>netwerklaag - IP (“internet protocol”)</li>
+<li>datalink-laag - (fysieke laag) op basis van Ethernet, WiFi, enz.</li>
+</ul>
+<p>De onderste twee lagen vormen de verbinding <em>in het netwerk</em>.
+De lagen daarboven zijn <em>end-to-end</em> protocollen: deze vind je in de <em>end devices</em>, niet in het (IP)netwerk.
+Voorbeelden van end-devices: IoT-knoop, controller, server, browser;
+ook een MQTT-broker is voor het internet een end-device.
+Voorbeelden van network-devices: gateway, router, firewall.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/HTTP-IP-stack.png"><img alt="../_images/HTTP-IP-stack.png" src="../_images/HTTP-IP-stack.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Protocol-stacks in HTTP client-server verbinding</span></p>
+</div>
+<p>HTTP en MQTT zijn voorbeelden van end-to-end protocollen:
+deze vind je alleen in de eindpunten (end devices).
+Het IP-protocol geeft de ingepakte HTTP-data ongewijzigd door:
+“het heeft geen boodschap aan de boodschap”,
+net als bijvoorbeeld de traditionele post of telefonie.</p>
+<p>Je kunt bovenop MQTT en HTTP je eigen end-to-end toepassingsprotocollen bedenken.
+In de voorbeelden gebruiken we een protocol voor de sensor/actuatordata van de IoT-knopen.
+Door hetzelfde protocol te gebruiken voor de verschillende IoT-ketens,
+met verschillende radio’s in de “edge”, kunnen we de rest van de keten grotendeels gelijk houden.</p>
+<div class="admonition-end-to-end admonition">
+<p class="first admonition-title">End-to-end</p>
+<p class="last">Het <em>end-to-end</em> principe is één van de belangrijke bouwstenen van het internet.
+Het IP-protocol is het enige protocol <em>in het netwerk</em>.
+Dit is een uniform en universeel communicatieprotocol, gebaseerd op best-effort pakketcommunicatie.
+Alle aanpassingen aan de toepassingen gebeuren in de eindpunten (<em>end devices</em>).
+Voorbeeld: het TCP-protocol zorgt voor betrouwbare verbindingen -op basis van het IP-protocol.
+Voor de ene toepassing is dit een goed beginpunt,
+voor een andere levert dit teveel <em>latency</em> (o.a. vanwege de ontvangstbevestiging).
+Dank zij dit end-to-end principe is het internet universeel en uitbreidbaar:
+iedereen kan een eigen end-to-end protocol gebruiken voor de eigen toepassingen.</p>
+</div>
+</div>
+<div class="section" id="interactie">
+<h2>Interactie<a class="headerlink" href="#interactie" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-right" id="id2">
+<a class="reference internal image-reference" href="../_images/IoT-client-server-01.png"><img alt="../_images/IoT-client-server-01.png" src="../_images/IoT-client-server-01.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Client-server interactie (HTTP)</span></p>
+</div>
+<p>Het webprotocol HTTP gebruikt een <em>client-server</em> interactie:
+de browser (client) stuurt een verzoek (met een URL) naar de webserver,
+en krijgt als response van de webserver het bijbehorende HTML-document.
+Overigens kunnen ook andere programma’s als webclient optreden.</p>
+<div class="figure align-right" id="id3">
+<a class="reference internal image-reference" href="../_images/MQTT.png"><img alt="../_images/MQTT.png" src="../_images/MQTT.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Publish-subscribe interactie (MQTT)</span></p>
+</div>
+<p>Het IoT-protocol MQTT gebruikt een <em>publish-subscribe</em> interactie,
+waarbij een <em>broker</em> als tussenschakel fungeert tussen de clients:</p>
+<ul class="simple">
 <li>een client “pusht” een bericht met een bepaald <em>topic</em> naar de broker,</li>
 <li>de broker “pusht” een ontvangen bericht naar alle clients die op dit topic geabonneerd zijn.</li>
 </ul>
-<p>Door middel van een <em>topic</em> adresseert een client een stroom van berichten.
-Als “payload” van de berichten wordt vaak JSON gebruikt.
-JSON biedt een leesbaar en redelijk compact formaat, in het bijzonder geschikt voor data.</p>
-<p>In onze IoT-voorbeelden gebruiken we een speciaal JSON-formaat, gebaseerd op het binaire LPP-formaat.
-We bespreken MQTT en JSON in meer detail in het hoofdstuk over WiFi-MQTT-knopen.</p>
-</div>
-<div class="section" id="protocol-stack">
-<h2>Protocol-stack<a class="headerlink" href="#protocol-stack" title="Permalink naar deze titel">¶</a></h2>
-<ul class="simple">
-<li>end-to-end (toepassingen in de eindpunten)</li>
-<li>IP-protocol in het netwerk</li>
-<li>HTTP (web-protocol) -&gt; webserver</li>
-<li>TCP/IP (internet basisprotocol) -&gt; webserver</li>
-<li>MQTT (iot-protocol) -&gt; WiFi-knopen</li>
-</ul>
+<p>Zowel de IoT-knopen en de controllers zijn clients van de MQTT-broker:
+voor de broker zijn deze gelijkwaardig.</p>
 </div>
 <div class="section" id="adressering">
 <h2>Adressering<a class="headerlink" href="#adressering" title="Permalink naar deze titel">¶</a></h2>
+<p>In een netwerk moeten de verschillende apparaten elkaar kunnen vinden:
+<em>adressering</em> is een onderdeel van een netwerpprotocol.
+Op elk niveau van de protocolstack komen we een passende vorm van adressering tegen:</p>
 <ul class="simple">
-<li>op de verschillende lagen</li>
-<li>HTTP: URL</li>
-<li>MQTT: topic</li>
-<li>IP: IP-adres</li>
-<li>TCP: poortnummer</li>
+<li>HTTP: URL; MQTT: topic (adres van de IoT-knoop);</li>
+<li>TCP: poortnummer (adres van de toepassing)</li>
+<li>IP: ip-adres en domeinnaam (adres van de “host”: end-device)</li>
+<li>WiFi: MAC-adres; RFM69: node-nr; LoRa: device-EUI (hardware-adres)</li>
 </ul>
+<p>In de IoT-toepassingen gebruiken we het nummer van de IoT-knoop als identificatie en adres.
+Dit nummer leiden we af van het MAC-adres, of we wijzen dit zelf toe.</p>
 </div>
 <div class="section" id="payload">
 <h2>Payload<a class="headerlink" href="#payload" title="Permalink naar deze titel">¶</a></h2>
+<p>Bij een protocol hoort ook een <em>payload</em>: de eigenlijke data.
+Voor een toepassing maken we afspraken over het payload-formaat.
+Voor onze IoT-toepassingen gebruiken we het JSON-formaat met daarin het Cayenne-LPP formaat voor de sensordata.</p>
 <ul class="simple">
-<li>HTTP: HTML-documenten</li>
-<li>MQTT: JSON (JSON-LPP)</li>
-<li>RFM69: LPP (binair)</li>
-<li>LoRa: binaire applicatie-payload</li>
+<li>HTTP: HTML als payload-formaat; MQTT: (JSON)</li>
+<li>TCP: bytestroom</li>
+<li>IP: payload-deel van pakket, met (o.a.) fragmenten van de TCP bytestroom.</li>
+<li>Ethernet, WiFi: frames (pakketten op fysiek niveau) met IP-pakketten als payload.</li>
 </ul>
+<p>Naast de payload hebben we te maken met de <em>meta-data</em> van het protocol.
+Deze bestaat bijvoorbeeld uit het adres van de bestemming, het adres van de afzender,
+een identificatie van het hoger-niveau protocol.
+In het geval van radio-verbindingen kan bijvoorbeeld de signaalsterkte opgenomen zijn in de meta-data.</p>
 </div>
-<div class="section" id="protocol-conversie">
-<h2>Protocol-conversie<a class="headerlink" href="#protocol-conversie" title="Permalink naar deze titel">¶</a></h2>
-<ul class="simple">
-<li>gateway (…toepassing in de gateway…)</li>
-</ul>
+<div class="section" id="overzicht">
+<h2>Overzicht<a class="headerlink" href="#overzicht" title="Permalink naar deze titel">¶</a></h2>
+<p class="rubric">HTTP (web)</p>
+<p>HTTP is het protocol van het web.
+In het gedeelte over IoT-knopen als webserver gaan we dieper op dit protocol in.</p>
+<p class="rubric">MQTT (IoT)</p>
+<p>MQTT is een basisprotocol voor het Internet of Things.
+We gebruiken dit protocol voor het verkeer tussen de WiFi IoT-knoop en de controller(s),
+tussen de RFM69 gateway en de controller, tussen de LoRa server en de controller,
+en tussen de controllers onderling.
+In het deel over WiFi-MQTT knopen behandelen we dit protocol.</p>
+<p class="rubric">RFM69</p>
+<p>RFM69 is één van de vele pakketradio’s voor het IoT,
+met een eigen protocol.
+In de kleine pakketten (max. 60 bytes) past alleen een binaire payload.
+Hiervoor gebruiken we het Cayenne Low Power Payload-formaat (C-LPP).
+In het deel over RFM69 werken we dit verder uit;
+we gaan daar ook in op de protocolconversie in de gateway tussen het RFM69 netwerk met de IoT-knopen,
+en het IP-netwerk.</p>
+<p class="rubric">LoRa(Wan)</p>
+<p>De LoRa radio’s in het LoRaWan gebruiken ook een eigen pakketformaat.
+Dit wordt in de TTN gateways/servers omgezet in een MQTT-formaat.
+Ook in dit geval gebruiken we een binaire payload:
+de pakketten zijn meest 10-20 bytes groot (of liever: klein).</p>
 </div>
 </div>
 
@@ -179,7 +236,7 @@ We bespreken MQTT en JSON in meer detail in het hoofdstuk over WiFi-MQTT-knopen.
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

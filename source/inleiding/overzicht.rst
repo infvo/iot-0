@@ -15,6 +15,14 @@ de andere onderdelen van deze knoop zorgen voor de verwerking van de data en voo
 
   IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding
 
+  .. figure:: tripler-node-display.jpg
+    :width: 350px
+    :align: center
+
+    IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding
+
+
+
 Voor de koppeling tussen een IoT-knoop en het internet kunnen we kiezen uit verschillende technologische oplossingen,
 bijvoorbeeld voor verschillende soorten radio's.
 De keuze voor een bepaalde technologie hangt af van de gebruikerseisen.

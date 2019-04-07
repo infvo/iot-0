@@ -44,6 +44,7 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webserver.html">Webserver-knopen</a></li>
@@ -56,8 +57,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
 <div class="relations">
@@ -97,13 +98,13 @@
 Als de protocollen van deze netwerken verschillen,
 dan verzorgt de gateway de <em>protocol-conversie</em>.</dd>
 <dt id="term-payload">payload</dt>
-<dd>De “eigenlijke data” die getransporteerd wordt als onderdeel van een pakket of frame.
+<dd>De “eigenlijke data” die getransporteerd wordt als onderdeel van een bericht, pakket of frame.
 Zie ook <em>metadata</em>.</dd>
 <dt id="term-metadata">metadata</dt>
 <dd>“data voor het beschrijven van data”.
 In het geval van communicatie, meestal data over de communicatie,
 bijvoorbeeld het volgnummer van een bericht, tijdstip van de communicatie,
-of de signaalsterkte bij de communicatie.</dd>
+of de signaalsterkte bij radiocommunicatie.</dd>
 <dt id="term-replay-attack">replay-attack</dt>
 <dd>poging om in te breken in een beveiligde communicatie, door het herhalen van een vroeger bericht.
 Stel dat je altijd hetzelfde (radio)bericht gebruik om een deur te openen:
@@ -116,10 +117,29 @@ een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
 <dd>radio voor pakket-georiënteerde communicatie. Pakketten voor IoT-radio’s zijn vaak vrij klein,
 met bijvoorbeeld een maximale payload van 60 bytes (RFM69) of 51 bytes (LoRaWan - KPN).</dd>
 <dt id="term-best-effort-communicatie">best effort communicatie</dt>
-<dd>communicatie zonder garantie voor de betrouwbare aflevering. Veel basisprotocollen zijn best effort,
-bijvoorbeeld: Ethernet, IP, RFM69, LoRa.
+<dd>communicatie in de verwachting dat deze meestal aankomt, zonder garantie voor de betrouwbare aflevering.
+Veel basisprotocollen zijn best effort, bijvoorbeeld: Ethernet, IP, RFM69, LoRa.
 Betrouwbare communicatie moet dan (als dat nodig is) door een protocol in een hogere laag gerealiseerd worden.
 (“best effort” zegt niets over de daadwerkelijke betrouwbaarheid van de communicatie.)</dd>
+<dt id="term-sensor">sensor</dt>
+<dd>(elektronisch) onderdeel voor het waarnemen of meten van een fysisch verschijnsel: bijvoorbeeld temperatuur, luchtdruk,
+licht, beeld, geluid, versnelling, gasconcentraties, enz.
+Ook drukknoppen, camera’s, microfoons, GPS-ontvangers zijn voorbeelden van sensoren.
+Moderne smartphones hebben tientallen sensoren.</dd>
+<dt id="term-actuator">actuator</dt>
+<dd>onderdeel voor het besturen van een fysisch verschijnsel (vanuit een elektronische schakeling).
+Voorbeelden van sensoren: luidspreker, beeldscherm, lamp, led, relais (voor het schakelen van grotere stromen),
+waterklep, buzzer, enz.</dd>
+<dt id="term-controller">controller</dt>
+<dd>computer of computerprogramma voor het meten en aansturen van fysische verschijnselen via sensoren en actuatoren.
+Een IoT-knoop heeft een <em>microcontroller</em>: een volledige besturingscomputer op een chip.</dd>
+<dt id="term-signaal">signaal</dt>
+<dd>een signaal heeft op elk moment een waarde.
+In een signaal kunnen <em>events</em> gedetecteerd worden, bijvoorbeeld de overgang van “laag” naar “hoog”;
+of een “hartslag”.</dd>
+<dt id="term-event">event</dt>
+<dd>gebeurtenis die op een bepaald moment plaatsvindt, waarbij de duur niet van belang is.
+Voorbeelden: het indrukken van een knop; het openen van een deur; een hartslag.</dd>
 </dl>
 </div>
 
@@ -130,7 +150,7 @@ Betrouwbare communicatie moet dan (als dat nodig is) door een protocol in een ho
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

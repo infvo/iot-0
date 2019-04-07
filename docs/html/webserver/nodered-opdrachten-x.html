@@ -1,0 +1,520 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>NodeRed-opdrachten-x &#8212; iot-0  documentatie</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+
+<script type="application/json" class="js-hypothesis-config">
+{
+"showHighlights": false
+}
+</script>
+<script async src="https://hypothes.is/embed.js"></script>
+
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">iot-0</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigatie</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lora.html">LoRa-knopen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configureren.html">Configureren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ten-geleide.html">Voor de docent</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Andere modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Snel zoeken</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Zoek" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nodered-opdrachten-x">
+<h1>NodeRed-opdrachten-x<a class="headerlink" href="#nodered-opdrachten-x" title="Permalink naar deze titel">¶</a></h1>
+<div class="admonition-leerdoelen-en-concepten admonition">
+<p class="first admonition-title">Leerdoelen en concepten</p>
+<ul class="last simple">
+<li>NodeRed voorbeeld: dashboard van sensordata</li>
+<li>NodeRed voorbeeld: bediening van de actuatoren (LED)</li>
+</ul>
+</div>
+<p>De module “web voor makers” geeft een uitgebreidere handleiding in het gebruik van NodeRed.</p>
+<div class="admonition-wat-heb-je-nodig admonition">
+<p class="first admonition-title">Wat heb je nodig?</p>
+<ul class="last simple">
+<li><dl class="first docutils">
+<dt>NodeRed-installatie</dt>
+<dd><ul class="first last">
+<li>bijvoorbeeld: FRED - <a class="reference external" href="https://fred.sensetecnic.com">https://fred.sensetecnic.com</a> (gratis versie)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="nodes-en-flows">
+<h2>Nodes en flows<a class="headerlink" href="#nodes-en-flows" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/Nodered-hello1.png"><img alt="../_images/Nodered-hello1.png" src="../_images/Nodered-hello1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed http flow-voorbeeld</span></p>
+</div>
+<p>Een <em>flow</em> in NodeRed bestaat uit een netwerk van <em>nodes</em> en <em>verbindingen</em>.
+Het aansluitpunt (bolletje) aan de linkerkant van een node is de input.
+Een node zonder aansluiting links is een <em>input-node</em>, met een externe input, bijvoorbeeld een http-request.
+De outputs staan aan de rechterzijde van de node.
+Een node zonder aansluiting rechts is een <em>output-node</em>, met een externe output, bijvoorbeeld een http-response.</p>
+<p>Een NodeRed-toepassing kan uit meerdere flows bestaan: elke flow heeft een eigen pagina (tab).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="32%" />
+<col width="32%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>figuur</strong></td>
+<td><strong>naam</strong></td>
+<td><strong>soort node</strong></td>
+</tr>
+<tr class="row-even"><td><img alt="http-input-node" src="../_images/nodered-http-input-node1.png" /></td>
+<td>http-input-node</td>
+<td>input</td>
+</tr>
+<tr class="row-odd"><td><img alt="http-output-node" src="../_images/nodered-http-output-node1.png" /></td>
+<td>http-output-node</td>
+<td>output</td>
+</tr>
+<tr class="row-even"><td><img alt="template-node" src="../_images/nodered-template-node1.png" /></td>
+<td>template-node</td>
+<td>in-out</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hoe werkt een flow?</strong>
+Als een node een bericht (message) krijgt via de input,
+dan voert deze node daarop een bewerking uit,
+en genereert één of meer messages naar de output(s).
+Deze output is weer verbonden  met de input van een andere node;
+of de node is een output-node, met een externe output.</p>
+<p><em>Voor het bovenstaande flow-voorbeeld</em>: (i) de http-input-node ontvangt een http-request als
+de http-method gelijk is aan <code class="docutils literal notranslate"><span class="pre">get</span></code> en het URL-pad gelijk is aan <code class="docutils literal notranslate"><span class="pre">/hello</span></code>.
+Deze http-input-node stuurt dan een message met dit request naar
+(ii) de template-node <code class="docutils literal notranslate"><span class="pre">hello.html</span></code>.
+Deze genereert de bijbehorende output: een html-document,
+en stuurt een message met dit document naar
+(iii) de http-output-node, die uit de message de bijbehorende response samenstelt.
+Deze node stuurt de response naar de afzender van het http-request.</p>
+</div>
+<div class="section" id="je-eerste-flow">
+<h2>Je eerste flow<a class="headerlink" href="#je-eerste-flow" title="Permalink naar deze titel">¶</a></h2>
+<p>Met deze eerste flow kun je zien of alles werkt:</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/Nodered-flow11.png"><img alt="../_images/Nodered-flow11.png" src="../_images/Nodered-flow11.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed: eerste flow</span></p>
+</div>
+<p>Hiervoor gebruik je de volgende nodes:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="31%" />
+<col width="37%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>figuur</strong></td>
+<td><strong>naam</strong></td>
+<td><strong>soort node</strong></td>
+</tr>
+<tr class="row-even"><td><img alt="inject-node" src="../_images/inject-node1.png" /></td>
+<td>inject-node</td>
+<td>input</td>
+</tr>
+<tr class="row-odd"><td><img alt="debug-node" src="../_images/debug-node1.png" /></td>
+<td>debug-node</td>
+<td>output</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Opdracht</p>
+<p>Voer de onderstaande opdrachten uit in een lege (flow)tab in NodeRed.</p>
+<ul class="simple">
+<li>sleep een inject-node vanuit de lijst met nodes links naar het lege vlak in het midden</li>
+<li>plaats op dezelfde manier de debug-node;</li>
+<li>verbind de output (rechts) van de inject-node met de input (links) van de debug-node.</li>
+<li>activeer deze flow (rechts boven: Deploy)</li>
+<li>test deze flow, door op het knopje links op de input-node (“timestamp”) te klikken.</li>
+</ul>
+<p>Als het goed is, krijg je in het debug-venster rechts nu de output van deze flow te zien. Je maakt het debug-venster zichtbaar via de debug-tab.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>verander de configuratie van de inject-knoop: zorg ervoor dat deze elke minuut een timestamp oplevert.</dt>
+<dd><ul class="first last">
+<li>de configuratie van een knoop krijg je te zien door een dubbel-klik op die knoop.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>verander de configuratie van de inject-knoop: zorg ervoor dat deze een tekst levert als payload.</li>
+<li>verbind meerdere inject-knopen met dezelfde debug-knoop.</li>
+</ul>
+</div>
+<div class="section" id="importeren-van-een-flow">
+<h2>Importeren van een flow<a class="headerlink" href="#importeren-van-een-flow" title="Permalink naar deze titel">¶</a></h2>
+<p>Bij de praktische opdrachten gebruik je flows die eerder gemaakt zijn.</p>
+<p>Op de volgende manier importeer je een flow vanuit een JSON-vorm:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>selecteer en kopieer de flow in JSON-vorm naar het clipboard</dt>
+<dd><ul class="first last">
+<li>met de “Copy” van je host-Operating System;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>selecteer in het hamburger-menu-&gt;Import-&gt;Clipboard (rechts);</li>
+<li>kopieer (“Paste”) de inhoud van het clipboard in het venster;</li>
+<li>klik op “Import”</li>
+</ul>
+<p class="rubric">Opdracht</p>
+<ol class="arabic simple">
+<li>Importeer de onderstaande flow in NodeRed:</li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;678b8c4c.974984&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inject&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;b7f5ac90.8cf17&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;payloadType&quot;</span><span class="p">:</span><span class="s2">&quot;date&quot;</span><span class="p">,</span><span class="nt">&quot;repeat&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;crontab&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;once&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">146</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;654b6309.c742ec&quot;</span><span class="p">,</span><span class="s2">&quot;d272daf8.c48e38&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;65beec84.75ffe4&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;b7f5ac90.8cf17&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">502</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">81</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;654b6309.c742ec&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;delay&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;b7f5ac90.8cf17&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;pauseType&quot;</span><span class="p">:</span><span class="s2">&quot;delay&quot;</span><span class="p">,</span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="nt">&quot;timeoutUnits&quot;</span><span class="p">:</span><span class="s2">&quot;seconds&quot;</span><span class="p">,</span><span class="nt">&quot;rate&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;nbRateUnits&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;rateUnits&quot;</span><span class="p">:</span><span class="s2">&quot;second&quot;</span><span class="p">,</span><span class="nt">&quot;randomFirst&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;randomLast&quot;</span><span class="p">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="nt">&quot;randomUnits&quot;</span><span class="p">:</span><span class="s2">&quot;seconds&quot;</span><span class="p">,</span><span class="nt">&quot;drop&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mf">323.5</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">82</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;65beec84.75ffe4&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;d272daf8.c48e38&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;b7f5ac90.8cf17&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mf">323.5</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">134</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]}]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>test deze flow.</li>
+</ol>
+</div>
+<div class="section" id="een-nodered-webserver">
+<h2>Een NodeRed webserver<a class="headerlink" href="#een-nodered-webserver" title="Permalink naar deze titel">¶</a></h2>
+<p>In deze opdracht maak je een webserver met NodeRed,
+met dezelfde opzet als de webserver.</p>
+<p>Als je NodeRed gebruikt op de Raspberry Pi,
+dan kun je deze webserver eenvoudig aanpassen om een LED aan te sturen,
+via een GPIO-poort.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/IoT-webserver-flow.png"><img alt="../_images/IoT-webserver-flow.png" src="../_images/IoT-webserver-flow.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Webserver-flow met 2 URLs</span></p>
+</div>
+<p>Deze flow bevat 2 http-input-nodes: voor elke URL een node.
+Elk van deze nodes wordt gevolgd door een functie-node,
+waarin de parameters voor de response op het URL-request ingevuld worden.
+Deze parameters worden vervolgens gecombineerd met het HTML-template,
+en als response teruggestuurd, via de HTTP-output-node.</p>
+<p><strong>(1)</strong> Kopieer de onderstaande flow naar een nieuwe NodeRed flow-tab:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;1da46194.2d9ac6&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;http in&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;/leds/0&quot;</span><span class="p">,</span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;post&quot;</span><span class="p">,</span><span class="nt">&quot;upload&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;swaggerDoc&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">130</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;7c2fe0e4.f7a1f&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;7c2fe0e4.f7a1f&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;function&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;updateLed&quot;</span><span class="p">,</span><span class="nt">&quot;func&quot;</span><span class="p">:</span><span class="s2">&quot;if (msg.payload.on == \&quot;1\&quot;) {\n    flow.set(\&quot;ledOn\&quot;, true);\n} else if (msg.payload.on == \&quot;0\&quot;) {\n    flow.set(\&quot;ledOn\&quot;, false);\n}\nreturn msg;&quot;</span><span class="p">,</span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;noerr&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">330</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;1b698b9d.d59cf4&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;a26ef255.d64668&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;http in&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;/led-control&quot;</span><span class="p">,</span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;get&quot;</span><span class="p">,</span><span class="nt">&quot;upload&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;swaggerDoc&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">140</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;1b698b9d.d59cf4&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;a6316fe5.e385d&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;http response&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;statusCode&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;headers&quot;</span><span class="p">:{},</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">650</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c12705b8.6d89b8&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;template&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;fieldType&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;handlebars&quot;</span><span class="p">,</span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="s2">&quot;mustache&quot;</span><span class="p">,</span><span class="nt">&quot;template&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;html&gt;\n  &lt;head&gt;\n      &lt;title&gt;LED server&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt; &lt;h1&gt;LED control&lt;/h1&gt;\n    &lt;p&gt;\n      &lt;form action=\&quot;/leds/0\&quot; method=\&quot;post\&quot;&gt;\n         &lt;button type=\&quot;submit\&quot; name=\&quot;on\&quot; value=\&quot;1\&quot;&gt;On&lt;/button&gt;\n         &lt;span style=\&quot;font-weight:bold;color:{{color}};\&quot;&gt; [[LED]] &lt;/span&gt;\n         &lt;button type=\&quot;submit\&quot; name=\&quot;on\&quot; value=\&quot;0\&quot;&gt;Off&lt;/button&gt;\n      &lt;/form&gt;\n    &lt;/p&gt;\n    &lt;table&gt;\n        &lt;tr&gt;&lt;td&gt;Temperature&lt;/td&gt;   &lt;td&gt;{{temperature}} &amp;deg;C&lt;/td&gt;&lt;/tr&gt;\n        &lt;tr&gt;&lt;td&gt;Atm.pressure&lt;/td&gt;  &lt;td&gt;{{barometer}} hPa&lt;/td&gt; &lt;/tr&gt;\n    &lt;/table&gt;\n    &lt;p&gt;&lt;a href=\&quot;/led-control\&quot;&gt;refresh&lt;/a&gt;&lt;/p&gt;\n  &lt;/body&gt;\n&lt;/html&gt;&quot;</span><span class="p">,</span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="s2">&quot;str&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;a6316fe5.e385d&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;1b698b9d.d59cf4&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;function&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Properties&quot;</span><span class="p">,</span><span class="nt">&quot;func&quot;</span><span class="p">:</span><span class="s2">&quot;if (flow.get(\&quot;ledOn\&quot;) || false) {\n    msg.color = \&quot;red\&quot;;\n    msg.led = 100;\n} else {\n    msg.color = \&quot;black\&quot;;\n    msg.led = 0;\n}\n\nmsg.temperature = 23.4;\nmsg.barometer = 2014.5;\nreturn msg;&quot;</span><span class="p">,</span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;noerr&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">330</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;c12705b8.6d89b8&quot;</span><span class="p">,</span><span class="s2">&quot;3a7d94d1.f202dc&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;3a7d94d1.f202dc&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_gauge&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;LED&quot;</span><span class="p">,</span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;6ab33fd6.a18d4&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;gtype&quot;</span><span class="p">:</span><span class="s2">&quot;gage&quot;</span><span class="p">,</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;gauge&quot;</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;units&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;{{led}}&quot;</span><span class="p">,</span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#00b500&quot;</span><span class="p">,</span><span class="s2">&quot;#e6e600&quot;</span><span class="p">,</span><span class="s2">&quot;#ca3838&quot;</span><span class="p">],</span><span class="nt">&quot;seg1&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;seg2&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">510</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;6ab33fd6.a18d4&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_group&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Simulated LED&quot;</span><span class="p">,</span><span class="nt">&quot;tab&quot;</span><span class="p">:</span><span class="s2">&quot;8ac9c2af.6b6b3&quot;</span><span class="p">,</span><span class="nt">&quot;disp&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="nt">&quot;collapse&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;8ac9c2af.6b6b3&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_tab&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Simulator&quot;</span><span class="p">,</span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="s2">&quot;dashboard&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+<p>Het html-template in de template-node heeft 3 parameters: <code class="docutils literal notranslate"><span class="pre">{{color}}</span></code>,
+<code class="docutils literal notranslate"><span class="pre">{{temperature}}</span></code>, en <code class="docutils literal notranslate"><span class="pre">{{barometer}}</span></code> - respectievelijk de kleur van de LED-tekst,
+de temperatuur, en de luchtdruk.</p>
+<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;</span>
+<span class="x">  &lt;head&gt;</span>
+<span class="x">      &lt;title&gt;LED server&lt;/title&gt;</span>
+<span class="x">  &lt;/head&gt;</span>
+<span class="x">  &lt;body&gt; &lt;h1&gt;LED control&lt;/h1&gt;</span>
+<span class="x">    &lt;p&gt;</span>
+<span class="x">      &lt;form action=&quot;/leds/0&quot; method=&quot;post&quot;&gt;</span>
+<span class="x">         &lt;button type=&quot;submit&quot; name=&quot;on&quot; value=&quot;1&quot;&gt;On&lt;/button&gt;</span>
+<span class="x">         &lt;span style=&quot;font-weight:bold;color:</span><span class="cp">{{</span><span class="nv">color</span><span class="cp">}}</span><span class="x">;&quot;&gt; [[LED]] &lt;/span&gt;</span>
+<span class="x">         &lt;button type=&quot;submit&quot; name=&quot;on&quot; value=&quot;0&quot;&gt;Off&lt;/button&gt;</span>
+<span class="x">      &lt;/form&gt;</span>
+<span class="x">    &lt;/p&gt;</span>
+<span class="x">    &lt;table&gt;</span>
+<span class="x">        &lt;tr&gt;&lt;td&gt;Temperature&lt;/td&gt;   &lt;td&gt;</span><span class="cp">{{</span><span class="nv">temperature</span><span class="cp">}}</span><span class="x"> &amp;deg;C&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="x">        &lt;tr&gt;&lt;td&gt;Atm.pressure&lt;/td&gt;  &lt;td&gt;</span><span class="cp">{{</span><span class="nv">barometer</span><span class="cp">}}</span><span class="x"> hPa&lt;/td&gt; &lt;/tr&gt;</span>
+<span class="x">    &lt;/table&gt;</span>
+<span class="x">    &lt;p&gt;&lt;a href=&quot;/led-control&quot;&gt;refresh&lt;/a&gt;&lt;/p&gt;</span>
+<span class="x">  &lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+</div>
+<p>In de functienodes tussen de HTML-input-nodes en de template-node worden deze parameters ingevuld.
+De waarden voor de temperatuur en de luchtdruk zijn fantasiewaarden:
+we hebben in deze gesimuleerde knoop geen echte sensoren.</p>
+<p>Als voorbeeld geven we de functie <code class="docutils literal notranslate"><span class="pre">updateLed</span></code>: deze wordt uitgevoerd nadat een HTTP-POST-request met de URL <code class="docutils literal notranslate"><span class="pre">/leds/0</span></code> ontvangen is.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">on</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flow</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;ledOn&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">on</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flow</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;ledOn&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>(2)</strong> Plaats een debug-node aan de output van de http-input-node <code class="docutils literal notranslate"><span class="pre">leds/0</span></code>.
+Gebruik deze om het ontvangen request te bekijken.
+Stel de output van deze debug-node in als “complete msg object”.
+Je gebruikt deze flow als webserver met de URL: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;nodered&gt;&gt;/led-control</span></code>,
+waarin <code class="docutils literal notranslate"><span class="pre">&lt;&lt;nodered&gt;&gt;</span></code> de URL van je NodeRed-server is.</p>
+<ol class="arabic simple">
+<li>wat is de method van het request?</li>
+<li>wat is de URL van het request?</li>
+<li>wat is de body van het request?</li>
+<li>wat is de “user agent” (d.w.z., de browser)?</li>
+<li>welk soort resultaat wordt verwacht (“accept”-header)?</li>
+<li>wat is de payload?</li>
+</ol>
+</div>
+<div class="section" id="knipperende-led">
+<h2>Knipperende LED<a class="headerlink" href="#knipperende-led" title="Permalink naar deze titel">¶</a></h2>
+<p>P.M.</p>
+</div>
+<div class="section" id="nachtlamp">
+<h2>Nachtlamp<a class="headerlink" href="#nachtlamp" title="Permalink naar deze titel">¶</a></h2>
+<p>P.M.</p>
+</div>
+<div class="section" id="sensor-dashboard">
+<h2>Sensor-dashboard<a class="headerlink" href="#sensor-dashboard" title="Permalink naar deze titel">¶</a></h2>
+<p>Met een sensor-dashboard kun je de waarden van de sensoren via een browser bekijken.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-01.png"><img alt="../_images/Nodered-dashboard-display-01.png" src="../_images/Nodered-dashboard-display-01.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed dashboard display</span></p>
+</div>
+<p>NodeRed biedt de bouwstenen voor het maken van een eenvoudig dashboard. We gebruiken in het voorbeeld de volgende knopen:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="23%" />
+<col width="21%" />
+<col width="31%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>figuur</strong></td>
+<td><strong>naam</strong></td>
+<td><strong>soort</strong></td>
+<td><strong>betekenis</strong></td>
+</tr>
+<tr class="row-even"><td><img alt="dashboard-gauge" src="../_images/nodered-dashboard-gauge.png" /></td>
+<td>dashboard-gauge</td>
+<td>output</td>
+<td>meter (actuele waarde)</td>
+</tr>
+<tr class="row-odd"><td><img alt="dashboard-chart" src="../_images/nodered-dashboard-chart.png" /></td>
+<td>dashboard-chart</td>
+<td>output</td>
+<td>grafiek (verloop)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-installeren-van-dashboard-nodes admonition">
+<p class="first admonition-title">Installeren van dashboard-nodes</p>
+<p>De dashboard-nodes zijn niet altijd beschikbaar in het node-palet links.
+Voor het toevoegen van deze nodes aan NodeRed gebruik je de volgende stappen:</p>
+<ul class="simple">
+<li>selecteer hamburger-menu (rechts) -&gt; Manage Palette</li>
+<li>selecteer de tab <em>Install</em></li>
+<li>type in het zoekveld: dashboard</li>
+<li>klik op “install” voor <em>node-red-dashboard</em> <em>(A set of dashboard nodes for Node-RED)</em></li>
+<li>na deze installatie zijn de nodes in het palet links beschikbaar.</li>
+</ul>
+<p>Als je FRED gebruikt, dan kun je de nodes als volgt installeren:</p>
+<ul class="last simple">
+<li>selecteer in de FRED-zijbalk (helemaal links): Tools-&gt; add or remove nodes</li>
+<li>type in het zoekveld: dashboard</li>
+<li>vink aan: <em>Dashboard (a set of dashboard nodes for NodeRed)</em>.</li>
+</ul>
+</div>
+<p>Om een dashboard te maken moeten we eerst de gegevens van de sensoren ophalen.
+In dit geval (IoT-knoop als webserver) hebben we hierbij twee problemen:</p>
+<ul class="simple">
+<li>de IoT-knoop-webserver is alleen beschikbaar in het lokale netwerk.
+Dit betekent dat we het dashboard alleen via een computer in het lokale netwerk kunnen laten werken.
+Dit kan bijvoorbeeld een Raspberry Pi met NodeRed zijn.</li>
+<li>de gegevens zijn beschikbaar als HTML-document (tekst).
+Hierin moeten we de sensorgegevens zien te vinden.
+NodeRed heeft o.a. een html-node om elementen uit een HTML-document te selecteren.</li>
+</ul>
+<p>Voor demonstratiedoeleinden gebruiken we hier een website die hetzelfde interface heeft als de IoT-knopen.
+De website <a class="reference external" href="http://infvopedia.nl:1880/sensors">http://infvopedia.nl:1880/sensors</a> is gekoppeld aan de hardware-IoT-knoop <code class="docutils literal notranslate"><span class="pre">ec54</span></code>.
+In het lokale netwerk zou je deze kunnen benaderen via <code class="docutils literal notranslate"><span class="pre">http://esp8266-ec54.local/</span></code>.</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/IoT-webserver-dashboard-flow.png"><img alt="../_images/IoT-webserver-dashboard-flow.png" src="../_images/IoT-webserver-dashboard-flow.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Webserver dashboard flow</span></p>
+</div>
+<p>Uitleg bij deze flow:</p>
+<ul class="simple">
+<li>je start de flow door op de “inject”-knoop te klikken.
+(Dit kun je later automatiseren.)</li>
+<li>de volgende actie is het versturen van een HTTP GET-request,
+met als URL: <code class="docutils literal notranslate"><span class="pre">http://infvopedia.nl:1880/sensors</span></code></li>
+<li>het resultaat daarvan vind je via de debug-knoop in het debug-venster.
+Dit resultaat is een HTML-document (tekst).</li>
+<li>via de html-node selecteren we alle “td” elementen in deze tekst.
+het resultaat daarvan vind je weer in het debug-venster.</li>
+<li>we vullen de sensorwaarden in de payload in, als normale velden (<code class="docutils literal notranslate"><span class="pre">msg.payload.temperature</span></code>, enz.),
+via de functie <em>Select-sensor-values</em>.</li>
+<li>via de change-nodes zetten we de payload met de gewenste sensorwaarde,
+bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">msg.payload</span> <span class="pre">to</span> <span class="pre">msg.payload.temperature</span></code>.
+(We zouden hiervoor ook een function-node kunnen gebruiken.)</li>
+<li>deze payload maken we zichtbaar via de dashboard-nodes.</li>
+</ul>
+<p>De html-node die we hier gebruiken is handig voor het selecteren van elementen in een html-document.</p>
+<p>In het debug-venster vind je de outputs van de verschillende debug-nodes.
+Als je een output hierin selecteert, zie je van welke node deze afkomstig is.
+Je kunt een debug-node tijdelijk uitzetten met de knop aan de rechterkant.
+Je moet de veranderde flow dan wel activeren met de <em>deploy</em>-knop.</p>
+<p>De functie <em>Select-sensor-values</em>:</p>
+<div class="highlight-JavaScript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+<span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">temperature</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">barometer</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Hieronder staat de flow in JSON-notatie.
+Deze kun je met Copy-Paste overbrengen en vervolgens importeren in je NodeRed-editor.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;9d733e0b.01778&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inject&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;payloadType&quot;</span><span class="p">:</span><span class="s2">&quot;date&quot;</span><span class="p">,</span><span class="nt">&quot;repeat&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;crontab&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;once&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;onceDelay&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;56b0445f.766c5c&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;56b0445f.766c5c&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;http request&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;txt&quot;</span><span class="p">,</span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;http://infvopedia.nl:1880/sensors&quot;</span><span class="p">,</span><span class="nt">&quot;tls&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;dba2f76f.d09588&quot;</span><span class="p">,</span><span class="s2">&quot;da3db487.e2c9a8&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;dba2f76f.d09588&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;html&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;property&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;outproperty&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="s2">&quot;td&quot;</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;html&quot;</span><span class="p">,</span><span class="nt">&quot;as&quot;</span><span class="p">:</span><span class="s2">&quot;single&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">170</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">220</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;ec6a7f9b.10bca8&quot;</span><span class="p">,</span><span class="s2">&quot;6b21f3b7.50e694&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;ec6a7f9b.10bca8&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;tosidebar&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;tostatus&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">370</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">160</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;6b21f3b7.50e694&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;function&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Select-sensor-values&quot;</span><span class="p">,</span><span class="nt">&quot;func&quot;</span><span class="p">:</span><span class="s2">&quot;var input = msg.payload;\nmsg.payload = {};\nmsg.payload.temperature = parseFloat(input[1]);\nmsg.payload.barometer = parseFloat(input[3]);\nreturn msg;&quot;</span><span class="p">,</span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;noerr&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">380</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">220</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;6491c42f.903274&quot;</span><span class="p">,</span><span class="s2">&quot;8a35258e.865308&quot;</span><span class="p">,</span><span class="s2">&quot;ee82ff5d.2ac73&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;6491c42f.903274&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;tosidebar&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;tostatus&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">630</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">220</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;7db1e8a8.5d3ca8&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_gauge&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;a4643fc8.e80d68&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;gtype&quot;</span><span class="p">:</span><span class="s2">&quot;gage&quot;</span><span class="p">,</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Temperatuur&quot;</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;&#39;C&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;{{payload}}&quot;</span><span class="p">,</span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="s2">&quot;50&quot;</span><span class="p">,</span><span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#00b500&quot;</span><span class="p">,</span><span class="s2">&quot;#e6e600&quot;</span><span class="p">,</span><span class="s2">&quot;#ca3838&quot;</span><span class="p">],</span><span class="nt">&quot;seg1&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;seg2&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">630</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;9583a0a1.3f21e&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_chart&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;6afe9bdf.976fec&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;Temperatuur&quot;</span><span class="p">,</span><span class="nt">&quot;chartType&quot;</span><span class="p">:</span><span class="s2">&quot;line&quot;</span><span class="p">,</span><span class="nt">&quot;legend&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;xformat&quot;</span><span class="p">:</span><span class="s2">&quot;HH:mm:ss&quot;</span><span class="p">,</span><span class="nt">&quot;interpolate&quot;</span><span class="p">:</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span><span class="nt">&quot;nodata&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;dot&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;ymin&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;ymax&quot;</span><span class="p">:</span><span class="s2">&quot;50&quot;</span><span class="p">,</span><span class="nt">&quot;removeOlder&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;removeOlderPoints&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;removeOlderUnit&quot;</span><span class="p">:</span><span class="s2">&quot;86400&quot;</span><span class="p">,</span><span class="nt">&quot;cutout&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;useOneColor&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">,</span><span class="s2">&quot;#aec7e8&quot;</span><span class="p">,</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#2ca02c&quot;</span><span class="p">,</span><span class="s2">&quot;#98df8a&quot;</span><span class="p">,</span><span class="s2">&quot;#d62728&quot;</span><span class="p">,</span><span class="s2">&quot;#ff9896&quot;</span><span class="p">,</span><span class="s2">&quot;#9467bd&quot;</span><span class="p">,</span><span class="s2">&quot;#c5b0d5&quot;</span><span class="p">],</span><span class="nt">&quot;useOldStyle&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">630</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">340</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[],[]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;8a35258e.865308&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;change&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;rules&quot;</span><span class="p">:[{</span><span class="nt">&quot;t&quot;</span><span class="p">:</span><span class="s2">&quot;set&quot;</span><span class="p">,</span><span class="nt">&quot;p&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;pt&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;payload.temperature&quot;</span><span class="p">,</span><span class="nt">&quot;tot&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">}],</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;property&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;reg&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">320</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;9583a0a1.3f21e&quot;</span><span class="p">,</span><span class="s2">&quot;7db1e8a8.5d3ca8&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;872c6883.661e3&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_gauge&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;a4643fc8.e80d68&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;gtype&quot;</span><span class="p">:</span><span class="s2">&quot;gage&quot;</span><span class="p">,</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Luchtdruk&quot;</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;units&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;{{payload}}&quot;</span><span class="p">,</span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="s2">&quot;950&quot;</span><span class="p">,</span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="s2">&quot;1050&quot;</span><span class="p">,</span><span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#00b500&quot;</span><span class="p">,</span><span class="s2">&quot;#e6e600&quot;</span><span class="p">,</span><span class="s2">&quot;#ca3838&quot;</span><span class="p">],</span><span class="nt">&quot;seg1&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;seg2&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">620</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">380</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;380c3cf1.a6ac94&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_chart&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;6afe9bdf.976fec&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;Luchtdruk&quot;</span><span class="p">,</span><span class="nt">&quot;chartType&quot;</span><span class="p">:</span><span class="s2">&quot;line&quot;</span><span class="p">,</span><span class="nt">&quot;legend&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;xformat&quot;</span><span class="p">:</span><span class="s2">&quot;HH:mm:ss&quot;</span><span class="p">,</span><span class="nt">&quot;interpolate&quot;</span><span class="p">:</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span><span class="nt">&quot;nodata&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;dot&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;ymin&quot;</span><span class="p">:</span><span class="s2">&quot;950&quot;</span><span class="p">,</span><span class="nt">&quot;ymax&quot;</span><span class="p">:</span><span class="s2">&quot;1050&quot;</span><span class="p">,</span><span class="nt">&quot;removeOlder&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;removeOlderPoints&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;removeOlderUnit&quot;</span><span class="p">:</span><span class="s2">&quot;86400&quot;</span><span class="p">,</span><span class="nt">&quot;cutout&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;useOneColor&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">,</span><span class="s2">&quot;#aec7e8&quot;</span><span class="p">,</span><span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span><span class="s2">&quot;#2ca02c&quot;</span><span class="p">,</span><span class="s2">&quot;#98df8a&quot;</span><span class="p">,</span><span class="s2">&quot;#d62728&quot;</span><span class="p">,</span><span class="s2">&quot;#ff9896&quot;</span><span class="p">,</span><span class="s2">&quot;#9467bd&quot;</span><span class="p">,</span><span class="s2">&quot;#c5b0d5&quot;</span><span class="p">],</span><span class="nt">&quot;useOldStyle&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">620</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">420</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[],[]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;ee82ff5d.2ac73&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;change&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;rules&quot;</span><span class="p">:[{</span><span class="nt">&quot;t&quot;</span><span class="p">:</span><span class="s2">&quot;set&quot;</span><span class="p">,</span><span class="nt">&quot;p&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;pt&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;payload.barometer&quot;</span><span class="p">,</span><span class="nt">&quot;tot&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">}],</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;property&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;reg&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;872c6883.661e3&quot;</span><span class="p">,</span><span class="s2">&quot;380c3cf1.a6ac94&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;da3db487.e2c9a8&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;f5bf33f.ce9c85&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;tosidebar&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;tostatus&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">530</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;a4643fc8.e80d68&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_group&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Web-meters&quot;</span><span class="p">,</span><span class="nt">&quot;tab&quot;</span><span class="p">:</span><span class="s2">&quot;9c0984df.31b73&quot;</span><span class="p">,</span><span class="nt">&quot;disp&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="nt">&quot;collapse&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;6afe9bdf.976fec&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_group&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Web-graphs&quot;</span><span class="p">,</span><span class="nt">&quot;tab&quot;</span><span class="p">:</span><span class="s2">&quot;9c0984df.31b73&quot;</span><span class="p">,</span><span class="nt">&quot;disp&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="nt">&quot;collapse&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;9c0984df.31b73&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_tab&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Web-dashboard&quot;</span><span class="p">,</span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="s2">&quot;dashboard&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+<p class="rubric">Opdrachten</p>
+<ol class="loweralpha simple">
+<li>gebruik van de flow</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>importeer de dashboard-flow in een lege flow-pagina</li>
+<li>activeer deze flow (via deploy)</li>
+<li>controleer de flow door op de inject-knop (in de flow) te klikken.</li>
+<li>bekijk het dashboard:</li>
+</ul>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>experiment 1: http-request</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>verwijder de link tussen de http-request-node en de html-node (<code class="docutils literal notranslate"><span class="pre">td</span></code>).</li>
+<li>klik op de inject-knop, en bekijk de output van de debug-node: dit is een html-document.</li>
+<li>pas de http-request node aan, voor een andere website naar keuze;
+en bekijk de html-code van die website.</li>
+<li>herstel de oorspronkelijke flow (eventueel kun je alle knopen verwijderen en de flow opnieuw importeren)</li>
+</ul>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>experiment 2: html-node</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>verwijder de link tussen de html-code (<code class="docutils literal notranslate"><span class="pre">td</span></code>) en <em>select-sensor-values</em>.</li>
+<li>klik op de inject-knop, en bekijk de output van de debug-node van <code class="docutils literal notranslate"><span class="pre">td</span></code>:
+dit is een array met alle <code class="docutils literal notranslate"><span class="pre">td</span></code>-elementen in het html-document.</li>
+<li>configureer de html-node: verander de selector in <code class="docutils literal notranslate"><span class="pre">h1</span></code> of <code class="docutils literal notranslate"><span class="pre">p</span></code>.</li>
+<li>controleer of je nu de overeenkomstige elementen uit het html-document krijgt.</li>
+<li>herstel de oorspronkelijke flow.</li>
+</ul>
+</div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li>experiment 3: herhaald opvragen van sensordata</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>configureer de inject-node: verander de “Repeat” in “Interval”;</li>
+<li>vul als waarde voor het interval in: 30 seconden;</li>
+<li>ga na (aan de hand van de grafiek in het dashboard) of je dit interval ook groter kunt maken.</li>
+</ul>
+</div></blockquote>
+<p><strong>Opmerkingen</strong></p>
+<ul class="simple">
+<li>html-documenten zijn niet erg handig om data van een server te halen.
+Een formaat dat in veel website-API’s gebruikt wordt is JSON:
+dat komt in het volgende hoofdstuk aan de orde.</li>
+<li>tegenwoordig maken websites het steeds lastiger om data uit het html-document te halen,
+bijvoorbeeld doordat deze data pas op het laatste moment ingevuld wordt vanuit javascript.
+Je kunt het geluk hebben dat zo’n website een JSON-API heeft, anders heb je pech.</li>
+<li>(Het FRED-voorbeeld van de Google Finance website werkt niet meer,
+en Google heeft de finance-API gedeactiveerd.)</li>
+<li>het herhaald opvragen van de sensorwaarden door de client bij de (web)server heet “polling”.
+Dit is geen handige aanpak: je krijgt veel onnodige communicatie, zeker als de sensorwaarden niet veranderen.
+Het is handiger als de IoT-knoop deze waarden opstuurt als ze veranderd zijn:
+een aanpak daarvoor zien we in het volgende hoofdstuk.</li>
+</ul>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>gebruik van inject-node om led te laten knipperen
+(nb: we hebben dan wel een webserver-knoop in het publieke internet nodig, of tenminste een gesimuleerde versie daarvan).</li>
+<li>gebruik van schedule-node om led via tijd te besturen</li>
+<li>opdracht: maak met NodeRed een website/dashboard dat weergeeft of je morgen het eerste uur vrij hebt.
+(…als de rooster-website van je school dit mogelijk maakt…)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, SLO.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/webserver/nodered-opdrachten-x.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

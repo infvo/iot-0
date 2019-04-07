@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Voorbeelden in detail &#8212; iot-0  documentatie</title>
+    <title>Voorbeelden &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="Voorbeelden" href="voorbeelden.html" />
+    <link rel="next" title="Eisen aan de communicatie" href="iot-eisen.html" />
     <link rel="prev" title="Inleiding" href="../inleiding.html" />
 
 <script type="application/json" class="js-hypothesis-config">
@@ -44,15 +44,15 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../inleiding.html">Inleiding</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Voorbeelden in detail</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Voorbeelden</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#voorbeeld-watersproeier">Voorbeeld: watersproeier</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#actuator-en-controller">Actuator en controller</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sensoren">Sensoren</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#aan-het-internet">Aan het internet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#slimme-diensten">“Slimme” diensten</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#meerdere-controllers">Meerdere controllers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#eisen-aan-de-communicatie">Eisen aan de communicatie</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#samenvatting">Samenvatting</a></li>
 </ul>
 </li>
@@ -65,9 +65,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#voorbeeld-monitoring">Voorbeeld: monitoring</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="voorbeelden.html">Voorbeelden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Eisen aan de communicatie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Gebruikerseisen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="voorbeelden.html">Meer voorbeelden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overzicht.html">Overzicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
@@ -94,7 +94,7 @@
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../inleiding.html">Inleiding</a><ul>
       <li>Previous: <a href="../inleiding.html" title="vorig hoofdstuk">Inleiding</a></li>
-      <li>Next: <a href="voorbeelden.html" title="volgend hoofdstuk">Voorbeelden</a></li>
+      <li>Next: <a href="iot-eisen.html" title="volgend hoofdstuk">Eisen aan de communicatie</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -117,10 +117,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="voorbeelden-in-detail">
-<h1>Voorbeelden in detail<a class="headerlink" href="#voorbeelden-in-detail" title="Permalink naar deze titel">¶</a></h1>
-<p>We geven hier enkele voorbeelden in meer detail.
-Daarna geven we een grotere lijst van voorbeelden waarvan je de details elders in het web kunt vinden.</p>
+  <div class="section" id="voorbeelden">
+<h1>Voorbeelden<a class="headerlink" href="#voorbeelden" title="Permalink naar deze titel">¶</a></h1>
+<p>We geven hier enkele uitgebreidere voorbeelden.
+Verder in dit hoofdstuk geven we een grotere lijst van voorbeelden waarvan je de details elders in het web kunt vinden.</p>
 <div class="section" id="voorbeeld-watersproeier">
 <h2>Voorbeeld: watersproeier<a class="headerlink" href="#voorbeeld-watersproeier" title="Permalink naar deze titel">¶</a></h2>
 <p>Als voorbeeld van een IoT-toepassingen kijken we naar het besproeien van een sportveld.
@@ -154,7 +154,7 @@ aan elkaar verbinden en combineren met regels voor de besturing.</p>
 <a class="reference internal image-reference" href="../_images/actuator-sensor-controller.png"><img alt="../_images/actuator-sensor-controller.png" src="../_images/actuator-sensor-controller.png" style="width: 300px;" /></a>
 </div>
 <p>Deze eerste  oplossing is nog niet optimaal.
-Een nadeel is dat er volgens dit schema altijd gesproeid wordt - ook als de grond niet droog is, of als het regent.
+Een nadeel is dat er volgens dit schema altijd gesproeid wordt - ook als de al grond nat is van de regen.
 Dit betekent op z’n minst een verspilling van water;
 bovendien kan  het veld hierdoor te drassig worden, wat ook niet de bedoeling is.</p>
 <p>We kunnen deze problemen voorkomen door (lokale) <em>sensoren</em> te gebruiken,
@@ -187,75 +187,28 @@ kunnen we het algoritme voor het besproeien steeds verder optimaliseren.
 Dit is een voorbeeld van het combineren van het Internet of Things met Data Science (Big Data).</p>
 <p>Uiteindelijk wil je een sproeisysteem dat optimaal gebruik maakt van de omstandigheden.
 Je wilt daarmee het gras zo laten groeien dat het goed gebruik maakt van het water in de bodem -
-bijvoorbeeld door lange wortels te ontwikkelen.
-Dat betekent bijvoorbeeld dat je niet altijd moet sproeien als alleen de bovenste laag van de bodem droog is.
+bijvoorbeeld door voldoend lange wortels te ontwikkelen.
+Dat betekent dat je niet altijd moet sproeien als alleen de bovenste laag van de bodem droog is.
 Hiervoor is kennis nodig van de manier waarop gras groeit, en van de lokale bodem- en weersomstandigheden.
 Externe diensten spelen daarvoor een belangrijke rol.</p>
 </div>
 <div class="section" id="meerdere-controllers">
 <h3>Meerdere controllers<a class="headerlink" href="#meerdere-controllers" title="Permalink naar deze titel">¶</a></h3>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/controller-controller.png"><img alt="../_images/controller-controller.png" src="../_images/controller-controller.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/IoT-node-controller-controller.png"><img alt="../_images/IoT-node-controller-controller.png" src="../_images/IoT-node-controller-controller.png" style="width: 600px;" /></a>
 </div>
 <p>Vaak heeft het zin om controllers op meerdere niveaus te gebruiken,
-bijvoorbeeld een controller direct bij de sensoren/actuatoren,
-een controler in de buurt van de eigenlijke toepassing,
+bijvoorbeeld een (micro)controller direct bij de sensoren/actuatoren in een <em>IoT-knoop</em>,
+een controller in de buurt van de “dingen” waaraan je meet en stuurt,
 en een controller die bereikbaar is in het publieke internet.</p>
-<p>De lokale controller(s) zorgen voor lokale autonomie,
-voor snelle beslissingen (door lage latency),
-en verminderen de druk op de communicatie naar en het rekenwerk in de <em>cloud</em>.
-Omdat je dit kunt zien als een lokaal verlengstuk van de <em>cloud</em> heet dit wel <em>fog computing</em>.</p>
+<p>De IoT-knoop-controller en de lokale controller zorgen voor lokale autonomie en (daardoor) grotere betrouwbaarheid,
+voor snelle beslissingen (door lage latency vanwege de kleine afstand),
+verminderen de druk op de communicatie met en het rekenwerk in de <em>cloud</em>,
+en maken een betere beveiliging mogelijk.
+Omdat je het rekenwerk in de lokale controllers kunt zien als een lokaal verlengstuk van de <em>cloud</em> heet dit wel <em>fog computing</em>.</p>
 <p>De globale controller zorgt voor de bereikbaarheid in het internet,
 en voor de koppeling met diensten elders.</p>
-</div>
-<div class="section" id="eisen-aan-de-communicatie">
-<h3>Eisen aan de communicatie<a class="headerlink" href="#eisen-aan-de-communicatie" title="Permalink naar deze titel">¶</a></h3>
-<p>We gaan in een volgend hoofdstuk dieper in op de manier waarop we de verschillende onderdelen kunnen verbinden.
-Op basis van kennis van de toepassing kunnen we al wel de eisen aan de communicatie formuleren.
-Enkele voorbeelden van eisen:</p>
-<ul class="simple">
-<li>bandbreedte (bitrate): voor de toepassing kunnen we bepalen hoeveel berichten we in een bepaalde tijd willen sturen,
-en wat de omvang van die berichten is (in bits of in bytes);</li>
-<li>latency (vertraging): in het bijzonder bij een besturingstoepassing moeten we ervoor zorgen
-dat de tijd tussen het signaleren van een <em>event</em> (gebeurtenis) door een sensor en
-het aansturen van de actuator(en) niet te groot is:
-de maximale reactietijd wordt bepaald door de snelheid van het (fysieke) proces dat je aanstuurt.</li>
-<li>draadloos of bedraad: veel toepassingen eisen dat de verbinding tussen de sensoren/actuatoren en de controller draadloos is:
-draden belemmeren bijvoorbeeld de plaatsing of de beweging van de sensoren, en daarmee van het “ding” waaraan deze sensoren gekoppeld zijn.</li>
-<li>andere eisen, bijvoorbeeld beveiliging en privacy;
-je wilt bijvoorbeeld niet dat een besturing door anderen overgenomen kan worden.</li>
-</ul>
-<p>In het voorbeeld van de sproeier hebben we de volgende eisen:</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>bandbreedte (bitrate):</dt>
-<dd><ul class="first last">
-<li>bodemvochtigheid: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
-<li>actuator: 1 bericht per 30 minuten(?), 1 byte per bericht;</li>
-<li>temperatuursensor: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
-<li>regensensor: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>latency: deze is niet kritisch (minuten), het fysische proces van besproeien van een grasveld is langzaam.</li>
-<li>draadloos of bedraad: de verbinding tussen de controller, de actuator(s) en de sensoren is bij voorkeur draadloos.</li>
-</ul>
-<div class="admonition-hoeveel-bits-heb-je-nodig admonition">
-<p class="first admonition-title">Hoeveel bits heb je nodig?</p>
-<p>Bij het bepalen van het aantal bits (of bytes) voor een sensormeting of een actuator-aansturing
-moet je weten (i) wat het <em>bereik</em> is, en (2) wat de vereiste <em>precisie</em> is.</p>
-<p>Bijvoorbeeld: je wilt temperatuur meten in het bereik -20..50 (Celcius),
-met een precisie van 0,5 graad.
-Je gebruik dan het bereik -40..100, waarbij je dit getal later door 2 deelt.</p>
-<p>Voor een getal in het bereik 0..255 heb je 8 bits nodig (1 byte).
-Je kunt dit bereik ook verschuiven, bijvoorbeeld -128..127, of -100..155.
-Het aantal bits blijft dan gelijk.
-Je kunt het bereik ook schalen (de komma verschuiven), bijvoorbeeld 0,0..25,5 (Celsius).
-Vaak is het bij deze schaling handiger om door een macht van 2 te delen,
-dan door een macht van 10.</p>
-<p class="last">Je kunt ook met grotere getallen werken: 0..1023 (10 bits), 0..1000000 (20 bits), enz.</p>
-</div>
+<p>Dit gebruik van meerdere controllers is een voorbeeld van <em>distributie</em> van functionaliteit in een netwerk.</p>
 </div>
 <div class="section" id="samenvatting">
 <h3>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h3>
@@ -266,7 +219,7 @@ dan door een macht van 10.</p>
 <li>aansluiten van de controller op het internet, voor bewaken (monitoring) en besturen op afstand - via een app;</li>
 <li>gebruik van diensten in het internet om tot een “slimme oplossing” te komen.</li>
 </ol>
-<p>Elke volgende stap helpt om meer water te besparen en om een beter sproei-resultaat te krijgen.
+<p>Elke volgende stap helpt om meer water te besparen en om een beter sproei- en groeiresultaat te krijgen.
 De eerste stappen zijn voorbeelden van traditionele automatisering.
 De stappen 3 en 4 zijn voorbeelden van het internet of things:
 de verbinding met het internet geeft veel extra mogelijkheden.</p>
@@ -295,6 +248,13 @@ hiervoor gebruik je de app die via het lokale (WiFi) netwerk verbinding maakt me
 <p>Je kunt met de app de lampen ook op afstand bedienen, via het internet.
 Hiervoor maakt de app contact met de hue-server/controller in het publieke internet,
 die weer contact maakt met de lokale controller.</p>
+<p>We hebben hier te maken met 3 lagen van controllers:</p>
+<ul class="simple">
+<li>de lampen en de schakelaars zijn IoT-knopen, met lokaal sensor(en)/actuator(en),
+een microcontroller, en een radio;</li>
+<li>de bridge is de lokale controller;</li>
+<li>de server in het publieke internet is de globale controller.</li>
+</ul>
 </div>
 <div class="section" id="andere-controllers">
 <h3>Andere controllers<a class="headerlink" href="#andere-controllers" title="Permalink naar deze titel">¶</a></h3>
@@ -312,14 +272,36 @@ Via de hue-webserver kun je verbinding maken met controller-diensten als Apple H
 </div>
 <div class="section" id="voorbeeld-monitoring">
 <h2>Voorbeeld: monitoring<a class="headerlink" href="#voorbeeld-monitoring" title="Permalink naar deze titel">¶</a></h2>
-<p>In de bovenstaande voorbeelden is er steeds sprake van besturing (<em>control</em>), via actuatoren.
-Ook met alleen sensoren, voor bewaking (<em>monitoring</em>), zijn al veel zinvolle IoT-toepassingen te maken.</p>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>Monitoring voorbeeld(en)</li>
-</ul>
+<div class="figure align-right">
+<a class="reference internal image-reference" href="../_images/DBveld.jpg"><img alt="../_images/DBveld.jpg" src="../_images/DBveld.jpg" style="width: 200px;" /></a>
 </div>
+<p>In de bovenstaande voorbeelden is er steeds sprake van besturing (<em>control</em>), via actuatoren.
+Ook met alleen sensoren, voor bewaking (<em>monitoring</em>), zijn al veel zinvolle IoT-toepassingen te maken.
+Als voorbeeld gebruiken we het bewaken op afstand van een bijenkast.</p>
+<p>Een imker (bijenhouder) heeft vaak meerdere bijenkasten, verspreid over een groot gebied.
+Het loont de moeite om de activiteit van de bijen op afstand te kunnen bewaken (<em>monitoring</em>).
+De imker kan dan de gezondheid van zijn bijenvolken continu in de gaten houden,
+en op tijd ingrijpen als er dingen mis dreigen te gaan.</p>
+<p>De stichting <a class="reference external" href="https://beep.nl">Beep</a> ontwikkelt een open-source systeem voor het bewaken van bijenkast,
+en voor het bijhouden van de belangrijkste gegevens in een app.
+De gegevens van het automatische meetsysteem combineer je in de app met gegevens van eigen inspecties.
+Het automatische meetsysteem stuurt enkele keren per uur de belangrijkste gegevens op via een LoRa (long range) IoT-netwerk.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/beep-lora-internet.png"><img alt="../_images/beep-lora-internet.png" src="../_images/beep-lora-internet.png" style="width: 500px;" /></a>
+</div>
+<p>Voor een imker zijn bijvoorbeeld de volgende gegevens van belang:</p>
+<ul class="simple">
+<li>de buitentemperatuur en de luchtvochtigheid in de omgeving van de kast;</li>
+<li>de temperatuur in de kast (broedtemperatuur);</li>
+<li>het gewicht van de kast: als de bijen de kast verlaten neemt het gewicht af;
+als de bijen terugkomen met nectar neemt het gewicht toe;</li>
+<li>het geluid in de kast.
+Als een bijenvolk door indringers beroofd wordt van de voedselvoorraad,
+kun je dit zien aan de combinatie van gewicht en geluid.</li>
+</ul>
+<p>Zie de presentatie hierover: <a class="reference external" href="https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018">https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018</a></p>
+<p>Als veel bijenkasten met zo’n systeem uitgerust zijn helpt dat niet alleen de imker,
+maar ook het onderzoek naar het gedrag en de gezondheid van bijenvolken.</p>
 </div>
 </div>
 
@@ -330,7 +312,7 @@ Ook met alleen sensoren, voor bewaking (<em>monitoring</em>), zijn al veel zinvo
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

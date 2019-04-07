@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="NodeRed-opdrachten-1" href="nodered-opdrachten-1.html" />
+    <link rel="next" title="Toetsvragen" href="toetsvragen.html" />
     <link rel="prev" title="Webserver-Opdrachten" href="opdrachten.html" />
 
 <script type="application/json" class="js-hypothesis-config">
@@ -44,6 +44,7 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../webserver.html">Webserver-knopen</a><ul class="current">
@@ -51,16 +52,14 @@
 <li class="toctree-l2"><a class="reference internal" href="webserver-protocol.html">Protocollen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Webserver-Opdrachten</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">NodeRed-opdrachten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#nodes-en-flows">Nodes en flows</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#je-eerste-flow">Je eerste flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#importeren-van-een-flow">Importeren van een flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#een-nodered-webserver">Een NodeRed webserver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#knipperende-led">Knipperende LED</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nachtlamp">Nachtlamp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sensor-dashboard">Sensor-dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eerste-webserver">1. Eerste webserver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#een-tweede-pagina">2. Een tweede pagina</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#een-teller">3. Een teller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#led-besturing">4. LED-besturing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#webformulieren">5. Webformulieren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensor-dashboard">6. (*)Sensor-dashboard</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="nodered-opdrachten-1.html">NodeRed-opdrachten-1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>
 </li>
@@ -73,8 +72,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
 <div class="relations">
@@ -83,7 +82,7 @@
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../webserver.html">Webserver-knopen</a><ul>
       <li>Previous: <a href="opdrachten.html" title="vorig hoofdstuk">Webserver-Opdrachten</a></li>
-      <li>Next: <a href="nodered-opdrachten-1.html" title="volgend hoofdstuk">NodeRed-opdrachten-1</a></li>
+      <li>Next: <a href="toetsvragen.html" title="volgend hoofdstuk">Toetsvragen</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -111,37 +110,33 @@
 <div class="admonition-leerdoelen-en-concepten admonition">
 <p class="first admonition-title">Leerdoelen en concepten</p>
 <ul class="last simple">
-<li>Kennismaking met NodeRed, voor het configureren van datastromen, koppelen van data, acties en diensten;</li>
-<li>NodeRed voorbeeld: dashboard van sensordata</li>
-<li>NodeRed voorbeeld: bediening van de actuatoren (LED)</li>
+<li>Gebruik van NodeRed als Webserver;</li>
+<li>Kennismaking met het HTTP-protocol, met behulp van NodeRed;</li>
+<li>NodeRed voorbeeld: dashboard van sensordata;</li>
+<li>NodeRed voorbeeld: bediening van de actuatoren (LED);</li>
 </ul>
 </div>
-<p>De module “web voor makers” geeft een uitgebreidere handleiding in het gebruik van NodeRed.</p>
 <div class="admonition-wat-heb-je-nodig admonition">
 <p class="first admonition-title">Wat heb je nodig?</p>
-<ul class="last simple">
-<li><dl class="first docutils">
-<dt>NodeRed-installatie</dt>
-<dd><ul class="first last">
-<li>bijvoorbeeld: FRED - <a class="reference external" href="https://fred.sensetecnic.com">https://fred.sensetecnic.com</a> (gratis versie)</li>
+<ul class="last">
+<li><p class="first">NodeRed-installatie, bijvoorbeeld:</p>
+<blockquote>
+<div><ul class="simple">
+<li>FRED - <a class="reference external" href="https://fred.sensetecnic.com">https://fred.sensetecnic.com</a> (gratis versie)</li>
+<li>NodeRed op Raspberry Pi (onderdeel van standaardsoftware)</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ul>
 </div>
-<div class="section" id="nodes-en-flows">
-<h2>Nodes en flows<a class="headerlink" href="#nodes-en-flows" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/Nodered-hello1.png"><img alt="../_images/Nodered-hello1.png" src="../_images/Nodered-hello1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed http flow-voorbeeld</span></p>
-</div>
-<p>Een <em>flow</em> in NodeRed bestaat uit een netwerk van <em>nodes</em> en <em>verbindingen</em>.
-Het aansluitpunt (bolletje) aan de linkerkant van een node is de input.
-Een node zonder aansluiting links is een <em>input-node</em>, met een externe input, bijvoorbeeld een http-request.
-De outputs staan aan de rechterzijde van de node.
-Een node zonder aansluiting rechts is een <em>output-node</em>, met een externe output, bijvoorbeeld een http-response.</p>
-<p>Een NodeRed-toepassing kan uit meerdere flows bestaan: elke flow heeft een eigen pagina (tab).</p>
+<p>Voorkennis: elementaire HTML-kennis.</p>
+<div class="section" id="eerste-webserver">
+<h2>1. Eerste webserver<a class="headerlink" href="#eerste-webserver" title="Permalink naar deze titel">¶</a></h2>
+<p>NodeRed is een HTTP-server op basis van Node.js.
+Dit kun je vergelijken met Apache of Nginx op andere systemen.
+Met NodeRed kun je snel een simpele webserver maken.
+We gebruiken dit voor het bestuderen van het HTTP-protocol.</p>
+<p>We gebruiken hiervoor de volgende knopen:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="36%" />
@@ -167,149 +162,324 @@ Een node zonder aansluiting rechts is een <em>output-node</em>, met een externe 
 </tr>
 </tbody>
 </table>
-<p><strong>Hoe werkt een flow?</strong>
-Als een node een bericht (message) krijgt via de input,
-dan voert deze node daarop een bewerking uit,
-en genereert één of meer messages naar de output(s).
-Deze output is weer verbonden  met de input van een andere node;
-of de node is een output-node, met een externe output.</p>
-<p><em>Voor het bovenstaande flow-voorbeeld</em>: (i) de http-input-node ontvangt een http-request als
-de http-method gelijk is aan <code class="docutils literal notranslate"><span class="pre">get</span></code> en het URL-pad gelijk is aan <code class="docutils literal notranslate"><span class="pre">/hello</span></code>.
-Deze http-input-node stuurt dan een message met dit request naar
-(ii) de template-node <code class="docutils literal notranslate"><span class="pre">hello.html</span></code>.
-Deze genereert de bijbehorende output: een html-document,
-en stuurt een message met dit document naar
-(iii) de http-output-node, die uit de message de bijbehorende response samenstelt.
-Deze node stuurt de response naar de afzender van het http-request.</p>
-</div>
-<div class="section" id="je-eerste-flow">
-<h2>Je eerste flow<a class="headerlink" href="#je-eerste-flow" title="Permalink naar deze titel">¶</a></h2>
-<p>Met deze eerste flow kun je zien of alles werkt:</p>
-<div class="figure align-center" id="id2">
-<a class="reference internal image-reference" href="../_images/Nodered-flow11.png"><img alt="../_images/Nodered-flow11.png" src="../_images/Nodered-flow11.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed: eerste flow</span></p>
-</div>
-<p>Hiervoor gebruik je de volgende nodes:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="33%" />
-<col width="31%" />
-<col width="37%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>figuur</strong></td>
-<td><strong>naam</strong></td>
-<td><strong>soort node</strong></td>
-</tr>
-<tr class="row-even"><td><img alt="inject-node" src="../_images/inject-node1.png" /></td>
-<td>inject-node</td>
-<td>input</td>
-</tr>
-<tr class="row-odd"><td><img alt="debug-node" src="../_images/debug-node1.png" /></td>
-<td>debug-node</td>
-<td>output</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Opdracht</p>
-<p>Voer de onderstaande opdrachten uit in een lege (flow)tab in NodeRed.</p>
+<p>Een HTTP-request van een browser bevat onder andere de volgende onderdelen:</p>
 <ul class="simple">
-<li>sleep een inject-node vanuit de lijst met nodes links naar het lege vlak in het midden</li>
-<li>plaats op dezelfde manier de debug-node;</li>
-<li>verbind de output (rechts) van de inject-node met de input (links) van de debug-node.</li>
-<li>activeer deze flow (rechts boven: Deploy)</li>
-<li>test deze flow, door op het knopje links op de input-node (“timestamp”) te klikken.</li>
+<li>het pad-gedeelte van de URL van het HTTP-request, bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">/mypage</span></code>.</li>
+<li>de HTTP-request <em>method</em>, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">GET</span></code> of <code class="docutils literal notranslate"><span class="pre">POST</span></code>.</li>
 </ul>
-<p>Als het goed is, krijg je in het debug-venster rechts nu de output van deze flow te zien. Je maakt het debug-venster zichtbaar via de debug-tab.</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>verander de configuratie van de inject-knoop: zorg ervoor dat deze elke minuut een timestamp oplevert.</dt>
-<dd><ul class="first last">
-<li>de configuratie van een knoop krijg je te zien door een dubbel-klik op die knoop.</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>verander de configuratie van de inject-knoop: zorg ervoor dat deze een tekst levert als payload.</li>
-<li>verbind meerdere inject-knopen met dezelfde debug-knoop.</li>
-</ul>
+<p>Maak met deze nodes de volgende flow:</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/Nodered-hello1.png"><img alt="../_images/Nodered-hello1.png" src="../_images/Nodered-hello1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed http flow-voorbeeld</span></p>
 </div>
-<div class="section" id="importeren-van-een-flow">
-<h2>Importeren van een flow<a class="headerlink" href="#importeren-van-een-flow" title="Permalink naar deze titel">¶</a></h2>
-<p>Bij de praktische opdrachten gebruik je flows die eerder gemaakt zijn.</p>
-<p>Op de volgende manier importeer je een flow vanuit een JSON-vorm:</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>selecteer en kopieer de flow in JSON-vorm naar het clipboard</dt>
-<dd><ul class="first last">
-<li>met de “Copy” van je host-Operating System;</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>selecteer in het hamburger-menu-&gt;Import-&gt;Clipboard (rechts);</li>
-<li>kopieer (“Paste”) de inhoud van het clipboard in het venster;</li>
-<li>klik op “Import”</li>
-</ul>
-<p class="rubric">Opdracht</p>
+<p>(De namen van de knopen hoef je niet aan te passen.)</p>
+<p>Door het configureren van de nodes maken we een eigen webserver,
+voor het afhandelen van een eigen pagina.</p>
 <ol class="arabic simple">
-<li>Importeer de onderstaande flow in NodeRed:</li>
+<li>De eerste stap in een HTTP-flow is een http-input-node.
+Deze configureren we als volgt (dubbel-klik op de node):
+1. gebruik als <em>method</em>: <code class="docutils literal notranslate"><span class="pre">GET</span></code>
+2. gebruik als <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">/mypage</span></code></li>
+<li>verbind een debug-node met de output van deze http-input-node.
+De andere verbindingen kun je laten zoals ze zijn.</li>
+<li>Configureer de debug-node <em>Output</em>: <code class="docutils literal notranslate"><span class="pre">complete</span> <span class="pre">msg</span> <span class="pre">object</span></code> (en “Done”).</li>
+<li>“Deploy”</li>
+<li>Nu kun je testen of een GET-request voor <code class="docutils literal notranslate"><span class="pre">/mypage</span></code> afgehandeld wordt.</li>
 </ol>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;678b8c4c.974984&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;inject&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;b7f5ac90.8cf17&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;payloadType&quot;</span><span class="p">:</span><span class="s2">&quot;date&quot;</span><span class="p">,</span><span class="nt">&quot;repeat&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;crontab&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;once&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">146</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;654b6309.c742ec&quot;</span><span class="p">,</span><span class="s2">&quot;d272daf8.c48e38&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;65beec84.75ffe4&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;b7f5ac90.8cf17&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">502</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">81</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;654b6309.c742ec&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;delay&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;b7f5ac90.8cf17&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;pauseType&quot;</span><span class="p">:</span><span class="s2">&quot;delay&quot;</span><span class="p">,</span><span class="nt">&quot;timeout&quot;</span><span class="p">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="nt">&quot;timeoutUnits&quot;</span><span class="p">:</span><span class="s2">&quot;seconds&quot;</span><span class="p">,</span><span class="nt">&quot;rate&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;nbRateUnits&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;rateUnits&quot;</span><span class="p">:</span><span class="s2">&quot;second&quot;</span><span class="p">,</span><span class="nt">&quot;randomFirst&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="nt">&quot;randomLast&quot;</span><span class="p">:</span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="nt">&quot;randomUnits&quot;</span><span class="p">:</span><span class="s2">&quot;seconds&quot;</span><span class="p">,</span><span class="nt">&quot;drop&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mf">323.5</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">82</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;65beec84.75ffe4&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;d272daf8.c48e38&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;b7f5ac90.8cf17&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;complete&quot;</span><span class="p">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mf">323.5</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">134</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]}]</span>
+<p>Gebruik hiervoor als URL in een browser:</p>
+<ul class="simple">
+<li>voor FRED: de URL van je NodeRed-instantie, gevolgd door <code class="docutils literal notranslate"><span class="pre">/api/mypage</span></code>.
+Bijvoorbeeld:  <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/mypage</span></code></li>
+<li>voor een Raspberry Pi: de URL van de NodeRed-instantie, gevolgd door <code class="docutils literal notranslate"><span class="pre">/mypage</span></code>.</li>
+</ul>
+<p>In het geval van FRED moet je dit doen in een venster van de browser waarmee je ingelogd bent bij FRED.
+Dit betekent dat alleen jij deze website kunt zien, anderen niet.
+Dit is een beperking van de gratis versie van FRED.</p>
+<p>Een “normale” NodeRed-installatie heeft deze beperking niet: iedereen kan dan je webpagina zien.</p>
+<p>Als response in de browser krijg je:  <code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">payload:</span> <span class="pre">[object</span> <span class="pre">Object]</span> <span class="pre">!</span></code></p>
+<ol class="arabic simple" start="6">
+<li>zoek in de debug-output naar het <code class="docutils literal notranslate"><span class="pre">req</span></code>-deel van het msg-object.
+Daarin vind je onder andere de velden <code class="docutils literal notranslate"><span class="pre">URL</span></code> en <code class="docutils literal notranslate"><span class="pre">method</span></code>.
+Controleer of deze kloppen met wat je verwacht.</li>
+<li>De volgende stap is het aanpassen van de webpagina.
+Configureer de template-node, en vul als template-waarde in:</li>
+</ol>
+<p>Vul als <em>Name</em> in: <code class="docutils literal notranslate"><span class="pre">mypage</span></code>.
+En “Done” en “Deploy”.</p>
+<p>Open nu in de browser een webpagina met de URL van je NodeRed-pagina.
+(Bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/mypage</span></code>.)
+Controleer of je nu je eigen webpagina te zien krijgt.</p>
+</div>
+<div class="section" id="een-tweede-pagina">
+<h2>2. Een tweede pagina<a class="headerlink" href="#een-tweede-pagina" title="Permalink naar deze titel">¶</a></h2>
+<p>De volgende stap is het maken van een tweede pagina voor je website.</p>
+<ol class="arabic simple">
+<li>Kopieer de flow met de 3 nodes: http-input, template, http-output.
+Hiervoor kun je in NodeRed Copy-Paste gebruiken: (i) selecteer de nodes;
+(ii) Copy; (iii) Paste.</li>
+<li>Configureer de tweede http-input-node, met <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">my2ndpage</span></code>.
+Als <em>method</em> laat je <code class="docutils literal notranslate"><span class="pre">GET</span></code> staan. En “Done”.</li>
+<li>Configureer de template-node, en vul als <em>template</em> in:</li>
+</ol>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype HTML&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My 2nd page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Mijn tweede pagina<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li>test deze flow.</li>
+<p>“Done” en “Deploy”.</p>
+<ol class="arabic simple" start="4">
+<li>Controleer in een browser-venster of deze URL werkt.
+(Bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/my2ndpage</span></code>)</li>
+<li>Maak nu een link van deze pagina naar de vorige.
+Pas de template-tekst van de template node daarvoor aan,
+en voeg toe onder <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;...&lt;/h1&gt;</span></code>:</li>
 </ol>
+<p>Voor NodeRed via FRED:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+  Dit is mijn tweede webpagina.
+  De eerste vind je via deze link:
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/api/mypage&quot;</span><span class="p">&gt;</span>Home page<span class="p">&lt;</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
 </div>
-<div class="section" id="een-nodered-webserver">
-<h2>Een NodeRed webserver<a class="headerlink" href="#een-nodered-webserver" title="Permalink naar deze titel">¶</a></h2>
-<p>In deze opdracht maak je een webserver met NodeRed,
-met dezelfde opzet als de webserver.</p>
-<p>Als je NodeRed gebruikt op de Raspberry Pi,
-dan kun je deze webserver eenvoudig aanpassen om een LED aan te sturen,
-via een GPIO-poort.</p>
+<p><em>Opmerking</em>: in deze html-code gebruiken we de URL <code class="docutils literal notranslate"><span class="pre">/api/mypage</span></code>.
+Dit is nodig voor de FRED-versie.
+Voor andere NodeRed-installaties gebruik je als URL: <code class="docutils literal notranslate"><span class="pre">/mypage</span></code>.</p>
+<p>“Done” en “Deploy”.</p>
+<p>Bezoek deze pagina in de brower,
+en controleer of de link naar de homepagina werkt.</p>
+<ol class="arabic simple" start="6">
+<li>Voeg op dezelfde manier een link toe van je eerste pagina naar je tweede.
+Controleer of deze werkt.</li>
+</ol>
+<p>Je hebt nu een website met twee pagina’s die onderling verbonden zijn.</p>
+<p>Je kunt de tekst van de pagina’s zo groot maken als je wilt.
+Vaak is het handig om grotere teksten in een bestand op te slaan.
+Dit kun je dan inlezen via de file-node;
+in FRED is deze helaas niet beschikbaar.</p>
+</div>
+<div class="section" id="een-teller">
+<h2>3. Een teller<a class="headerlink" href="#een-teller" title="Permalink naar deze titel">¶</a></h2>
+<p>De website die we tot nu toe gemaakt hebben is <em>statisch</em>:
+dat wil zeggen dat de inhoud niet afhangt van de toestand van de server.
+Bij eenzelfde URL krijg je altijd hetzelfde resultaat.</p>
+<p>Een volgende stap is dat we de website voorzien van een bezoekers-teller:
+elke keer als er een http-verzoek voor een webpagina binnenkomt,
+verhogen we deze teller.
+We laten de huidige waarde van de teller in de webpagina zien.
+Dit is een eenvoudig voorbeeld van een <em>dynamische website</em>.</p>
+<p>Hiervoor maken we gebruik van context-variabelen in NodeRed,
+zie: <a class="reference external" href="https://nodered.org/docs/user-guide/context">https://nodered.org/docs/user-guide/context</a>.
+In een context kun je een waarde opslaan die tussen de verschillende request bewaard blijft.
+We gebruiken de <em>flow-context</em>: deze is gemeenschappelijk voor de flows op één pagina.</p>
+<p>Deze opdracht is ook een demonstratie van het gebruik van <em>templates</em>:
+een tekst waarin je de waarde van variabelen kunt invullen.
+NodeRed gebruikt voor deze templates de Mustache-notatie,
+zie: <a class="reference external" href="https://mustache.github.io">https://mustache.github.io</a>.</p>
+<ol class="arabic simple">
+<li>Voeg een functie-node in tussen de http-input-node (<code class="docutils literal notranslate"><span class="pre">api/mypage</span></code>) en de template-node:
+Verwijder eerst de verbinding tussen de http-input-node en de template-node.
+Sleep een function node naar de flow.
+Verbind de output van de http-input-node met de input van de function-node.
+Verbind de output van de function-node met de input van de template-node.
+(En maak de layout weer netjes.)</li>
+<li>Configureer de function-node: <em>Name</em>: <code class="docutils literal notranslate"><span class="pre">inc-count</span></code>; <em>Function</em>:</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">flow</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">flow</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="nx">count</span><span class="p">);</span>
+<span class="nx">msg</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span><span class="p">;</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In de eerste regel halen we de waarde van de flow-variabele “count” op.
+Als deze nog niet gedefinieerd is, gebruiken we de waarde 0.
+(Dit is een veel-voorkomende JavaScript-constructie.)
+Deze waarde hogen we met 1 op, en bewaren deze weer in de flow-variabele “count”.
+De nieuwe waarde voegen we toe aan de NodeRed-message <code class="docutils literal notranslate"><span class="pre">msg</span></code>,
+om later in het template in te vullen.</p>
+<ol class="arabic simple" start="3">
+<li>Configureer de template-node.
+Voeg in, vóór  <code class="docutils literal notranslate"><span class="pre">&lt;/body&gt;</span></code>:</li>
+</ol>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span> visits: {{count}} <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Via de constructie <code class="docutils literal notranslate"><span class="pre">{{count}}</span></code> wordt de waarde van de variable <code class="docutils literal notranslate"><span class="pre">msg.count</span></code> in de template-tekst ingevuld.</p>
+<ol class="arabic simple" start="4">
+<li>“Deploy”</li>
+</ol>
+<p>Controleer via de browser of je bij elke reload van de pagina
+(bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/mypage</span></code> )
+een volgende waarde van de teller krijgt.</p>
+</div>
+<div class="section" id="led-besturing">
+<h2>4. LED-besturing<a class="headerlink" href="#led-besturing" title="Permalink naar deze titel">¶</a></h2>
+<p>In deze opdracht werken we uit hoe je via een webserver een LED kunt aansturen.
+In de FRED-versie hebben we geen toegang tot een LED;
+we simuleren deze door de kleur in de webpagina.</p>
+<p>In de Raspberry Pi-versie heb je vanuit NodeRed toegang tot de GPIO-pinnen.
+Daarmee kun je eventueel een LED aansturen.</p>
+<p>Voor het aansturen van de LED gebruiken we twee URLs: <code class="docutils literal notranslate"><span class="pre">/ledon</span></code> en <code class="docutils literal notranslate"><span class="pre">/ledoff</span></code>.
+Hiervoor maken we twee flows, met voor elk dezelfde opzet als bij de teller:
+een http-input-node, een function-node, een template-node, en een http-output-node.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/Nodered-flow-led-on-off.png"><img alt="../_images/Nodered-flow-led-on-off.png" src="../_images/Nodered-flow-led-on-off.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed flow voor led-besturing</span></p>
+</div>
+<ol class="arabic simple">
+<li>Maak deze flow voor <code class="docutils literal notranslate"><span class="pre">ledon</span></code>, door de nodes naar het flow-venster te slepen en verbinden.</li>
+<li>Configureer de http-input-node: <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">/ledon</span></code>, <em>method</em>: <code class="docutils literal notranslate"><span class="pre">GET</span></code>.</li>
+<li>Configureer de function node: <em>Name</em>: <code class="docutils literal notranslate"><span class="pre">led-on</span></code>, <code class="docutils literal notranslate"><span class="pre">Function</span></code>:</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">msg</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Als je toegang hebt tot hardware zul je in deze functie de LED uitschakelen.</p>
+<ol class="arabic simple" start="4">
+<li>Configureer de template node: <em>Template</em>:</li>
+</ol>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype HTML&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>LED control<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>LED control<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/api/ledon&quot;</span><span class="p">&gt;</span>on<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: {{color}}&quot;</span><span class="p">&gt;</span> [[LED]]<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/api/ledoff&quot;</span><span class="p">&gt;</span>off<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><em>Opmerking</em>: in deze html-code gebruiken we de URLs <code class="docutils literal notranslate"><span class="pre">/api/ledon</span></code> en <code class="docutils literal notranslate"><span class="pre">/api/ledoff</span></code>.
+Dit is nodig voor de FRED-versie.
+Voor andere NodeRed-installaties laat je het <code class="docutils literal notranslate"><span class="pre">/api</span></code>-deel weg.</p>
+<ol class="arabic simple" start="5">
+<li>Kopieer deze flow voor <code class="docutils literal notranslate"><span class="pre">ledoff</span></code></li>
+<li>Configureer in deze kopie de http-input-node: <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">/ledoff</span></code>.</li>
+<li>Configureer de function-node: <em>Name</em>: <code class="docutils literal notranslate"><span class="pre">led-off</span></code>, <code class="docutils literal notranslate"><span class="pre">Function</span></code>:</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">msg</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">;</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Als je toegang hebt tot hardware zul je in deze functie de LED uitschakelen.</p>
+<ol class="arabic simple" start="8">
+<li>De template-node hoef je niet aan te passen.</li>
+<li>“Deploy” en controleer via de browser de werking van de webpagina’s.
+(bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">https://anna.fred.sensetecnic.com/api/ledon</span></code>)</li>
+<li>Je kunt deze flows vereenvoudigen: voor beide flows zijn de “staarten” gelijk.
+Deze kun je combineren: verbind de output van function-node <code class="docutils literal notranslate"><span class="pre">led-off</span></code>
+met de template-node in de flow van <code class="docutils literal notranslate"><span class="pre">/ledon</span></code>.
+Verwijder de tweede template-node en de bijbehorende http-output-node.
+Je krijgt dan onderstaande flow:</li>
+</ol>
 <div class="figure align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/IoT-webserver-flow.png"><img alt="../_images/IoT-webserver-flow.png" src="../_images/IoT-webserver-flow.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Webserver-flow met 2 URLs</span></p>
+<a class="reference internal image-reference" href="../_images/Nodered-flow-led-on-off-combined.png"><img alt="../_images/Nodered-flow-led-on-off-combined.png" src="../_images/Nodered-flow-led-on-off-combined.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Ledbesturing met gedeelde response-“staart”</span></p>
 </div>
-<p>Deze flow bevat 2 http-input-nodes: voor elke URL een node.
-Elk van deze nodes wordt gevolgd door een functie-node,
-waarin de parameters voor de response op het URL-request ingevuld worden.
-Deze parameters worden vervolgens gecombineerd met het HTML-template,
-en als response teruggestuurd, via de HTTP-output-node.</p>
-<p><strong>(1)</strong> Kopieer de onderstaande flow naar een nieuwe NodeRed flow-tab:</p>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;1da46194.2d9ac6&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;http in&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;/leds/0&quot;</span><span class="p">,</span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;post&quot;</span><span class="p">,</span><span class="nt">&quot;upload&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;swaggerDoc&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">130</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;7c2fe0e4.f7a1f&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;7c2fe0e4.f7a1f&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;function&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;updateLed&quot;</span><span class="p">,</span><span class="nt">&quot;func&quot;</span><span class="p">:</span><span class="s2">&quot;if (msg.payload.on == \&quot;1\&quot;) {\n    flow.set(\&quot;ledOn\&quot;, true);\n} else if (msg.payload.on == \&quot;0\&quot;) {\n    flow.set(\&quot;ledOn\&quot;, false);\n}\nreturn msg;&quot;</span><span class="p">,</span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;noerr&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">330</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;1b698b9d.d59cf4&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;a26ef255.d64668&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;http in&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="s2">&quot;/led-control&quot;</span><span class="p">,</span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;get&quot;</span><span class="p">,</span><span class="nt">&quot;upload&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">&quot;swaggerDoc&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">140</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;1b698b9d.d59cf4&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;a6316fe5.e385d&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;http response&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;statusCode&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;headers&quot;</span><span class="p">:{},</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">650</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;c12705b8.6d89b8&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;template&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="s2">&quot;payload&quot;</span><span class="p">,</span><span class="nt">&quot;fieldType&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;handlebars&quot;</span><span class="p">,</span><span class="nt">&quot;syntax&quot;</span><span class="p">:</span><span class="s2">&quot;mustache&quot;</span><span class="p">,</span><span class="nt">&quot;template&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;html&gt;\n  &lt;head&gt;\n      &lt;title&gt;LED server&lt;/title&gt;\n  &lt;/head&gt;\n  &lt;body&gt; &lt;h1&gt;LED control&lt;/h1&gt;\n    &lt;p&gt;\n      &lt;form action=\&quot;/leds/0\&quot; method=\&quot;post\&quot;&gt;\n         &lt;button type=\&quot;submit\&quot; name=\&quot;on\&quot; value=\&quot;1\&quot;&gt;On&lt;/button&gt;\n         &lt;span style=\&quot;font-weight:bold;color:{{color}};\&quot;&gt; [[LED]] &lt;/span&gt;\n         &lt;button type=\&quot;submit\&quot; name=\&quot;on\&quot; value=\&quot;0\&quot;&gt;Off&lt;/button&gt;\n      &lt;/form&gt;\n    &lt;/p&gt;\n    &lt;table&gt;\n        &lt;tr&gt;&lt;td&gt;Temperature&lt;/td&gt;   &lt;td&gt;{{temperature}} &amp;deg;C&lt;/td&gt;&lt;/tr&gt;\n        &lt;tr&gt;&lt;td&gt;Atm.pressure&lt;/td&gt;  &lt;td&gt;{{barometer}} hPa&lt;/td&gt; &lt;/tr&gt;\n    &lt;/table&gt;\n    &lt;p&gt;&lt;a href=\&quot;/led-control\&quot;&gt;refresh&lt;/a&gt;&lt;/p&gt;\n  &lt;/body&gt;\n&lt;/html&gt;&quot;</span><span class="p">,</span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="s2">&quot;str&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;a6316fe5.e385d&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;1b698b9d.d59cf4&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;function&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Properties&quot;</span><span class="p">,</span><span class="nt">&quot;func&quot;</span><span class="p">:</span><span class="s2">&quot;if (flow.get(\&quot;ledOn\&quot;) || false) {\n    msg.color = \&quot;red\&quot;;\n    msg.led = 100;\n} else {\n    msg.color = \&quot;black\&quot;;\n    msg.led = 0;\n}\n\nmsg.temperature = 23.4;\nmsg.barometer = 2014.5;\nreturn msg;&quot;</span><span class="p">,</span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;noerr&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">330</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[[</span><span class="s2">&quot;c12705b8.6d89b8&quot;</span><span class="p">,</span><span class="s2">&quot;3a7d94d1.f202dc&quot;</span><span class="p">]]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;3a7d94d1.f202dc&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_gauge&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;798cb349.253754&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;LED&quot;</span><span class="p">,</span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="s2">&quot;6ab33fd6.a18d4&quot;</span><span class="p">,</span><span class="nt">&quot;order&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;gtype&quot;</span><span class="p">:</span><span class="s2">&quot;gage&quot;</span><span class="p">,</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;gauge&quot;</span><span class="p">,</span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;units&quot;</span><span class="p">,</span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;{{led}}&quot;</span><span class="p">,</span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="nt">&quot;colors&quot;</span><span class="p">:[</span><span class="s2">&quot;#00b500&quot;</span><span class="p">,</span><span class="s2">&quot;#e6e600&quot;</span><span class="p">,</span><span class="s2">&quot;#ca3838&quot;</span><span class="p">],</span><span class="nt">&quot;seg1&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;seg2&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="mi">510</span><span class="p">,</span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="nt">&quot;wires&quot;</span><span class="p">:[]},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;6ab33fd6.a18d4&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_group&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Simulated LED&quot;</span><span class="p">,</span><span class="nt">&quot;tab&quot;</span><span class="p">:</span><span class="s2">&quot;8ac9c2af.6b6b3&quot;</span><span class="p">,</span><span class="nt">&quot;disp&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="nt">&quot;collapse&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">},{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;8ac9c2af.6b6b3&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;ui_tab&quot;</span><span class="p">,</span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Simulator&quot;</span><span class="p">,</span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="s2">&quot;dashboard&quot;</span><span class="p">}]</span>
+<p>Door slim gebruik te maken van templates kun je vaker flows op zo’n manier combineren.</p>
+<div class="topic">
+<p class="topic-title first">Idempotente opdrachten</p>
+<p>Waarom gebruiken we hier <em>twee links (knoppen)</em> voor het besturen van de LED?
+Je kunt toch met één drukknop een lamp aan- en uitzetten?
+De ene keer drukken zet de lamp aan, de volgende zet deze weer uit.
+Maar: deze aanpak geeft problemen als de drukknop niet betrouwbaar is,
+zoals bij communicatie vaak het geval is.
+Als een omschakelbericht niet aankomt,
+heeft het volgende bericht een tegengestelde betekenis.
+Door twee knoppen te gebruiken, heeft elke knop een duidelijke betekenis.
+Je kunt dan een knop nog een keer gebruiken,
+“voor de zekerheid”, bijvoorbeeld als je nog geen reactie gezien hebt.</p>
+<p>Een opdracht die dezelfde betekenis houdt als je deze herhaalt noemen we <em>idempotent</em>.
+Het maakt dan niet uit of je deze 1, 2 of 10 keer uitvoert.</p>
+<p>De HTTP GET-opdracht voor het ophalen van een webpagina is idempotent.
+Je kunt altijd een “reload” van een webpagina doen: je krijgt dan hetzelfde resultaat.</p>
+<p>De HTTP POST-opdracht, voor het insturen van een formulier, is niet idempotent.
+De browser geeft een waarschuwing als je voor een formulier een “reload” uit wilt voeren:
+je loopt bijvoorbeeld het risico dat je een artikel nog een keer bestelt.</p>
+<p><em>Vraag</em>: welke knoppen op een TV-afstandsbediening zijn idempotent?</p>
+</div>
+</div>
+<div class="section" id="webformulieren">
+<h2>5. Webformulieren<a class="headerlink" href="#webformulieren" title="Permalink naar deze titel">¶</a></h2>
+<p>In deze opdracht gaan we aan de slag met een webformulier:
+in de browser vul je de waarden in het formulier in;
+de browser stuurt het formulier via een POST-request (in plaats van GET) naar de server;
+de server verwerkt dit request, en stuurt een (HTML)document terug.</p>
+<p>Een formulier heeft in HTML de vorm:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/form-url&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+  ... <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;inputname1&quot;</span><span class="p">&gt;</span> ...
+  ... <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;inputname2&quot;</span><span class="p">&gt;</span> ...
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>Het html-template in de template-node heeft 3 parameters: <code class="docutils literal notranslate"><span class="pre">{{color}}</span></code>,
-<code class="docutils literal notranslate"><span class="pre">{{temperature}}</span></code>, en <code class="docutils literal notranslate"><span class="pre">{{barometer}}</span></code> - respectievelijk de kleur van de LED-tekst,
-de temperatuur, en de luchtdruk.</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;</span>
-<span class="x">  &lt;head&gt;</span>
-<span class="x">      &lt;title&gt;LED server&lt;/title&gt;</span>
-<span class="x">  &lt;/head&gt;</span>
-<span class="x">  &lt;body&gt; &lt;h1&gt;LED control&lt;/h1&gt;</span>
-<span class="x">    &lt;p&gt;</span>
-<span class="x">      &lt;form action=&quot;/leds/0&quot; method=&quot;post&quot;&gt;</span>
-<span class="x">         &lt;button type=&quot;submit&quot; name=&quot;on&quot; value=&quot;1&quot;&gt;On&lt;/button&gt;</span>
-<span class="x">         &lt;span style=&quot;font-weight:bold;color:</span><span class="cp">{{</span><span class="nv">color</span><span class="cp">}}</span><span class="x">;&quot;&gt; [[LED]] &lt;/span&gt;</span>
-<span class="x">         &lt;button type=&quot;submit&quot; name=&quot;on&quot; value=&quot;0&quot;&gt;Off&lt;/button&gt;</span>
-<span class="x">      &lt;/form&gt;</span>
-<span class="x">    &lt;/p&gt;</span>
-<span class="x">    &lt;table&gt;</span>
-<span class="x">        &lt;tr&gt;&lt;td&gt;Temperature&lt;/td&gt;   &lt;td&gt;</span><span class="cp">{{</span><span class="nv">temperature</span><span class="cp">}}</span><span class="x"> &amp;deg;C&lt;/td&gt;&lt;/tr&gt;</span>
-<span class="x">        &lt;tr&gt;&lt;td&gt;Atm.pressure&lt;/td&gt;  &lt;td&gt;</span><span class="cp">{{</span><span class="nv">barometer</span><span class="cp">}}</span><span class="x"> hPa&lt;/td&gt; &lt;/tr&gt;</span>
-<span class="x">    &lt;/table&gt;</span>
-<span class="x">    &lt;p&gt;&lt;a href=&quot;/led-control&quot;&gt;refresh&lt;/a&gt;&lt;/p&gt;</span>
-<span class="x">  &lt;/body&gt;</span>
-<span class="x">&lt;/html&gt;</span>
+<p>Bij de form-tag geef je op wat de URL is van het formulier,
+en wat de bijbehorende http-method is:
+in dit voorbeeld, POST met als URL <code class="docutils literal notranslate"><span class="pre">/form-url</span></code>.
+Daarna volgen een aantal input-velden, voor tekst, wachtwoord, datum, meerkeuze, enz.
+Een formulier heeft meestal een <em>submit-button</em> waarmee je het ingevulde formulier opstuurt.</p>
+<p>We gebruiken hier een formulier voor het aansturen van de LED:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/leds/0&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;on&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>On<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:{{color}};&quot;</span><span class="p">&gt;</span> [[LED]] <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;on&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;0&quot;</span><span class="p">&gt;</span>Off<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>In de functienodes tussen de HTML-input-nodes en de template-node worden deze parameters ingevuld.
-De waarden voor de temperatuur en de luchtdruk zijn fantasiewaarden:
-we hebben in deze gesimuleerde knoop geen echte sensoren.</p>
-<p>Als voorbeeld geven we de functie <code class="docutils literal notranslate"><span class="pre">updateLed</span></code>: deze wordt uitgevoerd nadat een HTTP-POST-request met de URL <code class="docutils literal notranslate"><span class="pre">/leds/0</span></code> ontvangen is.</p>
+<p>De URL van het formulier is <code class="docutils literal notranslate"><span class="pre">/leds/0</span></code>: dit geeft aan dat het om LED-0 gaat.
+(De hardware kan meerdere LEDs bevatten.)
+De method is <code class="docutils literal notranslate"><span class="pre">POST</span></code>: via het formulier veranderen we de toestand van de LED.
+(Eigenlijk zou dit een PUT-opdracht moeten zijn, maar dat kan niet in HTML;
+zie de opmerkingen over REST API’s verderop.)
+We gebruiken hier 2 buttons: voor het aan- en uitzetten van de LED.
+Beide buttons zijn submit-buttons: deze zorgen ervoor dat het formulier direct verstuurd wordt.</p>
+<p>Het formulier heeft in dit geval 1 parameter: <code class="docutils literal notranslate"><span class="pre">on</span></code>, met als mogelijke waarden <code class="docutils literal notranslate"><span class="pre">0</span></code> en <code class="docutils literal notranslate"><span class="pre">1</span></code>.
+De parameters van een formulier worden verstuurd als een (gecodeerde) string van de vorm:
+<code class="docutils literal notranslate"><span class="pre">name0=value0&amp;name1=value1...&amp;namex=valuex</span></code>.
+Voor dit voorbeeld krijgen we dan <code class="docutils literal notranslate"><span class="pre">on=1</span></code> of <code class="docutils literal notranslate"><span class="pre">on=0</span></code>.</p>
+<p>Merk op dat we nu één URL hebben voor beide schakelaars (buttons);
+de waarde voor het aansturen van de LED geven we nu niet weer als twee verschillende URLs,
+maar als parameter van de formulier-URL.</p>
+<p>In de (NodeRed) server verwerken we deze parameter als volgt:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">on</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flow</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;ledOn&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">on</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">flow</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;ledOn&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We kunnen dit ook schrijven als: <code class="docutils literal notranslate"><span class="pre">flow.set(&quot;ledOn&quot;,</span> <span class="pre">msg.payload==&quot;1&quot;)</span></code>.</p>
+<ol class="arabic simple">
+<li>Maak de volgende flow, door de nodes naar het flow-deel te slepen en te verbinden.</li>
+</ol>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/Nodered-form-flow-0.png"><img alt="../_images/Nodered-form-flow-0.png" src="../_images/Nodered-form-flow-0.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed form flow</span></p>
+</div>
+<p>(De namen van de nodes hoef je nog niet aan te passen.)</p>
+<ol class="arabic simple" start="2">
+<li>Configureer de bovenste http-input-node: <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">/led-control</span></code>,
+<em>method</em>: <code class="docutils literal notranslate"><span class="pre">GET</span></code>.
+Dit is de node/URL voor de html-pagina met het formulier.</li>
+<li>Configureer de onderste http-input-node: <em>URL</em>: <code class="docutils literal notranslate"><span class="pre">/leds/0</span></code>,
+<em>method</em>:<code class="docutils literal notranslate"><span class="pre">POST</span></code>.
+Dit is de node/URL voor het afhandelen van het ingevulde formulier.</li>
+<li>Configureer de onderste function-node (<code class="docutils literal notranslate"><span class="pre">updateLed</span></code>),
+voor het afhandelen van het formulier:</li>
+</ol>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">on</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">flow</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;ledOn&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">on</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span> <span class="p">{</span>
@@ -318,33 +488,107 @@ we hebben in deze gesimuleerde knoop geen echte sensoren.</p>
 <span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><strong>(2)</strong> Plaats een debug-node aan de output van de http-input-node <code class="docutils literal notranslate"><span class="pre">leds/0</span></code>.
-Gebruik deze om het ontvangen request te bekijken.
-Stel de output van deze debug-node in als “complete msg object”.
-Je gebruikt deze flow als webserver met de URL: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;nodered&gt;&gt;/led-control</span></code>,
-waarin <code class="docutils literal notranslate"><span class="pre">&lt;&lt;nodered&gt;&gt;</span></code> de URL van je NodeRed-server is.</p>
-<ol class="arabic simple">
-<li>wat is de method van het request?</li>
-<li>wat is de URL van het request?</li>
-<li>wat is de body van het request?</li>
-<li>wat is de “user agent” (d.w.z., de browser)?</li>
-<li>welk soort resultaat wordt verwacht (“accept”-header)?</li>
-<li>wat is de payload?</li>
+<ol class="arabic simple" start="5">
+<li>Configureer de bovenste function-node (<code class="docutils literal notranslate"><span class="pre">properties</span></code>),
+voor het zetten van de template-parameters.</li>
 </ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">flow</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;ledOn&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">msg</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">msg</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
 </div>
-<div class="section" id="knipperende-led">
-<h2>Knipperende LED<a class="headerlink" href="#knipperende-led" title="Permalink naar deze titel">¶</a></h2>
-<p>P.M.</p>
+<ol class="arabic simple" start="6">
+<li>Configureer de template-node:</li>
+</ol>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>LED server<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>LED control<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/api/leds/0&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;put&quot;</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;on&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>On<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-weight:bold;color:{{color}};&quot;</span><span class="p">&gt;</span> [[LED]] <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;on&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;0&quot;</span><span class="p">&gt;</span>Off<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/api/led-control&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
 </div>
-<div class="section" id="nachtlamp">
-<h2>Nachtlamp<a class="headerlink" href="#nachtlamp" title="Permalink naar deze titel">¶</a></h2>
-<p>P.M.</p>
+<p><em>Opmerking</em>: in deze html-code gebruiken we de URLs <code class="docutils literal notranslate"><span class="pre">/api/leds/0</span></code> en <code class="docutils literal notranslate"><span class="pre">/api/led-control</span></code>.
+Dit is nodig voor de FRED-versie.
+Voor andere NodeRed-installaties laat je het <code class="docutils literal notranslate"><span class="pre">/api</span></code>-deel weg.</p>
+<ol class="arabic simple" start="7">
+<li>“Deploy” en test de website.</li>
+</ol>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/Nodered-form-gauge.png"><img alt="../_images/Nodered-form-gauge.png" src="../_images/Nodered-form-gauge.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed flow: formulier met dashboard-meter</span></p>
+</div>
+<ol class="arabic simple" start="8">
+<li>Voeg als uitbreiding van deze flow, een dashboard-node (“gauge”, ronde meter).
+Verbind de input daarvan met de output van de function-node <code class="docutils literal notranslate"><span class="pre">properties</span></code>.
+Configureer deze node als volgt:<ol class="arabic">
+<li>Configureer deze node: <em>Group</em>: <code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">new</span> <span class="pre">ui</span> <span class="pre">group</span></code>,</li>
+<li>Voeg een nieuwe ui groep toe met als naam: Simulated LED;
+gebruik hiervoor het potloodje rechts van <code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">new</span> <span class="pre">ui</span> <span class="pre">group</span></code></li>
+<li>met <em>Tab</em>: add new tab, met als naam: Simulator.</li>
+</ol>
+</li>
+<li>Pas de function-node <code class="docutils literal notranslate"><span class="pre">Properties</span></code> aan: zet <code class="docutils literal notranslate"><span class="pre">msg.value</span></code> op 0 of 10,
+voor led “aan” of “uit”.</li>
+</ol>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">flow</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;ledOn&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">msg</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">;</span>
+    <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">msg</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">;</span>
+    <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li>“Deploy” en test deze flow.</li>
+</ol>
+<div class="topic">
+<p class="topic-title first">REST-interfaces</p>
+<p>Waarom gebruiken we hier een formulier voor het veranderen van de toestand van de LED?
+Dit is (bijna) een voorbeeld van een REST-interface (<a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer">https://en.wikipedia.org/wiki/Representational_state_transfer</a>).
+Dit is een manier om interfaces in het web te definiëren.</p>
+<ul class="simple">
+<li>elke <em>resource</em>, bijvoorbeeld een LED, heeft een eigen adres (URL) in het web.
+In dit geval is het adres van de LED: “/led/0”.</li>
+<li>voor het opvragen van de toestand van een resource gebruik je een HTTP GET-opdracht.
+De afspraak is dat je hiermee de toestand niet verandert:
+voor de resource maakt het niet uit of je deze opdracht 0 maal of vaker uitvoert.
+In dat geval is GET een <em>veilige</em> opdracht (ook wel: <em>nullipotent</em>).</li>
+<li>voor het veranderen van de toestand van een resource gebruik je een andere opdracht;
+voor dit voorbeeld zou dit een HTTP PUT moeten zijn; deze is <em>idempotent</em>,
+als je deze herhaalt blijft de betekenis gelijk.</li>
+<li>we kunnen een PUT-opdracht niet gebruiken in een HTML-formulier:
+dat kan alleen vanuit JavaScript.
+Voorlopig behelpen we ons hier met een POST:
+we houden ons daarmee niet aan de regels voor REST API’s.</li>
+</ul>
+<p><em>Vraag</em>: bestudeer de (onofficiële) documentatie van de Philips Hue Bridge
+(<a class="reference external" href="http://www.burgestrand.se/hue-api/api/lights/">http://www.burgestrand.se/hue-api/api/lights/</a>).
+Met welke opdracht zet je een lamp aan? Met welke uit?</p>
+</div>
 </div>
 <div class="section" id="sensor-dashboard">
-<h2>Sensor-dashboard<a class="headerlink" href="#sensor-dashboard" title="Permalink naar deze titel">¶</a></h2>
-<p>Met een sensor-dashboard kun je de waarden van de sensoren via een browser bekijken.</p>
-<div class="figure align-center" id="id4">
-<a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-02.png"><img alt="../_images/Nodered-dashboard-display-02.png" src="../_images/Nodered-dashboard-display-02.png" style="width: 600px;" /></a>
+<h2>6. (*)Sensor-dashboard<a class="headerlink" href="#sensor-dashboard" title="Permalink naar deze titel">¶</a></h2>
+<p>Met enige moeite kunnen we met NodeRed de (sensor)gegevens van een website halen en weergeven in een dashboard.
+Hiervoor halen we een html-document op van een website (met een HTTP GET request),
+vervolgens ontleden we dit document om de sensorgegevens eruit te halen.
+Daarna geven we deze sensorgegevens weer in een dashboard.</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-01.png"><img alt="../_images/Nodered-dashboard-display-01.png" src="../_images/Nodered-dashboard-display-01.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">NodeRed dashboard display</span></p>
 </div>
 <p>NodeRed biedt de bouwstenen voor het maken van een eenvoudig dashboard. We gebruiken in het voorbeeld de volgende knopen:</p>
@@ -361,36 +605,19 @@ waarin <code class="docutils literal notranslate"><span class="pre">&lt;&lt;node
 <td><strong>soort</strong></td>
 <td><strong>betekenis</strong></td>
 </tr>
-<tr class="row-even"><td><img alt="dashboard-gauge" src="../_images/nodered-dashboard-gauge1.png" /></td>
+<tr class="row-even"><td><img alt="dashboard-gauge" src="../_images/nodered-dashboard-gauge.png" /></td>
 <td>dashboard-gauge</td>
 <td>output</td>
 <td>meter (actuele waarde)</td>
 </tr>
-<tr class="row-odd"><td><img alt="dashboard-chart" src="../_images/nodered-dashboard-chart1.png" /></td>
+<tr class="row-odd"><td><img alt="dashboard-chart" src="../_images/nodered-dashboard-chart.png" /></td>
 <td>dashboard-chart</td>
 <td>output</td>
 <td>grafiek (verloop)</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition-installeren-van-dashboard-nodes admonition">
-<p class="first admonition-title">Installeren van dashboard-nodes</p>
-<p>De dashboard-nodes zijn niet altijd beschikbaar in het node-palet links.
-Voor het toevoegen van deze nodes aan NodeRed gebruik je de volgende stappen:</p>
-<ul class="simple">
-<li>selecteer hamburger-menu (rechts) -&gt; Manage Palette</li>
-<li>selecteer de tab <em>Install</em></li>
-<li>type in het zoekveld: dashboard</li>
-<li>klik op “install” voor <em>node-red-dashboard</em> <em>(A set of dashboard nodes for Node-RED)</em></li>
-<li>na deze installatie zijn de nodes in het palet links beschikbaar.</li>
-</ul>
-<p>Als je FRED gebruikt, dan kun je de nodes als volgt installeren:</p>
-<ul class="last simple">
-<li>selecteer in de FRED-zijbalk (helemaal links): Tools-&gt; add or remove nodes</li>
-<li>type in het zoekveld: dashboard</li>
-<li>vink aan: <em>Dashboard (a set of dashboard nodes for NodeRed)</em>.</li>
-</ul>
-</div>
+<p>Zie voor het installeren van deze nodes de NodeRed-inleiding (in Bouwstenen).</p>
 <p>Om een dashboard te maken moeten we eerst de gegevens van de sensoren ophalen.
 In dit geval (IoT-knoop als webserver) hebben we hierbij twee problemen:</p>
 <ul class="simple">
@@ -403,8 +630,8 @@ NodeRed heeft o.a. een html-node om elementen uit een HTML-document te selectere
 </ul>
 <p>Voor demonstratiedoeleinden gebruiken we hier een website die hetzelfde interface heeft als de IoT-knopen.
 De website <a class="reference external" href="http://infvopedia.nl:1880/sensors">http://infvopedia.nl:1880/sensors</a> is gekoppeld aan de hardware-IoT-knoop <code class="docutils literal notranslate"><span class="pre">ec54</span></code>.
-In het lokale netwerk zou je deze kunnen benaderen via <code class="docutils literal notranslate"><span class="pre">http://esp8266-ec54.local/</span></code>.</p>
-<div class="figure align-center" id="id5">
+In het lokale netwerk zou je deze kunnen benaderen via <code class="docutils literal notranslate"><span class="pre">http://esp8266-ec54.local/</span></code> of via het IP-adres.</p>
+<div class="figure align-center" id="id7">
 <a class="reference internal image-reference" href="../_images/IoT-webserver-dashboard-flow.png"><img alt="../_images/IoT-webserver-dashboard-flow.png" src="../_images/IoT-webserver-dashboard-flow.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Webserver dashboard flow</span></p>
 </div>
@@ -525,7 +752,7 @@ een aanpak daarvoor zien we in het volgende hoofdstuk.</li>
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

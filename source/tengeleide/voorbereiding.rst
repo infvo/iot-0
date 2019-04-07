@@ -15,7 +15,7 @@ b. (a), aangevuld met hardware IoT-knopen:
 
 Het is niet nodig om alle varianten direct beschikbaar te hebben:
 je kunt dit in de loop van de tijd uitbreiden.
-Het gebruik van hardware IoT-knopen maakt het materiaal wel veel aantrekkelijker voor leerlingen.
+Het gebruik van hardware IoT-knopen maakt het materiaal wel (veel) aantrekkelijker voor leerlingen.
 Voor de WiFi-knopen en de RFM69-gateway kan het :ref:`schoolnetwerk` een probleem vormen.
 
 Naast deze IoT-knopen zijn er nog nodig:
@@ -27,7 +27,7 @@ Naast deze IoT-knopen zijn er nog nodig:
    Voor de opdrachten is dat voldoende.
 2. MQTT broker "in the cloud":
    als onderdeel van het lesmateriaal is een MQTT-broker "in the cloud" beschikbaar.
-   Als docent kun je hiervoor een account aanvragen (mail naar info at infvo.nl).
+   Als docent kun je hiervoor een account aanvragen (mail naar info `at` infvo.nl).
 
 Voor de NodeRed-opdrachten is de gratis FRED-versie voldoende.
 Voor een project heb je een NodeRed-server nodig met minder beperkingen.
@@ -49,8 +49,15 @@ Gesimuleerde knopen
 
 Dit gebruik je in combinatie met de volgende software:
 
-* `gesimuleerde knoop <http://infvopedia.nl:1884/iot-node-app.html>`_
-* `MQTT-test software (MQTTT) <http://infvopedia.nl:1884/mqttt.html>`_
+* `gesimuleerde knoop <http://infvopedia.nl/iot-node-app.html>`_
+* `MQTT-test software (MQT3) <http://infvopedia.nl/mqt3.html>`_
+
+IoT-knopen elders
+=================
+
+Via de MQTT-broker en de TTN-server zijn IoT-knopen die elders opgesteld staan toegankelijk.
+Je kunt deze knopen aansluiten op een eigen dashboard,
+en de LEDs op deze knopen op afstand aansturen.
 
 WiFi knopen
 ===========
@@ -58,7 +65,10 @@ WiFi knopen
 Naast de elementen voor de gesimuleerde knopen:
 
 * docent: eventueel programmeren van de knopen (zie IoT-1);
+  de nieuwste software is via WiFi te configureren,
+  waardoor dit programmeren meestal niet nodig is.
 * leerling: configureren van de eigen knoop(en); zie: :ref:`Configureren`.
+  De docent kan dit ook vooraf doen.
 
 RFM69-knopen
 ============
@@ -94,18 +104,26 @@ Voor een project is hebben leerlingen een eigen (gratis) TTN-account nodig.
 
 .. _schoolnetwerk:
 
-Problemen met het schoolnetwerk
-===============================
+Schoolnetwerk
+=============
 
 Enkele problemen die je kunt hebben met het schoolnetwerk:
 
-* schoolnetwerk blokkeert MQTT-poorten (1883, 1884).
-  Deze poorten worden gebruikt door de MQTT-software, ook voor de gesimuleerde knopen.
-* voor de toegang heb je vaak een combinatie van gebruikersnaam en wachtwoord nodig,
-  De WiFi-knopen hebben alleen de mogelijkheid om een enkelvoudig wachtwoord voor het WiFi-netwerk in te stellen.
-* schoolnetwerk blokkeert UDP-verkeer voor LoRaWan/TTN gateway.
+* het schoolnetwerk blokkeert de MQTT-poort (1883).
+* voor de toegang tot het schoolnetwerk heb je vaak een combinatie van gebruikersnaam en wachtwoord nodig,
+  De WiFi-knopen hebben alleen de mogelijkheid om een netwerk-wachtwoord voor het WiFi-netwerk in te stellen.
+* het schoolnetwerk blokkeert UDP-verkeer voor LoRaWan/TTN gateway.
 
 Een afdoende manier om deze problemen te omzeilen is het gebruik van een MiFi:
 een WiFi-basestation verbonden met het mobiele netwerk.
 Dit extra netwerk is alleen nodig voor de sensorknopen;
-de computers/smartphones van de leerlingen werken gewoon via het schoolnetwerk.
+de computers/smartphones van de leerlingen werken gewoon via het schoolnetwerk
+met de nodige toepassingen en gesimuleerde knopen.
+
+Leskisten
+=========
+
+Er wordt gewerkt aan het beschikbaar stellen van leskisten met de benodigde hardware,
+voor de IoT-knopen en voor het MiFi-netwerk.
+Als docent kun je deze dan huren, voordat je eventueel eigen hardware koopt.
+Informeer naar de mogelijkheden bij info `at` infvo.nl.

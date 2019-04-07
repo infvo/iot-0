@@ -46,10 +46,10 @@ Stappen voor het configureren:
    Tijdens het zoeken naar het lokale WiFi-netwerk brandt de blauwe LED op de knoop;
    als dit erg lang duurt, probeer je nog een hardware-reset.
 6. Selecteer weer het normale WiFi-netwerk in je computer.
-7. Via :ref:`MQTTT` kun je nu controleren of de MQTT-broker de berichten van de IoT-knoop ontvangt.
+7. Via :ref:`MQT3` kun je nu controleren of de MQTT-broker de berichten van de IoT-knoop ontvangt.
    Stel in het ``IoT-node``-venster de ID van de knoop in, bijvoorbeeld ``8f12``.
    Na enige tijd moeten dan de waarden van de sensoren verschijnen.
-   Je kunt met MQTTT ook de LED aan- en uitschakelen.
+   Je kunt met MQT3 ook de LED aan- en uitschakelen.
 
 RFM69-WiFi gateway
 ==================

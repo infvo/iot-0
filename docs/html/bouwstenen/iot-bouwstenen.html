@@ -44,21 +44,19 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IoT-bouwstenen</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#iot-knoop">IoT-knoop</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#radio">Radio</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#iot-knoop">IoT-knoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controller-nodered">Controller: NodeRed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app-dashboard">App: dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radio">Radio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gateway">Gateway</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mqtt-broker">MQTT-broker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nodered-server">NodeRed-server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#web-app-server">Web(-app) server</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="iot-ketens.html">IoT-ketens</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iot-interacties.html">Interacties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iot-protocollen.html">Protocollen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nodered-opdrachten.html">NodeRed opdrachten</a></li>
@@ -75,8 +73,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Andere modules</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/com-0/">Com-0</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://eelcodijkstra.github.io/iot-1/">IoT-1</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/com-0/">Com-0</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
 <div class="relations">
@@ -111,10 +109,43 @@
   <div class="section" id="iot-bouwstenen">
 <h1>IoT-bouwstenen<a class="headerlink" href="#iot-bouwstenen" title="Permalink naar deze titel">¶</a></h1>
 <p>We beschrijven hier de verschillende bouwstenen van het Internet of Things.
-Met deze bouwstenen kun je op verschillende manieren een <em>keten</em> vormen.
-Een aantal mogelijke ketens vind je in het keten-gedeelte;
-in de andere delen beschrijven we de interacties tussen deze bouwstenen,
-en de protocollen die we daarbij gebruiken.</p>
+Met deze bouwstenen kun je op verschillende manieren een <em>IoT-keten</em> vormen.</p>
+<p>De bouwstenen kun je in twee soorten verdelen:
+functionele bouwstenen, die samen de IoT-toepassing vormen;
+en communicatie-bouwstenen, die voor de verbinding en interactie tussen de functionele bouwstenen zorgen.
+Voor de communicatie en interactie tussen de bouwstenen gebruiken we <em>protocollen</em>.</p>
+<blockquote>
+<div><div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/IoT-keten-functioneel.png"><img alt="../_images/IoT-keten-functioneel.png" src="../_images/IoT-keten-functioneel.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">IoT-keten op functioneel niveau</span></p>
+</div>
+</div></blockquote>
+<p>In deze functionele IoT-keten:</p>
+<ul class="simple">
+<li>koppelt de <em>IoT-knoop</em> de fysieke wereld aan de virtuele/logische wereld, met sensoren en actuatoren;</li>
+<li>zorgen de controllers voor het meten en besturen van de sensoren en actuatoren, mede op basis van input van de diensten (services);</li>
+<li>verwerken de diensten (services) de data van de sensoren; deze stellen de data en kennis van elders beschikbaar aan de controllers;</li>
+<li>zorgt de <em>web-app</em> voor de interactie met de gebruikers.</li>
+</ul>
+<p>Voor de communicatie en interactie tussen deze bouwstenen gebruiken we het MQTT protocol,
+en in sommige gevallen HTTP (het web-protocol).</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/IoT-keten-WiFi-MQTT.png"><img alt="../_images/IoT-keten-WiFi-MQTT.png" src="../_images/IoT-keten-WiFi-MQTT.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">IoT-keten met WiFI/MQTT communicatie</span></p>
+</div>
+<p>We kunnen deze functionele keten verfijnen door communicatiebouwstenen toe te voegen.
+Afhankelijk van de radio die de IoT-knoop gebruikt, ziet het begin van de keten er dan anders uit.
+In het voorbeeld hierboven gebruiken we WiFi als radio voor de IoT-knoop.</p>
+<p>In deze keten:</p>
+<ul class="simple">
+<li>zorgt de WiFi-radio voor de verbinding van de IoT-knoop met de rest;</li>
+<li>zorgt de WiFi-gateway voor de koppeling aan het internet;</li>
+<li>verzorgt de MQTT-broker voor het (symmetrisch) doorsturen van de MQTT-berichten tussen de IoT-knoop,
+de NodeRed-controller en eventuele apps.</li>
+</ul>
+<p>De WiFi-gateway wordt meestal gecombineerd met andere netwerkfuncties,
+zoals router, firewall en modem.</p>
+<p class="rubric">Functionele bouwstenen</p>
 <div class="section" id="iot-knoop">
 <h2>IoT-knoop<a class="headerlink" href="#iot-knoop" title="Permalink naar deze titel">¶</a></h2>
 <p>Een <em>IoT-knoop</em> koppelt de fysieke wereld aan de virtuele wereld.
@@ -124,25 +155,60 @@ Zo’n knoop omvat gewoonlijk:</p>
 <li>actuatoren, om in de fysieke wereld te sturen;</li>
 <li>een microcontroller (“computer op een chip”) voor de besturing van de IoT-knoop;</li>
 <li>communicatie, vaak draadloos (radioverbinding)</li>
-<li>energie (“voeding”), voor draadloze knopen in de vorm van een batterij, soms aangevuld met <em>energy harvesting</em>.</li>
+<li>energie, voor draadloze knopen in de vorm van een batterij, soms aangevuld met <em>energy harvesting</em>.</li>
 </ul>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/IoT-knoop-0.png"><img alt="../_images/IoT-knoop-0.png" src="../_images/IoT-knoop-0.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-text">Een IoT-knoop</span></p>
 </div>
 <p>In de voorbeelden gebruiken we een IoT-knoop met de volgende sensoren/actuatoren:</p>
 <ul class="simple">
-<li>twee LEDs - als actuatoren</li>
+<li>een of twee LEDs - als actuatoren</li>
 <li>twee drukknoppen - als “event” sensoren</li>
 <li>sensoren voor: temperatuur, luchtdruk en lichtniveau</li>
 </ul>
-<p>Voor de draadloze communicatie gebruiken we verschillende protocollen (zoals MQTT en LoRaWan) en verschillende radio’s (WiFi, RFM69, LoRa).
-In deze laatste twee gevallen hebben we een <em>gateway</em> nodig voor de verbinding van de IoT-knoop met het lokale netwerk of met het publieke internet.
-De eisen die het “ding” stelt aan bitrate, bereik, mobiliteit (draadloos?) en energieverbruik bepalen de keuze voor de radio.</p>
+<p>Voor de draadloze communicatie gebruiken we verschillende radio’s (WiFi, RFM69, LoRa).
+De eisen die het “ding” stelt aan bitrate, bereik, mobiliteit en energieverbruik bepalen de keuze voor de radio.</p>
 <p>Voor de microcontroller voor de besturing zijn er ook meerdere alternatieven, zoals Atmega AVR (Arduino), ESP8266, ESP32, ARM.
-De keuze voor de microcontroller hangt meer af van de eigen voorkeur en omstandigheden dan van de eisen van de toepassing.</p>
+De keuze voor de microcontroller hangt meer af van de eigen voorkeur en omstandigheden dan van de eisen van de toepassing.
+We gaan hier niet verder in op deze keuzemogelijkheden.</p>
+<p>De figuur hierboven geeft de verschillende onderdelen weer van een IoT-knoop “kit”:
+sensoren/actuatoren, controller, radio, batterij.
+In de praktijk worden deze onderdelen verder geïntegreerd.</p>
+</div>
+<div class="section" id="controller-nodered">
+<h2>Controller: NodeRed<a class="headerlink" href="#controller-nodered" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/Nodered-chat-flow.png"><img alt="../_images/Nodered-chat-flow.png" src="../_images/Nodered-chat-flow.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">NodeRed Chat flow</span></p>
+</div>
+<p>Als lokale of globale controller gebruiken we NodeRed.
+IoT-toepassingen combineren vaak data uit verschillende bronnen:
+vanuit IoT-knopen, maar ook uit databases of andere datastromen.
+Om deze ruwe data bruikbaar te maken voor de gebruikerstoepassing,
+kun je deze eerst door externe diensten (Data Science, Artificial Intelligence, enz.) laten bewerken.
+Deze databronnen, diensten en gebruikerstoepassingen gebruiken verschillende protocollen en formaten.
+Met NodeRed knoop je deze verschillende onderdelen samen op een grafische manier.
+Daar voeg je je eigen besturing aan toe.
+Een NodeRed-server is in onze voorbeelden vrijwel altijd onderdeel van de IoT-keten.</p>
+</div>
+<div class="section" id="app-dashboard">
+<h2>App: dashboard<a class="headerlink" href="#app-dashboard" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-0.png"><img alt="../_images/Nodered-dashboard-display-0.png" src="../_images/Nodered-dashboard-display-0.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Web-app voorbeeld: dashboard</span></p>
+</div>
+<p>Uiteindelijk komen deze data terecht bij een webtoepassing (web-app),
+als gebruikersinterface in de IoT-keten.
+Een voorbeeld van een eenvoudige toepassing is een <em>dashboard</em>, met een samenvatting van de gegevens van de IoT-knopen.</p>
+<p>In onze voorbeeld-toepassing werken we met een eenvoudig dashboard met de gegevens van één IoT-knoop.
+Dit dashboard maken we met NodeRed: we gebruiken deze dan (ook) als webserver.
+Via dit dashboard kunnen we ook de actuators van de IoT-knoop bedienen.</p>
+<hr class="docutils" />
+<p class="rubric">Communicatie-bouwstenen</p>
+</div>
 <div class="section" id="radio">
-<h3>Radio<a class="headerlink" href="#radio" title="Permalink naar deze titel">¶</a></h3>
+<h2>Radio<a class="headerlink" href="#radio" title="Permalink naar deze titel">¶</a></h2>
 <p>Voor de verbinding tussen een draadloze IoT-knoop en het internet kun je kiezen uit verschillende radio’s.
 Deze radio’s verschillen in hun energieverbruik (power), bereik en bitrate.
 In deze module maken we kennis met enkele IoT-radio’s.
@@ -187,69 +253,32 @@ Bovendien mogen RFM69 en Lora-radio’s max. 1% van de tijd zenden.</p>
 <p><strong>Opmerking</strong>: in deze lijst ontbreekt nog Bluetooth Low Energy (BLE).
 We proberen deze in een toekomstige versie van dit materiaal toe te voegen.</p>
 </div>
-</div>
 <div class="section" id="gateway">
 <h2>Gateway<a class="headerlink" href="#gateway" title="Permalink naar deze titel">¶</a></h2>
 <p>Soms kunnen we de IoT-knopen niet rechstreeks in het internet verbinden,
 bijvoorbeeld omdat deze knopen een ander (eenvoudiger) protocol gebruiken.
 We gebruiken dan een <em>gateway</em> om het IoT-knoop-protocol om te zetten naar het IP-protocol, en omgekeerd.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id6">
 <a class="reference internal image-reference" href="../_images/IoT-0-stacks-gateway.png"><img alt="../_images/IoT-0-stacks-gateway.png" src="../_images/IoT-0-stacks-gateway.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-text">IoT-gateway</span></p>
 </div>
 <p>Bij een dergelijke omzetting (protocolconversie) moeten we rekening houden met de complete protocolstack,
 tot en met de toepassing.
-In onze voorbeelden betekent dit dat de berichten van de IoT-knopen omgezet worden naar MQTT-berichten in het formaat van de toepassing.</p>
-<div class="admonition-gateway-versus-bridge admonition">
-<p class="first admonition-title">Gateway versus bridge</p>
-<p class="last">We maken hier onderscheid tussen ‘’gateways’’ en ‘’bridges’‘:
-een bridge verbindt netwerken met eenzelfde protocol(stack),
-een gateway verbindt netwerken met verschillende protocollen.
-De omzetting in een bridge is dan beperkt tot de gemeenschappelijke onderste laag van de protocollen.
-Bij een gateway moet je de hele protocolstack hierbij betrekken.
-Een gateway is  vaak (aanzienlijk) complexer dan een bridge.
-Bovendien hebben veranderingen in de toepassing mogelijk gevolgen voor de gateway.
-Voor een bridge is de toepassing niet van belang.
-Overigens wordt deze terminologie, met een duidelijk onderscheid tussen bridge en gateway,
-niet overal op dezelfde manier gebruikt.</p>
-</div>
-<p>Ook als de IoT-knoop zelf de internet-protocolstack gebruikt kan het zinvol zijn om een bridge te gebruiken,
-om de lokale communicatie te scheiden van het publieke internet.
-Deze bridge kan er bijvoorbeeld zorgen voor de versleuteling van het verkeer naar het publieke internet.</p>
+Voorbeeld: in de RFM69-gateway moeten we de berichten van de IoT-knopen omzetten naar MQTT-berichten in het formaat van onze toepassing.</p>
 </div>
 <div class="section" id="mqtt-broker">
 <h2>MQTT-broker<a class="headerlink" href="#mqtt-broker" title="Permalink naar deze titel">¶</a></h2>
 <p>We gebruiken het MQTT-protocol om IoT-knopen te koppelen aan de toepassing (web-app).
-MQTT is een <em>Publish-Subscribe</em> protocol.
-De MQTT-broker koppelt de verschillende soorten clients:
-de IoT-knopen aan de ene kant, en de toepassingen en diensten aan de andere kant.</p>
+MQTT gebruikt een <em>Publish-Subscribe</em> interactie - in plaats van de Client-Server interactie van het web (HTTP).
+De MQTT-broker verbindt de verschillende soorten clients op een symmetrische manier,
+van IoT-knopen tot controllers en servers.</p>
+<div class="figure align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/MQTT.png"><img alt="../_images/MQTT.png" src="../_images/MQTT.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Publish-subscribe interactie (MQTT)</span></p>
 </div>
-<div class="section" id="nodered-server">
-<h2>NodeRed-server<a class="headerlink" href="#nodered-server" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/Nodered-chat-flow.png"><img alt="../_images/Nodered-chat-flow.png" src="../_images/Nodered-chat-flow.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed Chat flow</span></p>
-</div>
-<p>IoT-toepassingen combineren vaak data uit verschillende bronnen:
-vanuit IoT-knopen, maar ook uit databases of andere datastromen.
-Om deze ruwe data bruikbaar te maken voor de gebruikerstoepassing, kun je deze eerst door externe diensten (Data Science, Artificial Intelligence, enz.) bewerken.
-Deze databronnen, diensten en gebruikerstoepassingen gebruiken verschillende protocollen en formaten.
-Met NodeRed knoop je deze verschillende onderdelen samen, op een grafische manier.
-Een NodeRed-server is daarom in onze voorbeelden vrijwel altijd onderdeel van de IoT-keten.</p>
-</div>
-<div class="section" id="web-app-server">
-<h2>Web(-app) server<a class="headerlink" href="#web-app-server" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id4">
-<a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-0.png"><img alt="../_images/Nodered-dashboard-display-0.png" src="../_images/Nodered-dashboard-display-0.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Web-app voorbeeld: dashboard</span></p>
-</div>
-<p>Uiteindelijk komen deze data terecht bij een gebruikerstoepassing;
-deze bereik je via een web(-app)server.
-Een voorbeeld van een eenvoudige toepassing is een <em>dashboard</em>, met een samenvatting van de gegevens van de IoT-knopen.</p>
-<p>In onze voorbeeld-toepassing werken we met een eenvoudig dashboard met de gegevens van één IoT-knoop.
-Dit dashboard maken we met NodeRed: we gebruiken deze dan (ook) als webserver.
-Bovendien kunnen we via dit dashboard de actuators van de IoT-knoop bedienen.
-Dit gebruikersinterface heeft de vorm van een webtoepassing (“app”), beschikbaar via een server in het publieke web.</p>
+<p>Een MQTT-client <em>publiceert</em> een MQTT-bericht naar de broker, gelabeld met een bepaald <em>topic</em>.
+De MQTT-broker stuurt dit bericht door (“push”) naar alle clients
+die eerder via <em>subscribe</em> hun interesse voor berichten in dit topic aangegeven hebben.</p>
 </div>
 </div>
 
@@ -260,7 +289,7 @@ Dit gebruikersinterface heeft de vorm van een webtoepassing (“app”), beschik
     <div class="clearer"></div>
   </div>
     <div class="footer">
-      &copy;2018, SLO.
+      &copy;2019, SLO.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>

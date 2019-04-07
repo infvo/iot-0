@@ -9,15 +9,15 @@ MQTT-opdrachten
       * bijvoorbeeld: ``infvopedia.nl:1883``;
       * de MQTT-broker fungeert ook als statische webserver,
         voor de app MQTTT en voor de IoT-knoop-simulator;
-  * de app MQTTT (`<http://infvopedia.nl:1884/mqttt.html>`_, zie ook :ref:`MQTTT`)
+  * de app MQTTT (`<http://infvopedia.nl/mqt3.html>`_, zie ook :ref:`MQT3`)
   * zo mogelijk: IoT knoop (hardware),
-      * met software: ``wifi-node-0``;
+      * met software: ``wifi-node-xd``;
       * geconfigureerd voor het lokale WiFi-netwerk en de MQTT-broker,
         zie hieronder;
       * de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
         deze ID staat ook op de knoop zelf.
   * als alternatief: een gesimuleerde IoT-knoop,
-    via `<http://infvopedia.nl:1884//iotnode-app.html>`_.
+    via `<http://infvopedia.nl//iotnode-app.html>`_.
     Geef deze zelf een unieke ID.
 
 
