@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Meer voorbeelden &#8212; iot-0  documentatie</title>
+    <title>Voorbeelden &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
-    <link rel="next" title="Overzicht" href="overzicht.html" />
-    <link rel="prev" title="Gevolgen" href="gevolgen.html" />
+    <link rel="next" title="Eisen aan de communicatie" href="iot-eisen.html" />
+    <link rel="prev" title="Inleiding" href="../inleiding.html" />
 
 <script type="application/json" class="js-hypothesis-config">
 {
@@ -46,10 +46,28 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../inleiding.html">Inleiding</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="voorbeelden-in-detail.html">Voorbeelden</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Voorbeelden</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#voorbeeld-watersproeier">Voorbeeld: watersproeier</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#actuator-en-controller">Actuator en controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensoren">Sensoren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aan-het-internet">Aan het internet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slimme-diensten">“Slimme” diensten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#meerdere-controllers">Meerdere controllers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#samenvatting">Samenvatting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#voorbeeld-verlichting">Voorbeeld: verlichting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#actuatoren-sensoren-en-controller">Actuatoren, sensoren en controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Aan het internet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#andere-controllers">Andere controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#voorbeeld-monitoring">Voorbeeld: monitoring</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Eisen aan de communicatie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Meer voorbeelden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meer-voorbeelden.html">Meer voorbeelden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overzicht.html">Overzicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
@@ -75,8 +93,8 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../inleiding.html">Inleiding</a><ul>
-      <li>Previous: <a href="gevolgen.html" title="vorig hoofdstuk">Gevolgen</a></li>
-      <li>Next: <a href="overzicht.html" title="volgend hoofdstuk">Overzicht</a></li>
+      <li>Previous: <a href="../inleiding.html" title="vorig hoofdstuk">Inleiding</a></li>
+      <li>Next: <a href="iot-eisen.html" title="volgend hoofdstuk">Eisen aan de communicatie</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -99,138 +117,192 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="meer-voorbeelden">
-<h1>Meer voorbeelden<a class="headerlink" href="#meer-voorbeelden" title="Permalink naar deze titel">¶</a></h1>
-<p class="rubric">Voorbeelden van IoT-toepassingen</p>
-<p>Het Internet of Things biedt ontelbare mogelijkheden; veel toepassingen moeten nog bedacht en ontwikkeld worden.
-We noemen enkele voorbeelden:</p>
+  <div class="section" id="voorbeelden">
+<h1>Voorbeelden<a class="headerlink" href="#voorbeelden" title="Permalink naar deze titel">¶</a></h1>
+<p>We geven hier enkele uitgebreidere voorbeelden.
+Verder in dit hoofdstuk geven we een grotere lijst van voorbeelden waarvan je de details elders in het web kunt vinden.</p>
+<div class="section" id="voorbeeld-watersproeier">
+<h2>Voorbeeld: watersproeier<a class="headerlink" href="#voorbeeld-watersproeier" title="Permalink naar deze titel">¶</a></h2>
+<p>Als voorbeeld van een IoT-toepassingen kijken we naar het besproeien van een sportveld.
+We beginnen met een eenvoudige, lokale oplossing.
+Deze breiden we stapsgewijs uit naar een “slimme” oplossing door steeds meer aspecten van het internet of things te gebruiken.</p>
+<div class="section" id="actuator-en-controller">
+<h3>Actuator en controller<a class="headerlink" href="#actuator-en-controller" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/actuator-controller.png"><img alt="../_images/actuator-controller.png" src="../_images/actuator-controller.png" style="width: 300px;" /></a>
+</div>
+<p>De eerste oplossing is een automatische sproei-installatie.
+Deze bestaat uit sproeiers (<em>actuatoren</em>) en de besturing daarvan;
+een dergelijke besturingscomputer noemen we een <em>controller</em>.
+De eenvoudigste automatische besturing is op basis van tijd, bijvoorbeeld:
+besproei de komende week van 22:00 uur tot 4:00 uur.</p>
+<p>Met deze oplossing kunnen we sproeien op momenten dat dit het meeste zin heeft,
+zonder dat we er zelf bij hoeven te zijn.</p>
+<div class="admonition-wat-is-een-controller admonition">
+<p class="first admonition-title">Wat is een controller?</p>
+<p class="last">Een controller is een besturingscomputer.
+Dit kan variëren van een <em>microcontroller</em>: een complete computer op een chip,
+met analoge en digitale aansluitingen voor sensoren en actuatoren,
+tot een NodeRed-server.
+In NodeRed kun je allerlei protocollen en diensten, van laag tot hoog niveau,
+aan elkaar verbinden en combineren met regels voor de besturing.</p>
+</div>
+</div>
+<div class="section" id="sensoren">
+<h3>Sensoren<a class="headerlink" href="#sensoren" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/actuator-sensor-controller.png"><img alt="../_images/actuator-sensor-controller.png" src="../_images/actuator-sensor-controller.png" style="width: 300px;" /></a>
+</div>
+<p>Deze eerste  oplossing is nog niet optimaal.
+Een nadeel is dat er volgens dit schema altijd gesproeid wordt - ook als de al grond nat is van de regen.
+Dit betekent op z’n minst een verspilling van water;
+bovendien kan  het veld hierdoor te drassig worden, wat ook niet de bedoeling is.</p>
+<p>We kunnen deze problemen voorkomen door (lokale) <em>sensoren</em> te gebruiken,
+om de bodemvochtigheid te meten, om te meten of het regent,
+en bijvoorbeeld om de luchtvochtigheid en de temperatuur te meten.
+Hiermee kunnen we al zuiniger met water omspringen.</p>
+</div>
+<div class="section" id="aan-het-internet">
+<h3>Aan het internet<a class="headerlink" href="#aan-het-internet" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/controller-internet.png"><img alt="../_images/controller-internet.png" src="../_images/controller-internet.png" style="width: 500px;" /></a>
+</div>
+<p>Als volgende stap <em>verbinden we de controller met het internet</em>.
+Hiermee kunnen we de installatie <em>op afstand bedienen</em>, via een app,
+waarin we ook in een dashboard de gegevens van de sensoren kunnen bekijken.</p>
+</div>
+<div class="section" id="slimme-diensten">
+<h3>“Slimme” diensten<a class="headerlink" href="#slimme-diensten" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/controller-diensten.png"><img alt="../_images/controller-diensten.png" src="../_images/controller-diensten.png" style="width: 500px;" /></a>
+</div>
+<p>Als de controller verbonden is aan het internet,
+kunnen we bij de besturing ook gebruik maken van <em>diensten elders in het internet</em>,
+zoals bijvoorbeeld de weersverwachting:
+het geen zin om te sproeien als er regen verwacht wordt.
+Op deze manier kunnen we nog meer water besparen.</p>
+<p>Door gebruik te maken van de gegevens van de sensoren over langere tijd,
+en door deze te combineren met gegevens van sproei-installaties elders,
+kunnen we het algoritme voor het besproeien steeds verder optimaliseren.
+Dit is een voorbeeld van het combineren van het Internet of Things met Data Science (Big Data).</p>
+<p>Uiteindelijk wil je een sproeisysteem dat optimaal gebruik maakt van de omstandigheden.
+Je wilt daarmee het gras zo laten groeien dat het goed gebruik maakt van het water in de bodem -
+bijvoorbeeld door voldoend lange wortels te ontwikkelen.
+Dat betekent dat je niet altijd moet sproeien als alleen de bovenste laag van de bodem droog is.
+Hiervoor is kennis nodig van de manier waarop gras groeit, en van de lokale bodem- en weersomstandigheden.
+Externe diensten spelen daarvoor een belangrijke rol.</p>
+</div>
+<div class="section" id="meerdere-controllers">
+<h3>Meerdere controllers<a class="headerlink" href="#meerdere-controllers" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/IoT-node-controller-controller.png"><img alt="../_images/IoT-node-controller-controller.png" src="../_images/IoT-node-controller-controller.png" style="width: 600px;" /></a>
+</div>
+<p>Vaak heeft het zin om controllers op meerdere niveaus te gebruiken,
+bijvoorbeeld een (micro)controller direct bij de sensoren/actuatoren in een <em>IoT-knoop</em>,
+een controller in de buurt van de “dingen” waaraan je meet en stuurt,
+en een controller die bereikbaar is in het publieke internet.</p>
+<p>De IoT-knoop-controller en de lokale controller zorgen voor lokale autonomie en (daardoor) grotere betrouwbaarheid,
+voor snelle beslissingen (door lage latency vanwege de kleine afstand),
+verminderen de druk op de communicatie met en het rekenwerk in de <em>cloud</em>,
+en maken een betere beveiliging mogelijk.
+Omdat je het rekenwerk in de lokale controllers kunt zien als een lokaal verlengstuk van de <em>cloud</em> heet dit wel <em>fog computing</em>.</p>
+<p>De globale controller zorgt voor de bereikbaarheid in het internet,
+en voor de koppeling met diensten elders.</p>
+<p>Dit gebruik van meerdere controllers is een voorbeeld van <em>distributie</em> van functionaliteit in een netwerk.</p>
+</div>
+<div class="section" id="samenvatting">
+<h3>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h3>
+<p>Samenvattend zien we de volgende stappen:</p>
+<ol class="arabic simple">
+<li>automatisch besturen van actuatoren met een controller;</li>
+<li>aansluiten van sensoren op de controller, om een slimmere besturing mogelijk te maken;</li>
+<li>aansluiten van de controller op het internet, voor bewaken (monitoring) en besturen op afstand - via een app;</li>
+<li>gebruik van diensten in het internet om tot een “slimme oplossing” te komen.</li>
+</ol>
+<p>Elke volgende stap helpt om meer water te besparen en om een beter sproei- en groeiresultaat te krijgen.
+De eerste stappen zijn voorbeelden van traditionele automatisering.
+De stappen 3 en 4 zijn voorbeelden van het internet of things:
+de verbinding met het internet geeft veel extra mogelijkheden.</p>
+</div>
+</div>
+<div class="section" id="voorbeeld-verlichting">
+<h2>Voorbeeld: verlichting<a class="headerlink" href="#voorbeeld-verlichting" title="Permalink naar deze titel">¶</a></h2>
+<p>Als volgend voorbeeld gebruiken we een domotica-voorbeeld: verlichting in huis.
+We behandelen dit aan de hand van het Philips Hue systeem.</p>
+<div class="section" id="actuatoren-sensoren-en-controller">
+<h3>Actuatoren, sensoren en controller<a class="headerlink" href="#actuatoren-sensoren-en-controller" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/hue-local.png"><img alt="../_images/hue-local.png" src="../_images/hue-local.png" style="width: 400px;" /></a>
+</div>
+<p>De actuatoren zijn in dit geval de lampen.
+Deze kun je bedienen met drukknoppen en met (bewegings)sensoren.
+De controller (“bridge”) zorgt voor de koppeling tussen de sensoren en de actuatoren.
+De controller heeft geen eigen user interface:
+hiervoor gebruik je de app die via het lokale (WiFi) netwerk verbinding maakt met de controller.</p>
+</div>
+<div class="section" id="id1">
+<h3>Aan het internet<a class="headerlink" href="#id1" title="Permalink naar deze titel">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/hue-server.png"><img alt="../_images/hue-server.png" src="../_images/hue-server.png" style="width: 500px;" /></a>
+</div>
+<p>Je kunt met de app de lampen ook op afstand bedienen, via het internet.
+Hiervoor maakt de app contact met de hue-server/controller in het publieke internet,
+die weer contact maakt met de lokale controller.</p>
+<p>We hebben hier te maken met 3 lagen van controllers:</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>domotica (huis-automatisering); voor verwarming (slimme thermostaat, voor beperken van het energieverbruik), tot verlichting (voor beleving en veiligheid) en beveiliging en toegang (slim deurslot, raamdetectoren, bewegingsmelders, camera’s).</dt>
-<dd><ul class="first last">
-<li>OpenHAB: <a class="reference external" href="https://www.openhab.org/">https://www.openhab.org/</a></li>
-<li>Domoticz: <a class="reference external" href="https://www.domoticz.com">https://www.domoticz.com</a></li>
-<li>Mozilla Project Things: <a class="reference external" href="https://iot.mozilla.org/">https://iot.mozilla.org/</a></li>
-<li>(e.v.a.)</li>
+<li>de lampen en de schakelaars zijn IoT-knopen, met lokaal sensor(en)/actuator(en),
+een microcontroller, en een radio;</li>
+<li>de bridge is de lokale controller;</li>
+<li>de server in het publieke internet is de globale controller.</li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Vuilcontainer die meldt wanneer deze (bijna) vol is, zodat deze op tijd geleegd kan worden</dt>
-<dd><ul class="first last">
-<li><a class="reference external" href="https://www.pieterbas.nl/omrin-leegt-ondergrondse-containers-efficienter-door-stosag-koppeling/">https://www.pieterbas.nl/omrin-leegt-ondergrondse-containers-efficienter-door-stosag-koppeling/</a></li>
-<li><a class="reference external" href="http://www.bwaste.nl/news/techniek-is-er-voor-om-het-de-mens-gemakkelijker-te-makene2809d/">http://www.bwaste.nl/news/techniek-is-er-voor-om-het-de-mens-gemakkelijker-te-makene2809d/</a></li>
+</div>
+<div class="section" id="andere-controllers">
+<h3>Andere controllers<a class="headerlink" href="#andere-controllers" title="Permalink naar deze titel">¶</a></h3>
+<p>De lokale controller is in eerste instantie bedoeld voor verlichting.
+Je kunt de lokale controller ook verbinden met andere “domotica”-controllers voor bijvoorbeeld verwarming, koeling, veiligheid e.d.
+Voorbeelden van controller-software voor domotica-toepassingen zijn OpenHAB (<a class="reference external" href="https://www.openhab.org">https://www.openhab.org</a>) en Home Assist (<a class="reference external" href="https://www.home-assistant.io">https://www.home-assistant.io</a>).
+Via de hue-webserver kun je verbinding maken met controller-diensten als Apple Home Kit en Amazon Alexa.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Te doen</p>
+<ul class="last simple">
+<li>figuur van Hue met andere controller(s)</li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Smart parking: Parkeerplaats die meldt wanneer deze vrij/bezet is</dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt>Ongeveer 8-30% procent van het verkeer in de binnenstad bestaat uit “zoeken naar een vrije parkeerplek”</dt>
-<dd><ul class="first last">
-<li><a class="reference external" href="http://shoup.bol.ucla.edu/Cruising.pdf">http://shoup.bol.ucla.edu/Cruising.pdf</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><a class="reference external" href="http://www.libelium.com/smart-parking-project-in-montpellier-to-relieve-traffic-congestion-and-reduce-car-parking-search/">http://www.libelium.com/smart-parking-project-in-montpellier-to-relieve-traffic-congestion-and-reduce-car-parking-search/</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Slimme dijk</dt>
-<dd><ul class="first last">
-<li><a class="reference external" href="https://www.volkskrant.nl/binnenland/staatssecretaris-opent-slimme-dijk~a963283/">https://www.volkskrant.nl/binnenland/staatssecretaris-opent-slimme-dijk~a963283/</a></li>
-<li><a class="reference external" href="https://www.vpdelta.nl/nl/proeftuinen/smart-delta/sensordijk-1">https://www.vpdelta.nl/nl/proeftuinen/smart-delta/sensordijk-1</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Connected Car en Smart Roads</dt>
-<dd><ul class="first last">
-<li>communicatie tussen weg en auto, en tussen auto’s onderling</li>
-<li>sensoren in weg (infrastructuur) en in auto’s</li>
-<li><a class="reference external" href="https://www.smart-industry.net/iot-smart-roads-paving-the-way/">https://www.smart-industry.net/iot-smart-roads-paving-the-way/</a></li>
-<li><a class="reference external" href="https://medium.com/iotforall/7-connected-car-trends-fueling-the-future-946b05325531">https://medium.com/iotforall/7-connected-car-trends-fueling-the-future-946b05325531</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Smart Cities</dt>
-<dd><ul class="first last">
-<li>o.a. verlichting; luchtkwaliteit; verkeer</li>
-<li><a class="reference external" href="http://www.connectedbaltics.com/wp-content/uploads/2018/02/CBSigfox_UseCase_for_Cities.pdf">http://www.connectedbaltics.com/wp-content/uploads/2018/02/CBSigfox_UseCase_for_Cities.pdf</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Smart factories/Industrie 4.0 (Duitse term voor “4e industriële revolutie”, met o.a. Internet of Things)</dt>
-<dd><ul class="first last">
-<li>o.a. predictive maintenance: “just in time” onderhoud;</li>
-<li><a class="reference external" href="https://www.zdnet.com/article/germanys-vision-for-industrie-4-0-the-revolution-will-be-digitised/">https://www.zdnet.com/article/germanys-vision-for-industrie-4-0-the-revolution-will-be-digitised/</a></li>
-<li><a class="reference external" href="http://www.ioti.com/industrial-iot-iiot/how-industry-40-will-change-your-job">http://www.ioti.com/industrial-iot-iiot/how-industry-40-will-change-your-job</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Sensoren op het spoor (ProRail)</dt>
-<dd><ul class="first last">
-<li><a class="reference external" href="https://www.spoorpro.nl/innovatie/2018/07/11/prorail-maakt-filmpje-over-internet-of-things-sensoren/">https://www.spoorpro.nl/innovatie/2018/07/11/prorail-maakt-filmpje-over-internet-of-things-sensoren/</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Smart Grid (slim elektriciteitsnet)</dt>
-<dd><ul class="first last">
-<li>o.a. slimme meters, slimme apparaten, hernieuwbare energie (wind, zon)</li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Smart_grid">https://en.wikipedia.org/wiki/Smart_grid</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Lokalisatie; IoT voor het bepalen van de positie van “dingen” (of mensen)</dt>
-<dd><ul class="first last">
-<li>buitenshuis: combinatie met GPS</li>
-<li>binnenshuis: beacons (bijv. op basis van BLE)</li>
-<li>toepassing: deelfietsen (in bijv. Parijs); deelauto’s</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p class="rubric">Enkele overeenkomsten tussen deze toepassingen</p>
-<p>Veel IoT-toepassingen helpen je om <em>betere beslissingen</em> te nemen:
-beslissingen gebaseerd op (complete) data uit de actuele werkelijkheid,
-in plaats van op gemiddelden van historische steekproeven.
-Bovendien kun je deze beslissingen sneller nemen, en in soms zelfs automatisch.
-Zo kun je allerlei vormen van verspilling voorkomen:</p>
+</div>
+</div>
+</div>
+<div class="section" id="voorbeeld-monitoring">
+<h2>Voorbeeld: monitoring<a class="headerlink" href="#voorbeeld-monitoring" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-right">
+<a class="reference internal image-reference" href="../_images/DBveld.jpg"><img alt="../_images/DBveld.jpg" src="../_images/DBveld.jpg" style="width: 200px;" /></a>
+</div>
+<p>In de bovenstaande voorbeelden is er steeds sprake van besturing (<em>control</em>), via actuatoren.
+Ook met alleen sensoren, voor bewaking (<em>monitoring</em>), zijn al veel zinvolle IoT-toepassingen te maken.
+Als voorbeeld gebruiken we het bewaken op afstand van een bijenkast.</p>
+<p>Een imker (bijenhouder) heeft vaak meerdere bijenkasten, verspreid over een groot gebied.
+Het loont de moeite om de activiteit van de bijen op afstand te kunnen bewaken (<em>monitoring</em>).
+De imker kan dan de gezondheid van zijn bijenvolken continu in de gaten houden,
+en op tijd ingrijpen als er dingen mis dreigen te gaan.</p>
+<p>De stichting <a class="reference external" href="https://beep.nl">Beep</a> ontwikkelt een open-source systeem voor het bewaken van bijenkast,
+en voor het bijhouden van de belangrijkste gegevens in een app.
+De gegevens van het automatische meetsysteem combineer je in de app met gegevens van eigen inspecties.
+Het automatische meetsysteem stuurt enkele keren per uur de belangrijkste gegevens op via een LoRa (long range) IoT-netwerk.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/beep-lora-internet.png"><img alt="../_images/beep-lora-internet.png" src="../_images/beep-lora-internet.png" style="width: 500px;" /></a>
+</div>
+<p>Voor een imker zijn bijvoorbeeld de volgende gegevens van belang:</p>
 <ul class="simple">
-<li>je hoeft halfvolle vuilcontainers niet in de route op te nemen;</li>
-<li>je hoeft niet meer naar een vrije parkeerplaats te zoeken (verspilling van tijd, brandstof en ruimte);</li>
-<li>je hoeft niet meer te zoeken naar een deelfiets: de app wijst je naar de dichtstbijzijnde fiets.</li>
-<li>(zelf aanvullen).</li>
+<li>de buitentemperatuur en de luchtvochtigheid in de omgeving van de kast;</li>
+<li>de temperatuur in de kast (broedtemperatuur);</li>
+<li>het gewicht van de kast: als de bijen de kast verlaten neemt het gewicht af;
+als de bijen terugkomen met nectar neemt het gewicht toe;</li>
+<li>het geluid in de kast.
+Als een bijenvolk door indringers beroofd wordt van de voedselvoorraad,
+kun je dit zien aan de combinatie van gewicht en geluid.</li>
 </ul>
-<p>Andere toepassingen maken een <em>betere aansluiting tussen vraag en aanbod</em> mogelijk.
-Dit is in het bijzonder het geval bij het “smart grid”:
-het aanbod van hernieuwbare energie varieert sterk (met het weer);
-als je slimme apparaten op het juiste moment aan- en uit kunt schakelen,
-kun je vraag en aanbod veel beter op elkaar afstemmen.</p>
-<ul class="simple">
-<li>licht in huis of op straat hoeft niet te branden als er geen mensen zijn;</li>
-<li>een vriezer kan van te voren “koude” opslaan,
-en hoeft dan niet (zwaar) te werken tijdens piekbelasting van het net;</li>
-<li>een wasmachine hoeft niet op een vast tijdstip te werken - als de was vandaag maar gedaan wordt.</li>
-</ul>
+<p>Zie de presentatie hierover: <a class="reference external" href="https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018">https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018</a></p>
+<p>Als veel bijenkasten met zo’n systeem uitgerust zijn helpt dat niet alleen de imker,
+maar ook het onderzoek naar het gedrag en de gezondheid van bijenvolken.</p>
+</div>
 </div>
 
 

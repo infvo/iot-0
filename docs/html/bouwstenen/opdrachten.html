@@ -113,18 +113,18 @@ Deze broker fungeert ook als webserver voor de statische webtoepassing <code cla
 alle actie en interactie vindt plaats in de browser, via JavaScript.
 De server gebruikt geen server-scripting (zoals PHP of Python) en geen server-database.</p>
 </div>
-<p class="rubric" id="mqttt">De app MQTTT</p>
-<p>Bij veel opdrachten gebruiken we de app MQTTT:
+<p class="rubric" id="mqt3">De app MQT3</p>
+<p>Bij veel opdrachten gebruiken we de app MQT3:
 dit is een mqtt-client waarmee we mqtt-berichten kunnen sturen en ontvangen.
 Door de aard van het mqtt-protocol kunnen we daarmee ook <em>topics</em> “afluisteren”.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/IoT-mqtt0-app.png"><img alt="../_images/IoT-mqtt0-app.png" src="../_images/IoT-mqtt0-app.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">MQTTTest app</span></p>
+<p class="caption"><span class="caption-text">MQTTTest app (MQT3)</span></p>
 </div>
-<p>De  web-app kun je vinden via de broker: <a class="reference external" href="http://infvopedia.nl:1884/mqttt.html">http://infvopedia.nl:1884/mqttt.html</a>.
+<p>De  web-app kun je vinden via de broker: <a class="reference external" href="http://infvopedia.nl/mqt3.html">http://infvopedia.nl/mqt3.html</a>.
 Hierin is <code class="docutils literal notranslate"><span class="pre">infvopedia.nl</span></code> de domeinnaam van de broker.
-<code class="docutils literal notranslate"><span class="pre">1884</span></code> is het HTTP-poortnummer van de broker: de broker fungeert ook als (statische) webserver.
-MQTTT communiceert met de MQTT-broker via het <em>websockets</em> protocol (via poort 1884).
+De broker fungeert ook als (statische) webserver.
+MQT3 communiceert met de MQTT-broker via het <em>websockets</em> protocol.
 Het MQTT-protocol gebruikt poort <code class="docutils literal notranslate"><span class="pre">1883</span></code>.</p>
 <p>De app heeft de volgende invoervelden en knoppen:</p>
 <ul class="simple">
@@ -177,16 +177,16 @@ Een voorbeeld is MQTTbox (<a class="reference external" href="http://workswithwe
 <li><dl class="first docutils">
 <dt>een gesimuleerde IoT-knoop</dt>
 <dd><ul class="first last">
-<li><a class="reference external" href="http://infvopedia.nl:1884/iotnode-app.html">http://infvopedia.nl:1884/iotnode-app.html</a></li>
+<li><a class="reference external" href="http://infvopedia.nl/iotnode-app.html">http://infvopedia.nl/iotnode-app.html</a></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li>een MQTT-broker in het publieke internet;</li>
 <li><dl class="first docutils">
-<dt>het programma MQTTT, waarmee je het mqtt-verkeer van de sensor kunt bekijken.</dt>
+<dt>het programma MQT3, waarmee je het mqtt-verkeer van de sensor kunt bekijken.</dt>
 <dd><ul class="first last">
-<li><a class="reference external" href="http://infvopedia.nl:1884/mqttt.html">http://infvopedia.nl:1884/mqttt.html</a></li>
+<li><a class="reference external" href="http://infvopedia.nl/mqt3.html">http://infvopedia.nl/mqt3.html</a></li>
 </ul>
 </dd>
 </dl>

@@ -49,8 +49,8 @@ Gesimuleerde knopen
 
 Dit gebruik je in combinatie met de volgende software:
 
-* `gesimuleerde knoop <http://infvopedia.nl:1884/iot-node-app.html>`_
-* `MQTT-test software (MQTTT) <http://infvopedia.nl:1884/mqttt.html>`_
+* `gesimuleerde knoop <http://infvopedia.nl/iot-node-app.html>`_
+* `MQTT-test software (MQT3) <http://infvopedia.nl/mqt3.html>`_
 
 WiFi knopen
 ===========
@@ -99,8 +99,8 @@ Problemen met het schoolnetwerk
 
 Enkele problemen die je kunt hebben met het schoolnetwerk:
 
-* schoolnetwerk blokkeert MQTT-poorten (1883, 1884).
-  Deze poorten worden gebruikt door de MQTT-software, ook voor de gesimuleerde knopen.
+* schoolnetwerk blokkeert MQTT-poort (1883).
+  Deze poort wordt gebruikt voor het MQTT-protocol.
 * voor de toegang heb je vaak een combinatie van gebruikersnaam en wachtwoord nodig,
   De WiFi-knopen hebben alleen de mogelijkheid om een enkelvoudig wachtwoord voor het WiFi-netwerk in te stellen.
 * schoolnetwerk blokkeert UDP-verkeer voor LoRaWan/TTN gateway.

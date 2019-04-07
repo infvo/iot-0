@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Gevolgen" href="gevolgen.html" />
-    <link rel="prev" title="Voorbeelden" href="voorbeelden-in-detail.html" />
+    <link rel="prev" title="Voorbeelden" href="voorbeelden.html" />
 
 <script type="application/json" class="js-hypothesis-config">
 {
@@ -46,27 +46,23 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../inleiding.html">Inleiding</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="voorbeelden-in-detail.html">Voorbeelden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="voorbeelden.html">Voorbeelden</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Eisen aan de communicatie</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Eisen aan de communicatie</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Eisen aan de communicatie</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#inputs-en-outputs">Inputs en outputs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#inputs">Inputs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#outputs">Outputs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#opdrachten">Opdrachten</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#communicatie-eisen">Communicatie-eisen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tijd-vertraging-en-reactietijd">Tijd: vertraging en reactietijd</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#betrouwbaarheid">Betrouwbaarheid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#grootte-van-berichten">Grootte van berichten</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bereik-en-vermogen">Bereik en vermogen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#veiligheid-en-privacy">Veiligheid en privacy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#samenvatting">Samenvatting</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#inputs-en-outputs">Inputs en outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inputs">Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opdrachten">Opdrachten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#communicatie-eisen">Communicatie-eisen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tijd-vertraging-en-reactietijd">Tijd: vertraging en reactietijd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#betrouwbaarheid">Betrouwbaarheid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grootte-van-berichten">Grootte van berichten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bereik-en-vermogen">Bereik en vermogen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#veiligheid-en-privacy">Veiligheid en privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#samenvatting">Samenvatting</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="voorbeelden.html">Meer voorbeelden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meer-voorbeelden.html">Meer voorbeelden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overzicht.html">Overzicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
@@ -92,7 +88,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../inleiding.html">Inleiding</a><ul>
-      <li>Previous: <a href="voorbeelden-in-detail.html" title="vorig hoofdstuk">Voorbeelden</a></li>
+      <li>Previous: <a href="voorbeelden.html" title="vorig hoofdstuk">Voorbeelden</a></li>
       <li>Next: <a href="gevolgen.html" title="volgend hoofdstuk">Gevolgen</a></li>
   </ul></li>
   </ul></li>
@@ -118,277 +114,6 @@
             
   <div class="section" id="eisen-aan-de-communicatie">
 <h1>Eisen aan de communicatie<a class="headerlink" href="#eisen-aan-de-communicatie" title="Permalink naar deze titel">¶</a></h1>
-<p class="rubric">Het Internet of Things stelt eigen eisen aan de internet-communicatie</p>
-<p>Het Internet of Things verbindt de fysieke wereld van de “dingen” met de virtuele wereld van het internet.
-Voor de verbinding met de fysieke wereld van een “ding” zorgen sensoren en actuatoren,
-als onderdeel van een IoT-knoop gekoppeld aan dat “ding”.
-Deze IoT-knoop is vaak draadloos verbonden met het internet, bijvoorbeeld via een <em>gateway</em>.
-De IoT-knopen en gateways vormen de rand (<em>edge</em>) van het Internet of Things.</p>
-<p>In deze module ligt de focus op deze edge: de IoT-knopen en gateways,
-en de communicatie daartussen.
-De eisen aan de IoT-knopen en de bijbehorende communicatie volgen voor een deel uit de fysieke eigenschappen van de toepassing op het niveau van de gebruiker.
-Met andere woorden: je kunt als gebruiker deze eisen beschrijven, zonder kennis van de IoT-technologie.</p>
-<p>We beschrijven in dit gedeelte de soorten eisen die van belang zijn.
-Later behandelen we hoe je op grond van deze eisen de passende IoT-technologie kunt kiezen.</p>
-<p class="rubric">snelheid: bitrate</p>
-<p>De eerste soort eis heeft te maken met de snelheid van communicatie, gerekend in bits per seconde (bitrate).
-Veel sensoren en actuatoren, bijvoorbeeld voor temperatuur of lichtniveau, werken met waarden van 1 of 2 bytes.
-Bovendien hoef je die waarden vaak maar enkele keren per uur te versturen.</p>
-<p>Op basis van de sensoren en actuatoren die je gebruikt,
-en van de eigenschappen van het “ding” (hoe snel verandert dit?),
-kun je dan een inschatting maken van het aantal berichten dat je per uur nodig hebt,
-en van hun grootte (in bytes).</p>
-<blockquote>
-<div>Er zijn ook sensoren en actuatoren die een veel grotere bandbreedte nodig hebben.
-Voorbeelden daarvan zijn camera’s en microfoons, displays en luidsprekers.
-In deze module laten we dergelijke sensoren en actuatoren buiten beschouwing:
-“streaming” audio en video vormen een aparte categorie toepassingen.</div></blockquote>
-<p class="rubric">latency</p>
-<p>De tweede soort eis heeft ook met snelheid te maken.
-Hierbij gaat het om de latency: de tijd dat “iets onder water is”.
-Bij communicatie is de latency de tijd tussen het versturen en het ontvangen van een bericht.
-Meer in het algemeen gaat het bij het IoT-toepassingen om de totale reactietijd.
-Wat is de minimale reactietijd voor een reactie op een gebeurtenis?
-Denk bijvoorbeeld aan een IoT-toepassing voor het besturen van de verlichting in je huis:
-als je op de knop drukt om de verlichting in te schakelen,
-dan wil je “bijna onmiddellijk” (binnen 200 ms) de lampen zien reageren.
-Maar als je de verlichting automatisch of op afstand in- of uitschakelt,
-dan mag die reactie misschien wel na enkele seconden plaatsvinden.</p>
-<p>Voor IoT-toepassingen met alleen sensoren (“monitoring”) is vaak een latency van enkele seconden acceptabel.
-Als er actuatoren bij betrokken zijn, maakt het vaak een groot verschil of deze lokaal of op afstand bestuurd worden;
-en of deze besturing automatisch of door mensen gebeurt.</p>
-<p class="rubric">betrouwbaarheid</p>
-<p>Sommige fysische processen verlopen langzaam: denk bijvoorbeeld aan de verandering van de temperatuur in een woonkamer.
-Dit betekent dat je de sensoren die dit proces bewaken niet zo vaak hoeft uit te lezen.
-Bovendien mag je best eens een meting missen: hooguit heeft dat tot gevolg dat de verwarming of de airconditioning een paar minuten later aan gaat.
-We kunnen dan voor de communicatie volstaan met “best effort”.
-Het is niet nodig om de ontvangst van elk bericht te bevestigen.</p>
-<p>Eén van de vragen die je als gebruiker moet onderzoeken is dan ook:
-hoe betrouwbaar moet de communicatie zijn?
-Hoe erg is het als er eens een meting of een aansturing verloren gaat?</p>
-<p class="rubric">energie en mobiliteit</p>
-<p>De “dingen” waar we in het IoT over spreken verschillen sterk.
-Soms hebben we te maken met grote apparaten met een permanente stroomvoorziening.
-In zo’n geval speelt de grootte, het gewicht en het energieverbruik van de IoT-knoop niet zo’n grote rol.
-In andere gevallen hebben we te maken met kleine en mobiele “dingen” (bijvoorbeeld een huisdier):
-dan spelen deze factoren wel een grote rol.</p>
-<p>Bij mobiele “dingen” speelt de energiezoorziening een grote rol:
-hiervoor gebruiken we meestal een batterij.
-Bij voorkeur gebruiken we een kleine batterij of accu,
-die we vaak hoeven te vervangen of op te laden.
-Dit laatste is vooral van belang als we met veel IoT-knopen te maken hebben:
-het is niet handig als je regelmatig honderden batterijen in de IoT-knopen in je huis moet vervangen.</p>
-<p>Dit geeft de volgende vragen voor de gebruiker:</p>
-<ul class="simple">
-<li>hoe groot en zwaar mag de IoT-knoop zijn?</li>
-<li>hoe mobiel moet deze knoop zijn?</li>
-<li>over welk gebied is deze knoop mobiel?
-Hoe groot moet het bereik van een radio zijn om dit “ding” te kunnen volgen?</li>
-<li>hoe groot en zwaar mag een batterij zijn?</li>
-<li>wat moet de minimale levensduur van een batterijlading zijn?</li>
-<li>hoe vaak mag je die batterij opladen of omwisselen?</li>
-</ul>
-<p class="rubric">veiligheid</p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>eisen aan de security (en privacy)</li>
-</ul>
-</div>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>veiligheid is essentieel - zowel vanwege de veiligheid van de “dingen” als van de privacy van mensen in hun omgeving.</dt>
-<dd><ul class="first last">
-<li>vooral bij besturingstoepassingen is dit van belang</li>
-<li>(opmerking: het IoT kan ook bijdragen aan de fysieke veiligheid…)</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p>Een ander soort eisen heeft te maken met veiligheid (security) en privacy.
-Het Internet of Things kan erg “invasief” zijn in de omgeving van mensen.
-Aan de hand van informatie over de “dingen” is veel op te maken over het gedrag van mensen in de omgeving daarvan.
-Sommige IoT-toepassingen stellen daarom hoge eisen aan de <em>privacy</em>.</p>
-<p>In andere gevallen hebben we te maken met veiligheideisen:
-een apparaat mag alleen bediend worden door personen (of programma’s) met de juiste autorisatie.</p>
-<p>Beveiligde verbindingen vormen een essentieel middel voor zowel veiligheid als privacy.
-Daarnaast zijn er nog aanvullende maatregelen nodig: zowel veiligheid als privacy zijn systeem-issues,
-die niet alleen op een technologische manier opgelost kunnen worden.</p>
-<p>Als gebruiker of opdrachtgever moet je van te voren nadenken over de eisen op het gebied van privacy en veiligheid,
-zowel van jezelf als van anderen.
-Hierbij moet je bedenken dat de nadelen van een IoT-toepassing soms andere mensen treffen dan de voordelen.</p>
-<p class="rubric">Voorbeeld(en)</p>
-<div class="section" id="id1">
-<h2>Eisen aan de communicatie<a class="headerlink" href="#id1" title="Permalink naar deze titel">¶</a></h2>
-<p>We gaan in een volgend hoofdstuk dieper in op de manier waarop we de verschillende onderdelen kunnen verbinden.
-Op basis van kennis van de toepassing kunnen we al wel de eisen aan de communicatie formuleren.
-Enkele voorbeelden van eisen:</p>
-<ul class="simple">
-<li>bandbreedte (bitrate): voor de toepassing kunnen we bepalen hoeveel berichten we in een bepaalde tijd willen sturen,
-en wat de omvang van die berichten is (in bits of in bytes);</li>
-<li>latency (vertraging): in het bijzonder bij een besturingstoepassing moeten we ervoor zorgen
-dat de tijd tussen het signaleren van een <em>event</em> (gebeurtenis) door een sensor en
-het aansturen van de actuator(en) niet te groot is:
-de maximale reactietijd wordt bepaald door de snelheid van het (fysieke) proces dat je aanstuurt.</li>
-<li>draadloos of bedraad: veel toepassingen eisen dat de verbinding tussen de sensoren/actuatoren en de controller draadloos is:
-draden belemmeren bijvoorbeeld de plaatsing of de beweging van de sensoren, en daarmee van het “ding” waaraan deze sensoren gekoppeld zijn.</li>
-<li>andere eisen, bijvoorbeeld beveiliging en privacy;
-je wilt bijvoorbeeld niet dat een besturing door anderen overgenomen kan worden.</li>
-</ul>
-<p>In het voorbeeld van de sproeier hebben we de volgende eisen:</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>bandbreedte (bitrate):</dt>
-<dd><ul class="first last">
-<li>bodemvochtigheid: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
-<li>actuator: 1 bericht per 30 minuten(?), 1 byte per bericht;</li>
-<li>temperatuursensor: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
-<li>regensensor: 1 bericht per 5-10 minuten, 1 byte per bericht;</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>latency: deze is niet kritisch (minuten), het fysische proces van besproeien van een grasveld is langzaam.</li>
-<li>draadloos of bedraad: de verbinding tussen de controller, de actuator(s) en de sensoren is bij voorkeur draadloos.</li>
-</ul>
-<div class="admonition-hoeveel-bits-heb-je-nodig admonition">
-<p class="first admonition-title">Hoeveel bits heb je nodig?</p>
-<p>Bij het bepalen van het aantal bits (of bytes) voor een sensormeting of een actuator-aansturing
-moet je weten (i) wat het <em>bereik</em> is, en (2) wat de vereiste <em>precisie</em> is.</p>
-<p>Bijvoorbeeld: je wilt temperatuur meten in het bereik -20..50 (Celcius),
-met een precisie van 0,5 graad.
-Je gebruik dan het bereik -40..100, waarbij je dit getal later door 2 deelt.</p>
-<p>Voor een getal in het bereik 0..255 heb je 8 bits nodig (1 byte).
-Je kunt dit bereik ook verschuiven, bijvoorbeeld -128..127, of -100..155.
-Het aantal bits blijft dan gelijk.
-Je kunt het bereik ook schalen (de komma verschuiven), bijvoorbeeld 0,0..25,5 (Celsius).
-Vaak is het bij deze schaling handiger om door een macht van 2 te delen,
-dan door een macht van 10.</p>
-<p class="last">Je kunt ook met grotere getallen werken: 0..1023 (10 bits), 0..1000000 (20 bits), enz.</p>
-</div>
-<p><em>klimaatbeheersing</em></p>
-<ul class="simple">
-<li>per vertrek 1 of 2 IoT-knopen met sensoren voor de temperatuur en luchtvochtichtigheid.</li>
-<li><em>bitrate</em> Voor de temperatuur zijn 2 bytes voldoende (0..500, in 1/10 graad Celcius: 234 staat dan voor 23,4 graad Celcius).
-Voor de luchtvochtigheid is 1 byte genoeg (0-200, in 1/2%).</li>
-<li><em>bitrate</em> We hoeven de sensoren niet vaker dan eens in de 5 minuten uit te lezen.</li>
-<li><em>latency</em> Een sensoruitlezing moet binnen 60 seconden na de meting beschikbaar zijn voor de toepassing
-(de besturing van de verwarming of airconditioning).</li>
-<li><em>betrouwbaarheid</em> Het is niet erg als 1 of 2 opeenvolgende sensor-uitlezingen ontbreken.</li>
-<li><em>veiligheid</em> Sensoruitlezingen mogen niet door derden gelezen kunnen worden;
-een sensoruitlezing mag ook niet vervalst kunnen worden.</li>
-<li>Er zijn geen aanvullende privacy-eisen.</li>
-</ul>
-<p><em>Opmerking</em> we werken in het geval van sensorwaarden vaak met gehele getallen,
-waarbij een vaste schaalfactor gebruikt wordt om tot de gebruikelijke eenheid te komen.</p>
-<p><em>verlichting</em></p>
-<ul class="simple">
-<li>elke lamp bevat een IoT-knoop om deze aan te sturen;</li>
-<li>daarnaast zijn er sensoren die als automatische en handbediende lichtschakelaars werken.</li>
-<li><em>bitrate</em>: voor het instellen van een lamp zijn 4 bytes nodig: voor de lichtintensiteit en voor de kleuren.</li>
-<li><em>bitrate</em>: voor het instellen van een lamp zijn soms meerdere berichten nodig, bijvoorbeeld 10 berichten in 5 seconden.</li>
-<li><em>bitrate</em>: gewoonlijk wordt een lamp niet vaker dan eens in de 30 minuten bediend.</li>
-<li><em>latency</em>: een lamp moet binnen 0,5 seconde reageren op het bedienen van een schakelaar.</li>
-<li><em>veiligheid</em>: sensoruitlezingen en besturingsberichten mogen niet door derden gelezen kunnen worden;
-deze mogen ook niet vervalst kunnen worden.</li>
-<li>er zijn geen aanvullende privacy-eisen.</li>
-</ul>
-<p><em>Opmerking</em>: voor de latency werken we hier met een <em>end-to-end</em> eis:
-voor de gebruiker maakt het niet welk onderdeel voor de vertraging verantwoordelijk is,
-het gaat alleen om de totale vertraging.</p>
-<hr class="docutils" />
-<table border="1" class="colwidths-given docutils" id="id3">
-<caption><span class="caption-text">Sproeier-eisen</span><a class="headerlink" href="#id3" title="Permalink naar deze tabel">¶</a></caption>
-<colgroup>
-<col width="27%" />
-<col width="18%" />
-<col width="55%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Soort eis</th>
-<th class="head">aa</th>
-<th class="head">bb</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>#berichten/uur</td>
-<td>10</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>#bytes/bericht</td>
-<td>10</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>betrouwbaarheid</td>
-<td>best effort</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>max. latency</td>
-<td>15 min.</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>mobiliteit</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>privacy</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>veiligheid</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-</tbody>
-</table>
-<table border="1" class="colwidths-given docutils">
-<colgroup>
-<col width="27%" />
-<col width="18%" />
-<col width="55%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Soort eis</th>
-<th class="head">aa</th>
-<th class="head">bb</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>#berichten/uur</td>
-<td>10</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>#bytes/bericht</td>
-<td>10</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>betrouwbaarheid</td>
-<td>best effort</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>max. latency</td>
-<td>15 min.</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>privacy</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-odd"><td>veiligheid</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-</tbody>
-</table>
-<p>NB:</p>
-<ul class="simple">
-<li>verschillende eisen voor sensoren en actuatoren;
-bijv. sproeier: sensoren draadloos, actuatoren bedraad (waterkleppen).</li>
-</ul>
-<hr class="docutils" />
-<div class="section" id="id2">
-<h3>Eisen aan de communicatie<a class="headerlink" href="#id2" title="Permalink naar deze titel">¶</a></h3>
 <p>We hebben hiervoor gezien welke functionele elementen je tegenkomt in een IoT-keten.
 We proberen hier de eisen op te stellen voor de communicatie tussen deze elementen, voor een bepaalde toepassing.
 Aan de hand van deze eisen bepaal je later welke (radio)verbinding je kunt gebruiken voor de rand (“edge”) van de IoT-keten.</p>
@@ -409,7 +134,7 @@ Wat “klein genoeg” is hangt af van de snelheid van de veranderingen in het o
 <blockquote>
 <div>Voor muziek kies je als bemonsteringsfrequentie vaak 44,1kHz (Audio CD) of 48kHz (DVD);
 voor een ECG (electrocardiogram): 0,5-1kHz.</div></blockquote>
-<p>Vaak zijn we niet in de details van een signaal geïnteresseerd,
+<p>Vaak ben je niet in de details van een signaal geïnteresseerd,
 maar alleen in bepaalde karakteristieke patronen of <em>events</em> die je in het signaal kunt herkennen.</p>
 <p><em>Voorbeeld</em>: een cardioloog wil graag een volledig ECG-signal (electrocardiogram);
 een sporter heeft voldoende aan het aantal hartslagen per minuut.</p>
@@ -417,13 +142,15 @@ een sporter heeft voldoende aan het aantal hartslagen per minuut.</p>
 de duur van deze gebeurtenis is niet van belang.
 Als de duur wel relevant is, kun je altijd gebruik maken van begin- en eind-events.</p>
 <p>In onze IoT-toepassingen gaat het vooral om events:
-gebeurtenissen waar we op moeten reageren.
-<em>Voorbeeld</em>: we willen graag weten wanneer de eerste persoon een kamer binnenkomt, en wanneer de laatste deze kamer verlaat (<em>events</em>).
+gebeurtenissen waar je op moet reageren.
+<em>Voorbeeld</em>: je wilt graag weten wanneer de eerste persoon een kamer binnenkomt,
+en wanneer de laatste deze kamer verlaat (<em>events</em>).
 Dat zijn momenten dat de verlichting in- of uitgeschakeld moet worden.
 Het aantal personen in de kamer op een willekeurig moment (<em>signaal</em>) is daarvoor niet van belang.</p>
 <p>Uit de IoT-voorbeelden:</p>
 <ul class="simple">
-<li>de bodemvochtigheid is een <em>signaal</em> dat we elke 5 minuten bemonsteren: snellere veranderingen komen niet voor of hebben geen betekenis.</li>
+<li>de bodemvochtigheid is een <em>signaal</em> dat we elke 5 minuten bemonsteren:
+snellere veranderingen komen niet voor of hebben geen betekenis.</li>
 <li>het indrukken van een knop om een lamp in te schakelen is een <em>event</em>.</li>
 </ul>
 <p>Andere voorbeelden, buiten het bestek van deze IoT-module:</p>
@@ -433,9 +160,8 @@ Het aantal personen in de kamer op een willekeurig moment (<em>signaal</em>) is 
 <li>streaming audio (internet radio, muziekdienst): signaal</li>
 </ul>
 </div>
-</div>
 <div class="section" id="inputs-en-outputs">
-<h3>Inputs en outputs<a class="headerlink" href="#inputs-en-outputs" title="Permalink naar deze titel">¶</a></h3>
+<h2>Inputs en outputs<a class="headerlink" href="#inputs-en-outputs" title="Permalink naar deze titel">¶</a></h2>
 <p>Als eerste stap gaan we na wat de <em>inputs</em> (signalen en events) en <em>outputs</em> van de toepassing zijn.
 Een input kan een enkele meetwaarde zijn van een enkele sensor;
 maar een input kan ook het resultaat zijn van patroonherkenning op een reeks meetwaarden,
@@ -447,7 +173,7 @@ Door slimme <em>edge computing</em> of <em>fog computing</em> kun je voorkomen d
 Bovendien kun je hierdoor vaker lokaal -en dus sneller en betrouwbaarder- reageren.</div></blockquote>
 </div>
 <div class="section" id="inputs">
-<h3>Inputs<a class="headerlink" href="#inputs" title="Permalink naar deze titel">¶</a></h3>
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink naar deze titel">¶</a></h2>
 <p>Voor het nadenken over de inputs zijn de volgende vragen van belang:</p>
 <ul class="simple">
 <li>wat wil je meten? hoe vaak? wat is het waardenbereik? welke precisie is nodig?</li>
@@ -465,7 +191,7 @@ Bovendien kun je hierdoor vaker lokaal -en dus sneller en betrouwbaarder- reager
 bijvoorbeeld door een deur die even open en dicht gaat, zijn niet van belang.</p>
 </div>
 <div class="section" id="outputs">
-<h3>Outputs<a class="headerlink" href="#outputs" title="Permalink naar deze titel">¶</a></h3>
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink naar deze titel">¶</a></h2>
 <p>Ook bij outputs hebben we te maken met signalen en events.
 Wij proberen hier vooral met <em>events</em> te werken, zoals het in- of uitschakelen van een lamp of van een pomp.</p>
 <blockquote>
@@ -482,12 +208,12 @@ Ook dat is een voorbeeld van “fog” computing.</div></blockquote>
 </ul>
 </div>
 <div class="section" id="opdrachten">
-<h3>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink naar deze titel">¶</a></h3>
+<h2>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink naar deze titel">¶</a></h2>
 <blockquote>
 <div>Werk dit uit voor een IoT-voorbeeld; kies hiervoor een eigen voorbeeld, of een voorbeeld uit de lijst (volgende sectie).</div></blockquote>
 </div>
 <div class="section" id="communicatie-eisen">
-<h3>Communicatie-eisen<a class="headerlink" href="#communicatie-eisen" title="Permalink naar deze titel">¶</a></h3>
+<h2>Communicatie-eisen<a class="headerlink" href="#communicatie-eisen" title="Permalink naar deze titel">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
 <li>wat is het bereik en de precisie van de waarden van de inputs en outputs? (Hiermee kunnen we de grootte van de berichten uitrekenen.)</li>
@@ -497,7 +223,7 @@ Ook dat is een voorbeeld van “fog” computing.</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="tijd-vertraging-en-reactietijd">
-<h3>Tijd: vertraging en reactietijd<a class="headerlink" href="#tijd-vertraging-en-reactietijd" title="Permalink naar deze titel">¶</a></h3>
+<h2>Tijd: vertraging en reactietijd<a class="headerlink" href="#tijd-vertraging-en-reactietijd" title="Permalink naar deze titel">¶</a></h2>
 <p>Meten, communiceren, rekenen en beslissen kost tijd.
 Elke toepassing heeft zijn eigen tijdseisen:</p>
 <ul class="simple">
@@ -534,7 +260,7 @@ Elke toepassing heeft zijn eigen tijdseisen:</p>
 </ul>
 </div>
 <div class="section" id="betrouwbaarheid">
-<h3>Betrouwbaarheid<a class="headerlink" href="#betrouwbaarheid" title="Permalink naar deze titel">¶</a></h3>
+<h2>Betrouwbaarheid<a class="headerlink" href="#betrouwbaarheid" title="Permalink naar deze titel">¶</a></h2>
 <p>Communicatie is niet altijd betrouwbaar.
 Dit geldt in het bijzonder voor radiocommunicatie:
 deze kan op allerlei manieren (tijdelijk) verstoord raken.
@@ -571,7 +297,7 @@ Maar het halveren van het lichtniveau is geen idempotente operatie.</p>
 </ul>
 </div>
 <div class="section" id="grootte-van-berichten">
-<h3>Grootte van berichten<a class="headerlink" href="#grootte-van-berichten" title="Permalink naar deze titel">¶</a></h3>
+<h2>Grootte van berichten<a class="headerlink" href="#grootte-van-berichten" title="Permalink naar deze titel">¶</a></h2>
 <p>Sommige IoT-radio’s, zoals LoRa, werken met erg kleine berichten: ca. 10-20 bytes.
 Je moet dan wel weten of je berichten daarin passen.
 Om uit te rekenen hoeveel ruimte een waarde voor een sensor of actuator nodig heeft,
@@ -609,7 +335,7 @@ en om welk soort waarde; reken op 2 bytes extra per sensor/actuator.</p>
 de berichten worden dan ca. 10 maal zo groot.</p>
 </div>
 <div class="section" id="bereik-en-vermogen">
-<h3>Bereik en vermogen<a class="headerlink" href="#bereik-en-vermogen" title="Permalink naar deze titel">¶</a></h3>
+<h2>Bereik en vermogen<a class="headerlink" href="#bereik-en-vermogen" title="Permalink naar deze titel">¶</a></h2>
 <p>Afhankelijk van het soort toepassing heb je een radio met groter bereik nodig, of is een kleiner bereik voldoende.</p>
 <p>IoT-radio’s hebben in de regel een beperkt zendvermogen.
 De gebruikte radioband eist vaak een (vrij klein) maximum zendvermogen.
@@ -656,7 +382,7 @@ Vooral voor mobiele IoT-knopen is dit van belang: de batterij is het grootste en
 Bovendien mogen RFM69 en Lora-radio’s max. 1% van de tijd zenden.</p>
 </div>
 <div class="section" id="veiligheid-en-privacy">
-<h3>Veiligheid en privacy<a class="headerlink" href="#veiligheid-en-privacy" title="Permalink naar deze titel">¶</a></h3>
+<h2>Veiligheid en privacy<a class="headerlink" href="#veiligheid-en-privacy" title="Permalink naar deze titel">¶</a></h2>
 <p>IoT-toepassingen zijn vaak erg gevoelig:
 je wilt niet dat anderen je sensorgegevens gebruiken,
 of dat anderen je actuatoren kunnen aansturen.
@@ -667,7 +393,7 @@ maar je kunt ook end-to-end encryptie toepassen,
 op het niveau van de toepassing.</p>
 </div>
 <div class="section" id="samenvatting">
-<h3>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h3>
+<h2>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h2>
 <p>Je kunt de eisen aan de communicatie voor een toepassing samenvatten in een tabel:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -734,7 +460,6 @@ op het niveau van de toepassing.</p>
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 </div>
 

@@ -117,8 +117,8 @@ een bericht dat niet in de volgorde past wordt overgeslagen.</dd>
 <dd>radio voor pakket-georiënteerde communicatie. Pakketten voor IoT-radio’s zijn vaak vrij klein,
 met bijvoorbeeld een maximale payload van 60 bytes (RFM69) of 51 bytes (LoRaWan - KPN).</dd>
 <dt id="term-best-effort-communicatie">best effort communicatie</dt>
-<dd>communicatie zonder garantie voor de betrouwbare aflevering. Veel basisprotocollen zijn best effort,
-bijvoorbeeld: Ethernet, IP, RFM69, LoRa.
+<dd>communicatie in de verwachting dat deze meestal aankomt, zonder garantie voor de betrouwbare aflevering.
+Veel basisprotocollen zijn best effort, bijvoorbeeld: Ethernet, IP, RFM69, LoRa.
 Betrouwbare communicatie moet dan (als dat nodig is) door een protocol in een hogere laag gerealiseerd worden.
 (“best effort” zegt niets over de daadwerkelijke betrouwbaarheid van de communicatie.)</dd>
 <dt id="term-sensor">sensor</dt>
@@ -133,6 +133,13 @@ waterklep, buzzer, enz.</dd>
 <dt id="term-controller">controller</dt>
 <dd>computer of computerprogramma voor het meten en aansturen van fysische verschijnselen via sensoren en actuatoren.
 Een IoT-knoop heeft een <em>microcontroller</em>: een volledige besturingscomputer op een chip.</dd>
+<dt id="term-signaal">signaal</dt>
+<dd>een signaal heeft op elk moment een waarde.
+In een signaal kunnen <em>events</em> gedetecteerd worden, bijvoorbeeld de overgang van “laag” naar “hoog”;
+of een “hartslag”.</dd>
+<dt id="term-event">event</dt>
+<dd>gebeurtenis die op een bepaald moment plaatsvindt, waarbij de duur niet van belang is.
+Voorbeelden: het indrukken van een knop; het openen van een deur; een hartslag.</dd>
 </dl>
 </div>
 

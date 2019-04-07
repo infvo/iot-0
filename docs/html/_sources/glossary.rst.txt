@@ -37,8 +37,8 @@ Glossary
     met bijvoorbeeld een maximale payload van 60 bytes (RFM69) of 51 bytes (LoRaWan - KPN).
 
   best effort communicatie
-    communicatie zonder garantie voor de betrouwbare aflevering. Veel basisprotocollen zijn best effort,
-    bijvoorbeeld: Ethernet, IP, RFM69, LoRa.
+    communicatie in de verwachting dat deze meestal aankomt, zonder garantie voor de betrouwbare aflevering.
+    Veel basisprotocollen zijn best effort, bijvoorbeeld: Ethernet, IP, RFM69, LoRa.
     Betrouwbare communicatie moet dan (als dat nodig is) door een protocol in een hogere laag gerealiseerd worden.
     ("best effort" zegt niets over de daadwerkelijke betrouwbaarheid van de communicatie.)
 
@@ -56,3 +56,12 @@ Glossary
   controller
     computer of computerprogramma voor het meten en aansturen van fysische verschijnselen via sensoren en actuatoren.
     Een IoT-knoop heeft een *microcontroller*: een volledige besturingscomputer op een chip.
+
+  signaal
+    een signaal heeft op elk moment een waarde.
+    In een signaal kunnen *events* gedetecteerd worden, bijvoorbeeld de overgang van "laag" naar "hoog";
+    of een "hartslag".
+
+  event
+    gebeurtenis die op een bepaald moment plaatsvindt, waarbij de duur niet van belang is.
+    Voorbeelden: het indrukken van een knop; het openen van een deur; een hartslag.
