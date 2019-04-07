@@ -44,10 +44,25 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../inleiding.html">Inleiding</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="voorbeelden-in-detail.html">Voorbeelden</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Eisen aan de communicatie</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Eisen aan de communicatie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Eisen aan de communicatie</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Eisen aan de communicatie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inputs-en-outputs">Inputs en outputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inputs">Inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opdrachten">Opdrachten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#communicatie-eisen">Communicatie-eisen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tijd-vertraging-en-reactietijd">Tijd: vertraging en reactietijd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#betrouwbaarheid">Betrouwbaarheid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grootte-van-berichten">Grootte van berichten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bereik-en-vermogen">Bereik en vermogen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#veiligheid-en-privacy">Veiligheid en privacy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#samenvatting">Samenvatting</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
@@ -282,6 +297,444 @@ deze mogen ook niet vervalst kunnen worden.</li>
 <p><em>Opmerking</em>: voor de latency werken we hier met een <em>end-to-end</em> eis:
 voor de gebruiker maakt het niet welk onderdeel voor de vertraging verantwoordelijk is,
 het gaat alleen om de totale vertraging.</p>
+<hr class="docutils" />
+<table border="1" class="colwidths-given docutils" id="id3">
+<caption><span class="caption-text">Sproeier-eisen</span><a class="headerlink" href="#id3" title="Permalink naar deze tabel">¶</a></caption>
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Soort eis</th>
+<th class="head">aa</th>
+<th class="head">bb</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>#berichten/uur</td>
+<td>10</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>#bytes/bericht</td>
+<td>10</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>betrouwbaarheid</td>
+<td>best effort</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>max. latency</td>
+<td>15 min.</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>mobiliteit</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>privacy</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>veiligheid</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Soort eis</th>
+<th class="head">aa</th>
+<th class="head">bb</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>#berichten/uur</td>
+<td>10</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>#bytes/bericht</td>
+<td>10</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>betrouwbaarheid</td>
+<td>best effort</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>max. latency</td>
+<td>15 min.</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>privacy</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>veiligheid</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>NB:</p>
+<ul class="simple">
+<li>verschillende eisen voor sensoren en actuatoren;
+bijv. sproeier: sensoren draadloos, actuatoren bedraad (waterkleppen).</li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h3>Eisen aan de communicatie<a class="headerlink" href="#id2" title="Permalink naar deze titel">¶</a></h3>
+<p>We hebben hiervoor gezien welke functionele elementen je tegenkomt in een IoT-keten.
+We proberen hier de eisen op te stellen voor de communicatie tussen deze elementen, voor een bepaalde toepassing.
+Aan de hand van deze eisen bepaal je later welke (radio)verbinding je kunt gebruiken voor de rand (“edge”) van de IoT-keten.</p>
+<blockquote>
+<div><p>Zoals we in de volgende hoofdstukken zullen zien,
+verschillen deze radio’s in de grootte van de berichten,
+de snelheid waarmee deze verstuurd worden,
+het bereik van de radio, en de betrouwbaarheid van de communicatie.</p>
+<p>In deze module beperken we ons tot IoT-toepassingen met korte berichten.
+Voor toepassingen met “streaming” beeld of geluid heb je andere middelen nodig.</p>
+</div></blockquote>
+<div class="admonition-over-signalen-en-events admonition">
+<p class="first admonition-title">Over signalen en events</p>
+<p>Een analoog signaal is continu: dit heeft op elk moment een waarde.
+Je kunt een analoog signaal bemonsteren (<em>sampling</em>) met vaste tussenpozen:
+als je deze tussenpozen klein genoeg kiest kun je met deze monster-waarden (<em>samples</em>) het oorspronkelijke signaal voldoende goed benaderen.
+Wat “klein genoeg” is hangt af van de snelheid van de veranderingen in het oorspronkelijke signaal.</p>
+<blockquote>
+<div>Voor muziek kies je als bemonsteringsfrequentie vaak 44,1kHz (Audio CD) of 48kHz (DVD);
+voor een ECG (electrocardiogram): 0,5-1kHz.</div></blockquote>
+<p>Vaak zijn we niet in de details van een signaal geïnteresseerd,
+maar alleen in bepaalde karakteristieke patronen of <em>events</em> die je in het signaal kunt herkennen.</p>
+<p><em>Voorbeeld</em>: een cardioloog wil graag een volledig ECG-signal (electrocardiogram);
+een sporter heeft voldoende aan het aantal hartslagen per minuut.</p>
+<p>Een <em>event</em> is in dit verband een gebeurtenis of toestandsverandering die op een bepaald tijdstip plaatsvindt;
+de duur van deze gebeurtenis is niet van belang.
+Als de duur wel relevant is, kun je altijd gebruik maken van begin- en eind-events.</p>
+<p>In onze IoT-toepassingen gaat het vooral om events:
+gebeurtenissen waar we op moeten reageren.
+<em>Voorbeeld</em>: we willen graag weten wanneer de eerste persoon een kamer binnenkomt, en wanneer de laatste deze kamer verlaat (<em>events</em>).
+Dat zijn momenten dat de verlichting in- of uitgeschakeld moet worden.
+Het aantal personen in de kamer op een willekeurig moment (<em>signaal</em>) is daarvoor niet van belang.</p>
+<p>Uit de IoT-voorbeelden:</p>
+<ul class="simple">
+<li>de bodemvochtigheid is een <em>signaal</em> dat we elke 5 minuten bemonsteren: snellere veranderingen komen niet voor of hebben geen betekenis.</li>
+<li>het indrukken van een knop om een lamp in te schakelen is een <em>event</em>.</li>
+</ul>
+<p>Andere voorbeelden, buiten het bestek van deze IoT-module:</p>
+<ul class="last simple">
+<li>internet-telefonie: signaal</li>
+<li>streaming video (internet tv, video on demand): signaal</li>
+<li>streaming audio (internet radio, muziekdienst): signaal</li>
+</ul>
+</div>
+</div>
+<div class="section" id="inputs-en-outputs">
+<h3>Inputs en outputs<a class="headerlink" href="#inputs-en-outputs" title="Permalink naar deze titel">¶</a></h3>
+<p>Als eerste stap gaan we na wat de <em>inputs</em> (signalen en events) en <em>outputs</em> van de toepassing zijn.
+Een input kan een enkele meetwaarde zijn van een enkele sensor;
+maar een input kan ook het resultaat zijn van patroonherkenning op een reeks meetwaarden,
+mogelijk van meerdere sensoren.
+In dit stadium doen we daarover geen uitspraken.</p>
+<blockquote>
+<div>Het heeft voordelen om de patroonherkenning op de meetwaarden dicht bij de bron (sensoren) te doen.
+Door slimme <em>edge computing</em> of <em>fog computing</em> kun je voorkomen dat je grote hoeveelheden data naar de “cloud” moet communiceren.
+Bovendien kun je hierdoor vaker lokaal -en dus sneller en betrouwbaarder- reageren.</div></blockquote>
+</div>
+<div class="section" id="inputs">
+<h3>Inputs<a class="headerlink" href="#inputs" title="Permalink naar deze titel">¶</a></h3>
+<p>Voor het nadenken over de inputs zijn de volgende vragen van belang:</p>
+<ul class="simple">
+<li>wat wil je meten? hoe vaak? wat is het waardenbereik? welke precisie is nodig?</li>
+<li>welke gebeurtenissen (events) zijn van belang? waar moet het systeem op reageren?</li>
+</ul>
+<p>Het waardenbereik en de precisie hebben we nodig voor de grootte van de berichten.</p>
+<p>We maken ons hier nog niet druk over de sensoren en de berekeningen voor deze signalen en events.</p>
+<p>Voorbeelden:</p>
+<ul class="simple">
+<li>(event) indrukken van de “aan” knop van de lamp in de woonkamer;</li>
+<li>(event) uitschakelen van de lamp in de woonkamer op afstand;</li>
+<li>(signaal) meten van de kamertemperatuur: elke 2 minuten, met een nauwkeurigheid van 0,5 graden.</li>
+</ul>
+<p>De temperatuur van de kamer verandert niet sneller, en tijdelijke veranderingen,
+bijvoorbeeld door een deur die even open en dicht gaat, zijn niet van belang.</p>
+</div>
+<div class="section" id="outputs">
+<h3>Outputs<a class="headerlink" href="#outputs" title="Permalink naar deze titel">¶</a></h3>
+<p>Ook bij outputs hebben we te maken met signalen en events.
+Wij proberen hier vooral met <em>events</em> te werken, zoals het in- of uitschakelen van een lamp of van een pomp.</p>
+<blockquote>
+<div>Signalen gebruik je soms voor een <em>proportionele</em> regeling,
+bijvoorbeeld het dimmen van een lamp afhankelijk van het tijdstip en/of het niveau van het omgevingslicht.
+Dit soort regelingen probeer je dicht bij de outputs (actuatoren) te plaatsen,
+om snel te kunnen reageren, en om de hoeveelheid communicatie met de “cloud” te beperken.
+Ook dat is een voorbeeld van “fog” computing.</div></blockquote>
+<p>Voorbeelden:</p>
+<ul class="simple">
+<li>(event) het in- en uitschakelen van een lamp;</li>
+<li>(event) het instellen van de kleur en lichtsterkte van een lamp;</li>
+<li>(event) het in- en uitschakelen van een sproeicyclus.</li>
+</ul>
+</div>
+<div class="section" id="opdrachten">
+<h3>Opdrachten<a class="headerlink" href="#opdrachten" title="Permalink naar deze titel">¶</a></h3>
+<blockquote>
+<div>Werk dit uit voor een IoT-voorbeeld; kies hiervoor een eigen voorbeeld, of een voorbeeld uit de lijst (volgende sectie).</div></blockquote>
+</div>
+<div class="section" id="communicatie-eisen">
+<h3>Communicatie-eisen<a class="headerlink" href="#communicatie-eisen" title="Permalink naar deze titel">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>wat is het bereik en de precisie van de waarden van de inputs en outputs? (Hiermee kunnen we de grootte van de berichten uitrekenen.)</li>
+<li>wat is de maximale vertraging (latency) van een bericht, de maximale reactietijd op een event?</li>
+<li>hoe betrouwbaar moet de communicatie van het bericht zijn? (“best effort” vs. “bericht van ontvangst” (ACK) en opnieuw verzenden)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="tijd-vertraging-en-reactietijd">
+<h3>Tijd: vertraging en reactietijd<a class="headerlink" href="#tijd-vertraging-en-reactietijd" title="Permalink naar deze titel">¶</a></h3>
+<p>Meten, communiceren, rekenen en beslissen kost tijd.
+Elke toepassing heeft zijn eigen tijdseisen:</p>
+<ul class="simple">
+<li>wat is de maximale reactietijd op een bepaalde input-event?</li>
+<li>wat is de maximale vertraging (latency) tussen een meting en de aankomst van het bericht met de meetwaarde bij de controller?</li>
+</ul>
+<p><em>Opmerking</em>: de communicatie naar een lokale controller heeft veel minder latency dan naar een controller “in the cloud”.</p>
+<p>Voorbeelden:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>(event) indrukken van de “aan” knop in de woonkamer: lamp moet binnen 0,5 seconde aan gaan.</dt>
+<dd><ul class="first last">
+<li>als de lamp niet “direct” aangaat denkt de gebruiker dat er iets kapot is; hij drukt dan bijvoorbeeld de schakelaar nog een aantal keren in.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>(event) lamp uitschakelen op afstand (internet-app): lamp moet binnen 15 seconden uitgaan.</dt>
+<dd><ul class="first last">
+<li>de gebruiker is niet in dezelfde ruimte als de lamp, een directe reactie is dan niet nodig.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>(signaal): de gemeten kamertemperatuur moet binnen 60 seconden bij de lokale controller zijn die ook de verwarming aanstuurt.</dt>
+<dd><ul class="first last">
+<li>de controller moet voldoende snel <em>feedback</em> hebben op het resultaat van de aansturing van de verwarming.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="betrouwbaarheid">
+<h3>Betrouwbaarheid<a class="headerlink" href="#betrouwbaarheid" title="Permalink naar deze titel">¶</a></h3>
+<p>Communicatie is niet altijd betrouwbaar.
+Dit geldt in het bijzonder voor radiocommunicatie:
+deze kan op allerlei manieren (tijdelijk) verstoord raken.
+Er zijn (ruwweg) twee manieren om berichten te versturen:</p>
+<ul class="simple">
+<li><em>best effort</em>: het bericht wordt verstuurd in de verwachting dat dit <em>meestal</em> aankomt;</li>
+<li><em>versturen met ontvangstbevestiging</em> (ACK): de ontvanger stuurt een ontvangstbevestiging;
+als de zender deze niet binnen een bepaalde tijd ontvangen heeft, verstuurt deze het bericht opnieuw.</li>
+</ul>
+<p>Voor veel IoT-toepassingen is <em>best effort</em> voldoende,
+(i) omdat een enkele meting wel gemist kan worden;
+of (ii) omdat het resultaat van het bericht op andere manieren bevestigd wordt.</p>
+<p>Voorbeeld: als de controller voor de watersproeier nog steeds dezelfde bodemvochtigheid meet,
+kan deze de watersproeier nogmaals inschakelen.</p>
+<div class="admonition-idempotente-opdrachten admonition">
+<p class="first admonition-title">Idempotente opdrachten</p>
+<p>Een <em>idempotente</em> opdracht geeft hetzelfde resultaat als je deze eenmaal uitvoert of meerdere keren.
+Bij veel IoT-berichten is het wenselijk dat deze <em>idempotent</em> zijn:
+het maakt dan niet uit of deze eenmaal of vaker verstuurd, ontvangen en uitgevoerd worden.
+Bijvoorbeeld: het in- of uitschakelen van een lamp is een idempotente opdracht.
+Het instellen van het absolute lichtniveau van een lamp is dat ook.
+Maar het halveren van het lichtniveau is geen idempotente operatie.</p>
+<p>Vraag: welke opdrachten (knoppen) op de afstandsbediening van een TV zijn idempotent? Waarom? Welke zijn niet idempotent? Waarom is dat geen probleem?</p>
+<p>Vraag: is het opnieuw opvragen van een webpagina idempotent? Is het opnieuw versturen van een webformulier altijd idempotent?</p>
+<p>Vraag: is een tuimerschakelaar voor een lamp idempotent?</p>
+<p class="last">Vraag: welke knoppen zitten er op een Hue dimmer? Welke zijn daarvan idempotent (en waarom)?</p>
+</div>
+<p>Voorbeelden:</p>
+<ul class="simple">
+<li>(signaal) bodemvochtigheid: best effort;</li>
+<li>(event) indrukken van de “aan”knop van de lamp in de woonkamer: best effort (waarom?);</li>
+<li>(event) op afstand uitzetten van de lamp in de woonkamer: bevestiging (ACK) vereist (waarom)?</li>
+<li>(signaal) temperatuur in de woonkamer: best effort.</li>
+</ul>
+</div>
+<div class="section" id="grootte-van-berichten">
+<h3>Grootte van berichten<a class="headerlink" href="#grootte-van-berichten" title="Permalink naar deze titel">¶</a></h3>
+<p>Sommige IoT-radio’s, zoals LoRa, werken met erg kleine berichten: ca. 10-20 bytes.
+Je moet dan wel weten of je berichten daarin passen.
+Om uit te rekenen hoeveel ruimte een waarde voor een sensor of actuator nodig heeft,
+in een binair formaat, kun je de volgende regels gebruiken:</p>
+<ul class="simple">
+<li>reken het waardenbereik om naar het geheeltallige (integer) bereik 0..x, waarbij elke stap relevant is.
+Dit doe je door schaling (vermenigvuldigen/delen) en verschuiven (optellen/aftrekken);</li>
+<li>voor 0..255 is 1 byte voldoende; voor 0..65536 2 bytes. (Je hebt vrijwel nooit meer nodig.)</li>
+<li>eventueel kun je ook in bits rekenen, als elke bit telt, maar dat laten we voorlopig buiten beschouwing.</li>
+</ul>
+<p>Voorbeeld:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>temperatuur 0..50 graden Celsius, in stappen van 0,5 graad:</dt>
+<dd><ul class="first last">
+<li><em>zender</em>: vermenigvuldig met 2: verstuur waarde 0..100 (1 byte);</li>
+<li><em>ontvanger</em>: deel ontvangen waarde door 2.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>luchtdruk 950..1050, in 0,5 mbar (hPa) stappen:</dt>
+<dd><ul class="first last">
+<li><em>zender</em>: trek 950 af, en vermenigvuldig met 2: 0..200 (1 byte);</li>
+<li>ontvanger: deel door 2, en tel er 950 bij.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Daarnaast heb je nog wat extra gegevens nodig, bijvoorbeeld om aan te geven over welke sensor of actuator het gaat,
+en om welk soort waarde; reken op 2 bytes extra per sensor/actuator.</p>
+<p>In sommige gevallen werken we met berichten in een tekstformaat (JSON):
+de berichten worden dan ca. 10 maal zo groot.</p>
+</div>
+<div class="section" id="bereik-en-vermogen">
+<h3>Bereik en vermogen<a class="headerlink" href="#bereik-en-vermogen" title="Permalink naar deze titel">¶</a></h3>
+<p>Afhankelijk van het soort toepassing heb je een radio met groter bereik nodig, of is een kleiner bereik voldoende.</p>
+<p>IoT-radio’s hebben in de regel een beperkt zendvermogen.
+De gebruikte radioband eist vaak een (vrij klein) maximum zendvermogen.
+En voor een mobiele IoT-knoop is “low power” van belang voor een grote levensduur van de batterij/accu.
+Vooral voor mobiele IoT-knopen is dit van belang: de batterij is het grootste en zwaarste onderdeel.</p>
+<p>Bij eenzelfde zendvermogen moet je kiezen tussen een groot bereik of een grote bitsnelheid (bitrate).</p>
+<p>De radio’s die wij in dit materiaal gebruiken hebben de volgende eigenschappen:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="18%" />
+<col width="40%" />
+<col width="24%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>radio</strong></td>
+<td><strong>power</strong></td>
+<td><strong>bereik</strong></td>
+<td><strong>bitrate</strong></td>
+</tr>
+<tr class="row-even"><td>WiFi</td>
+<td>medium</td>
+<td>lokaal bereik (10-50m)</td>
+<td>MBytes/s</td>
+</tr>
+<tr class="row-odd"><td>WiFi</td>
+<td>medium</td>
+<td>lokaal bereik (10-50m)</td>
+<td>Mbytes/s</td>
+</tr>
+<tr class="row-even"><td>RFM69</td>
+<td>low</td>
+<td>lokaal bereik (50-200m)</td>
+<td>50kbits/s (*)</td>
+</tr>
+<tr class="row-odd"><td>LoRa</td>
+<td>low</td>
+<td>niet-lokaal (enkele km)</td>
+<td>1 kbit/s (*)</td>
+</tr>
+</tbody>
+</table>
+<p>(*) voor LoRa is de bitrate nog lager bij een groot bereik.
+Bovendien mogen RFM69 en Lora-radio’s max. 1% van de tijd zenden.</p>
+</div>
+<div class="section" id="veiligheid-en-privacy">
+<h3>Veiligheid en privacy<a class="headerlink" href="#veiligheid-en-privacy" title="Permalink naar deze titel">¶</a></h3>
+<p>IoT-toepassingen zijn vaak erg gevoelig:
+je wilt niet dat anderen je sensorgegevens gebruiken,
+of dat anderen je actuatoren kunnen aansturen.
+De veiligheid van de verbindingen is dan van groot belang.
+Deze kun je op verschillende niveaus waarborgen:
+encryptie kan onderdeel zijn van de fysieke (radio)verbinding,
+maar je kunt ook end-to-end encryptie toepassen,
+op het niveau van de toepassing.</p>
+</div>
+<div class="section" id="samenvatting">
+<h3>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h3>
+<p>Je kunt de eisen aan de communicatie voor een toepassing samenvatten in een tabel:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="18%" />
+<col width="11%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="16%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>input/output</strong></td>
+<td><strong>signaal/ event</strong></td>
+<td><strong>periode</strong></td>
+<td><strong>latency</strong></td>
+<td><strong>bereik</strong></td>
+<td><strong>precisie</strong></td>
+<td><strong>best effort?</strong></td>
+</tr>
+<tr class="row-even"><td>I: temperatuur</td>
+<td>signaal</td>
+<td>120 s</td>
+<td>60 s</td>
+<td>0..50’C</td>
+<td>0,5’C</td>
+<td>best effort</td>
+</tr>
+<tr class="row-odd"><td>I: aan/uit knop</td>
+<td>event</td>
+<td>&#160;</td>
+<td>0,5 s</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>best effort</td>
+</tr>
+<tr class="row-even"><td>I: aan/uit (app)</td>
+<td>event</td>
+<td>&#160;</td>
+<td>120 s</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>ACK</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 

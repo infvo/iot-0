@@ -73,17 +73,12 @@ Een dergelijke automatische verwerking stelt extra hoge eisen aan de sensordata 
 
 .. rubric:: Over dit hoofdstuk
 
-.. todo::
-
-  * Overzicht van dit hoofdstuk
-  * Voorbeelden
-  * Persoonlijke en maatschappelijke gevolgen
-  * Eisen die een toepasssing stelt aan de technologie,
-    en meer speciaal aan de communicatie.
-    Opmerking: (i) je kunt deze eisen opstellen op het niveau van de gebruiker,
-    je hebt daarvoor geen uitgebreide kennis van de technologie nodig;
-    (ii) deze eisen hebben een grote invloed op de technologie-keuzes die je maakt.
-  * Overzicht van de module? (-> verplaatsen naar "ten geleide/over deze module"?)
+In dit hoofdstuk geven we een paar uitgebreide voorbeelden van IoT-toepassingen.
+Vervolgens gaan we in op de eisen die deze toepassingen stellen aan de communicatie.
+Deze eisen hebben gevolgen voor de technologie-keuzes voor deze toepassingen.
+IoT-toepassingen hebben ook persoonlijke en maatschappelijke gevolgen,
+bijvoorbeeld op het gebied van privacy en veiligheid.
+Tenslotte geven we een lijst van mogelijke IoT-toepassingen op allerlei gebied.
 
 .. admonition:: Samenvattend
 
@@ -107,7 +102,7 @@ Een dergelijke automatische verwerking stelt extra hoge eisen aan de sensordata 
   inleiding/voorbeelden-in-detail.rst
   inleiding/iot-eisen.rst
   inleiding/gevolgen.rst
-  inleiding/voorbeelden.rst  
+  inleiding/voorbeelden.rst
   inleiding/overzicht.rst
   inleiding/opdrachten.rst
   inleiding/toetsvragen.rst

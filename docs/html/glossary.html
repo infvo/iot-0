@@ -44,6 +44,7 @@
 
 <h3>Navigatie</h3>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="inleiding.html">Inleiding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="webserver.html">Webserver-knopen</a></li>
@@ -97,13 +98,13 @@
 Als de protocollen van deze netwerken verschillen,
 dan verzorgt de gateway de <em>protocol-conversie</em>.</dd>
 <dt id="term-payload">payload</dt>
-<dd>De “eigenlijke data” die getransporteerd wordt als onderdeel van een pakket of frame.
+<dd>De “eigenlijke data” die getransporteerd wordt als onderdeel van een bericht, pakket of frame.
 Zie ook <em>metadata</em>.</dd>
 <dt id="term-metadata">metadata</dt>
 <dd>“data voor het beschrijven van data”.
 In het geval van communicatie, meestal data over de communicatie,
 bijvoorbeeld het volgnummer van een bericht, tijdstip van de communicatie,
-of de signaalsterkte bij de communicatie.</dd>
+of de signaalsterkte bij radiocommunicatie.</dd>
 <dt id="term-replay-attack">replay-attack</dt>
 <dd>poging om in te breken in een beveiligde communicatie, door het herhalen van een vroeger bericht.
 Stel dat je altijd hetzelfde (radio)bericht gebruik om een deur te openen:
@@ -120,6 +121,18 @@ met bijvoorbeeld een maximale payload van 60 bytes (RFM69) of 51 bytes (LoRaWan 
 bijvoorbeeld: Ethernet, IP, RFM69, LoRa.
 Betrouwbare communicatie moet dan (als dat nodig is) door een protocol in een hogere laag gerealiseerd worden.
 (“best effort” zegt niets over de daadwerkelijke betrouwbaarheid van de communicatie.)</dd>
+<dt id="term-sensor">sensor</dt>
+<dd>(elektronisch) onderdeel voor het waarnemen of meten van een fysisch verschijnsel: bijvoorbeeld temperatuur, luchtdruk,
+licht, beeld, geluid, versnelling, gasconcentraties, enz.
+Ook drukknoppen, camera’s, microfoons, GPS-ontvangers zijn voorbeelden van sensoren.
+Moderne smartphones hebben tientallen sensoren.</dd>
+<dt id="term-actuator">actuator</dt>
+<dd>onderdeel voor het besturen van een fysisch verschijnsel (vanuit een elektronische schakeling).
+Voorbeelden van sensoren: luidspreker, beeldscherm, lamp, led, relais (voor het schakelen van grotere stromen),
+waterklep, buzzer, enz.</dd>
+<dt id="term-controller">controller</dt>
+<dd>computer of computerprogramma voor het meten en aansturen van fysische verschijnselen via sensoren en actuatoren.
+Een IoT-knoop heeft een <em>microcontroller</em>: een volledige besturingscomputer op een chip.</dd>
 </dl>
 </div>
 

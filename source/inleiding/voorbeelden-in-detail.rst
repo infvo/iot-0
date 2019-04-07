@@ -45,7 +45,7 @@ Sensoren
   :align: center
 
 Deze eerste  oplossing is nog niet optimaal.
-Een nadeel is dat er volgens dit schema altijd gesproeid wordt - ook als de grond niet droog is, of als het regent.
+Een nadeel is dat er volgens dit schema altijd gesproeid wordt - ook als de al grond nat is van de regen.
 Dit betekent op z'n minst een verspilling van water;
 bovendien kan  het veld hierdoor te drassig worden, wat ook niet de bedoeling is.
 
@@ -85,8 +85,8 @@ Dit is een voorbeeld van het combineren van het Internet of Things met Data Scie
 
 Uiteindelijk wil je een sproeisysteem dat optimaal gebruik maakt van de omstandigheden.
 Je wilt daarmee het gras zo laten groeien dat het goed gebruik maakt van het water in de bodem -
-bijvoorbeeld door lange wortels te ontwikkelen.
-Dat betekent bijvoorbeeld dat je niet altijd moet sproeien als alleen de bovenste laag van de bodem droog is.
+bijvoorbeeld door voldoend lange wortels te ontwikkelen.
+Dat betekent dat je niet altijd moet sproeien als alleen de bovenste laag van de bodem droog is.
 Hiervoor is kennis nodig van de manier waarop gras groeit, en van de lokale bodem- en weersomstandigheden.
 Externe diensten spelen daarvoor een belangrijke rol.
 
@@ -99,10 +99,10 @@ Meerdere controllers
 
 Vaak heeft het zin om controllers op meerdere niveaus te gebruiken,
 bijvoorbeeld een (micro)controller direct bij de sensoren/actuatoren in een *IoT-knoop*,
-een controller in de buurt van de eigenlijke toepassing,
+een controller in de buurt van de "dingen" waaraan je meet en stuurt,
 en een controller die bereikbaar is in het publieke internet.
 
-De IoT-knoop-controller en de lokale controller zorgen voor lokale autonomie en (daardoor) grotere betrouwbaarheid, 
+De IoT-knoop-controller en de lokale controller zorgen voor lokale autonomie en (daardoor) grotere betrouwbaarheid,
 voor snelle beslissingen (door lage latency vanwege de kleine afstand),
 verminderen de druk op de communicatie met en het rekenwerk in de *cloud*,
 en maken een betere beveiliging mogelijk.
@@ -124,7 +124,7 @@ Samenvattend zien we de volgende stappen:
 3. aansluiten van de controller op het internet, voor bewaken (monitoring) en besturen op afstand - via een app;
 4. gebruik van diensten in het internet om tot een "slimme oplossing" te komen.
 
-Elke volgende stap helpt om meer water te besparen en om een beter sproei-resultaat te krijgen.
+Elke volgende stap helpt om meer water te besparen en om een beter sproei- en groeiresultaat te krijgen.
 De eerste stappen zijn voorbeelden van traditionele automatisering.
 De stappen 3 en 4 zijn voorbeelden van het internet of things:
 de verbinding met het internet geeft veel extra mogelijkheden.
@@ -141,7 +141,6 @@ Actuatoren, sensoren en controller
 .. figure:: hue-local.png
     :width: 400px
     :align: center
-
 
 De actuatoren zijn in dit geval de lampen.
 Deze kun je bedienen met drukknoppen en met (bewegings)sensoren.
@@ -182,10 +181,39 @@ Via de hue-webserver kun je verbinding maken met controller-diensten als Apple H
 Voorbeeld: monitoring
 =====================
 
+.. figure:: DBveld.jpg
+    :width: 200px
+    :align: right
+
 In de bovenstaande voorbeelden is er steeds sprake van besturing (*control*), via actuatoren.
 Ook met alleen sensoren, voor bewaking (*monitoring*), zijn al veel zinvolle IoT-toepassingen te maken.
+Als voorbeeld gebruiken we het bewaken op afstand van een bijenkast.
 
-.. todo::
+Een imker (bijenhouder) heeft vaak meerdere bijenkasten, verspreid over een groot gebied.
+Het loont de moeite om de activiteit van de bijen op afstand te kunnen bewaken (*monitoring*).
+De imker kan dan de gezondheid van zijn bijenvolken continu in de gaten houden,
+en op tijd ingrijpen als er dingen mis dreigen te gaan.
 
-  * Monitoring voorbeeld(en)
-  * bijvoorbeeld: monitoring van bijenkast
+De stichting `Beep <https://beep.nl>`_ ontwikkelt een open-source systeem voor het bewaken van bijenkast,
+en voor het bijhouden van de belangrijkste gegevens in een app.
+De gegevens van het automatische meetsysteem combineer je in de app met gegevens van eigen inspecties.
+Het automatische meetsysteem stuurt enkele keren per uur de belangrijkste gegevens op via een LoRa (long range) IoT-netwerk.
+
+.. figure:: beep-lora-internet.png
+    :width: 500px
+    :align: center
+
+Voor een imker zijn bijvoorbeeld de volgende gegevens van belang:
+
+* de buitentemperatuur en de luchtvochtigheid in de omgeving van de kast;
+* de temperatuur in de kast (broedtemperatuur);
+* het gewicht van de kast: als de bijen de kast verlaten neemt het gewicht af;
+  als de bijen terugkomen met nectar neemt het gewicht toe;
+* het geluid in de kast.
+  Als een bijenvolk door indringers beroofd wordt van de voedselvoorraad,
+  kun je dit zien aan de combinatie van gewicht en geluid.
+
+Zie de presentatie hierover: https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018
+
+Als veel bijenkasten met zo'n systeem uitgerust zijn helpt dat niet alleen de imker,
+maar ook het onderzoek naar het gedrag en de gezondheid van bijenvolken.

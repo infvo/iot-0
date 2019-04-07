@@ -9,6 +9,7 @@ IoT-0: IoT voor gebruikers
 .. toctree::
    :maxdepth: 4
 
+   voorwoord.rst
    inleiding.rst
    bouwstenen.rst
    webserver.rst
