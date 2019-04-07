@@ -49,7 +49,7 @@ Stappen voor het configureren:
 7. Via :ref:`MQT3` kun je nu controleren of de MQTT-broker de berichten van de IoT-knoop ontvangt.
    Stel in het ``IoT-node``-venster de ID van de knoop in, bijvoorbeeld ``8f12``.
    Na enige tijd moeten dan de waarden van de sensoren verschijnen.
-   Je kunt met MQTTT ook de LED aan- en uitschakelen.
+   Je kunt met MQT3 ook de LED aan- en uitschakelen.
 
 RFM69-WiFi gateway
 ==================

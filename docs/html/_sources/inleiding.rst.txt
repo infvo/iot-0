@@ -101,8 +101,8 @@ Tenslotte geven we een lijst van mogelijke IoT-toepassingen op allerlei gebied.
 
   inleiding/voorbeelden.rst
   inleiding/iot-eisen.rst
-  inleiding/gevolgen.rst
-  inleiding/meer-voorbeelden.rst
   inleiding/overzicht.rst
+  inleiding/meer-voorbeelden.rst
+  inleiding/gevolgen.rst
   inleiding/opdrachten.rst
   inleiding/toetsvragen.rst

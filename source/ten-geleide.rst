@@ -26,8 +26,9 @@ kan Com-0 gebruikt worden voor de conceptuele verdieping, wanneer de behoefte da
 De module IoT-0 is *top-down* georganiseerd, vanuit de *context* van het Internet of Things.
 Het is de bedoeling dat leerlingen vrijwel direct praktisch aan de slag kunnen gaan,
 vanuit het niveau van de IoT-toepassing.
-Leerlingen werken eerst met gesimuleerde IoT-knopen,
-daarna met voorgeconfigureerde en voorgeprogrammeerde IoT-knopen en IoT-ketens.
+Leerlingen kunnen met gesimuleerde IoT-knopen aan de slag,
+met IoT-knopen die elders opgesteld staan,
+en (het leukst) met voorgeprogrammeerde hardware-IoT-knopen.
 
 De module IoT-1: *het Internet of Things voor makers*, behandelt de details van deze IoT-knopen en IoT-ketens,
 zodat leerlingen (of hun docenten) hier zelf mee aan de slag kunnen gaan.
@@ -41,6 +42,8 @@ Ook het materiaal van IoT-1 kan gebruikt worden als "just in time" naslagwerk bi
 
 Het is onze bedoeling dat leerlingen op basis van het materiaal van deze modules een eigen IoT-toepassing kunnen maken.
 Dit kan in het kader van een project dat speciaal op dit doel gericht is.
+Een dergelijk project kan een combinatie van meerdere keuzethema's zijn,
+bijvoorbeeld Netwerken/IoT, Databases, en User Experience.
 
 Zoals gezegd is de aanpak van IoT-0 *top-down*.
 Leerlingen die in een vroeg stadium meer "grond onder de voeten" nodig hebben,

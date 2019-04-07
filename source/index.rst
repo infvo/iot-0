@@ -23,8 +23,8 @@ IoT-0: IoT voor gebruikers
 .. toctree::
    :caption: Andere modules
 
-   Com-0 <https://eelcodijkstra.github.io/com-0/>
-   IoT-1 <https://eelcodijkstra.github.io/iot-1/>
+   Com-0 <https://infvo.github.io/com-0/>
+   IoT-1 <https://infvo.github.io/iot-1/>
 
 Index en tabellen
 =================
