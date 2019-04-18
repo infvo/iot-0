@@ -43,6 +43,12 @@ Deze nodes configureer je met de gebruikte mqtt-broker en het topic.
   Deze gebruik je indirect bij het configureren van de MQTT-input- of output-node.
   Je kunt deze broker-node ook vinden via het rechter "hamburger" menu: Configuration Nodes.
 
+.. admonition:: Let op
+
+  Bij het configureren van een mqtt-node moet je ook de gebruikersnaam en het wachtwoord invullen.
+  Deze gegevens worden bij het kopiëren en plakken van een flow *niet meegekopieerd*
+  (in verband met de veiligheid).
+
 (1) MQTT sensor-flow
 --------------------
 
@@ -53,6 +59,7 @@ Om deze flow te gebruiken moet je eerst de verschillende nodes configureren (dub
 * de  *nodeid* in het topic van de MQTT-input-node verander je in de *nodeid* van je eigen IoT-knoop;
   voorbeeld: ``node/e0f1/sensors``
 * de MQTT-broker van de MQTT-input-node configureer je met de gegevens van je MQTT-broker;
+  vergeet niet de gebruikersnaam en het wachtwoord;
 * "deploy" de aangepaste flow. De MQTT-node moet nu melden dat deze "connected" is.
   We gebruiken in dit voorbeeld een JSON-node:
   deze zet een JSON-string-vorm om in een JavaScript-object.

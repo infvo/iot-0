@@ -79,7 +79,7 @@ De eisen die het "ding" stelt aan bitrate, bereik, mobiliteit en energieverbruik
   :width: 400px
   :align: center
 
-  Een IoT-knoop: sensoren, rfm69-radio, microcontroller, batterij
+  IoT-knoop: sensoren, rfm69-radio, microcontroller, batterij
 
 Voor de microcontroller voor de besturing zijn er ook meerdere alternatieven, zoals Atmega AVR (Arduino), ESP8266, ESP32, ARM.
 De keuze voor de microcontroller hangt meer af van de eigen voorkeur en omstandigheden dan van de eisen van de toepassing.

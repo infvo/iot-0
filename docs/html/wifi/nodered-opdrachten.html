@@ -158,6 +158,12 @@ Deze nodes configureer je met de gebruikte mqtt-broker en het topic.</p>
 Deze gebruik je indirect bij het configureren van de MQTT-input- of output-node.
 Je kunt deze broker-node ook vinden via het rechter “hamburger” menu: Configuration Nodes.</li>
 </ul>
+<div class="admonition-let-op admonition">
+<p class="first admonition-title">Let op</p>
+<p class="last">Bij het configureren van een mqtt-node moet je ook de gebruikersnaam en het wachtwoord invullen.
+Deze gegevens worden bij het kopiëren en plakken van een flow <em>niet meegekopieerd</em>
+(in verband met de veiligheid).</p>
+</div>
 <div class="section" id="mqtt-sensor-flow">
 <h2>(1) MQTT sensor-flow<a class="headerlink" href="#mqtt-sensor-flow" title="Permalink naar deze titel">¶</a></h2>
 <p>In deze sensor-flow gebruik je een MQTT-input-node om de sensorwaarden van een IoT-knoop te ontvangen.
@@ -166,7 +172,8 @@ Om deze flow te gebruiken moet je eerst de verschillende nodes configureren (dub
 <ul class="simple">
 <li>de  <em>nodeid</em> in het topic van de MQTT-input-node verander je in de <em>nodeid</em> van je eigen IoT-knoop;
 voorbeeld: <code class="docutils literal notranslate"><span class="pre">node/e0f1/sensors</span></code></li>
-<li>de MQTT-broker van de MQTT-input-node configureer je met de gegevens van je MQTT-broker;</li>
+<li>de MQTT-broker van de MQTT-input-node configureer je met de gegevens van je MQTT-broker;
+vergeet niet de gebruikersnaam en het wachtwoord;</li>
 <li>“deploy” de aangepaste flow. De MQTT-node moet nu melden dat deze “connected” is.
 We gebruiken in dit voorbeeld een JSON-node:
 deze zet een JSON-string-vorm om in een JavaScript-object.

@@ -54,7 +54,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Configureren</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#wifi-knoop-esp8266">WiFi-knoop (ESP8266)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rfm69-wifi-gateway">RFM69-WiFi gateway</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rfm69-knopen">RFM69-knopen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rfm69-knoop">RFM69-knoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lora-knoop">LoRa-knoop</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
@@ -103,12 +104,16 @@
 <li>de MQTT-broker-gegevens: domeinnaam, poortnummer, gebruikersnaam, wachtwoord</li>
 </ul>
 <p>Vraag deze gegevens eventueel aan je docent.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/IoT-conf-step123a.png"><img alt="_images/IoT-conf-step123a.png" src="_images/IoT-conf-step123a.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">IoT-knoop reset naar access point mode</span></p>
+</div>
 <p>Stappen voor het configureren:</p>
 <ol class="arabic simple">
 <li><dl class="first docutils">
 <dt>Reset de knoop in “Access Point” mode:</dt>
 <dd><ol class="first last arabic">
-<li>druk <em>button 0</em> in (de buitenste of rechterknop);</li>
+<li>druk <em>button 0</em> in (de buitenste of rechterknop), en houd deze ingedrukt.</li>
 <li>druk de <em>reset-knop</em> in (links van de USB-aansluiting),
 en laat deze weer los;</li>
 <li>laat <em>button 0</em> na 3 seconden los (als led0 brandt);</li>
@@ -134,7 +139,7 @@ met onder andere de waarden van de sensoren.</li>
 <li>Klik in de homepagina op de link: <code class="docutils literal notranslate"><span class="pre">Setup</span></code>; op de setup-pagina kun je de configuratie-parameters instellen.
 Vul alleen die gegevens in die nieuw zijn: al eerder ingevulde gegevens (ook niet-getoonde wachtwoorden) blijven bewaard.</li>
 <li>“Submit” de ingevulde gegevens.</li>
-<li>Reset de knoop met de reset-knop.
+<li>Reset de knoop met de <em>reset-knop</em> (indrukken en loslaten).
 De knoop probeert nu verbinding te maken met het lokale WiFi netwerk,
 en vervolgens met de broker.
 Tijdens het zoeken naar het lokale WiFi-netwerk brandt de blauwe LED op de knoop;
@@ -152,13 +157,22 @@ Je kunt met MQT3 ook de LED aan- en uitschakelen.</li>
 <p>Zodra de gateway voor het lokale WiFi-netwerk en de MQTT-broker geconfigureerd is,
 stuurt deze de berichten van de lokale RFM69-knopen door.</p>
 </div>
-<div class="section" id="rfm69-knopen">
-<h2>RFM69-knopen<a class="headerlink" href="#rfm69-knopen" title="Permalink naar deze titel">¶</a></h2>
+<div class="section" id="rfm69-knoop">
+<h2>RFM69-knoop<a class="headerlink" href="#rfm69-knoop" title="Permalink naar deze titel">¶</a></h2>
 <p>De RFM69-knopen kunnen via de Seriële Monitor van de Arduino IDE geconfigureerd worden.
 Het is niet nodig om deze knopen opnieuw te programmeren.
 (Dat blijft wel mogelijk, via de Arduino IDE, zie IoT-1.)</p>
 <p>De configuratie van de RFM69-knopen is in principe eenmalig:
-deze hoeft niet voor een ander WiFi-netwerk opnieuw te gebeuren.</p>
+je hoeft deze alleen aan te passen als het RFM69-netwerk verandert,
+niet bij een ander WiFi-netwerk (daarvoor pas je de gateway aan).</p>
+</div>
+<div class="section" id="lora-knoop">
+<h2>LoRa-knoop<a class="headerlink" href="#lora-knoop" title="Permalink naar deze titel">¶</a></h2>
+<p>De configuratie van een TTN LoRa(Wan)-knoop betekent dat je deze koppelt aan de toepassing.
+Een TTN-LoRa(Wan)-knoop werkt met iedere TTN-gateway;
+je kunt deze zelfs mobiel gebruiken.</p>
+<p>Met de huidige versie van de software kun je een knoop alleen configureren door deze opnieuw te programmeren:
+de codes voor de toepassing pas je aan in de programmatekst.</p>
 </div>
 </div>
 
