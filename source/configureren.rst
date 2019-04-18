@@ -21,10 +21,16 @@ Vraag deze gegevens eventueel aan je docent.
   De knopen werken niet met WiFI-netwerken die voor elke gebruiker naam/wachtwoord-combinatie hebben,
   zoals veel schoolnetwerken.
 
+.. figure:: configureren/IoT-conf-step123a.png
+  :width: 800px
+  :align: center
+
+  IoT-knoop reset naar access point mode
+
 Stappen voor het configureren:
 
 1. Reset de knoop in "Access Point" mode:
-    1. druk *button 0* in (de buitenste of rechterknop);
+    1. druk *button 0* in (de buitenste of rechterknop), en houd deze ingedrukt.
     2. druk de *reset-knop* in (links van de USB-aansluiting),
        en laat deze weer los;
     3. laat *button 0* na 3 seconden los (als led0 brandt);
@@ -40,7 +46,7 @@ Stappen voor het configureren:
 3. Klik in de homepagina op de link: ``Setup``; op de setup-pagina kun je de configuratie-parameters instellen.
    Vul alleen die gegevens in die nieuw zijn: al eerder ingevulde gegevens (ook niet-getoonde wachtwoorden) blijven bewaard.
 4. "Submit" de ingevulde gegevens.
-5. Reset de knoop met de reset-knop.
+5. Reset de knoop met de *reset-knop* (indrukken en loslaten).
    De knoop probeert nu verbinding te maken met het lokale WiFi netwerk,
    en vervolgens met de broker.
    Tijdens het zoeken naar het lokale WiFi-netwerk brandt de blauwe LED op de knoop;
@@ -59,12 +65,23 @@ Het configureren van de RFM69-WiFi-gateway gaat op dezelfde manier als bij de Wi
 Zodra de gateway voor het lokale WiFi-netwerk en de MQTT-broker geconfigureerd is,
 stuurt deze de berichten van de lokale RFM69-knopen door.
 
-RFM69-knopen
-============
+RFM69-knoop
+===========
 
 De RFM69-knopen kunnen via de Seriële Monitor van de Arduino IDE geconfigureerd worden.
 Het is niet nodig om deze knopen opnieuw te programmeren.
 (Dat blijft wel mogelijk, via de Arduino IDE, zie IoT-1.)
 
 De configuratie van de RFM69-knopen is in principe eenmalig:
-deze hoeft niet voor een ander WiFi-netwerk opnieuw te gebeuren.
+je hoeft deze alleen aan te passen als het RFM69-netwerk verandert,
+niet bij een ander WiFi-netwerk (daarvoor pas je de gateway aan).
+
+LoRa-knoop
+==========
+
+De configuratie van een TTN LoRa(Wan)-knoop betekent dat je deze koppelt aan de toepassing.
+Een TTN-LoRa(Wan)-knoop werkt met iedere TTN-gateway;
+je kunt deze zelfs mobiel gebruiken.
+
+Met de huidige versie van de software kun je een knoop alleen configureren door deze opnieuw te programmeren:
+de codes voor de toepassing pas je aan in de programmatekst.

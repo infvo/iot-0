@@ -215,7 +215,7 @@ De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
 .. rubric:: Opdracht 2.1
 
 * importeer de dashboard-flow:
-    * selecteer de flow-tekst (in JSON-formaat)), en kopieer deze naar het Clipboard
+    * selecteer de flow-tekst (in JSON-formaat), en kopieer deze naar het Clipboard
       (via "Copy" van het operating system).
     * in NodeRed: selecteer hamburgenmenu->Import->Clipboard
     * "Paste" de inhoud van het Clipboard in het input-venster.
@@ -226,8 +226,10 @@ De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
     * als deze niet beschikbaar is: selecteer bij "Server": ``Add new mqtt-broker...``
         * klik op het potloodsymbool rechts daarvan
         * vul in bij "Server": ``infvopedia.nl`` (met port 1883)
-    * selecteer tab "Security", en vul de opgegeven gebruikersnaam en wachtwoord in
-    * klik "Add" (voor de Server-instellingen)
+        * klik op "Add"
+    * klik op het potloodsymbool rechts van "infvopedia.nl"
+    * selecteer tab "Security", en **vul de opgegeven gebruikersnaam en wachtwoord in**
+    * klik "Update" (voor de Server-instellingen)
     * klik "Done" (voor de instellingen van de MQTT-input-node)
 * configureer de MQTT-output-node (selecteer en double-click):
     * selecteer bij "Server": ``infvopedia.nl:1883``
@@ -299,7 +301,7 @@ NodeRed FAQ
 
 Door double-click op de flow-tab krijg je het configuratievenster voor deze flow te zien.
 Je kunt de flow (de)activeren via Status (Enabled of niet).
-Het is soms handig om een flow te deactiveren, als deze andere flows in de web zit.
+Het is soms handig om een flow te deactiveren, als deze andere flows in de weg zit.
 Of als dit een test-flow is die je zo nu en dan nodig hebt.
 
 Je kunt de flow (tab) hier ook een andere naam geven, of helemaal verwijderen.

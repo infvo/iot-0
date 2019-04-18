@@ -16,7 +16,7 @@ Voor een module van 8 weken kan een keuze gemaakt worden tussen de RFM69-knopen 
 Ook een korte module van 4 weken is mogelijk, zie de tabel hieronder.
 
 .. csv-table:: Planning IoT-0
-   :header: "Week", "Kort", Onderdeel", "Beschrijving"
+   :header: "Week", "Kort", "Onderdeel", "Beschrijving"
    :widths: 5, 5, 20, 30
 
    1, 1, "Inleiding", "Verkenning van IoT en IoT-toepassingen"
@@ -27,5 +27,5 @@ Ook een korte module van 4 weken is mogelijk, zie de tabel hieronder.
    6, 4, "WiFi-MQTT-knopen(2)", "NodeRed: MQTT-app, dashboard"
    7,  , "RFM69-knopen(1)", ""
    8,  , "RFM69-knopen(2)", ""
-   9,  , "LoRa-knopen(1)", ""
-   10,  , "LoRa-knopen(2)", ""
+   9 (7),  , "LoRa-knopen(1)", ""
+   10 (8),  , "LoRa-knopen(2)", ""
