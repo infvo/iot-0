@@ -227,8 +227,9 @@ De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
         * klik op het potloodsymbool rechts daarvan
         * vul in bij "Server": ``infvopedia.nl`` (met port 1883)
         * klik op "Add"
-    * klik op het potloodsymbool rechts van "infvopedia.nl"
-    * selecteer tab "Security", en **vul de opgegeven gebruikersnaam en wachtwoord in**
+    * klik op het potloodsymbool rechts van "infvopedia.nl";
+      je krijgt nu de broker-instellingen te zien;
+    * selecteer de tab "Security", en *vul de opgegeven gebruikersnaam en wachtwoord in*
     * klik "Update" (voor de Server-instellingen)
     * klik "Done" (voor de instellingen van de MQTT-input-node)
 * configureer de MQTT-output-node (selecteer en double-click):
