@@ -53,9 +53,9 @@ RFM69-adres 0 als *destination* is het *broadcast address*: alle IoT-knopen in h
 Het *toepassingsprotocol* gebruikt de rest van de hardware-payload.
 Dit protocol gebruikt verschillende formaten voor uplink- en voor downlink-pakketten.
 We bespreken hier alleen de binaire formaten op basis van het Cayenne *low power payload* (LPP) formaat.
-Dit protocol noemen we hier het *LPP* protocol.
+Dit protocol noemen we hier het *LPP protocol*.
 
-.. rubric:: *LPP* uplink-berichten
+.. rubric:: LPP uplink-berichten
 
 De payload voor uplink-berichten bevat de volgende elementen:
 
@@ -98,7 +98,7 @@ Enkele voorbeelden van veel voorkomende types sensoren en actuatoren:
    "Rel. Luchtvochtigheid", "humidity", 104, 68, 1, "0.5% Unsigned"
    "Luchtdruk",         "barometer",    115, 73, 2,	"0.1 hPa Unsigned"
 
-.. rubric:: *appl_LPP* downlink-berichten
+.. rubric:: LPP downlink-berichten
 
 De payload voor een downlink-bericht is erg eenvoudig:
 
