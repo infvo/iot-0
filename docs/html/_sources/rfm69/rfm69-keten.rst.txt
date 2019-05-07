@@ -12,18 +12,16 @@ We gebruiken een eigen protocol voor de RFM69-radio:
 hiermee houden we de pakketten klein, en de software eenvoudig.
 Het binaire Cayenne Low Power Payload (LPP) formaat gebruiken we voor de payload.
 
-Een *gateway* zet dit RFM69/LPP-protocol om in het MQTT/JSON-protocol voor onze IoT-toepassingen.
+Een lokale RFM69-WiFi-*gateway* zet dit RFM69/LPP-protocol om in het MQTT/JSON-protocol voor onze IoT-toepassingen.
 
-Op het niveau van onze IoT-toepassingen hebben alle MQTT/JSON-berichten dezelfde structuur:
-de berichten van de RFM69-IoT-knopen verwerken we op dezelfde manier als de berichten van de WiFi-knopen.
-
-
-(We gebruiken voor de IoT-toepassing een JSON-formaat met dezelfde structuur, zie XXX.)
+Op het toepassingsniveau gebruiken we MQTT/JSON-berichten met dezelfde structuur,
+voor de WiFi- en voor de RFM69-knopen.
+We kunnen dan de berichten van de RFM69-IoT-knopen we op dezelfde manier verwerken als de berichten van de WiFi-knopen.
 
 RFM69 protocol
 ==============
 
-We hebben te maken met de volgende *protocolstack*:
+We hebben in de RFM69-knopen te maken met de volgende *protocolstack*:
 
 * het hardware-protocol (RFM69 radio);
 * het protocol van de RFM69-library;
@@ -34,6 +32,9 @@ We hebben te maken met de volgende *protocolstack*:
   :align: center
 
   RFM69 pakket met LPP payload
+
+Hardware-protocol
+-----------------
 
 Het *hardware-protocol* zorgt voor:
 

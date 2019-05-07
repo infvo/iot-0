@@ -146,9 +146,6 @@ Dashboard-nodes installeren
   * na deze installatie zijn de nodes in het palet links beschikbaar.
 
 
-
-
-
 1. Eerste flow
 ==============
 
@@ -318,6 +315,11 @@ Via het hamburgermenu->View->Show sidebar.
 
 Deze sidebar kun je (on)zichtbaar maken via het pijltje in de hoek linksonder.
 
+.. rubric:: hoe verwijder ik een hele flow?
+
+Double-click op de flow tab: klik in het configuratie-venster op Delete,
+links boven.
+Door "Deploy" maak je de aangepaste flows actief.
 
 .. rubric:: hoe installeer ik extra nodes?
 
@@ -346,3 +348,9 @@ Deze *configuration nodes* kun je zichtbaar maken via hamburgermenu->Configurati
 
 In de gratis versie van FRED heb je een beperking van maximaal 50 nodes.
 Daar tellen ook de verborgen nodes in mee.
+
+.. rubric:: de MQTT-nodes blijven hangen in de "connecting" toestand
+
+Mogelijk ontbreken de security-gegevens (username/password van de MQTT broker).
+Double-click op de MQTT-node, en klik vervolgens op het potloodje naast de naam van de broker.
+In de configuratie van de broker selecteer je de tab "security", en vult daar de username/password-combinatie van je broker in.

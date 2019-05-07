@@ -49,7 +49,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RFM69 keten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rfm69-protocol">RFM69 protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rfm69-protocol">RFM69 protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-protocol">Hardware-protocol</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#gateway">Gateway</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
@@ -102,14 +105,14 @@
 <p>We gebruiken een eigen protocol voor de RFM69-radio:
 hiermee houden we de pakketten klein, en de software eenvoudig.
 Het binaire Cayenne Low Power Payload (LPP) formaat gebruiken we voor de payload.</p>
-<p>Een <em>gateway</em> zet dit RFM69/LPP-protocol om in het MQTT/JSON-protocol voor onze IoT-toepassingen.</p>
-<p>Op het niveau van onze IoT-toepassingen hebben alle MQTT/JSON-berichten dezelfde structuur:
-de berichten van de RFM69-IoT-knopen verwerken we op dezelfde manier als de berichten van de WiFi-knopen.</p>
-<p>(We gebruiken voor de IoT-toepassing een JSON-formaat met dezelfde structuur, zie XXX.)</p>
+<p>Een lokale RFM69-WiFi-<em>gateway</em> zet dit RFM69/LPP-protocol om in het MQTT/JSON-protocol voor onze IoT-toepassingen.</p>
+<p>Op het toepassingsniveau gebruiken we MQTT/JSON-berichten met dezelfde structuur,
+voor de WiFi- en voor de RFM69-knopen.
+We kunnen dan de berichten van de RFM69-IoT-knopen we op dezelfde manier verwerken als de berichten van de WiFi-knopen.</p>
 </div>
 <div class="section" id="rfm69-protocol">
 <h1>RFM69 protocol<a class="headerlink" href="#rfm69-protocol" title="Permalink naar deze titel">¶</a></h1>
-<p>We hebben te maken met de volgende <em>protocolstack</em>:</p>
+<p>We hebben in de RFM69-knopen te maken met de volgende <em>protocolstack</em>:</p>
 <ul class="simple">
 <li><p>het hardware-protocol (RFM69 radio);</p></li>
 <li><p>het protocol van de RFM69-library;</p></li>
@@ -119,6 +122,8 @@ de berichten van de RFM69-IoT-knopen verwerken we op dezelfde manier als de beri
 <a class="reference internal image-reference" href="../_images/IoT-rfm69-pakket.png"><img alt="../_images/IoT-rfm69-pakket.png" src="../_images/IoT-rfm69-pakket.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">RFM69 pakket met LPP payload</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
+<div class="section" id="hardware-protocol">
+<h2>Hardware-protocol<a class="headerlink" href="#hardware-protocol" title="Permalink naar deze titel">¶</a></h2>
 <p>Het <em>hardware-protocol</em> zorgt voor:</p>
 <ul class="simple">
 <li><p>het adresseren (<em>destination</em>), zenden en ontvangen van pakketten;</p></li>
@@ -270,6 +275,7 @@ Ook de <em>nodeid</em> is niet nodig: de IoT-knoop kent zijn eigen <em>nodeid</e
 <ul class="simple">
 <li><p>een <em>counter</em> (volgnummer) voor de veiligheid is wel nodig;???</p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="gateway">
 <h1>Gateway<a class="headerlink" href="#gateway" title="Permalink naar deze titel">¶</a></h1>
