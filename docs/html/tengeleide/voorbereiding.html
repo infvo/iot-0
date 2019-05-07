@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Voorbereiding &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -13,8 +11,8 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="prev" title="Planning" href="planning.html" />
@@ -89,8 +87,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -107,13 +103,12 @@
 Als docent moet je deze van te voren beschikbaar maken voor de leerlingen.</p>
 <p>Voor de IoT-knopen zijn er verschillende alternatieven:</p>
 <ol class="loweralpha simple">
-<li>gesimuleerde IoT-knopen en IoT-knopen elders.</li>
-<li><dl class="first docutils">
-<dt>(a), aangevuld met hardware IoT-knopen:</dt>
-<dd><ol class="first last arabic">
-<li>WiFi-knopen (ESP8266)</li>
-<li>RFM69-knopen met WiFi gateway</li>
-<li>LoRa knopen met LoRa gateway</li>
+<li><p>gesimuleerde IoT-knopen en IoT-knopen elders.</p></li>
+<li><dl class="simple">
+<dt>(a), aangevuld met hardware IoT-knopen:</dt><dd><ol class="arabic simple">
+<li><p>WiFi-knopen (ESP8266)</p></li>
+<li><p>RFM69-knopen met WiFi gateway</p></li>
+<li><p>LoRa knopen met LoRa gateway</p></li>
 </ol>
 </dd>
 </dl>
@@ -125,22 +120,22 @@ Het gebruik van hardware IoT-knopen maakt het materiaal wel (veel) aantrekkelijk
 Voor de WiFi-knopen en de RFM69-gateway kan het <a class="reference internal" href="#schoolnetwerk"><span class="std std-ref">Schoolnetwerk</span></a> een probleem vormen.</p>
 <p>Naast deze IoT-knopen zijn er nog nodig:</p>
 <ol class="arabic simple">
-<li>NodeRed server “in the cloud”:
+<li><p>NodeRed server “in the cloud”:
 voor de NodeRed-opdrachten kunnen de leerlingen FRED (fred.sensetecnic.com) gebruiken.
 De gratis versie heeft enkele beperkingen: er is elke 24 uur een herstart nodig;
 het aantal nodes is beperkt tot 50.
-Voor de opdrachten is dat voldoende.</li>
-<li>MQTT broker “in the cloud”:
+Voor de opdrachten is dat voldoende.</p></li>
+<li><p>MQTT broker “in the cloud”:
 als onderdeel van het lesmateriaal is een MQTT-broker “in the cloud” beschikbaar.
-Als docent kun je hiervoor een account aanvragen (mail naar info <cite>at</cite> infvo.nl).</li>
+Als docent kun je hiervoor een account aanvragen (mail naar info <cite>at</cite> infvo.nl).</p></li>
 </ol>
 <p>Voor de NodeRed-opdrachten is de gratis FRED-versie voldoende.
 Voor een project heb je een NodeRed-server nodig met minder beperkingen.
 Hiervoor zijn er verschillende mogelijkheden, vraag hiernaar via een mail naar (info at infvo.nl).</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>gebruik van een lokale Raspberry Pi</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>gebruik van een lokale Raspberry Pi</p></li>
 </ul>
 </div>
 <p>Een uitgebreide uitleg van de verschillende IoT-knopen is te vinden op IoT-1.
@@ -149,13 +144,13 @@ Daar is ook een uitleg van de software te vinden; de software zelf staat op GitH
 <div class="section" id="gesimuleerde-knopen">
 <h2>Gesimuleerde knopen<a class="headerlink" href="#gesimuleerde-knopen" title="Permalink naar deze titel">¶</a></h2>
 <ul class="simple">
-<li>docent: vraag account aan op MQTT-broker “in the cloud”; deze kan door alle leerlingen gebruikt worden.</li>
-<li>leerling: vraag (gratis) FRED account aan (fred.sensetecnic.com) voor NodeRed.</li>
+<li><p>docent: vraag account aan op MQTT-broker “in the cloud”; deze kan door alle leerlingen gebruikt worden.</p></li>
+<li><p>leerling: vraag (gratis) FRED account aan (fred.sensetecnic.com) voor NodeRed.</p></li>
 </ul>
 <p>Dit gebruik je in combinatie met de volgende software:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://infvopedia.nl/iot-node-app.html">gesimuleerde knoop</a></li>
-<li><a class="reference external" href="http://infvopedia.nl/mqt3.html">MQTT-test software (MQT3)</a></li>
+<li><p><a class="reference external" href="http://infvopedia.nl/iot-node-app.html">gesimuleerde knoop</a></p></li>
+<li><p><a class="reference external" href="http://infvopedia.nl/mqt3.html">MQTT-test software (MQT3)</a></p></li>
 </ul>
 </div>
 <div class="section" id="iot-knopen-elders">
@@ -168,28 +163,27 @@ en de LEDs op deze knopen op afstand aansturen.</p>
 <h2>WiFi knopen<a class="headerlink" href="#wifi-knopen" title="Permalink naar deze titel">¶</a></h2>
 <p>Naast de elementen voor de gesimuleerde knopen:</p>
 <ul class="simple">
-<li>docent: eventueel programmeren van de knopen (zie IoT-1);
+<li><p>docent: eventueel programmeren van de knopen (zie IoT-1);
 de nieuwste software is via WiFi te configureren,
-waardoor dit programmeren meestal niet nodig is.</li>
-<li>leerling: configureren van de eigen knoop(en); zie: <a class="reference internal" href="../configureren.html#configureren"><span class="std std-ref">Configureren</span></a>.
-De docent kan dit ook vooraf doen.</li>
+waardoor dit programmeren meestal niet nodig is.</p></li>
+<li><p>leerling: configureren van de eigen knoop(en); zie: <a class="reference internal" href="../configureren.html#configureren"><span class="std std-ref">Configureren</span></a>.
+De docent kan dit ook vooraf doen.</p></li>
 </ul>
 </div>
 <div class="section" id="rfm69-knopen">
 <h2>RFM69-knopen<a class="headerlink" href="#rfm69-knopen" title="Permalink naar deze titel">¶</a></h2>
 <p>Naast de elementen voor de gesimuleerde knopen:</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>docent:</dt>
-<dd><ul class="first last">
-<li>eventueel programmeren van de knopen (zie IoT-1);</li>
-<li>configureren van de gateway voor het lokale WiFi-netwerk, zie <a class="reference internal" href="../configureren.html#configureren"><span class="std std-ref">Configureren</span></a>.</li>
-<li>configureren van de RFM69-knopen, zie <a class="reference internal" href="../configureren.html#configureren"><span class="std std-ref">Configureren</span></a>;</li>
+<li><dl class="simple">
+<dt>docent:</dt><dd><ul>
+<li><p>eventueel programmeren van de knopen (zie IoT-1);</p></li>
+<li><p>configureren van de gateway voor het lokale WiFi-netwerk, zie <a class="reference internal" href="../configureren.html#configureren"><span class="std std-ref">Configureren</span></a>.</p></li>
+<li><p>configureren van de RFM69-knopen, zie <a class="reference internal" href="../configureren.html#configureren"><span class="std std-ref">Configureren</span></a>;</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>leerling: geen speciale voorbereiding, na configuratie is alles direct bruikbaar.</li>
+<li><p>leerling: geen speciale voorbereiding, na configuratie is alles direct bruikbaar.</p></li>
 </ul>
 </div>
 <div class="section" id="lora-ttn-knopen">
@@ -198,12 +192,13 @@ De docent kan dit ook vooraf doen.</li>
 Bovendien moet je zeker zijn van voldoende dekking van TTN-gateways in de buurt van de school,
 of in het gebied waarin je de knopen wilt gebruiken.</p>
 <blockquote>
-<div>Je kunt een eigen TTN-gateway in of op de school plaatsen; de kosten hiervan zijn ca. 300-400 Euro.</div></blockquote>
+<div><p>Je kunt een eigen TTN-gateway in of op de school plaatsen; de kosten hiervan zijn ca. 300-400 Euro.</p>
+</div></blockquote>
 <p>Voorbereiding voor de docent:</p>
 <ul class="simple">
-<li>aanmaken van een eigen TTN account;</li>
-<li>aanmaken van een TTN-applicatie, met daarin een aantal knopen (devices);</li>
-<li>programmeren van de LoRa-knopen (zie IoT-1);</li>
+<li><p>aanmaken van een eigen TTN account;</p></li>
+<li><p>aanmaken van een TTN-applicatie, met daarin een aantal knopen (devices);</p></li>
+<li><p>programmeren van de LoRa-knopen (zie IoT-1);</p></li>
 </ul>
 <p>Leerlingen moeten toegang hebben tot de TTN-application met de actieve IoT-knopen.
 Voor de oefenopdrachten kun je met één account (gebruikersnaam/wachtwoord) per school of per klas werken.</p>
@@ -213,10 +208,10 @@ Voor de oefenopdrachten kun je met één account (gebruikersnaam/wachtwoord) per
 <span id="id1"></span><h2>Schoolnetwerk<a class="headerlink" href="#schoolnetwerk" title="Permalink naar deze titel">¶</a></h2>
 <p>Enkele problemen die je kunt hebben met het schoolnetwerk:</p>
 <ul class="simple">
-<li>het schoolnetwerk blokkeert de MQTT-poort (1883).</li>
-<li>voor de toegang tot het schoolnetwerk heb je vaak een combinatie van gebruikersnaam en wachtwoord nodig,
-De WiFi-knopen hebben alleen de mogelijkheid om een netwerk-wachtwoord voor het WiFi-netwerk in te stellen.</li>
-<li>het schoolnetwerk blokkeert UDP-verkeer voor LoRaWan/TTN gateway.</li>
+<li><p>het schoolnetwerk blokkeert de MQTT-poort (1883).</p></li>
+<li><p>voor de toegang tot het schoolnetwerk heb je vaak een combinatie van gebruikersnaam en wachtwoord nodig,
+De WiFi-knopen hebben alleen de mogelijkheid om een netwerk-wachtwoord voor het WiFi-netwerk in te stellen.</p></li>
+<li><p>het schoolnetwerk blokkeert UDP-verkeer voor LoRaWan/TTN gateway.</p></li>
 </ul>
 <p>Een afdoende manier om deze problemen te omzeilen is het gebruik van een MiFi:
 een WiFi-basestation verbonden met het mobiele netwerk.
@@ -243,7 +238,7 @@ Informeer naar de mogelijkheden bij info <cite>at</cite> infvo.nl.</p>
       &copy;2019, SLO.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Voorbeelden &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -13,8 +11,8 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Eisen aan de communicatie" href="iot-eisen.html" />
@@ -105,8 +103,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -139,8 +135,8 @@ besproei de komende week van 22:00 uur tot 4:00 uur.</p>
 <p>Met deze oplossing kunnen we sproeien op momenten dat dit het meeste zin heeft,
 zonder dat we er zelf bij hoeven te zijn.</p>
 <div class="admonition-wat-is-een-controller admonition">
-<p class="first admonition-title">Wat is een controller?</p>
-<p class="last">Een controller is een besturingscomputer.
+<p class="admonition-title">Wat is een controller?</p>
+<p>Een controller is een besturingscomputer.
 Dit kan variëren van een <em>microcontroller</em>: een complete computer op een chip,
 met analoge en digitale aansluitingen voor sensoren en actuatoren,
 tot een NodeRed-server.
@@ -214,10 +210,10 @@ en voor de koppeling met diensten elders.</p>
 <h3>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h3>
 <p>Samenvattend zien we de volgende stappen:</p>
 <ol class="arabic simple">
-<li>automatisch besturen van actuatoren met een controller;</li>
-<li>aansluiten van sensoren op de controller, om een slimmere besturing mogelijk te maken;</li>
-<li>aansluiten van de controller op het internet, voor bewaken (monitoring) en besturen op afstand - via een app;</li>
-<li>gebruik van diensten in het internet om tot een “slimme oplossing” te komen.</li>
+<li><p>automatisch besturen van actuatoren met een controller;</p></li>
+<li><p>aansluiten van sensoren op de controller, om een slimmere besturing mogelijk te maken;</p></li>
+<li><p>aansluiten van de controller op het internet, voor bewaken (monitoring) en besturen op afstand - via een app;</p></li>
+<li><p>gebruik van diensten in het internet om tot een “slimme oplossing” te komen.</p></li>
 </ol>
 <p>Elke volgende stap helpt om meer water te besparen en om een beter sproei- en groeiresultaat te krijgen.
 De eerste stappen zijn voorbeelden van traditionele automatisering.
@@ -250,10 +246,10 @@ Hiervoor maakt de app contact met de hue-server/controller in het publieke inter
 die weer contact maakt met de lokale controller.</p>
 <p>We hebben hier te maken met 3 lagen van controllers:</p>
 <ul class="simple">
-<li>de lampen en de schakelaars zijn IoT-knopen, met lokaal sensor(en)/actuator(en),
-een microcontroller, en een radio;</li>
-<li>de bridge is de lokale controller;</li>
-<li>de server in het publieke internet is de globale controller.</li>
+<li><p>de lampen en de schakelaars zijn IoT-knopen, met lokaal sensor(en)/actuator(en),
+een microcontroller, en een radio;</p></li>
+<li><p>de bridge is de lokale controller;</p></li>
+<li><p>de server in het publieke internet is de globale controller.</p></li>
 </ul>
 </div>
 <div class="section" id="andere-controllers">
@@ -263,9 +259,9 @@ Je kunt de lokale controller ook verbinden met andere “domotica”-controllers
 Voorbeelden van controller-software voor domotica-toepassingen zijn OpenHAB (<a class="reference external" href="https://www.openhab.org">https://www.openhab.org</a>) en Home Assist (<a class="reference external" href="https://www.home-assistant.io">https://www.home-assistant.io</a>).
 Via de hue-webserver kun je verbinding maken met controller-diensten als Apple Home Kit en Amazon Alexa.</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>figuur van Hue met andere controller(s)</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>figuur van Hue met andere controller(s)</p></li>
 </ul>
 </div>
 </div>
@@ -291,13 +287,13 @@ Het automatische meetsysteem stuurt enkele keren per uur de belangrijkste gegeve
 </div>
 <p>Voor een imker zijn bijvoorbeeld de volgende gegevens van belang:</p>
 <ul class="simple">
-<li>de buitentemperatuur en de luchtvochtigheid in de omgeving van de kast;</li>
-<li>de temperatuur in de kast (broedtemperatuur);</li>
-<li>het gewicht van de kast: als de bijen de kast verlaten neemt het gewicht af;
-als de bijen terugkomen met nectar neemt het gewicht toe;</li>
-<li>het geluid in de kast.
+<li><p>de buitentemperatuur en de luchtvochtigheid in de omgeving van de kast;</p></li>
+<li><p>de temperatuur in de kast (broedtemperatuur);</p></li>
+<li><p>het gewicht van de kast: als de bijen de kast verlaten neemt het gewicht af;
+als de bijen terugkomen met nectar neemt het gewicht toe;</p></li>
+<li><p>het geluid in de kast.
 Als een bijenvolk door indringers beroofd wordt van de voedselvoorraad,
-kun je dit zien aan de combinatie van gewicht en geluid.</li>
+kun je dit zien aan de combinatie van gewicht en geluid.</p></li>
 </ul>
 <p>Zie de presentatie hierover: <a class="reference external" href="https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018">https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018</a></p>
 <p>Als veel bijenkasten met zo’n systeem uitgerust zijn helpt dat niet alleen de imker,
@@ -315,7 +311,7 @@ maar ook het onderzoek naar het gedrag en de gezondheid van bijenvolken.</p>
       &copy;2019, SLO.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

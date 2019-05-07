@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Overzicht &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -13,8 +11,8 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Meer voorbeelden" href="meer-voorbeelden.html" />
@@ -87,8 +85,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -107,11 +103,11 @@ Deze sensoren en actuatoren zijn onderdeel van een <em>IoT-knoop</em>;
 de andere onderdelen van deze knoop zorgen voor de verwerking van de data en voor de verbinding met het internet.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/IoT-knoop-01.png"><img alt="../_images/IoT-knoop-01.png" src="../_images/IoT-knoop-01.png" style="width: 350px;" /></a>
-<p class="caption"><span class="caption-text">IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding</span></p>
+<p class="caption"><span class="caption-text">IoT-knoop, met sensoren en actuatoren, en radio voor de verbinding</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">¶</a></p>
 <div class="legend">
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/swing-m0-rfm69-accu-1.jpg"><img alt="../_images/swing-m0-rfm69-accu-1.jpg" src="../_images/swing-m0-rfm69-accu-1.jpg" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">IoT-knoop: sensoren, microcontroller, radio, batterij</span></p>
+<p class="caption"><span class="caption-text">IoT-knoop: sensoren, microcontroller, radio, batterij</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 </div>
 </div>
@@ -122,7 +118,7 @@ De keuze voor een bepaalde technologie hangt af van de gebruikerseisen.</p>
 Met deze kennis kun je voor een bepaalde IoT-toepassing een passende technologische oplossing kiezen.</p>
 <div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/IoT-keten-0.png"><img alt="../_images/IoT-keten-0.png" src="../_images/IoT-keten-0.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">IoT-keten: van IoT-knoop via “???” naar het internet, en via <em>mqtt/json</em> naar de web-toepassing</span></p>
+<p class="caption"><span class="caption-text">IoT-keten: van IoT-knoop via “???” naar het internet, en via <em>mqtt/json</em> naar de web-toepassing</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Een ander belangrijk thema in deze module is de koppeling tussen de gegevens van de IoT-knoop en de uiteindelijke toepassing (“app”).
 We laten zien hoe je deze koppeling zo kunt maken dat deze onafhankelijk is van de koppeling tussen de IoT-knoop en het internet.</p>
@@ -144,8 +140,9 @@ Vanuit je eigen browser bestuur je enkele LEDs, en meet je de temperatuur, lucht
 Met behulp van de browser-ontwikkelaarstools bestudeer je het HTTP-protocol met de IoT-knoop.
 In NodeRed maak je een eigen webserver, om het HTTP-protocol vanuit de server te bestuderen.</p>
 <blockquote>
-<div>NodeRed is een toepassing waarmee je op een grafische manier allerlei protocollen en diensten kunt koppelen.
-Hiermee kun je op een eenvoudige manier experimenteren, en snel een eigen toepassing maken.</div></blockquote>
+<div><p>NodeRed is een toepassing waarmee je op een grafische manier allerlei protocollen en diensten kunt koppelen.
+Hiermee kun je op een eenvoudige manier experimenteren, en snel een eigen toepassing maken.</p>
+</div></blockquote>
 <p class="rubric">WiFi/MQTT-IoT-knoop</p>
 <p>Een webserver moet altijd beschikbaar (online) zijn: dat is niet handig als je een IoT energiezuinig wilt maken.
 Met een Publish-Subscribe interactie kunnen zowel de IoT-knoop als de toepassing (“app”) <em>client</em> zijn van een gemeenschappelijk <em>broker</em>.
@@ -176,8 +173,8 @@ Je gebruikt een <em>TTN-application</em> via één van de TTN-servers/brokers.
 Daarbij bestudeer je de gevolgen van de lage bitrate.
 Via MQTT communiceer je met de IoT-node(s) (<em>device</em>) in deze application: je kunt hiervoor bijvoorbeeld je eigen dashboard maken.</p>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<p class="last">NB: er ontbreekt één belangrijke technologie: BLE.</p>
+<p class="admonition-title">Te doen</p>
+<p>NB: er ontbreekt één belangrijke technologie: BLE.</p>
 </div>
 </div>
 
@@ -191,7 +188,7 @@ Via MQTT communiceer je met de IoT-node(s) (<em>device</em>) in deze application
       &copy;2019, SLO.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

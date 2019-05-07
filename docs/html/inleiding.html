@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Inleiding &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -13,8 +11,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
     <link rel="next" title="Voorbeelden" href="inleiding/voorbeelden.html" />
@@ -85,8 +83,6 @@
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -100,17 +96,17 @@
   <div class="section" id="inleiding">
 <h1>Inleiding<a class="headerlink" href="#inleiding" title="Permalink naar deze titel">¶</a></h1>
 <div class="admonition-concepten-en-leerdoelen admonition">
-<p class="first admonition-title">Concepten en leerdoelen</p>
-<ul class="last simple">
-<li>Internet of Things - als volgende stap in de ontwikkeling van het internet</li>
-<li>IoT-toepassingen: van sensordata naar beslissingen, met gebruik van Data Science en Artificial Intelligence</li>
-<li>persoonlijke en maatschappelijke gevolgen van IoT-toepassingen</li>
+<p class="admonition-title">Concepten en leerdoelen</p>
+<ul class="simple">
+<li><p>Internet of Things - als volgende stap in de ontwikkeling van het internet</p></li>
+<li><p>IoT-toepassingen: van sensordata naar beslissingen, met gebruik van Data Science en Artificial Intelligence</p></li>
+<li><p>persoonlijke en maatschappelijke gevolgen van IoT-toepassingen</p></li>
 </ul>
 </div>
 <p class="rubric">Van Internet van computers tot Internet of Things</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="_images/Internet-of-computers.png"><img alt="_images/Internet-of-computers.png" src="_images/Internet-of-computers.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">Internet of computers</span></p>
+<p class="caption"><span class="caption-text">Internet of computers</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>De eerste gebruikers van het internet waren universiteiten en onderzoeksinstellingen.
 Belangrijke toepassingen uit die periode zijn e-mail, file-transfer (ftp),
@@ -120,7 +116,7 @@ het internet werd vooral gebruikt om computers aan elkaar te verbinden,
 en bijvoorbeeld om op afstand toegang te hebben tot supercomputers.</p>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="_images/Internet-of-people.png"><img alt="_images/Internet-of-people.png" src="_images/Internet-of-people.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">Internet of people</span></p>
+<p class="caption"><span class="caption-text">Internet of people</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Rond 1989/1990 vonden twee belangrijke ontwikkelingen plaats:
 het internet werd voor iedereen toegankelijk;
@@ -134,7 +130,7 @@ Deze periode zou je het “internet van mensen” kunnen noemen:
 het internet verbindt niet alleen computers, maar ook mensen.</p>
 <div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="_images/Internet-of-things.png"><img alt="_images/Internet-of-things.png" src="_images/Internet-of-things.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">Internet of things</span></p>
+<p class="caption"><span class="caption-text">Internet of things</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Een volgende stap is het “internet of things”:
 door de ontwikkeling van de micro-elektronica is het mogelijk om zeer goedkope,
@@ -155,7 +151,8 @@ Het combineren van de sensordata met diensten en data uit andere bronnen kom je 
 Dit kan bijvoorbeeld nodig zijn om snel genoeg te reageren in risicovolle situaties.
 Een dergelijke automatische verwerking stelt extra hoge eisen aan de sensordata en aan de verwerking hiervan.</p>
 <blockquote>
-<div>Een voorbeeld van een dergelijke volautomatisch systeem is de <a class="reference external" href="https://nl.wikipedia.org/wiki/Maeslantkering">Maeslantkering</a> in de Nieuwe waterweg.</div></blockquote>
+<div><p>Een voorbeeld van een dergelijke volautomatisch systeem is de <a class="reference external" href="https://nl.wikipedia.org/wiki/Maeslantkering">Maeslantkering</a> in de Nieuwe waterweg.</p>
+</div></blockquote>
 <p class="rubric">Over dit hoofdstuk</p>
 <p>In dit hoofdstuk geven we een paar uitgebreide voorbeelden van IoT-toepassingen.
 Vervolgens gaan we in op de eisen die deze toepassingen stellen aan de communicatie.
@@ -164,20 +161,20 @@ IoT-toepassingen hebben ook persoonlijke en maatschappelijke gevolgen,
 bijvoorbeeld op het gebied van privacy en veiligheid.
 Tenslotte geven we een lijst van mogelijke IoT-toepassingen op allerlei gebied.</p>
 <div class="admonition-samenvattend admonition">
-<p class="first admonition-title">Samenvattend</p>
-<ul class="last simple">
-<li>het internet of things (IoT) is de meest recente uitbreiding van het internet:
-na computers en mensen verbindt het internet nu ook dingen (en dieren en planten);</li>
-<li>dit betekent dat dingen met dingen kunnen communiceren (machine to machine, M2M),
-maar ook mensen met dingen of dingen met computers (diensten).</li>
-<li>de ontwikkeling van het internet of things is nog maar net begonnen:
-er zullen nog veel nieuwe toepassingen bedacht worden;</li>
-<li>veel IoT-toepassingen zijn bedoeld om beter/sneller/automatisch te kunnen beslissen en besturen,
-bijvoorbeeld om de efficiëntie (verbruik van energie en materialen) en de veiligheid te verbeteren.</li>
-<li>het internet of things heeft gevolgen in je persoonlijke omgeving en op maatschappelijk niveau;
-naast positieve effecten zijn er ook risico’s aan verbonden;</li>
-<li>de ontwikkeling van het internet of things staat niet op zichzelf:
-de ontwikkelingen op het gebied van Data Science en Kunstmatige Intelligentie maken de verwerking van de “dingen”-data en het nemen van beslissingen op grond van deze data mogelijk.</li>
+<p class="admonition-title">Samenvattend</p>
+<ul class="simple">
+<li><p>het internet of things (IoT) is de meest recente uitbreiding van het internet:
+na computers en mensen verbindt het internet nu ook dingen (en dieren en planten);</p></li>
+<li><p>dit betekent dat dingen met dingen kunnen communiceren (machine to machine, M2M),
+maar ook mensen met dingen of dingen met computers (diensten).</p></li>
+<li><p>de ontwikkeling van het internet of things is nog maar net begonnen:
+er zullen nog veel nieuwe toepassingen bedacht worden;</p></li>
+<li><p>veel IoT-toepassingen zijn bedoeld om beter/sneller/automatisch te kunnen beslissen en besturen,
+bijvoorbeeld om de efficiëntie (verbruik van energie en materialen) en de veiligheid te verbeteren.</p></li>
+<li><p>het internet of things heeft gevolgen in je persoonlijke omgeving en op maatschappelijk niveau;
+naast positieve effecten zijn er ook risico’s aan verbonden;</p></li>
+<li><p>de ontwikkeling van het internet of things staat niet op zichzelf:
+de ontwikkelingen op het gebied van Data Science en Kunstmatige Intelligentie maken de verwerking van de “dingen”-data en het nemen van beslissingen op grond van deze data mogelijk.</p></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -194,7 +191,7 @@ de ontwikkelingen op het gebied van Data Science en Kunstmatige Intelligentie ma
       &copy;2019, SLO.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Protocollen &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -13,8 +11,8 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Webserver-Opdrachten" href="opdrachten.html" />
@@ -89,8 +87,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -105,16 +101,16 @@
 <h1>Protocollen<a class="headerlink" href="#protocollen" title="Permalink naar deze titel">¶</a></h1>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/IoT-webserver-protocol.png"><img alt="../_images/IoT-webserver-protocol.png" src="../_images/IoT-webserver-protocol.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Webserver protocolstack</span></p>
+<p class="caption"><span class="caption-text">Webserver protocolstack</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>De protocolstack voor de webserver-keten bevat de volgende elementen, vanaf de toepassing gezien:</p>
 <ul class="simple">
-<li>web-app</li>
-<li>web: hypertext transfer protocol (HTTP): HTML-documenten enz.</li>
-<li>internet: transmission control protocol (TCP): betrouwbare bytestromen</li>
-<li>internet-protocol (IP): best-effort pakketcommunicatie;
-universeel datatransport, onafhankelijk van hardware en toepassingen</li>
-<li>fysieke (hardware) verbinding: WiFi of Ethernet</li>
+<li><p>web-app</p></li>
+<li><p>web: hypertext transfer protocol (HTTP): HTML-documenten enz.</p></li>
+<li><p>internet: transmission control protocol (TCP): betrouwbare bytestromen</p></li>
+<li><p>internet-protocol (IP): best-effort pakketcommunicatie;
+universeel datatransport, onafhankelijk van hardware en toepassingen</p></li>
+<li><p>fysieke (hardware) verbinding: WiFi of Ethernet</p></li>
 </ul>
 <p>Elk protocol heeft zijn eigen vorm van <em>adressering</em> en zijn eigen formaat voor datatransport.
 Dit bevat de “netto” te transporteren data: de <em>payload</em>,
@@ -126,20 +122,20 @@ Deze logische laag is volgende het <em>end-to-end principe</em> van het internet
 <div class="topic">
 <p class="topic-title first">3-lagen model</p>
 <p>In de ICT komen we op allerlei plaatsen het 3-lagen model tegen:</p>
-<table border="1" class="colwidths-given docutils">
+<table class="colwidths-given docutils align-center">
 <colgroup>
-<col width="29%" />
-<col width="71%" />
+<col style="width: 29%" />
+<col style="width: 71%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>toepassingen-laag</td>
-<td>toepassingen: …</td>
+<tbody>
+<tr class="row-odd"><td><p>toepassingen-laag</p></td>
+<td><p>toepassingen: …</p></td>
 </tr>
-<tr class="row-even"><td>logische laag</td>
-<td>systeemsoftware: OS, programmeertalen, DBMS, TCP/IP</td>
+<tr class="row-even"><td><p>logische laag</p></td>
+<td><p>systeemsoftware: OS, programmeertalen, DBMS, TCP/IP</p></td>
 </tr>
-<tr class="row-odd"><td>fysieke laag</td>
-<td>hardware: CPU, memory, disk, netwerk, …</td>
+<tr class="row-odd"><td><p>fysieke laag</p></td>
+<td><p>hardware: CPU, memory, disk, netwerk, …</p></td>
 </tr>
 </tbody>
 </table>
@@ -172,35 +168,35 @@ het schermt de eigenschappen van de toepassingen af van de onderliggende hardwar
 <h2>Adressering<a class="headerlink" href="#adressering" title="Permalink naar deze titel">¶</a></h2>
 <p>Elk protocollen in de stack heeft een eigen vorm van adressering.
 In het gebruik van de IoT-knoop-webserver kun je deze allemaal tegenkomen.</p>
-<table border="1" class="colwidths-given docutils" id="id2">
+<table class="colwidths-given docutils align-center" id="id2">
 <caption><span class="caption-text">Adressering in de protocolstack</span><a class="headerlink" href="#id2" title="Permalink naar deze tabel">¶</a></caption>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Protocol</th>
-<th class="head">Adres</th>
-<th class="head">Voorbeeld</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Protocol</p></th>
+<th class="head"><p>Adres</p></th>
+<th class="head"><p>Voorbeeld</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>HTTP</td>
-<td>URL-pad</td>
-<td><code class="docutils literal notranslate"><span class="pre">/leds/0</span></code></td>
+<tbody>
+<tr class="row-even"><td><p>HTTP</p></td>
+<td><p>URL-pad</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/leds/0</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>TCP</td>
-<td>TCP-poort</td>
-<td><code class="docutils literal notranslate"><span class="pre">80</span></code> (voor HTTP)</td>
+<tr class="row-odd"><td><p>TCP</p></td>
+<td><p>TCP-poort</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">80</span></code> (voor HTTP)</p></td>
 </tr>
-<tr class="row-even"><td>IP</td>
-<td>IP-adres</td>
-<td><code class="docutils literal notranslate"><span class="pre">94.132.250.160</span></code></td>
+<tr class="row-even"><td><p>IP</p></td>
+<td><p>IP-adres</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">94.132.250.160</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>WiFi Ethernet</td>
-<td>MAC-adres</td>
-<td><code class="docutils literal notranslate"><span class="pre">5CCF7F6EAE3B</span></code></td>
+<tr class="row-odd"><td><p>WiFi Ethernet</p></td>
+<td><p>MAC-adres</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5CCF7F6EAE3B</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -209,11 +205,11 @@ Als domeinnaam van de IoT-knoop-webserver gebruiken we <code class="docutils lit
 waarbij <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> de laatste 4 tekens van het MAC-adres zijn.</p>
 <p>De webserver adresseer je vanuit de browser via een URL van de vorm: <code class="docutils literal notranslate"><span class="pre">http://&lt;domeinnaam&gt;:&lt;poortnummer&gt;/&lt;URL-pad&gt;</span></code></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">http</span></code> geeft het protocol aan voor de interactie;</li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;domeinnaam&gt;</span></code> is de domeinnaam of het IP-adres van de webserver, voor het IP-protocol;</li>
-<li>het <code class="docutils literal notranslate"><span class="pre">&lt;poortnummer&gt;</span></code> geeft de TCP-poort aan; als je dit onderdeel weglaat, wordt voor HTTP poort 80 gebruikt;</li>
-<li>de webserver gebruikt het <code class="docutils literal notranslate"><span class="pre">&lt;URL-pad&gt;</span></code> om de verschillende verzoeken te onderscheiden.
-Een URL-pad identificeert een <em>resource</em>: in het geval van een IoT-knoop, bijvoorbeeld een sensor of een actuator.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http</span></code> geeft het protocol aan voor de interactie;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;domeinnaam&gt;</span></code> is de domeinnaam of het IP-adres van de webserver, voor het IP-protocol;</p></li>
+<li><p>het <code class="docutils literal notranslate"><span class="pre">&lt;poortnummer&gt;</span></code> geeft de TCP-poort aan; als je dit onderdeel weglaat, wordt voor HTTP poort 80 gebruikt;</p></li>
+<li><p>de webserver gebruikt het <code class="docutils literal notranslate"><span class="pre">&lt;URL-pad&gt;</span></code> om de verschillende verzoeken te onderscheiden.
+Een URL-pad identificeert een <em>resource</em>: in het geval van een IoT-knoop, bijvoorbeeld een sensor of een actuator.</p></li>
 </ul>
 <p>Voorbeeld: <code class="docutils literal notranslate"><span class="pre">http://esp8266-ae3b/leds/0</span></code></p>
 <p>Het IP-adres van de webserver is gebonden aan het netwerk.
@@ -226,41 +222,41 @@ Met behulp van mDNS wordt een <em>lokale domeinnaam</em> (<code class="docutils 
 <p>Elk van de protocollen in de stack heeft een eigen dataformaat:
 dit bevat <em>header</em>-gegevens voor het protocol zelf, bijvoorbeeld voor de adressering,
 en de <em>payload</em>: de data die via dat protocol getransporteerd worden.</p>
-<table border="1" class="colwidths-given docutils" id="id3">
+<table class="colwidths-given docutils align-center" id="id3">
 <caption><span class="caption-text">Protocol- en payload-formaten</span><a class="headerlink" href="#id3" title="Permalink naar deze tabel">¶</a></caption>
 <colgroup>
-<col width="17%" />
-<col width="17%" />
-<col width="33%" />
-<col width="33%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Protocol</th>
-<th class="head">Adres</th>
-<th class="head">Dataformaat</th>
-<th class="head">Payload</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Protocol</p></th>
+<th class="head"><p>Adres</p></th>
+<th class="head"><p>Dataformaat</p></th>
+<th class="head"><p>Payload</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>HTTP</td>
-<td>URL-pad</td>
-<td>HTTP-request/response</td>
-<td>HTML-document (etc.)</td>
+<tbody>
+<tr class="row-even"><td><p>HTTP</p></td>
+<td><p>URL-pad</p></td>
+<td><p>HTTP-request/response</p></td>
+<td><p>HTML-document (etc.)</p></td>
 </tr>
-<tr class="row-odd"><td>TCP</td>
-<td>TCP-poort</td>
-<td>TCP segment, met bytestroom data</td>
-<td>HTTP-request/response</td>
+<tr class="row-odd"><td><p>TCP</p></td>
+<td><p>TCP-poort</p></td>
+<td><p>TCP segment, met bytestroom data</p></td>
+<td><p>HTTP-request/response</p></td>
 </tr>
-<tr class="row-even"><td>IP</td>
-<td>IP-adres</td>
-<td>IP-pakket</td>
-<td>TCP-segment</td>
+<tr class="row-even"><td><p>IP</p></td>
+<td><p>IP-adres</p></td>
+<td><p>IP-pakket</p></td>
+<td><p>TCP-segment</p></td>
 </tr>
-<tr class="row-odd"><td>WiFi Ethernet</td>
-<td>MAC-adres</td>
-<td>WiFi/Ethernet frame</td>
-<td>IP-pakket</td>
+<tr class="row-odd"><td><p>WiFi Ethernet</p></td>
+<td><p>MAC-adres</p></td>
+<td><p>WiFi/Ethernet frame</p></td>
+<td><p>IP-pakket</p></td>
 </tr>
 </tbody>
 </table>
@@ -281,7 +277,7 @@ Een vergelijkbaar principe kom je op elk niveau in de protocolstack tegen.</p>
       &copy;2019, SLO.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

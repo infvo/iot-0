@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>MQTT-opdrachten &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -13,8 +11,8 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="NodeRed-opdrachten" href="nodered-opdrachten.html" />
@@ -93,8 +91,6 @@
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -110,32 +106,30 @@
 <div class="topic">
 <p class="topic-title first">Wat heb je nodig?</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>MQTT broker in publieke internet;</dt>
-<dd><ul class="first last">
-<li>bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">infvopedia.nl:1883</span></code>;</li>
-<li>de MQTT-broker fungeert ook als statische webserver,
-voor de app MQTTT en voor de IoT-knoop-simulator;</li>
+<li><dl class="simple">
+<dt>MQTT broker in publieke internet;</dt><dd><ul>
+<li><p>bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">infvopedia.nl:1883</span></code>;</p></li>
+<li><p>de MQTT-broker fungeert ook als statische webserver,
+voor de app MQTTT en voor de IoT-knoop-simulator;</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>de app MQTTT (<a class="reference external" href="http://infvopedia.nl/mqt3.html">http://infvopedia.nl/mqt3.html</a>, zie ook <a class="reference internal" href="../bouwstenen/opdrachten.html#mqt3"><span class="std std-ref">De app MQT3</span></a>)</li>
-<li><dl class="first docutils">
-<dt>zo mogelijk: IoT knoop (hardware),</dt>
-<dd><ul class="first last">
-<li>met software: <code class="docutils literal notranslate"><span class="pre">wifi-node-xd</span></code>;</li>
-<li>geconfigureerd voor het lokale WiFi-netwerk en de MQTT-broker,
-zie hieronder;</li>
-<li>de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
-deze ID staat ook op de knoop zelf.</li>
+<li><p>de app MQTTT (<a class="reference external" href="http://infvopedia.nl/mqt3.html">http://infvopedia.nl/mqt3.html</a>, zie ook <a class="reference internal" href="../bouwstenen/opdrachten.html#mqt3"><span class="std std-ref">De app MQT3</span></a>)</p></li>
+<li><dl class="simple">
+<dt>zo mogelijk: IoT knoop (hardware),</dt><dd><ul>
+<li><p>met software: <code class="docutils literal notranslate"><span class="pre">wifi-node-xd</span></code>;</p></li>
+<li><p>geconfigureerd voor het lokale WiFi-netwerk en de MQTT-broker,
+zie hieronder;</p></li>
+<li><p>de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
+deze ID staat ook op de knoop zelf.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>als alternatief: een gesimuleerde IoT-knoop,
+<li><p>als alternatief: een gesimuleerde IoT-knoop,
 via <a class="reference external" href="http://infvopedia.nl//iotnode-app.html">http://infvopedia.nl//iotnode-app.html</a>.
-Geef deze zelf een unieke ID.</li>
+Geef deze zelf een unieke ID.</p></li>
 </ul>
 </div>
 <div class="section" id="mqtt-chat">
@@ -143,20 +137,20 @@ Geef deze zelf een unieke ID.</li>
 <p><strong>(stap 1)</strong> Je kunt met MQTT op een eenvoudige manier met een groep gebruikers chatten,
 via de MQTTT-app in de browsers van deze gebruikers.</p>
 <ol class="arabic simple">
-<li>Spreek af welk <em>topic</em> je gebruikt voor de communicatie, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">chat</span></code></li>
-<li>Stel dit topic in bij de beide topic-vensters: voor het ontvangen (<em>subscribe</em>)
-en voor het verzenden (<em>publish</em>) van de berichten.</li>
-<li>Als je nu in de ene browser in de app een bericht invoert en publiceert,
-zie je dit in de andere browsers in de app verschijnen.</li>
+<li><p>Spreek af welk <em>topic</em> je gebruikt voor de communicatie, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">chat</span></code></p></li>
+<li><p>Stel dit topic in bij de beide topic-vensters: voor het ontvangen (<em>subscribe</em>)
+en voor het verzenden (<em>publish</em>) van de berichten.</p></li>
+<li><p>Als je nu in de ene browser in de app een bericht invoert en publiceert,
+zie je dit in de andere browsers in de app verschijnen.</p></li>
 </ol>
 <p><strong>(stap 2)</strong> Een nadeel van deze aanpak is dat je niet kunt zien van wie een bericht afkomstig is.
 Dit kun je oplossen door de naam van de afzender in het topic op te nemen:</p>
 <ol class="arabic simple" start="4">
-<li>vul als <strong>subscribe-topic</strong> een wildcard-topic in, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">chat/+</span></code> .
-Deze <code class="docutils literal notranslate"><span class="pre">+</span></code> matcht met een willekeurige string.</li>
-<li>vul als <strong>publish-topic</strong> een topic in met daarin de naam van de afzender,
-bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">chat/frans</span></code> .</li>
-<li>je ziet dan bij de ontvangen berichten steeds de naam van de afzender in het topic.</li>
+<li><p>vul als <strong>subscribe-topic</strong> een wildcard-topic in, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">chat/+</span></code> .
+Deze <code class="docutils literal notranslate"><span class="pre">+</span></code> matcht met een willekeurige string.</p></li>
+<li><p>vul als <strong>publish-topic</strong> een topic in met daarin de naam van de afzender,
+bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">chat/frans</span></code> .</p></li>
+<li><p>je ziet dan bij de ontvangen berichten steeds de naam van de afzender in het topic.</p></li>
 </ol>
 <p>Je moet er in dit geval wel op vertrouwen dat iedereen zijn eigen naam invult:
 je kunt de afzender in het topic niet authenticeren.</p>
@@ -167,8 +161,8 @@ je kunt de afzender in het topic niet authenticeren.</p>
 en om de sensordata netjes weer te geven.
 Voor de communicatie tussen MQTTT en de IoT-knoop met ID <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> gebruiken we de volgende <em>topics</em>:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">node/xxxx/sensors</span></code> - voor de sensorwaarden</li>
-<li><code class="docutils literal notranslate"><span class="pre">node/xxxx/actuators</span></code> - voor de actuatorwaarden.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">node/xxxx/sensors</span></code> - voor de sensorwaarden</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">node/xxxx/actuators</span></code> - voor de actuatorwaarden.</p></li>
 </ul>
 <p>Met het wildcard-topic <code class="docutils literal notranslate"><span class="pre">node/+/+</span></code> ontvang je alle sensor/actuatorwaarden van alle knopen.
 Er is geen standaard die de vorm van deze topics afdwingt: het is een eigen, praktische keuze.
@@ -176,9 +170,9 @@ Deze keuze gebruiken we in de IoT-knopen en in de toepassingen (apps).</p>
 <p>(<strong>stap 1</strong>) Eerst moeten we de ID van een bestaande knoop zien te vinden.
 Dit doen we door voor het subscribe-veld een <em>wildcard</em>-topic in te vullen.</p>
 <ol class="arabic simple">
-<li>vul als subscribe-topic in: <code class="docutils literal notranslate"><span class="pre">node/+/sensors</span></code>;</li>
-<li>je krijgt nu de sensor-berichten te zien van alle knopen die deze broker gebruiken.</li>
-<li>kies hiervan een knoop die je regelmatig langs ziet komen, en bepaal de ID xxxx (uit <code class="docutils literal notranslate"><span class="pre">node/xxxx/sensors</span></code>).</li>
+<li><p>vul als subscribe-topic in: <code class="docutils literal notranslate"><span class="pre">node/+/sensors</span></code>;</p></li>
+<li><p>je krijgt nu de sensor-berichten te zien van alle knopen die deze broker gebruiken.</p></li>
+<li><p>kies hiervan een knoop die je regelmatig langs ziet komen, en bepaal de ID xxxx (uit <code class="docutils literal notranslate"><span class="pre">node/xxxx/sensors</span></code>).</p></li>
 </ol>
 <p>Als je een hardware-IoT-knoop hebt, dan staat de ID waarschijnlijk op de knoop zelf.
 De node-ID bestaat uit de laatste 4 tekens van het MAC-adres.
@@ -186,17 +180,17 @@ Controleer of je knoop actief is: er moeten dan regelmatig JSON-berichten langsk
 (bijvoorbeeld elke 1-2 minuten).</p>
 <p>(<strong>stap 2</strong>) We willen de sensordata weergeven in het bovenste deel van MQTTT.</p>
 <ol class="arabic simple" start="4">
-<li>vul bij <code class="docutils literal notranslate"><span class="pre">IoT-node</span></code> de ID in van je gekozen knoop.</li>
-<li>vul als subscribe-topic in: <code class="docutils literal notranslate"><span class="pre">node/xxxx/+</span></code> (waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> staat voor de gekozen ID).
-je ziet dan alle sensor- en actuator-berichten van deze IoT-knoop verschijnen.</li>
-<li>na enige tijd verschijnen de waarden van de sensoren in tabelvorm;
-in het subscribe-venster zie je deze in JSON-vorm.</li>
-<li>Verduister de knoop (bijvoorbeeld met een doekje).
-Controleer dat het volgende sensor-bericht van de knoop een andere waarde voor de analoge input (LDR) geeft.</li>
+<li><p>vul bij <code class="docutils literal notranslate"><span class="pre">IoT-node</span></code> de ID in van je gekozen knoop.</p></li>
+<li><p>vul als subscribe-topic in: <code class="docutils literal notranslate"><span class="pre">node/xxxx/+</span></code> (waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> staat voor de gekozen ID).
+je ziet dan alle sensor- en actuator-berichten van deze IoT-knoop verschijnen.</p></li>
+<li><p>na enige tijd verschijnen de waarden van de sensoren in tabelvorm;
+in het subscribe-venster zie je deze in JSON-vorm.</p></li>
+<li><p>Verduister de knoop (bijvoorbeeld met een doekje).
+Controleer dat het volgende sensor-bericht van de knoop een andere waarde voor de analoge input (LDR) geeft.</p></li>
 </ol>
 <p>Om over na te denken:</p>
 <ul class="simple">
-<li>hoe weet je wat de eigenschap (het veld) <code class="docutils literal notranslate"><span class="pre">&quot;temperature&quot;</span></code> voorstelt?</li>
+<li><p>hoe weet je wat de eigenschap (het veld) <code class="docutils literal notranslate"><span class="pre">&quot;temperature&quot;</span></code> voorstelt?</p></li>
 </ul>
 </div>
 <div class="section" id="knoop-besturen">
@@ -204,42 +198,41 @@ Controleer dat het volgende sensor-bericht van de knoop een andere waarde voor d
 <p>Met MQTTT kunnen we de LEDs van de knoop <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> ook aansturen.</p>
 <p><strong>(stap 1)</strong> Aansturen van <code class="docutils literal notranslate"><span class="pre">led0</span></code>:</p>
 <ol class="arabic simple">
-<li>vul als <code class="docutils literal notranslate"><span class="pre">subscribe</span> <span class="pre">to</span> <span class="pre">topic</span></code> in: <code class="docutils literal notranslate"><span class="pre">node/xxxx/+</span></code> (waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> staat voor de gekozen ID);</li>
-<li>door het indrukken van de knoppen in MQTTT kun je <code class="docutils literal notranslate"><span class="pre">led0</span></code> aan- en uitschakelen;</li>
-<li>controleer bij de sensorwaarden of deze led inderdaad uit- en uitgaat.</li>
-<li>ga in het subscribe-venster na welke berichten langskomen als je een knop indrukt,
+<li><p>vul als <code class="docutils literal notranslate"><span class="pre">subscribe</span> <span class="pre">to</span> <span class="pre">topic</span></code> in: <code class="docutils literal notranslate"><span class="pre">node/xxxx/+</span></code> (waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> staat voor de gekozen ID);</p></li>
+<li><p>door het indrukken van de knoppen in MQTTT kun je <code class="docutils literal notranslate"><span class="pre">led0</span></code> aan- en uitschakelen;</p></li>
+<li><p>controleer bij de sensorwaarden of deze led inderdaad uit- en uitgaat.</p></li>
+<li><p>ga in het subscribe-venster na welke berichten langskomen als je een knop indrukt,
 voor de actuatoren (leds) en voor de sensoren.
 (a) Welk bericht stuurt de knop On? met welk topic?
-(b) En welk bericht stuurt de knop Off?</li>
+(b) En welk bericht stuurt de knop Off?</p></li>
 </ol>
 <p>Als de (hardware) IoT-knoop <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> in je buurt is, kun je controleren of de LED aan- en uitgaat.</p>
 <p><strong>(stap 2)</strong> Je kunt <code class="docutils literal notranslate"><span class="pre">led1</span></code> “met de hand” aansturen.
 Door de juiste JSON-berichten te sturen naar het actuator-topic van je knoop,
 kun je ook de andere led besturen.</p>
 <ol class="arabic simple" start="5">
-<li>vul als <code class="docutils literal notranslate"><span class="pre">publish</span> <span class="pre">to</span> <span class="pre">topic</span></code> in: <code class="docutils literal notranslate"><span class="pre">node/xxxx/actuators</span></code> (waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> staat voor de gekozen ID)</li>
-<li>vul in het <code class="docutils literal notranslate"><span class="pre">publish</span></code>-veld in: het bericht dat je gevonden hebt onder (4a) hierboven,
-aangepast aan <code class="docutils literal notranslate"><span class="pre">led1</span></code>.</li>
-<li>klik op “Publish”</li>
-<li>controleer de berichten die langskomen in het subscribe-venster,
-en de status van <code class="docutils literal notranslate"><span class="pre">led1</span></code> in de sensortabel.</li>
-<li>schakel beide leds uit (of aan) met één enkel JSON-bericht.</li>
+<li><p>vul als <code class="docutils literal notranslate"><span class="pre">publish</span> <span class="pre">to</span> <span class="pre">topic</span></code> in: <code class="docutils literal notranslate"><span class="pre">node/xxxx/actuators</span></code> (waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> staat voor de gekozen ID)</p></li>
+<li><p>vul in het <code class="docutils literal notranslate"><span class="pre">publish</span></code>-veld in: het bericht dat je gevonden hebt onder (4a) hierboven,
+aangepast aan <code class="docutils literal notranslate"><span class="pre">led1</span></code>.</p></li>
+<li><p>klik op “Publish”</p></li>
+<li><p>controleer de berichten die langskomen in het subscribe-venster,
+en de status van <code class="docutils literal notranslate"><span class="pre">led1</span></code> in de sensortabel.</p></li>
+<li><p>schakel beide leds uit (of aan) met één enkel JSON-bericht.</p></li>
 </ol>
 </div>
 <div class="section" id="json-in-het-iot">
 <h2>(4) JSON in het IoT<a class="headerlink" href="#json-in-het-iot" title="Permalink naar deze titel">¶</a></h2>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<p class="last">nog aanvullen</p>
+<p class="admonition-title">Te doen</p>
+<p>nog aanvullen</p>
 </div>
 <p>Het JSON-formaat wordt in het Internet of Things op meerdere plaatsen gebruikt.
 Bestudeer de volgende manieren van gebruik:</p>
 <ul class="simple">
-<li>importeren en exporteren van NodeRed-flows</li>
-<li><dl class="first docutils">
-<dt>berichten van TTN gateways (via MQTT)</dt>
-<dd><ul class="first last">
-<li>welke informatie voegt een TTN gateway toe aan de “payload” van een IoT-knoop?</li>
+<li><p>importeren en exporteren van NodeRed-flows</p></li>
+<li><dl class="simple">
+<dt>berichten van TTN gateways (via MQTT)</dt><dd><ul>
+<li><p>welke informatie voegt een TTN gateway toe aan de “payload” van een IoT-knoop?</p></li>
 </ul>
 </dd>
 </dl>
@@ -258,7 +251,7 @@ Bestudeer de volgende manieren van gebruik:</p>
       &copy;2019, SLO.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

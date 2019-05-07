@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Webserver-knopen &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -13,8 +11,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
     <link rel="next" title="Webserver-keten" href="webserver/webserver-keten.html" />
@@ -83,8 +81,6 @@
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -99,11 +95,11 @@
 <h1>Webserver-knopen<a class="headerlink" href="#webserver-knopen" title="Permalink naar deze titel">¶</a></h1>
 <p>In dit hoofdstuk behandelen we IoT-knopen die als webserver dienen.</p>
 <div class="admonition-leerdoelen-en-concepten admonition">
-<p class="first admonition-title">Leerdoelen en concepten</p>
-<ul class="last simple">
-<li>client-server interactie; request en response</li>
-<li>lokaal netwerk; adressering (IP-adres, domeinnaam)</li>
-<li>HTTP protocol (adressering: URL; payload: HTML document)</li>
+<p class="admonition-title">Leerdoelen en concepten</p>
+<ul class="simple">
+<li><p>client-server interactie; request en response</p></li>
+<li><p>lokaal netwerk; adressering (IP-adres, domeinnaam)</p></li>
+<li><p>HTTP protocol (adressering: URL; payload: HTML document)</p></li>
 </ul>
 </div>
 <p>Sommige apparaten beschikken over een webserver waarmee je het apparaat kunt bedienen.
@@ -111,7 +107,7 @@ Voorbeelden hiervan zijn een (thuis)router en een netwerkprinter.
 Via de browser van een computer of smartphone bedien je het apparaat op afstand.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="_images/IoT-webserver-interface-0.png"><img alt="_images/IoT-webserver-interface-0.png" src="_images/IoT-webserver-interface-0.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Webserver-interface van een netwerkprinter</span></p>
+<p class="caption"><span class="caption-text">Webserver-interface van een netwerkprinter</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>In de figuur zie je het interface van een netwerkprinter, als webpagina.
 Via de browser kun je de toestand van de printer bekijken en de instellingen aanpassen.
@@ -119,8 +115,8 @@ De webserver biedt een uitgebreid gebruikersinterface.
 Het apparaat zelf kan dan met een eenvoudig interface volstaan,
 met een paar knoppen en eventueel een klein schermpje.</p>
 <div class="figure align-center" id="id2">
-<a class="reference internal image-reference" href="_images/IoT-client-server-0.png"><img alt="_images/IoT-client-server-0.png" src="_images/IoT-client-server-0.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Client-server interactie</span></p>
+<a class="reference internal image-reference" href="_images/IoT-client-server-01.png"><img alt="_images/IoT-client-server-01.png" src="_images/IoT-client-server-01.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-text">Client-server interactie</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p id="index-0">De ingebouwde webserver gebruikt de web- en internetprotocollen in een <em>client-server interactie</em> via het HTTP-protocol.
 De client (browser) stuurt een HTTP <em>request</em> (bijv. GET) met een bepaald URL-pad naar de webserver;
@@ -129,30 +125,27 @@ Het HTML-document is in dit geval het gebruikersinterface van het apparaat.
 De client-server interactie via HTTP is een “pull” interactie: het initiatief voor de interactie ligt bij de browser.</p>
 <div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="_images/IoT-keten-WiFi-HTTP1.png"><img alt="_images/IoT-keten-WiFi-HTTP1.png" src="_images/IoT-keten-WiFi-HTTP1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">IoT-knopen met webserver</span></p>
+<p class="caption"><span class="caption-text">IoT-knopen met webserver</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p class="rubric">Belangrijke eigenschappen van deze aanpak</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>de IoT-knoop-webserver is verbonden in het <em>lokale netwerk</em>, via WiFi of Ethernet;</dt>
-<dd><ul class="first last">
-<li>gevolg: het apparaat is alleen te bedienen binnen het lokale netwerk;</li>
+<li><dl class="simple">
+<dt>de IoT-knoop-webserver is verbonden in het <em>lokale netwerk</em>, via WiFi of Ethernet;</dt><dd><ul>
+<li><p>gevolg: het apparaat is alleen te bedienen binnen het lokale netwerk;</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>de IoT-knoop-webserver moet altijd bereikbaar (online) zijn;</dt>
-<dd><ul class="first last">
-<li>gevolg: IoT-knoop niet geschikt voor batterijvoeding;</li>
+<li><dl class="simple">
+<dt>de IoT-knoop-webserver moet altijd bereikbaar (online) zijn;</dt><dd><ul>
+<li><p>gevolg: IoT-knoop niet geschikt voor batterijvoeding;</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>de browser neemt het initiatief in de interactie met de IoT-knoop-webserver;</dt>
-<dd><ul class="first last">
-<li>gevolg: geschikt voor actuatoren (bediening), minder geschikt voor sensoren (monitoring).</li>
+<li><dl class="simple">
+<dt>de browser neemt het initiatief in de interactie met de IoT-knoop-webserver;</dt><dd><ul>
+<li><p>gevolg: geschikt voor actuatoren (bediening), minder geschikt voor sensoren (monitoring).</p></li>
 </ul>
 </dd>
 </dl>
@@ -172,7 +165,7 @@ De client-server interactie via HTTP is een “pull” interactie: het initiatie
       &copy;2019, SLO.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

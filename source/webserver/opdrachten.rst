@@ -113,8 +113,7 @@ De server verwerkt het verzoek als volgt:
 (3) Browser-ontwikkelaarstools
 ------------------------------
 
-* bestudeer de brontekst van het html-document, via de browser ontwikkelaarstools, bronbestanden-sectie.
-  Deze vind je bij:
+* bestudeer de brontekst van het html-document, via de browser ontwikkelaarstools, bronbestanden-sectie. Deze vind je bij:
     * Chrome (OS X): Weergave->Ontwikkelaar->Ontwikkelaarstools
     * Chrome (Windows 10): Meer hulpprogramma’s->hulpprogramma’s voor ontwikkelaars (of “F12”)
     * FireFox: Extra->Webontwikkelaar->Hulpmiddelen in-/uitschakelen

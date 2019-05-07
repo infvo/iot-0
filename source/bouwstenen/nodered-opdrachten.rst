@@ -130,7 +130,14 @@ Dashboard-nodes installeren
 .. admonition:: Installeren van dashboard-nodes
 
   De dashboard-nodes zijn niet altijd beschikbaar in het node-palet links.
-  Voor het toevoegen van deze nodes aan NodeRed gebruik je de volgende stappen:
+
+  *Als je FRED gebruikt*, dan installeer je de dashbaord-nodes als volgt:
+
+  * selecteer in de FRED-zijbalk (helemaal links): Tools-> add or remove nodes
+  * type in het zoekveld: dashboard
+  * vink aan: *Dashboard (a set of dashboard nodes for NodeRed)*.
+
+  *Voor een normale NodeRed-installatie* gebruik je de volgende stappen:
 
   * selecteer hamburger-menu (rechts) -> Manage Palette
   * selecteer de tab *Install*
@@ -138,11 +145,7 @@ Dashboard-nodes installeren
   * klik op "install" voor *node-red-dashboard* *(A set of dashboard nodes for Node-RED)*
   * na deze installatie zijn de nodes in het palet links beschikbaar.
 
-  Als je FRED gebruikt, dan installeer je de nodes als volgt:
 
-  * selecteer in de FRED-zijbalk (helemaal links): Tools-> add or remove nodes
-  * type in het zoekveld: dashboard
-  * vink aan: *Dashboard (a set of dashboard nodes for NodeRed)*.
 
 
 

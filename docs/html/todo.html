@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>ToDo &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -13,8 +11,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Zoeken" href="search.html" />
 
@@ -72,8 +70,6 @@
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -87,30 +83,30 @@
   <div class="section" id="todo">
 <h1>ToDo<a class="headerlink" href="#todo" title="Permalink naar deze titel">¶</a></h1>
 <div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
+<p class="admonition-title">Te doen</p>
 <p>MQTTT:</p>
-<ul class="last simple">
-<li>kunnen we subscribe-venster automatisch laten scrollen?</li>
+<ul class="simple">
+<li><p>kunnen we subscribe-venster automatisch laten scrollen?</p></li>
 </ul>
 </div>
 <div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Te doen</p>
+<p class="admonition-title">Te doen</p>
 <p>Knoop-simulator:</p>
-<ul class="last simple">
-<li>meesturen van een tijd of een volgnummer</li>
-<li>toevoegen van lichtniveau aan simulator</li>
+<ul class="simple">
+<li><p>meesturen van een tijd of een volgnummer</p></li>
+<li><p>toevoegen van lichtniveau aan simulator</p></li>
 </ul>
 </div>
 <div class="admonition-todo admonition" id="index-2">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>duidelijk(er) maken dat mqtt niet voorkomt dat verschillende knopen onder dezelfde ID/hetzelfde topic publiceren.
-(er is een mqtt-client-id, maar hoe kun je die achterhalen, in de verschillende contexten?)</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>duidelijk(er) maken dat mqtt niet voorkomt dat verschillende knopen onder dezelfde ID/hetzelfde topic publiceren.
+(er is een mqtt-client-id, maar hoe kun je die achterhalen, in de verschillende contexten?)</p></li>
 </ul>
 </div>
 <div class="admonition-todo admonition" id="index-3">
-<p class="first admonition-title">Te doen</p>
-<p class="last">onderstaande tekst verhuizen</p>
+<p class="admonition-title">Te doen</p>
+<p>onderstaande tekst verhuizen</p>
 </div>
 <p>De technologische voortgang op elk van deze onderdelen maakt nu kleine, lichte en (relatief) goedkope IoT-knopen mogelijk.
 Deze ontwikkeling zal de komende jaren nog in snel tempo voortgaan, geholpen door de grote massa van het Internet of Things.
@@ -118,43 +114,42 @@ Daarnaast is ook de verwerking van IoT-data sterk verbeterd.
 De ontwikkelingen op het gebied van Data Science en Artificial Intelligence maken nieuwe IoT-toepassingen mogelijk.
 Deze ontwikkelingen versterken elkaar en zorgen samen voor een stroomversnelling in de technologie en in de toepassingen.</p>
 <div class="admonition-een-andere-versie-van-moore-s-law admonition">
-<p class="first admonition-title">Een andere versie van Moore’s Law</p>
+<p class="admonition-title">Een andere versie van Moore’s Law</p>
 <p>De digitale elektronica maakt al decennia een exponentiële ontwikkeling door, volgens “Moore’s Law”.
 De exponentieel stijgende vraag uit de markt, bijvoorbeeld naar smartphones, ondersteunt deze technologische ontwikkeling.</p>
-<p class="last">De traditionele versie van Moore’s Law gaat vooral om “meer”: meer rekenkracht en meer geheugen.
+<p>De traditionele versie van Moore’s Law gaat vooral om “meer”: meer rekenkracht en meer geheugen.
 Bij het Internet of Things gaat het vooral om “minder”: minder energie, minder gewicht, en kleiner.
 Ook in dit geval is een exponentiële ontwikkeling te verwachten.
 Het grootste probleem lijkt daarbij de energievoorziening te zijn:
 vooral de batterij bepaalt de omvang en het gewicht van een IoT-knoop.</p>
 </div>
 <div class="admonition-todo admonition" id="index-4">
-<p class="first admonition-title">Te doen</p>
+<p class="admonition-title">Te doen</p>
 <ul class="simple">
-<li>onderstaande tekst nog ergens onderbrengen?</li>
+<li><p>onderstaande tekst nog ergens onderbrengen?</p></li>
 </ul>
 <p class="rubric">Verschillen tussen IoT en het web</p>
 <p>Het IoT is veel heterogener dan het web, en veel minder gestandaardiseerd.
 Dit betekent dat we veel verschillende oplossingen en vormen van de IoT-keten tegenkomen.</p>
 <p>Deze IoT-keten heeft andere karakteristieken dan de keten voor het web:</p>
-<ul class="last simple">
-<li>de sensordata van een enkele IoT-knoop bestaan uit weinig bytes - veel minder dan de gemiddelde webpagina, en nog veel minder dan nodig voor audio en video;</li>
-<li>het aantal IoT-knopen in een toepassing kun erg groot zijn - veel groter dan bijvoorbeeld het aantal gebruikers van een website;</li>
-<li>de fysieke wereld stelt soms absolute grenzen aan de latency; in de virtuele wereld is deze latency wat minder van belang;</li>
-<li>de resultaten van het web worden aan mensen gepresenteerd, die op basis daarvan beslissingen nemen;</li>
-<li>de resultaten van het IoT worden soms gebruikt om direct “dingen” te besturen, zonder menselijke tussenkomst (M2M, machine to machine).</li>
-<li>de verschillen tussen “dingen” zijn veel groter dan de verschillen tussen mensen: het IoT is veel heterogener dan het web.</li>
+<ul class="simple">
+<li><p>de sensordata van een enkele IoT-knoop bestaan uit weinig bytes - veel minder dan de gemiddelde webpagina, en nog veel minder dan nodig voor audio en video;</p></li>
+<li><p>het aantal IoT-knopen in een toepassing kun erg groot zijn - veel groter dan bijvoorbeeld het aantal gebruikers van een website;</p></li>
+<li><p>de fysieke wereld stelt soms absolute grenzen aan de latency; in de virtuele wereld is deze latency wat minder van belang;</p></li>
+<li><p>de resultaten van het web worden aan mensen gepresenteerd, die op basis daarvan beslissingen nemen;</p></li>
+<li><p>de resultaten van het IoT worden soms gebruikt om direct “dingen” te besturen, zonder menselijke tussenkomst (M2M, machine to machine).</p></li>
+<li><p>de verschillen tussen “dingen” zijn veel groter dan de verschillen tussen mensen: het IoT is veel heterogener dan het web.</p></li>
 </ul>
 </div>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
+<p class="admonition-title">Te doen</p>
 <p>Verder uitwerken - ook de infrastructuur.</p>
-<ul class="last simple">
-<li><dl class="first docutils">
-<dt>gebruik van een IoT-dashboard</dt>
-<dd><ul class="first last">
-<li>NB: uiteindelijk moeten we een dashboard zien te bieden waarin meerdere sensoren/IoT-knopen gecombineerd worden?</li>
-<li>gebruik van IoT-dashboard voor gegeven knopen (elders)</li>
-<li>gebruik van IoT-dashboard voor gesimuleerde knopen</li>
+<ul class="simple">
+<li><dl class="simple">
+<dt>gebruik van een IoT-dashboard</dt><dd><ul>
+<li><p>NB: uiteindelijk moeten we een dashboard zien te bieden waarin meerdere sensoren/IoT-knopen gecombineerd worden?</p></li>
+<li><p>gebruik van IoT-dashboard voor gegeven knopen (elders)</p></li>
+<li><p>gebruik van IoT-dashboard voor gesimuleerde knopen</p></li>
 </ul>
 </dd>
 </dl>
@@ -163,151 +158,151 @@ Dit betekent dat we veel verschillende oplossingen en vormen van de IoT-keten te
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="bouwstenen/opdrachten.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/bouwstenen/opdrachten.rst, regel 116.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>persoonlijke en maatschappelijke gevolgen</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>persoonlijke en maatschappelijke gevolgen</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="inleiding/gevolgen.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/inleiding/gevolgen.rst, regel 7.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>figuur van Hue met andere controller(s)</li>
+<p class="admonition-title">Te doen</p>
+<p>NB: er ontbreekt één belangrijke technologie: BLE.</p>
+</div>
+<p class="todo-source">(Het <a class="reference internal" href="inleiding/overzicht.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/inleiding/overzicht.rst, regel 108.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>figuur van Hue met andere controller(s)</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="inleiding/voorbeelden.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/inleiding/voorbeelden.rst, regel 177.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>LoRa</li>
-<li>LoRaWan</li>
-<li>TTN</li>
-<li>gateway; protocol-conversie (van binair naar JSON)</li>
-<li>LoRaWan-server; protocol-conversie, formaat-conversie (van payload)</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>LoRa</p></li>
+<li><p>LoRaWan</p></li>
+<li><p>TTN</p></li>
+<li><p>gateway; protocol-conversie (van binair naar JSON)</p></li>
+<li><p>LoRaWan-server; protocol-conversie, formaat-conversie (van payload)</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="lora.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/lora.rst, regel 5.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>Figuur van LoRaWan-keten.</li>
-<li>LoRaWan - protocol stack</li>
-<li>LoRaWan gateway: protocol-conversie (ook nog eens in de server?)</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>Figuur van LoRaWan-keten.</p></li>
+<li><p>LoRaWan - protocol stack</p></li>
+<li><p>LoRaWan gateway: protocol-conversie (ook nog eens in de server?)</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="lora/lorawan-keten.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/lora/lorawan-keten.rst, regel 119.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>LoRa radio: adressering</li>
-<li>volgnummers, voor beveiliging, en controle op ontvangst</li>
-<li>LoRaWan netwerk/protocol: architectuur; div. aanbieders</li>
-<li>TheThingsNetwork: wereldwijd LoRaWan netwerk</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>LoRa radio: adressering</p></li>
+<li><p>volgnummers, voor beveiliging, en controle op ontvangst</p></li>
+<li><p>LoRaWan netwerk/protocol: architectuur; div. aanbieders</p></li>
+<li><p>TheThingsNetwork: wereldwijd LoRaWan netwerk</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="lora/lorawan-keten.html#index-1"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/lora/lorawan-keten.rst, regel 235.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>waarom meerdere EUIs per application?</li>
-<li>genereren van device EUI</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>waarom meerdere EUIs per application?</p></li>
+<li><p>genereren van device EUI</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="lora/ttn-console.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/lora/ttn-console.rst, regel 120.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
+<p class="admonition-title">Te doen</p>
 <ul class="simple">
-<li>voor leerlingen van alle profielen</li>
-<li>onderscheid HAVO-VWO?</li>
+<li><p>voor leerlingen van alle profielen</p></li>
+<li><p>onderscheid HAVO-VWO?</p></li>
 </ul>
-<div class="toctree-wrapper last compound">
+<div class="toctree-wrapper compound">
 </div>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="ten-geleide.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/ten-geleide.rst, regel 52.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>gebruik van een lokale Raspberry Pi</p></li>
+</ul>
+</div>
+<p class="todo-source">(Het <a class="reference internal" href="tengeleide/voorbereiding.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/tengeleide/voorbereiding.rst, regel 36.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Te doen</p>
 <p>MQTTT:</p>
-<ul class="last simple">
-<li>kunnen we subscribe-venster automatisch laten scrollen?</li>
+<ul class="simple">
+<li><p>kunnen we subscribe-venster automatisch laten scrollen?</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/todo.rst, regel 5.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
+<p class="admonition-title">Te doen</p>
 <p>Knoop-simulator:</p>
-<ul class="last simple">
-<li>meesturen van een tijd of een volgnummer</li>
-<li>toevoegen van lichtniveau aan simulator</li>
+<ul class="simple">
+<li><p>meesturen van een tijd of een volgnummer</p></li>
+<li><p>toevoegen van lichtniveau aan simulator</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="#index-1"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/todo.rst, regel 11.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>duidelijk(er) maken dat mqtt niet voorkomt dat verschillende knopen onder dezelfde ID/hetzelfde topic publiceren.
-(er is een mqtt-client-id, maar hoe kun je die achterhalen, in de verschillende contexten?)</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>duidelijk(er) maken dat mqtt niet voorkomt dat verschillende knopen onder dezelfde ID/hetzelfde topic publiceren.
+(er is een mqtt-client-id, maar hoe kun je die achterhalen, in de verschillende contexten?)</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="#index-2"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/todo.rst, regel 19.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<p class="last">onderstaande tekst verhuizen</p>
+<p class="admonition-title">Te doen</p>
+<p>onderstaande tekst verhuizen</p>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="#index-3"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/todo.rst, regel 24.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
+<p class="admonition-title">Te doen</p>
 <ul class="simple">
-<li>onderstaande tekst nog ergens onderbrengen?</li>
+<li><p>onderstaande tekst nog ergens onderbrengen?</p></li>
 </ul>
 <p class="rubric">Verschillen tussen IoT en het web</p>
 <p>Het IoT is veel heterogener dan het web, en veel minder gestandaardiseerd.
 Dit betekent dat we veel verschillende oplossingen en vormen van de IoT-keten tegenkomen.</p>
 <p>Deze IoT-keten heeft andere karakteristieken dan de keten voor het web:</p>
-<ul class="last simple">
-<li>de sensordata van een enkele IoT-knoop bestaan uit weinig bytes - veel minder dan de gemiddelde webpagina, en nog veel minder dan nodig voor audio en video;</li>
-<li>het aantal IoT-knopen in een toepassing kun erg groot zijn - veel groter dan bijvoorbeeld het aantal gebruikers van een website;</li>
-<li>de fysieke wereld stelt soms absolute grenzen aan de latency; in de virtuele wereld is deze latency wat minder van belang;</li>
-<li>de resultaten van het web worden aan mensen gepresenteerd, die op basis daarvan beslissingen nemen;</li>
-<li>de resultaten van het IoT worden soms gebruikt om direct “dingen” te besturen, zonder menselijke tussenkomst (M2M, machine to machine).</li>
-<li>de verschillen tussen “dingen” zijn veel groter dan de verschillen tussen mensen: het IoT is veel heterogener dan het web.</li>
+<ul class="simple">
+<li><p>de sensordata van een enkele IoT-knoop bestaan uit weinig bytes - veel minder dan de gemiddelde webpagina, en nog veel minder dan nodig voor audio en video;</p></li>
+<li><p>het aantal IoT-knopen in een toepassing kun erg groot zijn - veel groter dan bijvoorbeeld het aantal gebruikers van een website;</p></li>
+<li><p>de fysieke wereld stelt soms absolute grenzen aan de latency; in de virtuele wereld is deze latency wat minder van belang;</p></li>
+<li><p>de resultaten van het web worden aan mensen gepresenteerd, die op basis daarvan beslissingen nemen;</p></li>
+<li><p>de resultaten van het IoT worden soms gebruikt om direct “dingen” te besturen, zonder menselijke tussenkomst (M2M, machine to machine).</p></li>
+<li><p>de verschillen tussen “dingen” zijn veel groter dan de verschillen tussen mensen: het IoT is veel heterogener dan het web.</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="#index-4"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/todo.rst, regel 45.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>gebruik van inject-node om led te laten knipperen
-(nb: we hebben dan wel een webserver-knoop in het publieke internet nodig, of tenminste een gesimuleerde versie daarvan).</li>
-<li>gebruik van schedule-node om led via tijd te besturen</li>
-<li>opdracht: maak met NodeRed een website/dashboard dat weergeeft of je morgen het eerste uur vrij hebt.
-(…als de rooster-website van je school dit mogelijk maakt…)</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>gebruik van inject-node om led te laten knipperen
+(nb: we hebben dan wel een webserver-knoop in het publieke internet nodig, of tenminste een gesimuleerde versie daarvan).</p></li>
+<li><p>gebruik van schedule-node om led via tijd te besturen</p></li>
+<li><p>opdracht: maak met NodeRed een website/dashboard dat weergeeft of je morgen het eerste uur vrij hebt.
+(…als de rooster-website van je school dit mogelijk maakt…)</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="webserver/nodered-opdrachten.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/webserver/nodered-opdrachten.rst, regel 667.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>meer JSON-voorbeelden</li>
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>meer JSON-voorbeelden</p></li>
 </ul>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="wifi/json-lpp.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/wifi/json-lpp.rst, regel 29.)</p>
 <div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<p class="last">nog aanvullen</p>
+<p class="admonition-title">Te doen</p>
+<p>nog aanvullen</p>
 </div>
 <p class="todo-source">(Het <a class="reference internal" href="wifi/opdrachten.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/wifi/opdrachten.rst, regel 121.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>gebruik van een lokale Raspberry Pi</li>
-</ul>
-</div>
-<p class="todo-source">(Het <a class="reference internal" href="tengeleide/voorbereiding.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/tengeleide/voorbereiding.rst, regel 36.)</p>
-<div class="admonition-todo admonition">
-<p class="first admonition-title">Te doen</p>
-<p class="last">NB: er ontbreekt één belangrijke technologie: BLE.</p>
-</div>
-<p class="todo-source">(Het <a class="reference internal" href="inleiding/overzicht.html#index-0"><em>originele item</em></a> bevindt zich in /Users/eelco/stack/Netwerken/iot-0/source/inleiding/overzicht.rst, regel 108.)</p>
 </div>
 
 
@@ -320,7 +315,7 @@ Dit betekent dat we veel verschillende oplossingen en vormen van de IoT-keten te
       &copy;2019, SLO.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
