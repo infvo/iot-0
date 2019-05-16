@@ -49,11 +49,11 @@
 <li class="toctree-l2"><a class="reference internal" href="webserver-keten.html">Webserver-keten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webserver-protocol.html">Protocollen</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Webserver-Opdrachten</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adresseren-van-de-webserver">(1) Adresseren van de webserver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aansturen-van-de-led">(2) Aansturen van de LED</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#browser-ontwikkelaarstools">(3) Browser-ontwikkelaarstools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uitlezen-van-sensorwaarden">(4) Uitlezen van sensorwaarden</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#de-programmatekst-van-de-iot-knoop">(5) De programmatekst van de IoT-knoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iot-knoop-als-access-point">(1) IoT-knoop als Access Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#led-besturing-1">(2) LED-besturing (1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ontwikkelaarstools">(3) Ontwikkelaarstools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#led-besturing-2">(4) LED-besturing (2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adresseren-van-de-webserver">(5) Adresseren van de webserver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#een-eigen-voorbeeld">(6) Een eigen voorbeeld</a></li>
 </ul>
 </li>
@@ -106,85 +106,138 @@
 <p>In de opdrachten gebruiken we een IoT-knoop met daarop een webserver.
 Via een computer (browser) in hetzelfde netwerk als deze IoT-knoop maak je contact met deze webserver:
 daarmee vraag je sensorwaarden van de IoT-knoop op en bestuur je de actuatoren (LEDs) van de knoop.</p>
-<div class="section" id="adresseren-van-de-webserver">
-<h2>(1) Adresseren van de webserver<a class="headerlink" href="#adresseren-van-de-webserver" title="Permalink naar deze titel">¶</a></h2>
-<p>In het eerste voorbeeld gebruik je een IoT-knoop met een webserver voor het aansturen van een LED en
-voor het uitlezen van sensorwaarden.</p>
 <div class="admonition-wat-heb-je-nodig admonition">
 <p class="admonition-title">Wat heb je nodig?</p>
 <ul class="simple">
-<li><p>IoT-knoop met LED en webserver-software (<code class="docutils literal notranslate"><span class="pre">sensor-webserver-0</span></code>);</p></li>
+<li><p>IoT-knoop met LED en webserver-software (<code class="docutils literal notranslate"><span class="pre">wifi-node-x(d)</span></code>);</p></li>
 <li><p>computer of smartphone met browser;</p></li>
-<li><p>computer en IoT-knoop moeten beide verbonden zijn in het lokale (WiFi) netwerk.</p></li>
 </ul>
 </div>
-<p><em>Hoe vind je de webserver in de browser?</em>
-Een webpagina adresseer je in de browser met een URL.</p>
-<ul class="simple">
-<li><p>Het eerste onderdeel van de URL geeft het protocol aan, in dit geval <code class="docutils literal notranslate"><span class="pre">http:</span></code> .</p></li>
-<li><p>Het volgende onderdeel is het adres van de server.
-Dit kan een <em>domeinnaam</em> zijn, zoals <code class="docutils literal notranslate"><span class="pre">infvo.nl</span></code>, of een <em>IP-adres</em>, zoals <code class="docutils literal notranslate"><span class="pre">192.168.1.103</span></code>.
-De browser gebruikt een Domain Name Server (DNS-server) om het IP-adres te vinden van een domeinnaam.</p></li>
-<li><p>Na het server-adres volgt de <em>padnaam</em>: dit identificeert de webpagina op de server.</p></li>
-</ul>
-<p>Een webserver in het lokale netwerk komt niet voor in de administratie van een publieke DNS-server.
-Voor het lokale netwerk kun je een andere technologie gebruiken: mDNS (multicast DNS;
-niet alle operating systems ondersteunen dit).</p>
-<p>De sensor-webserver-software meldt zich bij mDNS aan met de naam: <code class="docutils literal notranslate"><span class="pre">esp8266-xxxx.local</span></code>,
-waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> de laatste 4 cijfers van het WiFi MAC-adres van de knoop zijn.
-Dit unieke adres is een <em>overanderlijk onderdeel van het apparaat</em>.
-Een WiFi MAC-adres is een 48-bits adres, geschreven als een reeks van 6 bytes in hexadecimale notatie: <code class="docutils literal notranslate"><span class="pre">00:00:00:00:00:00</span></code>.</p>
-<ul class="simple">
-<li><p>Zie: <a class="reference external" href="https://en.wikipedia.org/wiki/MAC_address">https://en.wikipedia.org/wiki/MAC_address</a>.</p></li>
-</ul>
-<p>Het IP-adres van een apparaat is <em>gebonden aan het netwerk</em>:
-dit adres verandert als je het apparaat in een ander netwerk verbindt.
-Bovendien kan het veranderen als je het apparaat opnieuw in hetzelfde netwerk verbindt.</p>
+<div class="section" id="iot-knoop-als-access-point">
+<h2>(1) IoT-knoop als Access Point<a class="headerlink" href="#iot-knoop-als-access-point" title="Permalink naar deze titel">¶</a></h2>
+<p>In het eerste voorbeeld gebruik je een IoT-knoop in Access Point mode.
+Het gaat bij deze opdracht om het uitlezen van de sensorwaarden van de IoT-knoop.
+In deze opdracht verander je de configuratie niet!</p>
 <ol class="arabic simple">
-<li><p>zoek uit wat het MAC-adres is van je IoT-knoop; dit staat waarschijnlijk op het apparaat;</p></li>
-<li><p>zoek in de browser de webserver via de URL: <code class="docutils literal notranslate"><span class="pre">http://esp8266-xxxx.local</span></code>,
-met voor <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> de laatste 4 tekens van het MAC-adres.</p></li>
-<li><p>je krijgt nu de webpagina van de IoT-knoop te zien (als het goed is).
-Deze geeft ook aan wat het eigen IP-adres is.</p></li>
-<li><p>zoek in de browser de webserver via de URL: <code class="docutils literal notranslate"><span class="pre">http://aaa.bbb.ccc.ddd</span></code>,
-waarin <code class="docutils literal notranslate"><span class="pre">aaa.bbb.ccc.ddd</span></code> het IP-adres van de IoT-knoop is.</p></li>
+<li><p>Start de IoT-knooop op in Access Point mode;
+zie <a class="reference internal" href="../configureren.html#configureren"><span class="std std-ref">Configureren</span></a> stap 1.</p></li>
+<li><p>Maak met je computer of je smartphone contact met het WiFi-netwerk van deze IoT-knoop;
+zie <a class="reference internal" href="../configureren.html#configureren"><span class="std std-ref">Configureren</span></a> stap 2.</p></li>
+<li><p>Geef in de browser als URL het IP-adres van de IoT-knoop: <code class="docutils literal notranslate"><span class="pre">http://192.168.4.1</span></code>
+Je krijgt nu de homepagina van de IoT-knoop te zien.</p></li>
+<li><p>Bestudeer de sensorwaarden in deze homepagina.
+Adem of blaas voorzichtig op de temperatuur/luchtvochtigheidssensor van de IoT-knoop.
+Veranderen de sensorwaarden in deze homepagina?</p></li>
+<li><p>Ververs de pagina in de browser.
+Veranderen de sensorwaarden in de pagina?</p></li>
+<li><p>Beredeneer het gedrag van de browser/IoT-knoop dat je bij (4) en (5) gezien hebt.</p></li>
+<li><p>Ga na wat het IP-adres van je eigen computer is in het netwerk van de IoT-knoop.</p></li>
 </ol>
-<p>Als de omgeving van je browser geen mDNS ondersteunt, probeer het dan via een andere computer of smartphone.
-Voor zover bekend ondersteunen OS X, iOS en Android mDNS.</p>
-<p>Opmerkingen:</p>
+<p><strong>Opmerkingen</strong>.</p>
 <ul class="simple">
-<li><p>je kunt het IP-adres vinden via de ontwikkelaarstools in de browser, zie opdracht (3).</p></li>
-<li><p>je kunt het IP-adres vinden via het <code class="docutils literal notranslate"><span class="pre">ping</span></code>-commando (in Unix/Linux), bijvoorbeeld:
-<code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">esp8266-8f12.local</span></code></p></li>
-<li><p>je kunt het IP-adres vinden in de DHCP-tabel van de lokale router/gateway (als je daar toegang toe hebt).</p></li>
+<li><p>Je kunt met meerdere (max. 4) computers contact maken met een ESP8266-access point.</p></li>
+<li><p>breng niet teveel IoT-knopen tegelijk in access-point mode: dat kan het andere WiFi-verkeer verstoren.</p></li>
+<li><p>via het WiFi-netwerk van de IoT-knoop heeft je computer geen verbinding met het internet. (Ga dit na.)</p></li>
+<li><p>het herhaald versturen van een verzoek aan de (web)server om te zien of er iets veranderd is heet “polling”.</p></li>
 </ul>
 </div>
-<div class="section" id="aansturen-van-de-led">
-<h2>(2) Aansturen van de LED<a class="headerlink" href="#aansturen-van-de-led" title="Permalink naar deze titel">¶</a></h2>
-<div class="admonition-wat-heb-je-nodig admonition">
-<p class="admonition-title">Wat heb je nodig?</p>
-<ul class="simple">
-<li><p>de opstelling van de vorige opdracht</p></li>
-<li><p>de gegevens van de vorige opdracht</p></li>
-</ul>
-</div>
-<p>We gebruiken de webserver om een LED van de IoT-knoop aan- en uit te zetten.</p>
+<div class="section" id="led-besturing-1">
+<h2>(2) LED-besturing (1)<a class="headerlink" href="#led-besturing-1" title="Permalink naar deze titel">¶</a></h2>
+<p>De IoT-knoop heeft een eenvoudige manier om de LED aan en uit te zetten:</p>
 <ol class="arabic simple">
-<li><p>Open de webpagina van de IoT-knoop, zoals in de vorige opdracht;</p></li>
-<li><p>Je ziet twee knoppen (buttons) om de LED aan- en uit te zetten.
-Zet de LED aan.
-De LED op de IoT-knoop brandt nu (als het goed is).
-Wat is nu de URL in het URL-venster van de browser?</p></li>
-<li><p>Zet de LED uit.
-De LED is nu uit (als het goed is).
-Wat is nu de URL?</p></li>
-<li><p>Wat gebeurt er als je in de browser de pagina opnieuw laadt (“refresh” of “reload”)?</p></li>
-<li><p>Wat gebeurt er als je de URL van (2) of (3) invoert in het URL-venster van de browser?</p></li>
+<li><p>Vul als URL in de browser in: <code class="docutils literal notranslate"><span class="pre">http://192.168.4.1/ledon</span></code>.
+Controleer dat de LED aan gaat.</p></li>
+<li><p>Vul als URL in de browser in: <code class="docutils literal notranslate"><span class="pre">http://192.168.4.1/ledoff</span></code>.
+Controleer dat de LED uit gaat.</p></li>
+<li><p>Leg uit waarom er twee verschillende URLs zijn,
+in plaats van één enkele die de LED omschakelt van aan naar uit en omgekeerd.
+(<em>Hint</em>: zijn de acties <em>idempotent</em>?)</p></li>
 </ol>
-<p>Je ziet hier dat je een apparaat kunt besturen met een webpagina.
-De beide buttons zijn onderdeel van een <em>webformulier</em>.
+<p>De functies in de ESP8266-software voor <code class="docutils literal notranslate"><span class="pre">ledon</span></code> en <code class="docutils literal notranslate"><span class="pre">ledoff</span></code> zijn:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">handleLedOn</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led0</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="n">sendHTMLdoc</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">handleLedOff</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led0</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="n">sendHTMLdoc</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>De functie <code class="docutils literal notranslate"><span class="pre">digitalWrite</span></code> stuurt de led aan.
+De functie <code class="docutils literal notranslate"><span class="pre">sendHTMLdoc()</span></code> stuurt de het homepagina-document naar de browser.
+Zoals je ziet kun je met een URL soms heel direct hardware (actuatoren) besturen.</p>
+<p>Er is nog een manier om de LED aan- en uit te schakelen: dit komt in opdracht (x) aan de orde.</p>
+</div>
+<div class="section" id="ontwikkelaarstools">
+<h2>(3) Ontwikkelaarstools<a class="headerlink" href="#ontwikkelaarstools" title="Permalink naar deze titel">¶</a></h2>
+<div class="admonition-browser-ontwikkelaarstools admonition">
+<p class="admonition-title">Browser-ontwikkelaarstools</p>
+<p>Moderne browsers beschikken over <em>ontwikkelaarstools</em> voor ontwikkelaars van websites.
+Met deze tools kun je de interactie tussen de browser, de webserver en de html/css/javascript-bestanden volgen.</p>
+<p>De manier waarop je deze tools vindt verschilt per browser:</p>
+<ul class="simple">
+<li><p>Chrome (OS X): Weergave-&gt;Ontwikkelaar-&gt;Ontwikkelaarstools</p></li>
+<li><p>Chrome (Windows 10): Meer hulpprogramma’s-&gt;hulpprogramma’s voor ontwikkelaars (of “F12”)</p></li>
+<li><p>FireFox: Extra-&gt;Webontwikkelaar-&gt;Hulpmiddelen in-/uitschakelen</p></li>
+<li><p>Safari: Ontwikkel-&gt;Toon webinfovenster (je moet in de voorkeuren instellen dat dit menu getoond wordt).</p></li>
+</ul>
+</div>
+<p>Via de browser-ontwikkelaarstools bestudeer je de interactie tussen de browser en de IoT-knoop als webserver.
+Gebruik de IoT-knoop als Access Point, met als IP-adres 192.168.4.1, zie opdracht (1).</p>
+<ol class="arabic simple">
+<li><p>Bestudeer het http-protocol tussen de browser en de IoT-knoop-webserver via de tab “Netwerk”.
+Door op een element links te klikken krijg je de gegevens over de interactie voor dat element.</p>
+<ol class="loweralpha simple">
+<li><p>Ga na wat het IP-adres is van de webserver (headers/kopteksten).</p></li>
+<li><p>Welke informatie krijgt de browser over de webserver? (headers)</p></li>
+<li><p>Welke informatie krijgt de webserver over de browser? (headers)</p></li>
+<li><p>Voer als URL in de browser in: <code class="docutils literal notranslate"><span class="pre">http://192.168.4.1/ledon</span></code>.
+Wat is het http-request (URL en method - GET, POST, etc.) dat de browser verstuurt?</p></li>
+<li><p>In de home-pagina kun je via <em>buttons</em> de led aanzetten.
+Wat is het http-request (URL, method, en parameters) dat de browser daarbij verstuurt?
+(In opdracht xxxx wordt dit verder uitgewerkt)</p></li>
+</ol>
+</li>
+<li><p>Bestudeer de timing van het http-protocol, via de tab “Netwerk”</p>
+<ol class="loweralpha simple">
+<li><p>wat is de totale tijd tussen het versturen van het request met URL: <code class="docutils literal notranslate"><span class="pre">http://192.168.4.1/ledon</span></code>,
+en het ontvangen response van de server?
+Dit is de end-to-end <em>latency</em> van de interactie tussen browser en server.</p></li>
+<li><p>uit welke onderdelen bestaat deze tijd?</p></li>
+<li><p>verstuur het request een aantal keren kort achter elkaar. Verandert de timing?
+Welk onderdeel verandert vooral? Kun je dit verklaren?</p></li>
+</ol>
+</li>
+<li><p>Bestudeer de brontekst van de homepagina van de IoT-knoop website, via de tab “Netwerk” of “Documenten”.</p>
+<ol class="loweralpha simple">
+<li><p>Wat is de grootte van het html-document (in bytes)?</p></li>
+<li><p>Welk element in het html-document bevat de URL voor het aan- en uitzetten van de LED?
+Geef de beginregel hiervan.</p></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="led-besturing-2">
+<h2>(4) LED-besturing (2)<a class="headerlink" href="#led-besturing-2" title="Permalink naar deze titel">¶</a></h2>
+<p>Naast de eenvoudige URLs <code class="docutils literal notranslate"><span class="pre">/ledon</span></code> en <code class="docutils literal notranslate"><span class="pre">/ledoff</span></code> is er nog een manier om de LED aan- en uit te schakelen:
+via de <em>buttons</em> op de homepagina.
+Het gebruik van deze buttons resulteert in het opsturen van een formulier naar de webserver.</p>
+<ol class="arabic simple">
+<li><p>Klik op de “on”-button. De LED op de IoT-knoop brandt nu (als het goed is).
+Welke URL verschijnt nu in het URL-venster? (Het kan nodig zijn om dit te selecteren.)</p></li>
+<li><p>Laad de pagina opnieuw. (De browser heeft hiervoor een “refresh” of “reload”-knop, meestal een cirkel-pijlje.)
+Wat is de reactie van de browser? Waarom geeft de browser deze reactie?</p></li>
+<li><p>Soms wordt een webpagina ge-cached, in de browser, of in de keten tussen de browser en de server.
+Een http GET-request bereikt dan niet altijd de server.
+Ga na wat dit betekent voor (a) de aanpak met de eenvoudige URLs <code class="docutils literal notranslate"><span class="pre">/ledon</span></code> en <code class="docutils literal notranslate"><span class="pre">ledoff</span></code>;
+(b) het gebruik van een formulier met een POST-request, zoals hierboven?</p></li>
+<li><p>Kun je het formulier versturen door met de hand een URL in de browser in te vullen?</p></li>
+</ol>
+<p>De beide buttons zijn onderdeel van een <em>webformulier</em>.
 De browser stuurt dit formulier via een HTTP-POST-request naar de server,
-met als naam-waard-paren: <code class="docutils literal notranslate"><span class="pre">on=1</span></code> voor “aan”, <code class="docutils literal notranslate"><span class="pre">on=0</span></code> voor “uit”.</p>
+met als parameter het naam-waarde-paar: <code class="docutils literal notranslate"><span class="pre">on=1</span></code> voor “aan”; en <code class="docutils literal notranslate"><span class="pre">on=0</span></code> voor “uit”.</p>
 <p>De server verwerkt het verzoek als volgt:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">handleLed0</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">server</span><span class="p">.</span><span class="n">method</span><span class="p">()</span> <span class="o">==</span> <span class="n">HTTP_POST</span><span class="p">)</span> <span class="p">{</span>
@@ -207,73 +260,34 @@ met als naam-waard-paren: <code class="docutils literal notranslate"><span class
 </pre></div>
 </div>
 </div>
-<div class="section" id="browser-ontwikkelaarstools">
-<h2>(3) Browser-ontwikkelaarstools<a class="headerlink" href="#browser-ontwikkelaarstools" title="Permalink naar deze titel">¶</a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt>bestudeer de brontekst van het html-document, via de browser ontwikkelaarstools, bronbestanden-sectie. Deze vind je bij:</dt><dd><ul>
-<li><p>Chrome (OS X): Weergave-&gt;Ontwikkelaar-&gt;Ontwikkelaarstools</p></li>
-<li><p>Chrome (Windows 10): Meer hulpprogramma’s-&gt;hulpprogramma’s voor ontwikkelaars (of “F12”)</p></li>
-<li><p>FireFox: Extra-&gt;Webontwikkelaar-&gt;Hulpmiddelen in-/uitschakelen</p></li>
-<li><p>Safari: Ontwikkel-&gt;Toon webinfovenster (mogelijk moet je in de voorkeuren instellen dat dit menu getoond wordt: )</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>ga via de browser webtools na wat het IP-adres is van de webserver (netwerk-sectie, “headers”/”kopteksten” gedeelte)</dt><dd><ul>
-<li><p>soms krijg je meer informatie als je op de naam van het document klikt</p></li>
-<li><p>uit hoeveel tekens (bytes) bestaat het brondocument?</p></li>
-<li><p>welke URL wordt gebruikt voor het inschakelen van de LED? welke voor het uitschakelen?</p></li>
-<li><p>welke verzoekgegevens worden gebruikt voor het in- en uitschakelen van de LED?</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>je kunt de webserver benaderen via het IP-adres of via de lokale domeinnaam.</dt><dd><ul>
-<li><p>ga na (via de browser webtools, netwerk-sectie) of dit verschil uitmaakt in de totale tijd tussen aanvraag en resultaat.</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div>
-<div class="section" id="uitlezen-van-sensorwaarden">
-<h2>(4) Uitlezen van sensorwaarden<a class="headerlink" href="#uitlezen-van-sensorwaarden" title="Permalink naar deze titel">¶</a></h2>
-<p>Via de webserver lees je ook de waarden van de sensoren in de IoT-knoop uit.</p>
-<ul class="simple">
-<li><p>hiervoor heb je een knoop nodig met de <code class="docutils literal notranslate"><span class="pre">sensor-webserver-0</span></code>-software.</p></li>
-<li><p>elke keer als je de webpagina ververst krijg je de actuele sensorwaarden te zien.</p></li>
-<li><dl class="simple">
-<dt>je krijgt veranderde sensorwaarden niet automatisch te zien: je moet daarvoor de webpagina verversen.</dt><dd><ul>
-<li><p>dit verversen kun je wel automatiseren, maar dat verandert niets aan het principe:
-de client vraagt aan de server wat de actuele toestand is.</p></li>
-<li><p>regelmatig de toestand opvragen bij de server heet ook wel “polling”;
-dit staat tegenover het wachten op een bericht als de toestand veranderd is.</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</div>
-<div class="section" id="de-programmatekst-van-de-iot-knoop">
-<h2>(5) De programmatekst van de IoT-knoop<a class="headerlink" href="#de-programmatekst-van-de-iot-knoop" title="Permalink naar deze titel">¶</a></h2>
-<p>In de programmatekst van de IoT-knoop kun je zien hoe de server een verzoek afhandelt,
-en op basis van het URL-pad beslist welke actie op de LED plaatsvindt.
-De programmatekst vind je via: <a class="reference external" href="https://github.com/infvo/iot2018/tree/master/sensor-webserver-0">sensor-webserver-0</a></p>
-<ul class="simple">
-<li><p>welke functie bevat de tekst van de webpagina?</p></li>
-<li><p>welke functie wordt aangeroepen bij een request met URL <code class="docutils literal notranslate"><span class="pre">/</span></code>?</p></li>
-<li><p>welke functie wordt aangeroepen bij een request met URL <code class="docutils literal notranslate"><span class="pre">/leds/0</span></code>?</p></li>
-<li><dl class="simple">
-<dt>wat gebeurt er als je een onbekende URL invoert?</dt><dd><ul>
-<li><p>geef daarbij eventueel <em>parameters</em> mee, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">?x=123&amp;y=groen</span></code></p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
+<div class="section" id="adresseren-van-de-webserver">
+<h2>(5) Adresseren van de webserver<a class="headerlink" href="#adresseren-van-de-webserver" title="Permalink naar deze titel">¶</a></h2>
+<p>Als je met een browser de webserver van de IoT-knoop wilt benaderen,
+moeten ze in hetzelfde lokale netwerk verbonden zijn.
+Bovendien moet je het IP-adres van de IoT-knoop kennen.
+In het geval van de IoT-knoop als access point ligt dat vast.
+Maar als de IoT-knoop deel uitmaakt van een netwerk van een ander access point moet je het IP-adres zien te achterhalen.</p>
+<p>Dit kan op verschillende manieren.
+Probeer één of meer van de onderstaande methodes uit.
+Ga na of het IP-adres klopt door de homepagina van de IoT-knoop in de browser te laten zien.</p>
+<ol class="loweralpha simple">
+<li><p>Sommige IoT-knopen hebben een display: bij het opstarten meldt de knoop het IP-adres op het display;</p></li>
+<li><p>Een IoT-knoop meldt via de USB-verbinding bij het opstarten het IP-adres (en het MAC-adres).
+Om dit te bekijken heb je nodig:
+(i) de USB-driver voor de IoT-knoop (CHG340);
+(ii) een programma om een seriële verbinding met de IoT-knoop te maken,
+bijvoorbeeld de Arduino IDE (Seriële Monitor).</p></li>
+<li><p>Gebruik een programma dat een netwerk-scan doet;
+zie bijvoorbeeld  <a class="reference external" href="https://geekflare.com/network-scanner/">https://geekflare.com/network-scanner/</a> of voor een lijst.
+“Angry IP Scanner” en “Advanced IP Scanner” zijn goede mogelijkheden.
+Er zijn ook mobiele apps voor het scannen van het lokale netwerk, bijvoorbeeld “Fing”.
+Een netwerkscanner geeft je niet alleen het IP-adres, maar ook het volledige MAC-adres van de IoT-knoop.</p></li>
+</ol>
+<p>Deze laatste methode geeft je ook inzicht in alle apparaten die aan het netwerk verbonden zijn.
+Dit is vooral aan te raden voor een thuisnetwerk: herken je alle devices in het netwerk?</p>
+<p>Er is nog een andere methode, die gebruik maakt van een eenvoudige DNS-service voor lokale netwerken:
+mDNS (multicast DNS).
+Deze aanpak laten we hier buiten beschouwing, omdat deze niet door alle browsers ondersteund wordt.</p>
 </div>
 <div class="section" id="een-eigen-voorbeeld">
 <h2>(6) Een eigen voorbeeld<a class="headerlink" href="#een-eigen-voorbeeld" title="Permalink naar deze titel">¶</a></h2>

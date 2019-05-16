@@ -48,12 +48,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../rfm69.html">RFM69-knopen</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">RFM69 keten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rfm69-protocol">RFM69 protocol</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hardware-protocol">Hardware-protocol</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RFM69 keten</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rfm69-protocol">RFM69 protocol</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hardware-protocol">Hardware-protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rfm69-library-protocol">RFM69-library protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#toepassingsprotocol">Toepassingsprotocol</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#gateway">Gateway</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gateway">Gateway</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
 </ul>
@@ -109,9 +113,8 @@ Het binaire Cayenne Low Power Payload (LPP) formaat gebruiken we voor de payload
 <p>Op het toepassingsniveau gebruiken we MQTT/JSON-berichten met dezelfde structuur,
 voor de WiFi- en voor de RFM69-knopen.
 We kunnen dan de berichten van de RFM69-IoT-knopen we op dezelfde manier verwerken als de berichten van de WiFi-knopen.</p>
-</div>
 <div class="section" id="rfm69-protocol">
-<h1>RFM69 protocol<a class="headerlink" href="#rfm69-protocol" title="Permalink naar deze titel">¶</a></h1>
+<h2>RFM69 protocol<a class="headerlink" href="#rfm69-protocol" title="Permalink naar deze titel">¶</a></h2>
 <p>We hebben in de RFM69-knopen te maken met de volgende <em>protocolstack</em>:</p>
 <ul class="simple">
 <li><p>het hardware-protocol (RFM69 radio);</p></li>
@@ -123,7 +126,7 @@ We kunnen dan de berichten van de RFM69-IoT-knopen we op dezelfde manier verwerk
 <p class="caption"><span class="caption-text">RFM69 pakket met LPP payload</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <div class="section" id="hardware-protocol">
-<h2>Hardware-protocol<a class="headerlink" href="#hardware-protocol" title="Permalink naar deze titel">¶</a></h2>
+<h3>Hardware-protocol<a class="headerlink" href="#hardware-protocol" title="Permalink naar deze titel">¶</a></h3>
 <p>Het <em>hardware-protocol</em> zorgt voor:</p>
 <ul class="simple">
 <li><p>het adresseren (<em>destination</em>), zenden en ontvangen van pakketten;</p></li>
@@ -131,12 +134,37 @@ We kunnen dan de berichten van de RFM69-IoT-knopen we op dezelfde manier verwerk
 als deze klopt, concludeert de hardware dat het pakket correct ontvangen is;</p></li>
 <li><p>het versleutelen en ontsleutelen van de payload (encryptie).</p></li>
 </ul>
+<p>De zender en ontvanger gebruiken dezelfde sleutel voor de encryptie:
+deze moet van je te voren aan beide kanten instellen.
+In zo’n geval spreken we over een <em>pre-shared key</em>.</p>
+<blockquote>
+<div><p>Een beveiligde internet-verbinding, zoals voor https,
+maakt gebruik van <em>public-key encryptie</em>.
+In dat geval heb je geen pre-shared keys nodig.</p>
+</div></blockquote>
+</div>
+<div class="section" id="rfm69-library-protocol">
+<h3>RFM69-library protocol<a class="headerlink" href="#rfm69-library-protocol" title="Permalink naar deze titel">¶</a></h3>
 <p>Het protocol van de <em>RFM69-library</em> voegt het adres van de afzender (<em>source</em>) toe aan het pakket,
 als eerste byte van de payload in het hardware-pakket.
 Het protocol van de RFM69-library noemen we hier het <em>RFM69-protocol</em>.</p>
 <p>Het RFM69-protocol gebruikt 5-bits adressen (0..63) voor de knopen in het netwerk.
 De adressen 0, 61, 62 en 63 hebben een speciale betekenis.
 RFM69-adres 0 als <em>destination</em> is het <em>broadcast address</em>: alle IoT-knopen in het RFM69-netwerk ontvangen zo’n bericht.</p>
+<p>De belangrijkste opdracht voor het zenden en ontvangen van een pakket zijn:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>rf.receive(rxBuf, sizeof rxBuf);</cite></dt><dd><ul>
+<li><p>het eerste byte van <cite>rxBuf</cite> geeft het adres van de afzender.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><cite>rf.send(dstNode, txBuf, len);</cite></p></li>
+</ul>
+</div>
+<div class="section" id="toepassingsprotocol">
+<h3>Toepassingsprotocol<a class="headerlink" href="#toepassingsprotocol" title="Permalink naar deze titel">¶</a></h3>
 <p>Het <em>toepassingsprotocol</em> gebruikt de rest van de hardware-payload.
 Dit protocol gebruikt verschillende formaten voor uplink- en voor downlink-pakketten.
 We bespreken hier alleen de binaire formaten op basis van het Cayenne <em>low power payload</em> (LPP) formaat.
@@ -278,7 +306,7 @@ Ook de <em>nodeid</em> is niet nodig: de IoT-knoop kent zijn eigen <em>nodeid</e
 </div>
 </div>
 <div class="section" id="gateway">
-<h1>Gateway<a class="headerlink" href="#gateway" title="Permalink naar deze titel">¶</a></h1>
+<h2>Gateway<a class="headerlink" href="#gateway" title="Permalink naar deze titel">¶</a></h2>
 <p>De <em>gateway</em> koppelt het RFM69-netwerk aan het internet, meer in het bijzondere aan de IoT-toepassing via het MQTT-protocol.
 Een RFM-IoT-knoop verstuurt RFM69-pakketten met daarin een IOT-toepassingspakket met een LPP-payload.</p>
 <div class="figure align-center" id="id4">
@@ -313,6 +341,7 @@ niet overal op dezelfde manier gebruikt.</p>
 <p>Ook als de IoT-knoop zelf de internet-protocolstack gebruikt kan het zinvol zijn om een bridge te gebruiken,
 om de lokale communicatie te scheiden van het publieke internet.
 Deze bridge kan er bijvoorbeeld zorgen voor de versleuteling van het verkeer naar het publieke internet.</p>
+</div>
 </div>
 
 

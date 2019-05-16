@@ -7,85 +7,139 @@ In de opdrachten gebruiken we een IoT-knoop met daarop een webserver.
 Via een computer (browser) in hetzelfde netwerk als deze IoT-knoop maak je contact met deze webserver:
 daarmee vraag je sensorwaarden van de IoT-knoop op en bestuur je de actuatoren (LEDs) van de knoop.
 
-(1) Adresseren van de webserver
--------------------------------
-
-In het eerste voorbeeld gebruik je een IoT-knoop met een webserver voor het aansturen van een LED en
-voor het uitlezen van sensorwaarden.
-
 .. admonition:: Wat heb je nodig?
 
-  * IoT-knoop met LED en webserver-software (``sensor-webserver-0``);
+  * IoT-knoop met LED en webserver-software (``wifi-node-x(d)``);
   * computer of smartphone met browser;
-  * computer en IoT-knoop moeten beide verbonden zijn in het lokale (WiFi) netwerk.
 
-*Hoe vind je de webserver in de browser?*
-Een webpagina adresseer je in de browser met een URL.
+(1) IoT-knoop als Access Point
+------------------------------
 
-* Het eerste onderdeel van de URL geeft het protocol aan, in dit geval ``http:`` .
-* Het volgende onderdeel is het adres van de server.
-  Dit kan een *domeinnaam* zijn, zoals ``infvo.nl``, of een *IP-adres*, zoals ``192.168.1.103``.
-  De browser gebruikt een Domain Name Server (DNS-server) om het IP-adres te vinden van een domeinnaam.
-* Na het server-adres volgt de *padnaam*: dit identificeert de webpagina op de server.
+In het eerste voorbeeld gebruik je een IoT-knoop in Access Point mode.
+Het gaat bij deze opdracht om het uitlezen van de sensorwaarden van de IoT-knoop.
+In deze opdracht verander je de configuratie niet!
 
-Een webserver in het lokale netwerk komt niet voor in de administratie van een publieke DNS-server.
-Voor het lokale netwerk kun je een andere technologie gebruiken: mDNS (multicast DNS;
-niet alle operating systems ondersteunen dit).
+1. Start de IoT-knooop op in Access Point mode;
+   zie :ref:`Configureren` stap 1.
+2. Maak met je computer of je smartphone contact met het WiFi-netwerk van deze IoT-knoop;
+   zie :ref:`Configureren` stap 2.
+3. Geef in de browser als URL het IP-adres van de IoT-knoop: ``http://192.168.4.1``
+   Je krijgt nu de homepagina van de IoT-knoop te zien.
+4. Bestudeer de sensorwaarden in deze homepagina.
+   Adem of blaas voorzichtig op de temperatuur/luchtvochtigheidssensor van de IoT-knoop.
+   Veranderen de sensorwaarden in deze homepagina?
+5. Ververs de pagina in de browser.
+   Veranderen de sensorwaarden in de pagina?
+6. Beredeneer het gedrag van de browser/IoT-knoop dat je bij (4) en (5) gezien hebt.
+7. Ga na wat het IP-adres van je eigen computer is in het netwerk van de IoT-knoop.
 
-De sensor-webserver-software meldt zich bij mDNS aan met de naam: ``esp8266-xxxx.local``,
-waarin ``xxxx`` de laatste 4 cijfers van het WiFi MAC-adres van de knoop zijn.
-Dit unieke adres is een *overanderlijk onderdeel van het apparaat*.
-Een WiFi MAC-adres is een 48-bits adres, geschreven als een reeks van 6 bytes in hexadecimale notatie: ``00:00:00:00:00:00``.
+**Opmerkingen**.
 
-* Zie: https://en.wikipedia.org/wiki/MAC_address.
+* Je kunt met meerdere (max. 4) computers contact maken met een ESP8266-access point.
+* breng niet teveel IoT-knopen tegelijk in access-point mode: dat kan het andere WiFi-verkeer verstoren.
+* via het WiFi-netwerk van de IoT-knoop heeft je computer geen verbinding met het internet. (Ga dit na.)
+* het herhaald versturen van een verzoek aan de (web)server om te zien of er iets veranderd is heet "polling".
 
-Het IP-adres van een apparaat is *gebonden aan het netwerk*:
-dit adres verandert als je het apparaat in een ander netwerk verbindt.
-Bovendien kan het veranderen als je het apparaat opnieuw in hetzelfde netwerk verbindt.
+(2) LED-besturing (1)
+---------------------
 
-1. zoek uit wat het MAC-adres is van je IoT-knoop; dit staat waarschijnlijk op het apparaat;
-2. zoek in de browser de webserver via de URL: ``http://esp8266-xxxx.local``,
-   met voor ``xxxx`` de laatste 4 tekens van het MAC-adres.
-3. je krijgt nu de webpagina van de IoT-knoop te zien (als het goed is).
-   Deze geeft ook aan wat het eigen IP-adres is.
-4. zoek in de browser de webserver via de URL: ``http://aaa.bbb.ccc.ddd``,
-   waarin ``aaa.bbb.ccc.ddd`` het IP-adres van de IoT-knoop is.
+De IoT-knoop heeft een eenvoudige manier om de LED aan en uit te zetten:
 
-Als de omgeving van je browser geen mDNS ondersteunt, probeer het dan via een andere computer of smartphone.
-Voor zover bekend ondersteunen OS X, iOS en Android mDNS.
+1. Vul als URL in de browser in: ``http://192.168.4.1/ledon``.
+   Controleer dat de LED aan gaat.
+2. Vul als URL in de browser in: ``http://192.168.4.1/ledoff``.
+   Controleer dat de LED uit gaat.
+3. Leg uit waarom er twee verschillende URLs zijn,
+   in plaats van één enkele die de LED omschakelt van aan naar uit en omgekeerd.
+   (*Hint*: zijn de acties *idempotent*?)
 
-Opmerkingen:
+De functies in de ESP8266-software voor ``ledon`` en ``ledoff`` zijn:
 
-* je kunt het IP-adres vinden via de ontwikkelaarstools in de browser, zie opdracht (3).
-* je kunt het IP-adres vinden via het ``ping``-commando (in Unix/Linux), bijvoorbeeld:
-  ``ping esp8266-8f12.local``
-* je kunt het IP-adres vinden in de DHCP-tabel van de lokale router/gateway (als je daar toegang toe hebt).
+.. code-block:: c++
 
-(2) Aansturen van de LED
-------------------------
+  void handleLedOn() {
+    digitalWrite(led0, HIGH);
+    sendHTMLdoc();
+  }
 
-.. admonition:: Wat heb je nodig?
+  void handleLedOff() {
+    digitalWrite(led0, LOW);
+    sendHTMLdoc();
+  }
 
-   * de opstelling van de vorige opdracht
-   * de gegevens van de vorige opdracht
+De functie ``digitalWrite`` stuurt de led aan.
+De functie ``sendHTMLdoc()`` stuurt de het homepagina-document naar de browser.
+Zoals je ziet kun je met een URL soms heel direct hardware (actuatoren) besturen.
 
-We gebruiken de webserver om een LED van de IoT-knoop aan- en uit te zetten.
+Er is nog een manier om de LED aan- en uit te schakelen: dit komt in opdracht (x) aan de orde.
 
-1. Open de webpagina van de IoT-knoop, zoals in de vorige opdracht;
-2. Je ziet twee knoppen (buttons) om de LED aan- en uit te zetten.
-   Zet de LED aan.
-   De LED op de IoT-knoop brandt nu (als het goed is).
-   Wat is nu de URL in het URL-venster van de browser?
-3. Zet de LED uit.
-   De LED is nu uit (als het goed is).
-   Wat is nu de URL?
-4. Wat gebeurt er als je in de browser de pagina opnieuw laadt ("refresh" of "reload")?
-5. Wat gebeurt er als je de URL van (2) of (3) invoert in het URL-venster van de browser?
+(3) Ontwikkelaarstools
+----------------------
 
-Je ziet hier dat je een apparaat kunt besturen met een webpagina.
+.. admonition:: Browser-ontwikkelaarstools
+
+  Moderne browsers beschikken over *ontwikkelaarstools* voor ontwikkelaars van websites.
+  Met deze tools kun je de interactie tussen de browser, de webserver en de html/css/javascript-bestanden volgen.
+
+  De manier waarop je deze tools vindt verschilt per browser:
+
+  * Chrome (OS X): Weergave->Ontwikkelaar->Ontwikkelaarstools
+  * Chrome (Windows 10): Meer hulpprogramma’s->hulpprogramma’s voor ontwikkelaars (of “F12”)
+  * FireFox: Extra->Webontwikkelaar->Hulpmiddelen in-/uitschakelen
+  * Safari: Ontwikkel->Toon webinfovenster (je moet in de voorkeuren instellen dat dit menu getoond wordt).
+
+Via de browser-ontwikkelaarstools bestudeer je de interactie tussen de browser en de IoT-knoop als webserver.
+Gebruik de IoT-knoop als Access Point, met als IP-adres 192.168.4.1, zie opdracht (1).
+
+(1) Bestudeer het http-protocol tussen de browser en de IoT-knoop-webserver via de tab "Netwerk".
+    Door op een element links te klikken krijg je de gegevens over de interactie voor dat element.
+
+    (a) Ga na wat het IP-adres is van de webserver (headers/kopteksten).
+    (b) Welke informatie krijgt de browser over de webserver? (headers)
+    (c) Welke informatie krijgt de webserver over de browser? (headers)
+    (d) Voer als URL in de browser in: ``http://192.168.4.1/ledon``.
+        Wat is het http-request (URL en method - GET, POST, etc.) dat de browser verstuurt?
+    (e) In de home-pagina kun je via *buttons* de led aanzetten.
+        Wat is het http-request (URL, method, en parameters) dat de browser daarbij verstuurt?
+        (In opdracht xxxx wordt dit verder uitgewerkt)
+
+(2) Bestudeer de timing van het http-protocol, via de tab "Netwerk"
+
+    (a) wat is de totale tijd tussen het versturen van het request met URL: ``http://192.168.4.1/ledon``,
+        en het ontvangen response van de server?
+        Dit is de end-to-end *latency* van de interactie tussen browser en server.
+    (b) uit welke onderdelen bestaat deze tijd?
+    (c) verstuur het request een aantal keren kort achter elkaar. Verandert de timing?
+        Welk onderdeel verandert vooral? Kun je dit verklaren?
+
+(3) Bestudeer de brontekst van de homepagina van de IoT-knoop website, via de tab "Netwerk" of "Documenten".
+
+    (a) Wat is de grootte van het html-document (in bytes)?
+    (b) Welk element in het html-document bevat de URL voor het aan- en uitzetten van de LED?
+        Geef de beginregel hiervan.
+
+
+(4) LED-besturing (2)
+---------------------
+
+Naast de eenvoudige URLs ``/ledon`` en ``/ledoff`` is er nog een manier om de LED aan- en uit te schakelen:
+via de *buttons* op de homepagina.
+Het gebruik van deze buttons resulteert in het opsturen van een formulier naar de webserver.
+
+
+1. Klik op de "on"-button. De LED op de IoT-knoop brandt nu (als het goed is).
+   Welke URL verschijnt nu in het URL-venster? (Het kan nodig zijn om dit te selecteren.)
+2. Laad de pagina opnieuw. (De browser heeft hiervoor een "refresh" of "reload"-knop, meestal een cirkel-pijlje.)
+   Wat is de reactie van de browser? Waarom geeft de browser deze reactie?
+3. Soms wordt een webpagina ge-cached, in de browser, of in de keten tussen de browser en de server.
+   Een http GET-request bereikt dan niet altijd de server.
+   Ga na wat dit betekent voor (a) de aanpak met de eenvoudige URLs ``/ledon`` en ``ledoff``;
+   (b) het gebruik van een formulier met een POST-request, zoals hierboven?
+4. Kun je het formulier versturen door met de hand een URL in de browser in te vullen?
+
 De beide buttons zijn onderdeel van een *webformulier*.
 De browser stuurt dit formulier via een HTTP-POST-request naar de server,
-met als naam-waard-paren: ``on=1`` voor "aan", ``on=0`` voor "uit".
+met als parameter het naam-waarde-paar: ``on=1`` voor "aan"; en ``on=0`` voor "uit".
 
 De server verwerkt het verzoek als volgt:
 
@@ -110,48 +164,37 @@ De server verwerkt het verzoek als volgt:
   server.on("/", handleRoot);
   server.on("/leds/0", handleLedOn);
 
-(3) Browser-ontwikkelaarstools
-------------------------------
-
-* bestudeer de brontekst van het html-document, via de browser ontwikkelaarstools, bronbestanden-sectie. Deze vind je bij:
-    * Chrome (OS X): Weergave->Ontwikkelaar->Ontwikkelaarstools
-    * Chrome (Windows 10): Meer hulpprogramma’s->hulpprogramma’s voor ontwikkelaars (of “F12”)
-    * FireFox: Extra->Webontwikkelaar->Hulpmiddelen in-/uitschakelen
-    * Safari: Ontwikkel->Toon webinfovenster (mogelijk moet je in de voorkeuren instellen dat dit menu getoond wordt: )
-* ga via de browser webtools na wat het IP-adres is van de webserver (netwerk-sectie, "headers"/"kopteksten" gedeelte)
-    * soms krijg je meer informatie als je op de naam van het document klikt
-    * uit hoeveel tekens (bytes) bestaat het brondocument?
-    * welke URL wordt gebruikt voor het inschakelen van de LED? welke voor het uitschakelen?
-    * welke verzoekgegevens worden gebruikt voor het in- en uitschakelen van de LED?
-* je kunt de webserver benaderen via het IP-adres of via de lokale domeinnaam.
-    * ga na (via de browser webtools, netwerk-sectie) of dit verschil uitmaakt in de totale tijd tussen aanvraag en resultaat.
-
-(4) Uitlezen van sensorwaarden
+(5) Adresseren van de webserver
 -------------------------------
 
-Via de webserver lees je ook de waarden van de sensoren in de IoT-knoop uit.
+Als je met een browser de webserver van de IoT-knoop wilt benaderen,
+moeten ze in hetzelfde lokale netwerk verbonden zijn.
+Bovendien moet je het IP-adres van de IoT-knoop kennen.
+In het geval van de IoT-knoop als access point ligt dat vast.
+Maar als de IoT-knoop deel uitmaakt van een netwerk van een ander access point moet je het IP-adres zien te achterhalen.
 
-* hiervoor heb je een knoop nodig met de ``sensor-webserver-0``-software.
-* elke keer als je de webpagina ververst krijg je de actuele sensorwaarden te zien.
-* je krijgt veranderde sensorwaarden niet automatisch te zien: je moet daarvoor de webpagina verversen.
-    * dit verversen kun je wel automatiseren, maar dat verandert niets aan het principe:
-      de client vraagt aan de server wat de actuele toestand is.
-    * regelmatig de toestand opvragen bij de server heet ook wel "polling";
-      dit staat tegenover het wachten op een bericht als de toestand veranderd is.
+Dit kan op verschillende manieren.
+Probeer één of meer van de onderstaande methodes uit.
+Ga na of het IP-adres klopt door de homepagina van de IoT-knoop in de browser te laten zien.
 
+(a) Sommige IoT-knopen hebben een display: bij het opstarten meldt de knoop het IP-adres op het display;
+(b) Een IoT-knoop meldt via de USB-verbinding bij het opstarten het IP-adres (en het MAC-adres).
+    Om dit te bekijken heb je nodig:
+    (i) de USB-driver voor de IoT-knoop (CHG340);
+    (ii) een programma om een seriële verbinding met de IoT-knoop te maken,
+    bijvoorbeeld de Arduino IDE (Seriële Monitor).
+(c) Gebruik een programma dat een netwerk-scan doet;
+    zie bijvoorbeeld  https://geekflare.com/network-scanner/ of voor een lijst.
+    "Angry IP Scanner" en "Advanced IP Scanner" zijn goede mogelijkheden.
+    Er zijn ook mobiele apps voor het scannen van het lokale netwerk, bijvoorbeeld "Fing".
+    Een netwerkscanner geeft je niet alleen het IP-adres, maar ook het volledige MAC-adres van de IoT-knoop.
 
-(5) De programmatekst van de IoT-knoop
---------------------------------------
+Deze laatste methode geeft je ook inzicht in alle apparaten die aan het netwerk verbonden zijn.
+Dit is vooral aan te raden voor een thuisnetwerk: herken je alle devices in het netwerk?
 
-In de programmatekst van de IoT-knoop kun je zien hoe de server een verzoek afhandelt,
-en op basis van het URL-pad beslist welke actie op de LED plaatsvindt.
-De programmatekst vind je via: `sensor-webserver-0 <https://github.com/infvo/iot2018/tree/master/sensor-webserver-0>`_
-
-* welke functie bevat de tekst van de webpagina?
-* welke functie wordt aangeroepen bij een request met URL ``/``?
-* welke functie wordt aangeroepen bij een request met URL ``/leds/0``?
-* wat gebeurt er als je een onbekende URL invoert?
-    * geef daarbij eventueel *parameters* mee, bijvoorbeeld ``?x=123&y=groen``
+Er is nog een andere methode, die gebruik maakt van een eenvoudige DNS-service voor lokale netwerken:
+mDNS (multicast DNS).
+Deze aanpak laten we hier buiten beschouwing, omdat deze niet door alle browsers ondersteund wordt.
 
 (6) Een eigen voorbeeld
 -----------------------
