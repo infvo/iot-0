@@ -7,7 +7,7 @@ In de opdrachten gebruiken we een IoT-knoop met daarop een webserver.
 Via een computer (browser) in hetzelfde netwerk als deze IoT-knoop maak je contact met deze webserver:
 daarmee vraag je sensorwaarden van de IoT-knoop op en bestuur je de actuatoren (LEDs) van de knoop.
 
-.. admonition:: Wat heb je nodig?
+.. admonition:: Wat heb je nodig
 
   * IoT-knoop met LED en webserver-software (``wifi-node-x(d)``);
   * computer of smartphone met browser;
