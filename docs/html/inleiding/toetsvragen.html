@@ -7,24 +7,70 @@
     <title>Toetsvragen &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=B9BAA0D1" />
+    <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
+    <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
+    <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=8329CA55"></script>
+    <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
+    <script type="text/javascript" src="../_static/timed.js?v=6789FE30"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=5EB6170D"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=2B6403E8"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=6C59AE9F"></script>
+    <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
+    <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
+    <script type="text/javascript" src="../_static/parsons.js?v=93EFFF39"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js?v=2EEA9E5A"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Bouwstenen" href="../bouwstenen.html" />
     <link rel="prev" title="Opdrachten" href="opdrachten.html" />
 
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = '' ? '' : 'http://127.0.0.1:8000';
+/*
+  eBookConfig.app = eBookConfig.host+'/';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = '';
+  eBookConfig.logLevel = ;
+  eBookConfig.loginRequired = ;
+  eBookConfig.build_info = "";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = ;
+  eBookConfig.python3 = ;
+  eBookConfig.basecourse = '';
+  eBookConfig.runestone_version = '';
+*/
+</script>
 <script type="application/json" class="js-hypothesis-config">
 {
 "showHighlights": false
 }
 </script>
 <script async src="https://hypothes.is/embed.js"></script>
-
 
   </head><body>
   <div class="document">
@@ -50,7 +96,12 @@
 <li class="toctree-l2"><a class="reference internal" href="meer-voorbeelden.html">Meer voorbeelden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Toetsvragen</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Toetsvragen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#voorkennis">Voorkennis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inleiding">Inleiding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#voorbeelden">Voorbeelden</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
@@ -89,36 +140,276 @@
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="toetsvragen">
 <h1>Toetsvragen<a class="headerlink" href="#toetsvragen" title="Permalink naar deze titel">¶</a></h1>
+<div class="section" id="voorkennis">
+<h2>Voorkennis<a class="headerlink" href="#voorkennis" title="Permalink naar deze titel">¶</a></h2>
+
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="vraag-VK-1">
+            <p>Q-1: Als je je computer in een ander lokaal netwerk verbindt, bijvoorbeeld als je van huis naar school gaat,
+wat verandert er dan?</p>
+
+            <li data-component="answer" data-correct id="vraag-VK-1_opt_a">Het IP-adres verandert (en het MAC-adres blijft gelijk)</li><li data-component="feedback" id="vraag-VK-1_opt_a">OK! Het IP-adres bevat een netwerk-adres: dat deel verandert in elk geval</li>
+            
+            <li data-component="answer"  id="vraag-VK-1_opt_b">Het MAC-adres verandert (en het IP-adres blijft gelijk)</li><li data-component="feedback" id="vraag-VK-1_opt_b">Nee - het MAC-adres is onafhankelijk van het netwerk</li>
+            
+            <li data-component="answer"  id="vraag-VK-1_opt_c">Het IP-adres en het MAC-adres veranderen beide</li><li data-component="feedback" id="vraag-VK-1_opt_c">Nee - het MAC-adres is onafhankelijk van het netwerk</li>
+            
+            <li data-component="answer"  id="vraag-VK-1_opt_d">IP-adres en MAC-adres blijven gelijk.</li><li data-component="feedback" id="vraag-VK-1_opt_d">Nee - Het IP-adres bevat een netwerk-adres: dat deel verandert in elk geval</li>
+            
+
+            </ul>
+            </div>
+            
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="vraag1_VK-2">
+            <p>Q-2: Kan je laptop-computer verschillende IP-adressen tegelijk hebben?
+(Verklaar je antwoord.)</p>
+
+            <li data-component="answer"  id="vraag1_VK-2_opt_a">Nee</li><li data-component="feedback" id="vraag1_VK-2_opt_a">Nee - elk netwerk-interface (WiFi, Ethernet) heeft een eigen IP-adres</li>
+            
+            <li data-component="answer" data-correct id="vraag1_VK-2_opt_b">Ja</li><li data-component="feedback" id="vraag1_VK-2_opt_b">OK! - elk netwerk-interface (WiFi, Ethernet) heeft een eigen IP-adres</li>
+            
+
+            </ul>
+            </div>
+            
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="true"  id="vraag-VK-3">
+            <p>Q-3: Wat is de relatie tussen het internet, het web en Facebook?</p>
+
+            <li data-component="answer"  id="vraag-VK-3_opt_a">Het internet is een toepassing van het web</li><li data-component="feedback" id="vraag-VK-3_opt_a">Het web-protocol (HTTP) gebruikt TCP (en daaronder IP).</li>
+            
+            <li data-component="answer" data-correct id="vraag-VK-3_opt_b">Het web is een toepassing van het internet</li><li data-component="feedback" id="vraag-VK-3_opt_b">Het web-protocol (HTTP) gebruikt TCP (en daaronder IP)</li>
+            
+            <li data-component="answer" data-correct id="vraag-VK-3_opt_c">Facebook is een toepassing van het web</li><li data-component="feedback" id="vraag-VK-3_opt_c">Facebook gebruikt het web (HTTP)</li>
+            
+            <li data-component="answer"  id="vraag-VK-3_opt_d">Het web is een toepassing van Facebook</li><li data-component="feedback" id="vraag-VK-3_opt_d">Facebook gebruikt het web (HTTP)</li>
+            
+
+            </ul>
+            </div>
+            </div>
+<div class="section" id="inleiding">
+<h2>Inleiding<a class="headerlink" href="#inleiding" title="Permalink naar deze titel">¶</a></h2>
+</div>
+<div class="section" id="voorbeelden">
+<h2>Voorbeelden<a class="headerlink" href="#voorbeelden" title="Permalink naar deze titel">¶</a></h2>
+
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="vraag-VB-1">
+            <p>Q-4: Hoe heet een opnemer om een fysische grootheid, zoals de temperatuur, van een “ding” te meten?</p>
+
+            <li data-component="answer"  id="vraag-VB-1_opt_a">Controller</li><li data-component="feedback" id="vraag-VB-1_opt_a">Met een controller bestuur je een IoT-toepassing</li>
+            
+            <li data-component="answer"  id="vraag-VB-1_opt_b">IoT-knoop</li><li data-component="feedback" id="vraag-VB-1_opt_b">Een IoT-knoop kan sensoren bevatten (en actuatoren)</li>
+            
+            <li data-component="answer" data-correct id="vraag-VB-1_opt_c">Sensor</li><li data-component="feedback" id="vraag-VB-1_opt_c">Goed!</li>
+            
+            <li data-component="answer"  id="vraag-VB-1_opt_d">Actuator</li><li data-component="feedback" id="vraag-VB-1_opt_d">Met een <em>actuator</em> verander je een fysische grootheid</li>
+            
+
+            </ul>
+            </div>
+            
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="vraag-VB-2">
+            <p>Q-5: Hoe verhouden het web, het internet en het internet of things zich?
+(Hoe verhouden de verschillende protocollen zich?)</p>
+
+            <li data-component="answer"  id="vraag-VB-2_opt_a">Het internet is een toepassing van het web</li><li data-component="feedback" id="vraag-VB-2_opt_a">Nee - het web is een toepassing van het internet: HTTP maakt gebruik van TCP/IP</li>
+            
+            <li data-component="answer" data-correct id="vraag-VB-2_opt_b">Het web is een toepassing van het internet</li><li data-component="feedback" id="vraag-VB-2_opt_b">Ja! Het web is een toepassing van het internet: HTTP maakt gebruik van TCP/IP</li>
+            
+            <li data-component="answer"  id="vraag-VB-2_opt_c">Het internet of things is een toepassing van het web</li><li data-component="feedback" id="vraag-VB-2_opt_c">Nee - het internet of things gebruikt andere protocollen (MQTT etc.) dan het web (HTTP)</li>
+            
+
+            </ul>
+            </div>
+            
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="true"  id="vraag1-VB-3">
+            <p>Q-6: Welke van de onderstaande uitspraken is waar?</p>
+
+            <li data-component="answer" data-correct id="vraag1-VB-3_opt_a">een controller bestuurt de sensoren en actuatoren bij het "ding"</li><li data-component="feedback" id="vraag1-VB-3_opt_a">Ja.</li>
+            
+            <li data-component="answer"  id="vraag1-VB-3_opt_b">een IoT-knoop bevat altijd sensoren en actuatoren</li><li data-component="feedback" id="vraag1-VB-3_opt_b">Een IoT-knoop kan ook alleen sensoren of actuatoren bevatten.</li>
+            
+            <li data-component="answer" data-correct id="vraag1-VB-3_opt_c">een IoT-knoop bevat altijd een controller</li><li data-component="feedback" id="vraag1-VB-3_opt_c">Ja.</li>
+            
+            <li data-component="answer"  id="vraag1-VB-3_opt_d">een IoT-knoop is altijd draadloos verbonden aan het internet</li><li data-component="feedback" id="vraag1-VB-3_opt_d">Een IoT-knoop kan ook bedraad zijn</li>
+            
+
+            </ul>
+            </div>
+            
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="vraag1-VB-4">
+            <p>Q-7: Hoe heet de verbinding tussen een IoT-knoop en het internet?</p>
+
+            <li data-component="answer"  id="vraag1-VB-4_opt_a">Controller</li><li data-component="feedback" id="vraag1-VB-4_opt_a"></li>
+            
+            <li data-component="answer"  id="vraag1-VB-4_opt_b">Actuator</li><li data-component="feedback" id="vraag1-VB-4_opt_b"></li>
+            
+            <li data-component="answer"  id="vraag1-VB-4_opt_c">Radio</li><li data-component="feedback" id="vraag1-VB-4_opt_c">Een IoT-knoop kan ook bedraad zijn.</li>
+            
+            <li data-component="answer" data-correct id="vraag1-VB-4_opt_d">Gateway</li><li data-component="feedback" id="vraag1-VB-4_opt_d">Ja.</li>
+            
+
+            </ul>
+            </div>
+            
+<div class="runestone">
+<ul data-component="dragndrop" id="dnd-ex-1">
+    <span data-component="question">Q-8: Plaats de termen bij hun beschrijving.</span>
+	<span data-component=feedback>Zie: xxx</span>
+
+    <li data-component="draggable" id="dnd-ex-1_drag1">Controller </li>
+    <li data-component="dropzone" for="dnd-ex-1_drag1"> Besturingscomputer</li>
+
+    <li data-component="draggable" id="dnd-ex-1_drag2">Sensor     </li>
+    <li data-component="dropzone" for="dnd-ex-1_drag2"> Meet een fysische grootheid</li>
+
+    <li data-component="draggable" id="dnd-ex-1_drag3">Gateway    </li>
+    <li data-component="dropzone" for="dnd-ex-1_drag3"> Verbindt twee netwerken</li>
+</ul></div>
+<div class="runestone">
+<ul data-component="dragndrop" id="dnd-ex-3">
+    <span data-component="question">Q-9: Welke bitrate hoort (ongeveer) bij welk soort signaal?
+(Neem in het "temperatuur"-geval aan dat dit een kamerthermostaat betreft die elke 2 minuten de temperatuur meet.)</span>
+	<span data-component=feedback>Feedback that is displayed if things are incorrectly matched.</span>
+
+    <li data-component="draggable" id="dnd-ex-3_drag1">Muziek (mp3, AAC) </li>
+    <li data-component="dropzone" for="dnd-ex-3_drag1"> 200 kbyte/s</li>
+
+    <li data-component="draggable" id="dnd-ex-3_drag2">Temperatuur       </li>
+    <li data-component="dropzone" for="dnd-ex-3_drag2"> 0,01 byte/s</li>
+
+    <li data-component="draggable" id="dnd-ex-3_drag3">Video             </li>
+    <li data-component="dropzone" for="dnd-ex-3_drag3"> 5 MByte/s</li>
+
+    <li data-component="draggable" id="dnd-ex-3_drag4">Spraak (telefoon) </li>
+    <li data-component="dropzone" for="dnd-ex-3_drag4"> 5 kbyte/s</li>
+</ul></div>
+        <div class="runestone" style="max-width: none;">
+        <pre data-component="parsons" id="par_1_1"      data-language="english" >
+        <span data-question>Q-10: Plaats de protocollen voor een IoT-toepassing in de juiste volgorde in de "stack".</span>IoT-toepassingsprotocol
+---
+MQTT
+---
+Transport Control Protocol (TCP)
+---
+Internet Protocol (IP)
+---
+WiFi
+---
+HTTP #distractor
+        </pre>
+        </div>
+    
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="vraag1_ya">
+            <p>Q-11: Je kunt berichten versleutelen op verschillende protocol-niveaus.
+In welk geval is er sprake van end-to-end encryptie?</p>
+
+            <li data-component="answer"  id="vraag1_ya_opt_a">WiFi-protocol</li><li data-component="feedback" id="vraag1_ya_opt_a">Iedereen in hetzelfde WiFi-netwerk gebruikt dezelfde sleutel</li>
+            
+            <li data-component="answer"  id="vraag1_ya_opt_b">IP-protocol</li><li data-component="feedback" id="vraag1_ya_opt_b">(??)</li>
+            
+            <li data-component="answer"  id="vraag1_ya_opt_c">TCP/TLS-protocol</li><li data-component="feedback" id="vraag1_ya_opt_c">De versleuteling is tussen de browser en de webserver.</li>
+            
+            <li data-component="answer" data-correct id="vraag1_ya_opt_d">Toepassingsprotocol</li><li data-component="feedback" id="vraag1_ya_opt_d">De webserver kunnen het bericht niet ontsleutelen.</li>
+            
+
+            </ul>
+            </div>
+            <ul>
+<li><p>end-to-end principe</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>protocol in eindpunten, niet in netwerk</p></li>
+<li><p>bijv. http</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="true"  id="vraag1_xyb">
+            <p>Q-12: Welke van deze protocollen zijn <em>end-to-end</em>, en vind je alleen in de eindpunten,
+en niet in het netwerk?</p>
+
+            <li data-component="answer"  id="vraag1_xyb_opt_a">WiFi</li><li data-component="feedback" id="vraag1_xyb_opt_a">WiFi is een Link-layer protocol in het lokale netwerk</li>
+            
+            <li data-component="answer"  id="vraag1_xyb_opt_b">Internet Protocol (IP)</li><li data-component="feedback" id="vraag1_xyb_opt_b">IP is het basis netwerk-procotol van het internet - in het netwerk</li>
+            
+            <li data-component="answer" data-correct id="vraag1_xyb_opt_c">Transport Control Protocol (TCP)</li><li data-component="feedback" id="vraag1_xyb_opt_c">TCP is het end-to-end transport-protocol van het internet</li>
+            
+            <li data-component="answer" data-correct id="vraag1_xyb_opt_d">HyperText Transfer Protocol (HTTP)</li><li data-component="feedback" id="vraag1_xyb_opt_d">HTTP is het end-to-end toepassingsprotocol van het web, op basis van het internet.</li>
+            
+
+            </ul>
+            </div>
+            
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="true"  id="vraag1_xyc">
+            <p>Q-13: Welke van deze protocollen zijn <em>end-to-end</em>, en vind je alleen in de eindpunten,
+en niet in het netwerk?</p>
+
+            <li data-component="answer"  id="vraag1_xyc_opt_a">WiFi</li><li data-component="feedback" id="vraag1_xyc_opt_a">WiFi is een Link-layer protocol in het lokale netwerk</li>
+            
+            <li data-component="answer"  id="vraag1_xyc_opt_b">Internet Protocol (IP)</li><li data-component="feedback" id="vraag1_xyc_opt_b">IP is het basis netwerk-procotol van het internet - in het netwerk</li>
+            
+            <li data-component="answer" data-correct id="vraag1_xyc_opt_c">Transport Control Protocol (TCP)</li><li data-component="feedback" id="vraag1_xyc_opt_c">TCP is het end-to-end transport-protocol van het internet</li>
+            
+            <li data-component="answer" data-correct id="vraag1_xyc_opt_d">HyperText Transfer Protocol (HTTP)</li><li data-component="feedback" id="vraag1_xyc_opt_d">HTTP is het end-to-end toepassingsprotocol van het web, op basis van het internet.</li>
+            
+
+            </ul>
+            </div>
+            <ul>
+<li><p>een IoT-knoop verstuurt elke minuut het aantal WiFi-gebruikers in de directe omgeving (max.255).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>wat is de  bitrate?</p></li>
+<li><p>maakt het een groot verschil of de latency 0,1s, 10s of 60s is?</p></li>
+<li><p>is dit een privacy-risico?</p></li>
+<li><p>op welke manieren zou je dit gegeven kunnen gebruiken?</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
 </div>
 
 
           </div>
+          
         </div>
       </div>
     <div class="clearer"></div>
   </div>
-    <div class="footer">
-      &copy;2019, SLO.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="../_sources/inleiding/toetsvragen.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
+<jinja2.runtime.BlockReference object at 0x1130000b8>
+<script type="text/javascript">
+  $(document).trigger("runestone:login-complete");
+</script>
 
-    
-
-    
   </body>
 </html>

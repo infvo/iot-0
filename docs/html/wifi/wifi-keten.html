@@ -7,24 +7,70 @@
     <title>MQTT-ketens &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=B9BAA0D1" />
+    <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
+    <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
+    <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=8329CA55"></script>
+    <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
+    <script type="text/javascript" src="../_static/timed.js?v=6789FE30"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=5EB6170D"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=2B6403E8"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=6C59AE9F"></script>
+    <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
+    <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
+    <script type="text/javascript" src="../_static/parsons.js?v=93EFFF39"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js?v=2EEA9E5A"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Publish-subscribe" href="mqtt-interactie.html" />
     <link rel="prev" title="WiFi-MQTT-knopen" href="../wifi.html" />
 
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = '' ? '' : 'http://127.0.0.1:8000';
+/*
+  eBookConfig.app = eBookConfig.host+'/';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = '';
+  eBookConfig.logLevel = ;
+  eBookConfig.loginRequired = ;
+  eBookConfig.build_info = "";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = ;
+  eBookConfig.python3 = ;
+  eBookConfig.basecourse = '';
+  eBookConfig.runestone_version = '';
+*/
+</script>
 <script type="application/json" class="js-hypothesis-config">
 {
 "showHighlights": false
 }
 </script>
 <script async src="https://hypothes.is/embed.js"></script>
-
 
   </head><body>
   <div class="document">
@@ -93,26 +139,39 @@
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="mqtt-ketens">
 <h1>MQTT-ketens<a class="headerlink" href="#mqtt-ketens" title="Permalink naar deze titel">¶</a></h1>
 <div class="section" id="publieke-broker">
 <h2>Publieke broker<a class="headerlink" href="#publieke-broker" title="Permalink naar deze titel">¶</a></h2>
-<p>Met een MQTT-broker in het publieke netwerk kunnen we toepassingen in het internet koppelen aan lokale IoT-knopen.
-Via deze broker kunnen we de IoT-knoop op afstand bedienen, bijvoorbeeld via een web-toepassing.</p>
+<p>Met een MQTT-broker in het publieke internet kun je toepassingen in het internet koppelen aan lokale IoT-knopen.
+Via deze broker kun je de IoT-knoop op afstand bedienen, bijvoorbeeld via een web-toepassing.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/IoT-keten-WiFi-MQTT1.png"><img alt="../_images/IoT-keten-WiFi-MQTT1.png" src="../_images/IoT-keten-WiFi-MQTT1.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">IoT-knopen met MQTT-broker in het publieke internet</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>De IoT-knoop publiceert de sensorwaarden naar de broker,
-en deze stuurt deze berichten door naar de clients die zich op deze berichten geabonneerd hebben.</p>
+en deze stuurt deze berichten door naar de clients die zich op deze berichten geabonneerd hebben.
+Omgekeerd stuurt de web-toepassing instellingen voor de actuatoren naar de broker;
+deze stuurt de berichten door naar de clients (IoT-knopen) die op deze berichten geabonneerd zijn.
+De communicatie tussen de IoT-knopen en de web-toepassing via de MQTT-broker verloopt <em>symmetrisch</em>.</p>
 <p>Deze keten is eenvoudig op te zetten.
-Er kleven wel enkele nadelen aan: (i) de latency kan te groot worden om lokale apparaten te bedienen;
+Er kleven wel enkele nadelen aan: (i) de latency via het publieke internet kan te groot worden om lokale apparaten te bedienen;
 en (ii) de communicatie verloopt via het publieke internet, met meer veiligheidsrisico’s dan het lokale netwerk.</p>
 </div>
 <div class="section" id="lokale-broker">
@@ -121,33 +180,24 @@ en (ii) de communicatie verloopt via het publieke internet, met meer veiligheids
 <a class="reference internal image-reference" href="../_images/IoT-keten-local-broker1.png"><img alt="../_images/IoT-keten-local-broker1.png" src="../_images/IoT-keten-local-broker1.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-text">Lokale MQTT-broker en lokale controller</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
-<p>Door het gebruik van een lokale broker kunnen we de lokale interacties binnen het lokale netwerk houden:
+<p>Door het gebruik van een (extra) lokale broker houd je de lokale interacties binnen het lokale netwerk:
 dit komt de latency en de veiligheid ten goede.</p>
-<p>Een lokale broker kun je ook gebruiken als <em>bridge</em> naar een publieke broker:
-op die manier kun je de voordelen van lokale en publieke brokers combineren.</p>
+<p>De lokale broker kun je ook gebruiken als <em>bridge</em> naar een publieke broker:
+op die manier combineer je de voordelen van lokale en publieke brokers.</p>
 </div>
 </div>
 
 
           </div>
+          
         </div>
       </div>
     <div class="clearer"></div>
   </div>
-    <div class="footer">
-      &copy;2019, SLO.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="../_sources/wifi/wifi-keten.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
+<jinja2.runtime.BlockReference object at 0x112f7f0b8>
+<script type="text/javascript">
+  $(document).trigger("runestone:login-complete");
+</script>
 
-    
-
-    
   </body>
 </html>

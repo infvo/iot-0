@@ -8,24 +8,25 @@ MQTT-opdrachten
   * MQTT broker in publieke internet;
       * bijvoorbeeld: ``infvopedia.nl:1883``;
       * de MQTT-broker fungeert ook als statische webserver,
-        voor de app MQTTT en voor de IoT-knoop-simulator;
-  * de app MQTTT (`<http://infvopedia.nl/mqt3.html>`_, zie ook :ref:`MQT3`)
-  * zo mogelijk: IoT knoop (hardware),
+        voor de app MQT3 en voor de IoT-knoop-simulator;
+  * de app MQT3 (`<http://infvopedia.nl/mqt3.html>`_, zie ook :ref:`MQT3`)
+  * zo mogelijk: hardware IoT-knoop,
       * met software: ``wifi-node-xd``;
       * geconfigureerd voor het lokale WiFi-netwerk en de MQTT-broker,
         zie hieronder;
       * de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
         deze ID staat ook op de knoop zelf.
+      * met een extra led (led1)
   * als alternatief: een gesimuleerde IoT-knoop,
-    via `<http://infvopedia.nl//iotnode-app.html>`_.
+    via `<http://infvopedia.nl/iotnode-app.html>`_.
     Geef deze zelf een unieke ID.
 
 
 (1) MQTT-chat
 -------------
 
-**(stap 1)** Je kunt met MQTT op een eenvoudige manier met een groep gebruikers chatten,
-via de MQTTT-app in de browsers van deze gebruikers.
+**(stap 1)** Je kunt met MQTT met elkaar chatten,
+via de MQT3-app in je browser.
 
 1. Spreek af welk *topic* je gebruikt voor de communicatie, bijvoorbeeld ``chat``
 2. Stel dit topic in bij de beide topic-vensters: voor het ontvangen (*subscribe*)
@@ -48,9 +49,9 @@ je kunt de afzender in het topic niet authenticeren.
 (2): Knoop volgen
 -----------------
 
-In deze opdracht gebruik je MQTTT om het verkeer van een bestaande IoT-knoop te volgen,
+In deze opdracht gebruik je MQT3 om het verkeer van een bestaande IoT-knoop te volgen,
 en om de sensordata netjes weer te geven.
-Voor de communicatie tussen MQTTT en de IoT-knoop met ID ``xxxx`` gebruiken we de volgende *topics*:
+Voor de communicatie tussen MQT3 en de IoT-knoop met ID ``xxxx`` gebruiken we de volgende *topics*:
 
 * ``node/xxxx/sensors`` - voor de sensorwaarden
 * ``node/xxxx/actuators`` - voor de actuatorwaarden.
@@ -71,7 +72,7 @@ De node-ID bestaat uit de laatste 4 tekens van het MAC-adres.
 Controleer of je knoop actief is: er moeten dan regelmatig JSON-berichten langskomen in het subscribe-venster
 (bijvoorbeeld elke 1-2 minuten).
 
-(**stap 2**) We willen de sensordata weergeven in het bovenste deel van MQTTT.
+(**stap 2**) We willen de sensordata weergeven in het bovenste deel van MQT3.
 
 4. vul bij ``IoT-node`` de ID in van je gekozen knoop.
 5. vul als subscribe-topic in: ``node/xxxx/+`` (waarin ``xxxx`` staat voor de gekozen ID).
@@ -88,12 +89,12 @@ Om over na te denken:
 (3) Knoop besturen
 ------------------
 
-Met MQTTT kunnen we de LEDs van de knoop ``xxxx`` ook aansturen.
+Via MQT3 kun je de LED(s) van de knoop ``xxxx`` aansturen.
 
 **(stap 1)** Aansturen van ``led0``:
 
 1. vul als ``subscribe to topic`` in: ``node/xxxx/+`` (waarin ``xxxx`` staat voor de gekozen ID);
-2. door het indrukken van de knoppen in MQTTT kun je ``led0`` aan- en uitschakelen;
+2. met de knoppen bovenin kun je ``led0`` aan- en uitschakelen;
 3. controleer bij de sensorwaarden of deze led inderdaad uit- en uitgaat.
 4. ga in het subscribe-venster na welke berichten langskomen als je een knop indrukt,
    voor de actuatoren (leds) en voor de sensoren.

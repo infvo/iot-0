@@ -7,24 +7,70 @@
     <title>MQTT-opdrachten &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=B9BAA0D1" />
+    <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
+    <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
+    <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=8329CA55"></script>
+    <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
+    <script type="text/javascript" src="../_static/timed.js?v=6789FE30"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=5EB6170D"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=2B6403E8"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=6C59AE9F"></script>
+    <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
+    <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
+    <script type="text/javascript" src="../_static/parsons.js?v=93EFFF39"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js?v=2EEA9E5A"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="NodeRed-opdrachten" href="nodered-opdrachten.html" />
     <link rel="prev" title="JSON" href="json-lpp.html" />
 
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = '' ? '' : 'http://127.0.0.1:8000';
+/*
+  eBookConfig.app = eBookConfig.host+'/';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = '';
+  eBookConfig.logLevel = ;
+  eBookConfig.loginRequired = ;
+  eBookConfig.build_info = "";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = ;
+  eBookConfig.python3 = ;
+  eBookConfig.basecourse = '';
+  eBookConfig.runestone_version = '';
+*/
+</script>
 <script type="application/json" class="js-hypothesis-config">
 {
 "showHighlights": false
 }
 </script>
 <script async src="https://hypothes.is/embed.js"></script>
-
 
   </head><body>
   <div class="document">
@@ -95,10 +141,20 @@
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="mqtt-opdrachten">
@@ -110,32 +166,33 @@
 <dt>MQTT broker in publieke internet;</dt><dd><ul>
 <li><p>bijvoorbeeld: <code class="docutils literal notranslate"><span class="pre">infvopedia.nl:1883</span></code>;</p></li>
 <li><p>de MQTT-broker fungeert ook als statische webserver,
-voor de app MQTTT en voor de IoT-knoop-simulator;</p></li>
+voor de app MQT3 en voor de IoT-knoop-simulator;</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p>de app MQTTT (<a class="reference external" href="http://infvopedia.nl/mqt3.html">http://infvopedia.nl/mqt3.html</a>, zie ook <a class="reference internal" href="../bouwstenen/opdrachten.html#mqt3"><span class="std std-ref">De app MQT3</span></a>)</p></li>
+<li><p>de app MQT3 (<a class="reference external" href="http://infvopedia.nl/mqt3.html">http://infvopedia.nl/mqt3.html</a>, zie ook <a class="reference internal" href="../bouwstenen/opdrachten.html#mqt3"><span class="std std-ref">De app MQT3</span></a>)</p></li>
 <li><dl class="simple">
-<dt>zo mogelijk: IoT knoop (hardware),</dt><dd><ul>
+<dt>zo mogelijk: hardware IoT-knoop,</dt><dd><ul>
 <li><p>met software: <code class="docutils literal notranslate"><span class="pre">wifi-node-xd</span></code>;</p></li>
 <li><p>geconfigureerd voor het lokale WiFi-netwerk en de MQTT-broker,
 zie hieronder;</p></li>
 <li><p>de ID van de knoop bestaat uit de laatste 4 cijfers van het MAC-adres;
 deze ID staat ook op de knoop zelf.</p></li>
+<li><p>met een extra led (led1)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><p>als alternatief: een gesimuleerde IoT-knoop,
-via <a class="reference external" href="http://infvopedia.nl//iotnode-app.html">http://infvopedia.nl//iotnode-app.html</a>.
+via <a class="reference external" href="http://infvopedia.nl/iotnode-app.html">http://infvopedia.nl/iotnode-app.html</a>.
 Geef deze zelf een unieke ID.</p></li>
 </ul>
 </div>
 <div class="section" id="mqtt-chat">
 <h2>(1) MQTT-chat<a class="headerlink" href="#mqtt-chat" title="Permalink naar deze titel">¶</a></h2>
-<p><strong>(stap 1)</strong> Je kunt met MQTT op een eenvoudige manier met een groep gebruikers chatten,
-via de MQTTT-app in de browsers van deze gebruikers.</p>
+<p><strong>(stap 1)</strong> Je kunt met MQTT met elkaar chatten,
+via de MQT3-app in je browser.</p>
 <ol class="arabic simple">
 <li><p>Spreek af welk <em>topic</em> je gebruikt voor de communicatie, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">chat</span></code></p></li>
 <li><p>Stel dit topic in bij de beide topic-vensters: voor het ontvangen (<em>subscribe</em>)
@@ -157,9 +214,9 @@ je kunt de afzender in het topic niet authenticeren.</p>
 </div>
 <div class="section" id="knoop-volgen">
 <h2>(2): Knoop volgen<a class="headerlink" href="#knoop-volgen" title="Permalink naar deze titel">¶</a></h2>
-<p>In deze opdracht gebruik je MQTTT om het verkeer van een bestaande IoT-knoop te volgen,
+<p>In deze opdracht gebruik je MQT3 om het verkeer van een bestaande IoT-knoop te volgen,
 en om de sensordata netjes weer te geven.
-Voor de communicatie tussen MQTTT en de IoT-knoop met ID <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> gebruiken we de volgende <em>topics</em>:</p>
+Voor de communicatie tussen MQT3 en de IoT-knoop met ID <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> gebruiken we de volgende <em>topics</em>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">node/xxxx/sensors</span></code> - voor de sensorwaarden</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">node/xxxx/actuators</span></code> - voor de actuatorwaarden.</p></li>
@@ -178,7 +235,7 @@ Dit doen we door voor het subscribe-veld een <em>wildcard</em>-topic in te vulle
 De node-ID bestaat uit de laatste 4 tekens van het MAC-adres.
 Controleer of je knoop actief is: er moeten dan regelmatig JSON-berichten langskomen in het subscribe-venster
 (bijvoorbeeld elke 1-2 minuten).</p>
-<p>(<strong>stap 2</strong>) We willen de sensordata weergeven in het bovenste deel van MQTTT.</p>
+<p>(<strong>stap 2</strong>) We willen de sensordata weergeven in het bovenste deel van MQT3.</p>
 <ol class="arabic simple" start="4">
 <li><p>vul bij <code class="docutils literal notranslate"><span class="pre">IoT-node</span></code> de ID in van je gekozen knoop.</p></li>
 <li><p>vul als subscribe-topic in: <code class="docutils literal notranslate"><span class="pre">node/xxxx/+</span></code> (waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> staat voor de gekozen ID).
@@ -195,11 +252,11 @@ Controleer dat het volgende sensor-bericht van de knoop een andere waarde voor d
 </div>
 <div class="section" id="knoop-besturen">
 <h2>(3) Knoop besturen<a class="headerlink" href="#knoop-besturen" title="Permalink naar deze titel">¶</a></h2>
-<p>Met MQTTT kunnen we de LEDs van de knoop <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> ook aansturen.</p>
+<p>Via MQT3 kun je de LED(s) van de knoop <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> aansturen.</p>
 <p><strong>(stap 1)</strong> Aansturen van <code class="docutils literal notranslate"><span class="pre">led0</span></code>:</p>
 <ol class="arabic simple">
 <li><p>vul als <code class="docutils literal notranslate"><span class="pre">subscribe</span> <span class="pre">to</span> <span class="pre">topic</span></code> in: <code class="docutils literal notranslate"><span class="pre">node/xxxx/+</span></code> (waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> staat voor de gekozen ID);</p></li>
-<li><p>door het indrukken van de knoppen in MQTTT kun je <code class="docutils literal notranslate"><span class="pre">led0</span></code> aan- en uitschakelen;</p></li>
+<li><p>met de knoppen bovenin kun je <code class="docutils literal notranslate"><span class="pre">led0</span></code> aan- en uitschakelen;</p></li>
 <li><p>controleer bij de sensorwaarden of deze led inderdaad uit- en uitgaat.</p></li>
 <li><p>ga in het subscribe-venster na welke berichten langskomen als je een knop indrukt,
 voor de actuatoren (leds) en voor de sensoren.
@@ -243,24 +300,15 @@ Bestudeer de volgende manieren van gebruik:</p>
 
 
           </div>
+          
         </div>
       </div>
     <div class="clearer"></div>
   </div>
-    <div class="footer">
-      &copy;2019, SLO.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="../_sources/wifi/opdrachten.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
+<jinja2.runtime.BlockReference object at 0x1130874a8>
+<script type="text/javascript">
+  $(document).trigger("runestone:login-complete");
+</script>
 
-    
-
-    
   </body>
 </html>
