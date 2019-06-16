@@ -194,6 +194,7 @@ Voor onderstaande opdrachten uit; test de uitwerking (na "Deploy") via de debug-
 * verander de configuratie van de inject-knoop: zorg ervoor dat deze een tekst levert als inhoud van het bericht (payload).
 * verbind meerdere inject-knopen met herhalende berichten met dezelfde debug-knoop.
 
+
 2. Een IoT-dashboard
 ====================
 
@@ -201,16 +202,14 @@ Als voorbeeld van een complete flow gebruiken we een dashboard voor een IoT-knoo
 Dit dashboard maakt de sensorwaarden van de IoT-knoop zichtbaar;
 je kunt hiermee ook de LED van de IoT-knoop aansturen.
 
-.. figure:: nodered-dashboard-flow-1.png
+.. figure:: IoT-nodered-dashboard-flow-1.png
    :width: 700 px
    :align: center
 
-   NodeRed dashboard flow
+De dashboard-flow vind je via: :download:`/bouwstenen/dashboard-flow-1.json`,
+(Of via `GitHub gist <https://gist.github.com/eelcodijkstra/1e6c2b4737b3cca7aa68efa26dc179f3>`_.)
 
-De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
-
-* op GitHub: `NodeRed dashboard (flow 1) <https://gist.github.com/eelcodijkstra/1f5e6bc7cab88e7fd230cdee8cb94d73>`_
-* op NodeRed-library: `ieni2018-iot-flow-1 <https://flows.nodered.org/flow/1f5e6bc7cab88e7fd230cdee8cb94d73>`_
+  Deze flow is in het JSON-formaat; later in het materiaal komt JSON ook aan bod.
 
 .. rubric:: Opdracht 2.1
 
@@ -220,7 +219,7 @@ De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
     * in NodeRed: selecteer hamburgenmenu->Import->Clipboard
     * "Paste" de inhoud van het Clipboard in het input-venster.
     * "Import"
-    * je krijgt nu een nieuwe flow met als naam (in de tab): IoT-flow-1
+    * je krijgt nu een nieuwe flow met als naam (in de tab): My dashboard
 * selecteer in deze flow de MQTT-input-node, en configureer deze (double-click):
     * selecteer bij "Server": ``infvopedia.nl`` (met port 1883)
     * als deze niet beschikbaar is: selecteer bij "Server": ``Add new mqtt-broker...``
@@ -229,13 +228,13 @@ De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
         * klik op "Add"
     * klik op het potloodsymbool rechts van "infvopedia.nl";
       je krijgt nu de broker-instellingen te zien;
-    * selecteer de tab "Security", en *vul de opgegeven gebruikersnaam en wachtwoord in*
+    * selecteer de tab "Security", en **vul de opgegeven gebruikersnaam en wachtwoord in**
     * klik "Update" (voor de Server-instellingen)
     * klik "Done" (voor de instellingen van de MQTT-input-node)
 * configureer de MQTT-output-node (selecteer en double-click):
     * selecteer bij "Server": ``infvopedia.nl:1883``
     * "Done"
-* je krijgt nu het dashboard van de node ``e0f1``.
+* je krijgt nu het dashboard van de node ``fe05``.
     * in de debug-tab worden de mqtt-berichten getoond
     * het dashboard krijg je via: dasboard-tab, hokje-met-pijltje rechts boven.
     * het dashboard komt dan in een apart browser-venster.
@@ -245,6 +244,26 @@ De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:
     * "Done"
 * idem, voor de MQTT-output-node.
 
+.. rubric:: Opdracht 2.2
+
+Bekijk de debug-output in NodeRed voor deze flow.
+Tip: in de debug-tab selecteer je "current flow",
+je krijgt dan alleen de debug-output van deze flow.
+
+* kun je in de berichten de ID van de IoT-knoop terugvinden?
+  Wat is de naam van dit veld?
+* kun je in de berichten, in de "payload", de sensorwaarde voor de temperatuur terugvinden?
+
+  * hoe wordt die waarde aangepast tot de waarde die je in het dashboard ziet?
+  * wat is het pad in het payload-object voor deze temperatuur-waarde (welke veldselectie en indicering is nodig)?
+  * controleer dit door de programmatekst in de function-node "temperature" te bekijken.
+
+* beantwoord dezelfde vragen voor de luchtdruk (barometer).
+* (lastig) waarom worden de sensorwaarden als een gehele getal weergegeven?
+* (lastig) waarom worden de sensorwaarden zo "ingepakt",
+  waardoor je array-indicering e.d. nodig hebt?
+  (Denk aan een situatie waarbij een IoT-knoop meerdere temperatuursensoren heeft.)
+
 3. Automatiseren
 ================
 
@@ -253,36 +272,81 @@ Je kunt ook allerlei zaken automatiseren, bijvoorbeeld een lamp inschakelen als 
 
 Een eenvoudige automatisering is het laten knipperen van LED-0 op de IoT-knoop.
 
-.. rubric:: Opdracht 3.1
-
 Maak een NodeRed-flow waarmee je LED-0 van een (gesimuleerde) IoT-knoop laat knipperen.
 Begin met de eenvoudige flow van Opdracht 1, en breid deze later uit met een MQTT-output-node.
 Vergeet niet aan het eind van elke opdracht de flow te activeren ("Deploy");
 controleer bij elke stap of het werkt.
 
-1. Door op de knop links op de debug-node te klikken "injecteer" je een timestamp in de flow:
-   de huidige tijd, als geheel getal. Via de debug-node krijg je dit te zien in het debug-venster.
-2. Met de knop rechts op de debug-node kun je deze node tijdelijk uitschakelen.
-3. Laat de inject-node automatisch werken. Configureer deze node (dubbel-klik op de node):
-   zet "Repeat" van "none" naar "interval" (every 10 seconds). Bewaar deze aanpassing ("Done" knop).
-4. Laat de inject-node een ander soort waarde injecteren. Configureer deze node:
-   selecteer als "payload" (inhoud van het bericht): string, en vul als waarde in: "Hallo wereld".
-   Bewaar deze aanpassing.
-5. Idem, maar nu met de JSON-waarde: ``{"0": {"dOut": 1}}`` (Mogelijk komt deze waarde je bekend voor.)
-   Tip: bij het invoeren van een JSON-waarde kun je de JSON-editor gebruiken,
-   via de ``...`` rechts in het edit-venster.
-6. Maak een kopie van de inject-node, en laat deze als JSON-waarde genereren: ``{"0": {"dOut": 0}}``.
-   Verbind deze inject-node met dezelfde debug-node.
-7. Zorg ervoor dat de tweede inject-node 5 seconden later begint dan de eerste:
-   ``inject once after 5 seconds`` (in de node-configuration).
-   Als het goed is krijg je nu om de 5 seconden een bericht te zien.
-8. Voeg een MQTT output-node toe (als in het dashboard).
-   Verbind de output van beide inject-nodes met de MQTT output-node.
-   Configureer de MQTT output-node (zoals bij de dashboard-opdracht);
-   gebruik als topic: ``node/xxxx/actuators``,
-   waarin ``xxxx`` de ID van het IOT-knoop is.
+.. rubric:: Opdracht 3.1
 
-Als het goed is knippert de LED van je IoT-knoop nu: 5 seconden aan, 5 uit, enz.
+In de eerste stap maak je een flow die elke 5 seconden een bericht genereert,
+afwisselend "aan" en "uit".
+Je gebruikt hierbij twee inject-nodes;
+een inject-node genereert een bericht als je op de knop links klikt.
+(Zie de "eerste flow".)
+Om het bericht zichtbaar te maken gebruik je een debug-node.
+
+1. Maak de bovenstaande flow met 2 inject-nodes en 1 debug-node.
+2. Configureer de bovenste inject-node:
+
+   1. Geef deze node de naam "On";
+   2. Stel de payload is als "string", met waarde: "Aan";
+   3. zet "Repeat" van "none" naar "interval" (every 10 seconds);
+   4. Bewaar de configuratie ("Save");
+   5. "Deploy", en controleer de output in het debug-venster.
+
+3. Configureer de onderste inject-node:
+
+   1. Geef deze de naam "Off";
+   2. Stel de payload in als "string", met waarde "Uit";
+   3. Selecteer "inject once after" - met als waarde "5 seconds";
+   4. Zet "Repeat" naar "interval" (every 10 seconds);
+   5. Bewaar de configuratie ("Save");
+   6. "Deploy", en controleer de output in het debug-venster.
+
+Als het goed is zie je in het debug-venster elke 5 seconden een bericht verschijnen,
+afwisselend "aan" en "uit".
+
+*Tips*:
+
+* je kunt in het debug-venster aangeven dat je alleen de "current flow" wilt zien;
+* je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).
+
+.. rubric:: Opdracht 3.2
+
+De volgende stap is om elke deze waarden te koppelen aan de led van de IoT-knoop.
+Eerst maken we de waarden geschikt voor de LED.
+Vervolgens koppelen we deze aan de IoT-knoop, via MQTT.
+
+1. Configureer de bovenste inject-node:
+
+   1. Stel de payload in als  JSON, met als waarde: ``{"0": {"dOut": 1}}``.
+      *Tip*: bij het invoeren van een JSON-waarde kun je de JSON-editor gebruiken,
+      via de ``...`` rechts in het edit-venster.
+      Je maakt dan minder fouten.
+   2. Bewaar de configuratie ("Save")
+   3. "Deploy", en controleer de output in het debug-venster.
+
+2. Configureer de onderste inject-node:
+
+   1. Stel de payload in als  JSON, met als waarde: ``{"0": {"dOut": 0}}``.
+   2. Bewaar de configuratie ("Save")
+   3. "Deploy", en controleer de output in het debug-venster.
+
+3. Voeg een MQTT output-node toe, en configureer deze:
+
+   1. stel de MQTT broker ("server") in als in bij het dashboard.
+   2. gebruik als Topic: ``node/xxxx/actuators``,
+      waarbij je voor ``xxxx`` de ID van je IoT-knoop invult.
+   3. Bewaar de configuratie ("Save")
+   4. "Deploy", en controleer de output in het debug-venster.
+
+Als het goed is zie je nu de berichten niet alleen in het debug-venster verschijnen,
+maar knippert de LED van je IoT-knoop ook op dezelfde manier mee.
+
+  De codes voor het in- en uitschakelen van de LED behandelen we later uitgebreider.
+  De eerste `"0"`` staat hier voor LED-0.
+  Sommige IoT-knopen hebben ook een LED-1: probeer die op dezelfde manier te laten knipperen.
 
 Deze manier van werken is typisch voor NodeRed: je bouwt een flow beetje voor beetje op,
 waarbij je in het begin veel gebruik maakt van inject- en debug-nodes.
@@ -290,10 +354,25 @@ Je test hiermee elke stap.
 Deze nodes kun je laten zitten tijdens het gebruik:
 een debug-node kun je eenvoudig uitschakelen als je deze even niet nodig hebt.
 
-Opmerkingen:
+Nog enkele suggesties:
 
-* je kunt in het debug-venster aangeven dat je alleen de "current flow" wilt zien;
-* je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).
+* je kunt meerdere MQTT-output-nodes toevoegen met dezelfde input,
+  voor verschillende IoT-knopen: je kunt die LEDs tegelijk laten knipperen.
+*
+
+4. Doorverbinden
+================
+
+In deze opdracht koppel je de drukknoppen van je knoop aan de LED van je knoop:
+je kunt dan de LED met deze knoppen aan- en uitzetten.
+
+Volgende stappen:
+
+* door het topic van de MQTT-output-node te veranderen kun je ook de LED van een andere IoT-knoop schakelen.
+* je kunt meerdere MQTT-output-nodes gebruiken met dezelfde invoer:
+  daarmee kun je de LEDs van meerdere IoT-knopen schakelen.
+* in plaats van de drukknoppen kun je ook het lichtniveau gebruiken om de LED te schakelen,
+  zodat deze bijvoorbeeld aangaat als de IoT-knoop in het donker is.
 
 NodeRed FAQ
 ===========

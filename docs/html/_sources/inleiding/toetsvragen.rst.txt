@@ -196,20 +196,6 @@ Voorbeelden
    Welke van deze protocollen zijn *end-to-end*, en vind je alleen in de eindpunten,
    en niet in het netwerk?
 
-.. mchoice:: vraag1_xyc
-  :answer_a: WiFi
-  :answer_b: Internet Protocol (IP)
-  :answer_c: Transport Control Protocol (TCP)
-  :answer_d: HyperText Transfer Protocol (HTTP)
-  :correct: c, d
-  :feedback_a: WiFi is een Link-layer protocol in het lokale netwerk
-  :feedback_b: IP is het basis netwerk-procotol van het internet - in het netwerk
-  :feedback_c: TCP is het end-to-end transport-protocol van het internet
-  :feedback_d: HTTP is het end-to-end toepassingsprotocol van het web, op basis van het internet.
-
-  Welke van deze protocollen zijn *end-to-end*, en vind je alleen in de eindpunten,
-  en niet in het netwerk?
-
 * een IoT-knoop verstuurt elke minuut het aantal WiFi-gebruikers in de directe omgeving (max.255).
 
     * wat is de  bitrate?

@@ -1,0 +1,434 @@
+[
+    {
+        "id": "a330c977.d7bce8",
+        "type": "tab",
+        "label": "My dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "de377914.8282b8",
+        "type": "mqtt in",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "topic": "node/fe05/sensors",
+        "qos": "2",
+        "broker": "b1111ce4.e75788",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "4c97db90.8a2234"
+            ]
+        ]
+    },
+    {
+        "id": "4c97db90.8a2234",
+        "type": "json",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "pretty": false,
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "3ff3ed19.dca21a",
+                "2197fa61.06f286",
+                "9b68c901.32703",
+                "bbe05a3e.a842b",
+                "2609b638.49500a",
+                "d54aa0c9.19d0b8"
+            ]
+        ]
+    },
+    {
+        "id": "ea3f91da.46eb",
+        "type": "ui_gauge",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "group": "7b4a8693.e5b848",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatuur",
+        "label": "'C",
+        "format": "{{payload}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 630,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e34bca62.848e2",
+        "type": "ui_chart",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "group": "7b4a8693.e5b848",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatuur",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 630,
+        "y": 180,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3395b7d2.298938",
+        "type": "ui_gauge",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "group": "6d91fd61.c71164",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luchtdruk",
+        "label": "units",
+        "format": "{{payload}}",
+        "min": "950",
+        "max": "1050",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 620,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "345c62a2.2af92e",
+        "type": "ui_chart",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "group": "6d91fd61.c71164",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Luchtdruk",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "950",
+        "ymax": "1050",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 620,
+        "y": 260,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3ff3ed19.dca21a",
+        "type": "debug",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 430,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9b68c901.32703",
+        "type": "ui_text",
+        "z": "a330c977.d7bce8",
+        "group": "1bb5b5ed.31d38a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Nodeid",
+        "format": "{{msg.payload.nodeid}}",
+        "layout": "row-spread",
+        "x": 420,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "e69593e.9d15bf",
+        "type": "ui_button",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "group": "1bb5b5ed.31d38a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "led0-ON",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"0\": {\"dOut\":1}}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 420,
+        "y": 460,
+        "wires": [
+            [
+                "16a4d8e3.307b67"
+            ]
+        ]
+    },
+    {
+        "id": "c44dbc7d.501828",
+        "type": "ui_button",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "group": "1bb5b5ed.31d38a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "led0-OFF",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"0\":{\"dOut\":0}}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 420,
+        "y": 500,
+        "wires": [
+            [
+                "16a4d8e3.307b67"
+            ]
+        ]
+    },
+    {
+        "id": "16a4d8e3.307b67",
+        "type": "mqtt out",
+        "z": "a330c977.d7bce8",
+        "name": "",
+        "topic": "node/fe05/actuators",
+        "qos": "",
+        "retain": "",
+        "broker": "b1111ce4.e75788",
+        "x": 660,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "85afc16e.98bb",
+        "type": "ui_text",
+        "z": "a330c977.d7bce8",
+        "group": "1bb5b5ed.31d38a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Button0",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 620,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "bfcef787.514558",
+        "type": "ui_text",
+        "z": "a330c977.d7bce8",
+        "group": "1bb5b5ed.31d38a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Button1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 620,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2197fa61.06f286",
+        "type": "function",
+        "z": "a330c977.d7bce8",
+        "name": "temperature",
+        "func": "if (msg.payload.payload[4]) {\n    msg.payload = msg.payload.payload[4].temperature / 10;\n    flow.set(\"temperature\", msg.payload.temperature);\n} else {\n    msg.payload = flow.get(\"temperature\") || 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "ea3f91da.46eb",
+                "e34bca62.848e2"
+            ]
+        ]
+    },
+    {
+        "id": "bbe05a3e.a842b",
+        "type": "function",
+        "z": "a330c977.d7bce8",
+        "name": "barometer",
+        "func": "if (msg.payload.payload[5]) {\n    msg.payload = msg.payload.payload[5].barometer / 10;\n    flow.set(\"barometer\", msg.payload.barometer);\n} else {\n    msg.payload = flow.get(\"barometer\") || 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "3395b7d2.298938",
+                "345c62a2.2af92e"
+            ]
+        ]
+    },
+    {
+        "id": "2609b638.49500a",
+        "type": "function",
+        "z": "a330c977.d7bce8",
+        "name": "button-0",
+        "func": "if (msg.payload.payload[2]) {\n    msg.payload = msg.payload.payload[2].dIn;\n} else {\n    msg.payload = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "85afc16e.98bb"
+            ]
+        ]
+    },
+    {
+        "id": "d54aa0c9.19d0b8",
+        "type": "function",
+        "z": "a330c977.d7bce8",
+        "name": "button-1",
+        "func": "if (msg.payload.payload[3]) {\n    msg.payload = msg.payload.payload[3].dIn;\n} else {\n    msg.payload = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 400,
+        "wires": [
+            [
+                "bfcef787.514558"
+            ]
+        ]
+    },
+    {
+        "id": "b1111ce4.e75788",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "infvopedia.nl",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "7b4a8693.e5b848",
+        "type": "ui_group",
+        "z": "",
+        "name": "T-group",
+        "tab": "18aee007.cea1b",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "6d91fd61.c71164",
+        "type": "ui_group",
+        "z": "",
+        "name": "B-group",
+        "tab": "18aee007.cea1b",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "1bb5b5ed.31d38a",
+        "type": "ui_group",
+        "z": "",
+        "name": "BT-group",
+        "tab": "18aee007.cea1b",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "18aee007.cea1b",
+        "type": "ui_tab",
+        "z": "",
+        "name": "My dashboard",
+        "icon": "dashboard",
+        "order": 9
+    }
+]

@@ -86,7 +86,6 @@
 
 
 
-<h3>Navigatie</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
@@ -105,6 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#eerste-flow">1. Eerste flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#een-iot-dashboard">2. Een IoT-dashboard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#automatiseren">3. Automatiseren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#doorverbinden">4. Doorverbinden</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nodered-faq">NodeRed FAQ</a></li>
 </ul>
 </li>
@@ -125,19 +125,13 @@
 <li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../bouwstenen.html">Bouwstenen</a><ul>
-      <li>Previous: <a href="opdrachten.html" title="vorig hoofdstuk">Opdrachten</a></li>
-      <li>Next: <a href="toetsvragen.html" title="volgend hoofdstuk">Toetsvragen</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
+
+  <p class="topless"><a href="opdrachten.html"
+                        title="vorig hoofdstuk">Vorige</a></p>
+  <p class="topless"><a href="toetsvragen.html"
+                        title="volgend hoofdstuk">Volgende</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Snel zoeken</h3>
+
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -412,15 +406,14 @@ Elke keer als je op de input-node klikt, genereert deze een timestamp-event.</p>
 <p>Als voorbeeld van een complete flow gebruiken we een dashboard voor een IoT-knoop.
 Dit dashboard maakt de sensorwaarden van de IoT-knoop zichtbaar;
 je kunt hiermee ook de LED van de IoT-knoop aansturen.</p>
-<div class="figure align-center" id="id4">
-<a class="reference internal image-reference" href="../_images/nodered-dashboard-flow-1.png"><img alt="../_images/nodered-dashboard-flow-1.png" src="../_images/nodered-dashboard-flow-1.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed dashboard flow</span><a class="headerlink" href="#id4" title="Permallink naar deze afbeelding">¶</a></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/IoT-nodered-dashboard-flow-1.png"><img alt="../_images/IoT-nodered-dashboard-flow-1.png" src="../_images/IoT-nodered-dashboard-flow-1.png" style="width: 700px;" /></a>
 </div>
-<p>De flow zelf, in JSON formaat (voor importeren in NodeRed), vind je:</p>
-<ul class="simple">
-<li><p>op GitHub: <a class="reference external" href="https://gist.github.com/eelcodijkstra/1f5e6bc7cab88e7fd230cdee8cb94d73">NodeRed dashboard (flow 1)</a></p></li>
-<li><p>op NodeRed-library: <a class="reference external" href="https://flows.nodered.org/flow/1f5e6bc7cab88e7fd230cdee8cb94d73">ieni2018-iot-flow-1</a></p></li>
-</ul>
+<p>De dashboard-flow vind je via: <a class="reference download internal" download="" href="../_downloads/a7fcc76ae44cf8888097722146d8c13c/dashboard-flow-1.json"><code class="xref download docutils literal notranslate"><span class="pre">/bouwstenen/dashboard-flow-1.json</span></code></a>,
+(Of via <a class="reference external" href="https://gist.github.com/eelcodijkstra/1e6c2b4737b3cca7aa68efa26dc179f3">GitHub gist</a>.)</p>
+<blockquote>
+<div><p>Deze flow is in het JSON-formaat; later in het materiaal komt JSON ook aan bod.</p>
+</div></blockquote>
 <p class="rubric">Opdracht 2.1</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -430,7 +423,7 @@ je kunt hiermee ook de LED van de IoT-knoop aansturen.</p>
 <li><p>in NodeRed: selecteer hamburgenmenu-&gt;Import-&gt;Clipboard</p></li>
 <li><p>“Paste” de inhoud van het Clipboard in het input-venster.</p></li>
 <li><p>“Import”</p></li>
-<li><p>je krijgt nu een nieuwe flow met als naam (in de tab): IoT-flow-1</p></li>
+<li><p>je krijgt nu een nieuwe flow met als naam (in de tab): My dashboard</p></li>
 </ul>
 </dd>
 </dl>
@@ -449,7 +442,7 @@ je kunt hiermee ook de LED van de IoT-knoop aansturen.</p>
 </li>
 <li><p>klik op het potloodsymbool rechts van “infvopedia.nl”;
 je krijgt nu de broker-instellingen te zien;</p></li>
-<li><p>selecteer de tab “Security”, en <em>vul de opgegeven gebruikersnaam en wachtwoord in</em></p></li>
+<li><p>selecteer de tab “Security”, en <strong>vul de opgegeven gebruikersnaam en wachtwoord in</strong></p></li>
 <li><p>klik “Update” (voor de Server-instellingen)</p></li>
 <li><p>klik “Done” (voor de instellingen van de MQTT-input-node)</p></li>
 </ul>
@@ -465,7 +458,7 @@ je krijgt nu de broker-instellingen te zien;</p></li>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>je krijgt nu het dashboard van de node <code class="docutils literal notranslate"><span class="pre">e0f1</span></code>.</dt><dd><ul>
+<dt>je krijgt nu het dashboard van de node <code class="docutils literal notranslate"><span class="pre">fe05</span></code>.</dt><dd><ul>
 <li><p>in de debug-tab worden de mqtt-berichten getoond</p></li>
 <li><p>het dashboard krijg je via: dasboard-tab, hokje-met-pijltje rechts boven.</p></li>
 <li><p>het dashboard komt dan in een apart browser-venster.</p></li>
@@ -484,50 +477,134 @@ je krijgt nu de broker-instellingen te zien;</p></li>
 </li>
 <li><p>idem, voor de MQTT-output-node.</p></li>
 </ul>
+<p class="rubric">Opdracht 2.2</p>
+<p>Bekijk de debug-output in NodeRed voor deze flow.
+Tip: in de debug-tab selecteer je “current flow”,
+je krijgt dan alleen de debug-output van deze flow.</p>
+<ul class="simple">
+<li><p>kun je in de berichten de ID van de IoT-knoop terugvinden?
+Wat is de naam van dit veld?</p></li>
+<li><p>kun je in de berichten, in de “payload”, de sensorwaarde voor de temperatuur terugvinden?</p>
+<ul>
+<li><p>hoe wordt die waarde aangepast tot de waarde die je in het dashboard ziet?</p></li>
+<li><p>wat is het pad in het payload-object voor deze temperatuur-waarde (welke veldselectie en indicering is nodig)?</p></li>
+<li><p>controleer dit door de programmatekst in de function-node “temperature” te bekijken.</p></li>
+</ul>
+</li>
+<li><p>beantwoord dezelfde vragen voor de luchtdruk (barometer).</p></li>
+<li><p>(lastig) waarom worden de sensorwaarden als een gehele getal weergegeven?</p></li>
+<li><p>(lastig) waarom worden de sensorwaarden zo “ingepakt”,
+waardoor je array-indicering e.d. nodig hebt?
+(Denk aan een situatie waarbij een IoT-knoop meerdere temperatuursensoren heeft.)</p></li>
+</ul>
 </div>
 <div class="section" id="automatiseren">
 <h2>3. Automatiseren<a class="headerlink" href="#automatiseren" title="Permalink naar deze titel">¶</a></h2>
 <p>Via NodeRed kun je allerlei protocollen en toepassingen koppelen.
 Je kunt ook allerlei zaken automatiseren, bijvoorbeeld een lamp inschakelen als je thuiskomt.</p>
 <p>Een eenvoudige automatisering is het laten knipperen van LED-0 op de IoT-knoop.</p>
-<p class="rubric">Opdracht 3.1</p>
 <p>Maak een NodeRed-flow waarmee je LED-0 van een (gesimuleerde) IoT-knoop laat knipperen.
 Begin met de eenvoudige flow van Opdracht 1, en breid deze later uit met een MQTT-output-node.
 Vergeet niet aan het eind van elke opdracht de flow te activeren (“Deploy”);
 controleer bij elke stap of het werkt.</p>
+<p class="rubric">Opdracht 3.1</p>
+<p>In de eerste stap maak je een flow die elke 5 seconden een bericht genereert,
+afwisselend “aan” en “uit”.
+Je gebruikt hierbij twee inject-nodes;
+een inject-node genereert een bericht als je op de knop links klikt.
+(Zie de “eerste flow”.)
+Om het bericht zichtbaar te maken gebruik je een debug-node.</p>
 <ol class="arabic simple">
-<li><p>Door op de knop links op de debug-node te klikken “injecteer” je een timestamp in de flow:
-de huidige tijd, als geheel getal. Via de debug-node krijg je dit te zien in het debug-venster.</p></li>
-<li><p>Met de knop rechts op de debug-node kun je deze node tijdelijk uitschakelen.</p></li>
-<li><p>Laat de inject-node automatisch werken. Configureer deze node (dubbel-klik op de node):
-zet “Repeat” van “none” naar “interval” (every 10 seconds). Bewaar deze aanpassing (“Done” knop).</p></li>
-<li><p>Laat de inject-node een ander soort waarde injecteren. Configureer deze node:
-selecteer als “payload” (inhoud van het bericht): string, en vul als waarde in: “Hallo wereld”.
-Bewaar deze aanpassing.</p></li>
-<li><p>Idem, maar nu met de JSON-waarde: <code class="docutils literal notranslate"><span class="pre">{&quot;0&quot;:</span> <span class="pre">{&quot;dOut&quot;:</span> <span class="pre">1}}</span></code> (Mogelijk komt deze waarde je bekend voor.)
-Tip: bij het invoeren van een JSON-waarde kun je de JSON-editor gebruiken,
-via de <code class="docutils literal notranslate"><span class="pre">...</span></code> rechts in het edit-venster.</p></li>
-<li><p>Maak een kopie van de inject-node, en laat deze als JSON-waarde genereren: <code class="docutils literal notranslate"><span class="pre">{&quot;0&quot;:</span> <span class="pre">{&quot;dOut&quot;:</span> <span class="pre">0}}</span></code>.
-Verbind deze inject-node met dezelfde debug-node.</p></li>
-<li><p>Zorg ervoor dat de tweede inject-node 5 seconden later begint dan de eerste:
-<code class="docutils literal notranslate"><span class="pre">inject</span> <span class="pre">once</span> <span class="pre">after</span> <span class="pre">5</span> <span class="pre">seconds</span></code> (in de node-configuration).
-Als het goed is krijg je nu om de 5 seconden een bericht te zien.</p></li>
-<li><p>Voeg een MQTT output-node toe (als in het dashboard).
-Verbind de output van beide inject-nodes met de MQTT output-node.
-Configureer de MQTT output-node (zoals bij de dashboard-opdracht);
-gebruik als topic: <code class="docutils literal notranslate"><span class="pre">node/xxxx/actuators</span></code>,
-waarin <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> de ID van het IOT-knoop is.</p></li>
+<li><p>Maak de bovenstaande flow met 2 inject-nodes en 1 debug-node.</p></li>
+<li><p>Configureer de bovenste inject-node:</p>
+<ol class="arabic simple">
+<li><p>Geef deze node de naam “On”;</p></li>
+<li><p>Stel de payload is als “string”, met waarde: “Aan”;</p></li>
+<li><p>zet “Repeat” van “none” naar “interval” (every 10 seconds);</p></li>
+<li><p>Bewaar de configuratie (“Save”);</p></li>
+<li><p>“Deploy”, en controleer de output in het debug-venster.</p></li>
 </ol>
-<p>Als het goed is knippert de LED van je IoT-knoop nu: 5 seconden aan, 5 uit, enz.</p>
+</li>
+<li><p>Configureer de onderste inject-node:</p>
+<ol class="arabic simple">
+<li><p>Geef deze de naam “Off”;</p></li>
+<li><p>Stel de payload in als “string”, met waarde “Uit”;</p></li>
+<li><p>Selecteer “inject once after” - met als waarde “5 seconds”;</p></li>
+<li><p>Zet “Repeat” naar “interval” (every 10 seconds);</p></li>
+<li><p>Bewaar de configuratie (“Save”);</p></li>
+<li><p>“Deploy”, en controleer de output in het debug-venster.</p></li>
+</ol>
+</li>
+</ol>
+<p>Als het goed is zie je in het debug-venster elke 5 seconden een bericht verschijnen,
+afwisselend “aan” en “uit”.</p>
+<p><em>Tips</em>:</p>
+<ul class="simple">
+<li><p>je kunt in het debug-venster aangeven dat je alleen de “current flow” wilt zien;</p></li>
+<li><p>je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).</p></li>
+</ul>
+<p class="rubric">Opdracht 3.2</p>
+<p>De volgende stap is om elke deze waarden te koppelen aan de led van de IoT-knoop.
+Eerst maken we de waarden geschikt voor de LED.
+Vervolgens koppelen we deze aan de IoT-knoop, via MQTT.</p>
+<ol class="arabic simple">
+<li><p>Configureer de bovenste inject-node:</p>
+<ol class="arabic simple">
+<li><p>Stel de payload in als  JSON, met als waarde: <code class="docutils literal notranslate"><span class="pre">{&quot;0&quot;:</span> <span class="pre">{&quot;dOut&quot;:</span> <span class="pre">1}}</span></code>.
+<em>Tip</em>: bij het invoeren van een JSON-waarde kun je de JSON-editor gebruiken,
+via de <code class="docutils literal notranslate"><span class="pre">...</span></code> rechts in het edit-venster.
+Je maakt dan minder fouten.</p></li>
+<li><p>Bewaar de configuratie (“Save”)</p></li>
+<li><p>“Deploy”, en controleer de output in het debug-venster.</p></li>
+</ol>
+</li>
+<li><p>Configureer de onderste inject-node:</p>
+<ol class="arabic simple">
+<li><p>Stel de payload in als  JSON, met als waarde: <code class="docutils literal notranslate"><span class="pre">{&quot;0&quot;:</span> <span class="pre">{&quot;dOut&quot;:</span> <span class="pre">0}}</span></code>.</p></li>
+<li><p>Bewaar de configuratie (“Save”)</p></li>
+<li><p>“Deploy”, en controleer de output in het debug-venster.</p></li>
+</ol>
+</li>
+<li><p>Voeg een MQTT output-node toe, en configureer deze:</p>
+<ol class="arabic simple">
+<li><p>stel de MQTT broker (“server”) in als in bij het dashboard.</p></li>
+<li><p>gebruik als Topic: <code class="docutils literal notranslate"><span class="pre">node/xxxx/actuators</span></code>,
+waarbij je voor <code class="docutils literal notranslate"><span class="pre">xxxx</span></code> de ID van je IoT-knoop invult.</p></li>
+<li><p>Bewaar de configuratie (“Save”)</p></li>
+<li><p>“Deploy”, en controleer de output in het debug-venster.</p></li>
+</ol>
+</li>
+</ol>
+<p>Als het goed is zie je nu de berichten niet alleen in het debug-venster verschijnen,
+maar knippert de LED van je IoT-knoop ook op dezelfde manier mee.</p>
+<blockquote>
+<div><p>De codes voor het in- en uitschakelen van de LED behandelen we later uitgebreider.
+De eerste <cite>“0”`</cite> staat hier voor LED-0.
+Sommige IoT-knopen hebben ook een LED-1: probeer die op dezelfde manier te laten knipperen.</p>
+</div></blockquote>
 <p>Deze manier van werken is typisch voor NodeRed: je bouwt een flow beetje voor beetje op,
 waarbij je in het begin veel gebruik maakt van inject- en debug-nodes.
 Je test hiermee elke stap.
 Deze nodes kun je laten zitten tijdens het gebruik:
 een debug-node kun je eenvoudig uitschakelen als je deze even niet nodig hebt.</p>
-<p>Opmerkingen:</p>
+<p>Nog enkele suggesties:</p>
 <ul class="simple">
-<li><p>je kunt in het debug-venster aangeven dat je alleen de “current flow” wilt zien;</p></li>
-<li><p>je kunt het debug-venster leeg maken via het vuilnisbakje (rechts boven).</p></li>
+<li><p>je kunt meerdere MQTT-output-nodes toevoegen met dezelfde input,
+voor verschillende IoT-knopen: je kunt die LEDs tegelijk laten knipperen.</p></li>
+<li></li>
+</ul>
+</div>
+<div class="section" id="doorverbinden">
+<h2>4. Doorverbinden<a class="headerlink" href="#doorverbinden" title="Permalink naar deze titel">¶</a></h2>
+<p>In deze opdracht koppel je de drukknoppen van je knoop aan de LED van je knoop:
+je kunt dan de LED met deze knoppen aan- en uitzetten.</p>
+<p>Volgende stappen:</p>
+<ul class="simple">
+<li><p>door het topic van de MQTT-output-node te veranderen kun je ook de LED van een andere IoT-knoop schakelen.</p></li>
+<li><p>je kunt meerdere MQTT-output-nodes gebruiken met dezelfde invoer:
+daarmee kun je de LEDs van meerdere IoT-knopen schakelen.</p></li>
+<li><p>in plaats van de drukknoppen kun je ook het lichtniveau gebruiken om de LED te schakelen,
+zodat deze bijvoorbeeld aangaat als de IoT-knoop in het donker is.</p></li>
 </ul>
 </div>
 <div class="section" id="nodered-faq">
@@ -580,7 +657,7 @@ In de configuratie van de broker selecteer je de tab “security”, en vult daa
       </div>
     <div class="clearer"></div>
   </div>
-<jinja2.runtime.BlockReference object at 0x112e0bcc0>
+<jinja2.runtime.BlockReference object at 0x10cd64160>
 <script type="text/javascript">
   $(document).trigger("runestone:login-complete");
 </script>
