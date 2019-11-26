@@ -1,32 +1,76 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Protocollen &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=1FF7F927" />
+    <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
+    <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
+    <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=6F3B51A7"></script>
+    <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
+    <script type="text/javascript" src="../_static/timed.js?v=6789FE30"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=BB0B99B1"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=3984FD8D"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=11AD6126"></script>
+    <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
+    <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
+    <script type="text/javascript" src="../_static/parsons.js?v=93EFFF39"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js?v=2EEA9E5A"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="Opdrachten" href="opdrachten.html" />
     <link rel="prev" title="IoT-ketens" href="iot-ketens.html" />
 
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = '' ? '' : 'http://127.0.0.1:8000';
+/*
+  eBookConfig.app = eBookConfig.host+'/';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = '';
+  eBookConfig.logLevel = ;
+  eBookConfig.loginRequired = ;
+  eBookConfig.build_info = "";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = ;
+  eBookConfig.python3 = ;
+  eBookConfig.basecourse = '';
+  eBookConfig.runestone_version = '';
+*/
+</script>
 <script type="application/json" class="js-hypothesis-config">
 {
 "showHighlights": false
 }
 </script>
 <script async src="https://hypothes.is/embed.js"></script>
-
 
   </head><body>
   <div class="document">
@@ -42,7 +86,6 @@
 
 
 
-<h3>Navigatie</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
@@ -76,33 +119,35 @@
 <li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../bouwstenen.html">Bouwstenen</a><ul>
-      <li>Previous: <a href="iot-ketens.html" title="vorig hoofdstuk">IoT-ketens</a></li>
-      <li>Next: <a href="opdrachten.html" title="volgend hoofdstuk">Opdrachten</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
+
+  <p class="topless"><a href="iot-ketens.html"
+                        title="vorig hoofdstuk">Vorige</a></p>
+  <p class="topless"><a href="opdrachten.html"
+                        title="volgend hoofdstuk">Volgende</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Snel zoeken</h3>
+
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="protocollen">
@@ -113,10 +158,10 @@
 op meerdere niveau’s.
 De <em>protocolstack</em> van het internet er als volgt uit:</p>
 <ul class="simple">
-<li>toepassingenlaag - MQTT, HTTP enz., en de protocollen daarboven</li>
-<li>transportlaag - TCP (en TLS, voor veilige verbindingen), UDP</li>
-<li>netwerklaag - IP (“internet protocol”)</li>
-<li>datalink-laag - (fysieke laag) op basis van Ethernet, WiFi, enz.</li>
+<li><p>toepassingenlaag - MQTT, HTTP enz., en de protocollen daarboven</p></li>
+<li><p>transportlaag - TCP (en TLS, voor veilige verbindingen), UDP</p></li>
+<li><p>netwerklaag - IP (“internet protocol”)</p></li>
+<li><p>datalink-laag - (fysieke laag) op basis van Ethernet, WiFi, enz.</p></li>
 </ul>
 <p>De onderste twee lagen vormen de verbinding <em>in het netwerk</em>.
 De lagen daarboven zijn <em>end-to-end</em> protocollen: deze vind je in de <em>end devices</em>, niet in het (IP)netwerk.
@@ -125,7 +170,7 @@ ook een MQTT-broker is voor het internet een end-device.
 Voorbeelden van network-devices: gateway, router, firewall.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/HTTP-IP-stack.png"><img alt="../_images/HTTP-IP-stack.png" src="../_images/HTTP-IP-stack.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Protocol-stacks in HTTP client-server verbinding</span></p>
+<p class="caption"><span class="caption-text">Protocol-stacks in HTTP client-server verbinding</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>HTTP en MQTT zijn voorbeelden van end-to-end protocollen:
 deze vind je alleen in de eindpunten (end devices).
@@ -137,8 +182,8 @@ In de voorbeelden gebruiken we een protocol voor de sensor/actuatordata van de I
 Door hetzelfde protocol te gebruiken voor de verschillende IoT-ketens,
 met verschillende radio’s in de “edge”, kunnen we de rest van de keten grotendeels gelijk houden.</p>
 <div class="admonition-end-to-end admonition">
-<p class="first admonition-title">End-to-end</p>
-<p class="last">Het <em>end-to-end</em> principe is één van de belangrijke bouwstenen van het internet.
+<p class="admonition-title">End-to-end</p>
+<p>Het <em>end-to-end</em> principe is één van de belangrijke bouwstenen van het internet.
 Het IP-protocol is het enige protocol <em>in het netwerk</em>.
 Dit is een uniform en universeel communicatieprotocol, gebaseerd op best-effort pakketcommunicatie.
 Alle aanpassingen aan de toepassingen gebeuren in de eindpunten (<em>end devices</em>).
@@ -149,8 +194,8 @@ iedereen kan een eigen end-to-end protocol gebruiken voor de eigen toepassingen.
 <div class="section" id="interactie">
 <h2>Interactie<a class="headerlink" href="#interactie" title="Permalink naar deze titel">¶</a></h2>
 <div class="figure align-right" id="id2">
-<a class="reference internal image-reference" href="../_images/IoT-client-server-01.png"><img alt="../_images/IoT-client-server-01.png" src="../_images/IoT-client-server-01.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-text">Client-server interactie (HTTP)</span></p>
+<a class="reference internal image-reference" href="../_images/IoT-client-server-0.png"><img alt="../_images/IoT-client-server-0.png" src="../_images/IoT-client-server-0.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Client-server interactie (HTTP)</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Het webprotocol HTTP gebruikt een <em>client-server</em> interactie:
 de browser (client) stuurt een verzoek (met een URL) naar de webserver,
@@ -158,13 +203,13 @@ en krijgt als response van de webserver het bijbehorende HTML-document.
 Overigens kunnen ook andere programma’s als webclient optreden.</p>
 <div class="figure align-right" id="id3">
 <a class="reference internal image-reference" href="../_images/MQTT.png"><img alt="../_images/MQTT.png" src="../_images/MQTT.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-text">Publish-subscribe interactie (MQTT)</span></p>
+<p class="caption"><span class="caption-text">Publish-subscribe interactie (MQTT)</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Het IoT-protocol MQTT gebruikt een <em>publish-subscribe</em> interactie,
 waarbij een <em>broker</em> als tussenschakel fungeert tussen de clients:</p>
 <ul class="simple">
-<li>een client “pusht” een bericht met een bepaald <em>topic</em> naar de broker,</li>
-<li>de broker “pusht” een ontvangen bericht naar alle clients die op dit topic geabonneerd zijn.</li>
+<li><p>een client “pusht” een bericht met een bepaald <em>topic</em> naar de broker,</p></li>
+<li><p>de broker “pusht” een ontvangen bericht naar alle clients die op dit topic geabonneerd zijn.</p></li>
 </ul>
 <p>Zowel de IoT-knopen en de controllers zijn clients van de MQTT-broker:
 voor de broker zijn deze gelijkwaardig.</p>
@@ -175,10 +220,10 @@ voor de broker zijn deze gelijkwaardig.</p>
 <em>adressering</em> is een onderdeel van een netwerpprotocol.
 Op elk niveau van de protocolstack komen we een passende vorm van adressering tegen:</p>
 <ul class="simple">
-<li>HTTP: URL; MQTT: topic (adres van de IoT-knoop);</li>
-<li>TCP: poortnummer (adres van de toepassing)</li>
-<li>IP: ip-adres en domeinnaam (adres van de “host”: end-device)</li>
-<li>WiFi: MAC-adres; RFM69: node-nr; LoRa: device-EUI (hardware-adres)</li>
+<li><p>HTTP: URL; MQTT: topic (adres van de IoT-knoop);</p></li>
+<li><p>TCP: poortnummer (adres van de toepassing)</p></li>
+<li><p>IP: ip-adres en domeinnaam (adres van de “host”: end-device)</p></li>
+<li><p>WiFi: MAC-adres; RFM69: node-nr; LoRa: device-EUI (hardware-adres)</p></li>
 </ul>
 <p>In de IoT-toepassingen gebruiken we het nummer van de IoT-knoop als identificatie en adres.
 Dit nummer leiden we af van het MAC-adres, of we wijzen dit zelf toe.</p>
@@ -189,10 +234,10 @@ Dit nummer leiden we af van het MAC-adres, of we wijzen dit zelf toe.</p>
 Voor een toepassing maken we afspraken over het payload-formaat.
 Voor onze IoT-toepassingen gebruiken we het JSON-formaat met daarin het Cayenne-LPP formaat voor de sensordata.</p>
 <ul class="simple">
-<li>HTTP: HTML als payload-formaat; MQTT: (JSON)</li>
-<li>TCP: bytestroom</li>
-<li>IP: payload-deel van pakket, met (o.a.) fragmenten van de TCP bytestroom.</li>
-<li>Ethernet, WiFi: frames (pakketten op fysiek niveau) met IP-pakketten als payload.</li>
+<li><p>HTTP: HTML als payload-formaat; MQTT: (JSON)</p></li>
+<li><p>TCP: bytestroom</p></li>
+<li><p>IP: payload-deel van pakket, met (o.a.) fragmenten van de TCP bytestroom.</p></li>
+<li><p>Ethernet, WiFi: frames (pakketten op fysiek niveau) met IP-pakketten als payload.</p></li>
 </ul>
 <p>Naast de payload hebben we te maken met de <em>meta-data</em> van het protocol.
 Deze bestaat bijvoorbeeld uit het adres van de bestemming, het adres van de afzender,
@@ -228,24 +273,15 @@ de pakketten zijn meest 10-20 bytes groot (of liever: klein).</p>
 
 
           </div>
+          
         </div>
       </div>
     <div class="clearer"></div>
   </div>
-    <div class="footer">
-      &copy;2019, SLO.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="../_sources/bouwstenen/iot-protocollen.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
+<jinja2.runtime.BlockReference object at 0x108b6be50>
+<script type="text/javascript">
+  $(document).trigger("runestone:login-complete");
+</script>
 
-    
-
-    
   </body>
 </html>

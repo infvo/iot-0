@@ -16,6 +16,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+from runestone import runestone_static_dirs, runestone_extensions
 
 # -- Project information -----------------------------------------------------
 
@@ -43,7 +44,25 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
+    'runestone.common', 'runestone.meta', 'runestone.assignment',
+    'runestone.question', 'runestone.assess', 'runestone.shortanswer',
+    'runestone.accessibility', 'runestone.dragndrop',  'runestone.poll',
+    'runestone.parsons',
+    'runestone.utility'
 ]
+
+# #
+#     'runestone.common',
+#     'runestone.accessibility',
+#     'runestone.meta',
+#     'runestone.utility',
+#     'runestone.assess',
+#     'runestone.assignment',
+#     'runestone.chapterdb',
+#     'runestone.datafile',
+#     'runestone.external',
+#     'runestone.shortanswer',
+# ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -94,7 +113,7 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['_static'] + runestone_static_dirs()
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -109,12 +128,17 @@ html_sidebars = {
     '**': [
         'about.html',
         'navigation.html',
+#        'localtoc.html',
         'relations.html',
         'searchbox.html',
+#
         'donate.html',
     ]
 }
 
+html_css_files = [
+  'css/custom.css'
+]
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.

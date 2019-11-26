@@ -9,7 +9,7 @@ WiFi-knoop (ESP8266)
 
 Voor het configureren van een IoT-knoop met de software ``wifi-node-x`` heb je nodig:
 
-* de gegevens van het lokale WiFi-netwerk: SSID (netwerknaam) en wachtwoord (van het netwerk)
+* de gegevens van het WiFi-netwerk: SSID (netwerknaam) en wachtwoord;
 * de MQTT-broker-gegevens: domeinnaam, poortnummer, gebruikersnaam, wachtwoord
 
 Vraag deze gegevens eventueel aan je docent.
@@ -18,7 +18,7 @@ Vraag deze gegevens eventueel aan je docent.
 
   N.B. De knopen werken alleen met netwerken met een wachtwoord voor het netwerk, voor alle gebruikers.
   Veel eenvoudige WiFi-netwerken, zoals een thuisnetwerk of een telefoon als access point, gebruiken deze aanpak.
-  De knopen werken niet met WiFI-netwerken die voor elke gebruiker naam/wachtwoord-combinatie hebben,
+  De knopen werken niet met WiFI-netwerken die voor elke gebruiker een naam/wachtwoord-combinatie hebben,
   zoals veel schoolnetwerken.
 
 .. figure:: configureren/IoT-conf-step123a.png

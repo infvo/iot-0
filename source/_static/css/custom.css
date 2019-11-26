@@ -1,0 +1,7 @@
+p.admonition-title:after {
+    content: "";
+}
+
+.tip p.admonition-title:after {
+  content: ":";
+}

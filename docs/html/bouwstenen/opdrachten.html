@@ -1,32 +1,76 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Opdrachten &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=1FF7F927" />
+    <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
+    <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
+    <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=6F3B51A7"></script>
+    <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
+    <script type="text/javascript" src="../_static/timed.js?v=6789FE30"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=BB0B99B1"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=3984FD8D"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=11AD6126"></script>
+    <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
+    <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
+    <script type="text/javascript" src="../_static/parsons.js?v=93EFFF39"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js?v=2EEA9E5A"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="NodeRed opdrachten" href="nodered-opdrachten.html" />
     <link rel="prev" title="Protocollen" href="iot-protocollen.html" />
 
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = '' ? '' : 'http://127.0.0.1:8000';
+/*
+  eBookConfig.app = eBookConfig.host+'/';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = '';
+  eBookConfig.logLevel = ;
+  eBookConfig.loginRequired = ;
+  eBookConfig.build_info = "";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = ;
+  eBookConfig.python3 = ;
+  eBookConfig.basecourse = '';
+  eBookConfig.runestone_version = '';
+*/
+</script>
 <script type="application/json" class="js-hypothesis-config">
 {
 "showHighlights": false
 }
 </script>
 <script async src="https://hypothes.is/embed.js"></script>
-
 
   </head><body>
   <div class="document">
@@ -42,7 +86,6 @@
 
 
 
-<h3>Navigatie</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
@@ -73,33 +116,35 @@
 <li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../bouwstenen.html">Bouwstenen</a><ul>
-      <li>Previous: <a href="iot-protocollen.html" title="vorig hoofdstuk">Protocollen</a></li>
-      <li>Next: <a href="nodered-opdrachten.html" title="volgend hoofdstuk">NodeRed opdrachten</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
+
+  <p class="topless"><a href="iot-protocollen.html"
+                        title="vorig hoofdstuk">Vorige</a></p>
+  <p class="topless"><a href="nodered-opdrachten.html"
+                        title="volgend hoofdstuk">Volgende</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Snel zoeken</h3>
+
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="opdrachten">
@@ -117,9 +162,9 @@ De server gebruikt geen server-scripting (zoals PHP of Python) en geen server-da
 <p>Bij veel opdrachten gebruiken we de app MQT3:
 dit is een mqtt-client waarmee we mqtt-berichten kunnen sturen en ontvangen.
 Door de aard van het mqtt-protocol kunnen we daarmee ook <em>topics</em> “afluisteren”.</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/IoT-mqtt0-app.png"><img alt="../_images/IoT-mqtt0-app.png" src="../_images/IoT-mqtt0-app.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">MQTTTest app (MQT3)</span></p>
+<p class="caption"><span class="caption-text">MQTTTest app (MQT3)</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>De  web-app kun je vinden via de broker: <a class="reference external" href="http://infvopedia.nl/mqt3.html">http://infvopedia.nl/mqt3.html</a>.
 Hierin is <code class="docutils literal notranslate"><span class="pre">infvopedia.nl</span></code> de domeinnaam van de broker.
@@ -128,41 +173,38 @@ MQT3 communiceert met de MQTT-broker via het <em>websockets</em> protocol.
 Het MQTT-protocol gebruikt poort <code class="docutils literal notranslate"><span class="pre">1883</span></code>.</p>
 <p>De app heeft de volgende invoervelden en knoppen:</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">IoT-node</span></code>: de ID van de IoT-knoop waarvan je de sensordata wilt ontvangen</dt>
-<dd><ul class="first last">
-<li>knoppen On en Off: publiceren berichten met topic <code class="docutils literal notranslate"><span class="pre">node/ID/actuators</span></code>,
-om led0 aan- en uit te schakelen</li>
-<li>de sensordata worden ontvangen via topic <code class="docutils literal notranslate"><span class="pre">node/ID/sensors</span></code></li>
-<li>de ontvangen sensordata worden in tabelvorm weergegeven</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">IoT-node</span></code>: de ID van de IoT-knoop waarvan je de sensordata wilt ontvangen</dt><dd><ul>
+<li><p>knoppen On en Off: publiceren berichten met topic <code class="docutils literal notranslate"><span class="pre">node/ID/actuators</span></code>,
+om led0 aan- en uit te schakelen</p></li>
+<li><p>de sensordata worden ontvangen via topic <code class="docutils literal notranslate"><span class="pre">node/ID/sensors</span></code></p></li>
+<li><p>de ontvangen sensordata worden in tabelvorm weergegeven</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">subscribe</span> <span class="pre">to</span> <span class="pre">topic</span></code>: het topic waarvan je de berichten wilt ontvangen</dt>
-<dd><ul class="first last">
-<li>daaronder verschijnen de ontvangen berichten</li>
-<li>in het topic kun je ook wildcard-tekens opnemen, zoals <code class="docutils literal notranslate"><span class="pre">+</span></code> en <code class="docutils literal notranslate"><span class="pre">#</span></code>.</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">subscribe</span> <span class="pre">to</span> <span class="pre">topic</span></code>: het topic waarvan je de berichten wilt ontvangen</dt><dd><ul>
+<li><p>daaronder verschijnen de ontvangen berichten</p></li>
+<li><p>in het topic kun je ook wildcard-tekens opnemen, zoals <code class="docutils literal notranslate"><span class="pre">+</span></code> en <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">publish</span> <span class="pre">to</span> <span class="pre">topic</span></code>: het topic waarvoor je berichten wilt versturen:</dt>
-<dd><ul class="first last">
-<li>het bericht voer je daaronder in, en</li>
-<li>met de “publish”-knop verstuur je het bericht.</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">publish</span> <span class="pre">to</span> <span class="pre">topic</span></code>: het topic waarvoor je berichten wilt versturen:</dt><dd><ul>
+<li><p>het bericht voer je daaronder in, en</p></li>
+<li><p>met de “publish”-knop verstuur je het bericht.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
 <div class="admonition-let-op admonition">
-<p class="first admonition-title">Let op</p>
+<p class="admonition-title">Let op</p>
 <p>Een nieuwe waarde in een invoerveld wordt actief zodra de cursor dat invoerveld verlaat.
 Je ziet dan geen blauwe rand meer om het veld.</p>
-<p class="last">Als je een nieuw topic invult of een nieuwe IoT-node ID,
+<p>Als je een nieuw topic invult of een nieuwe IoT-node ID,
 vindt er automatisch een <em>subscribe</em> op dit nieuwe topic plaats,
 en een <em>unsubscribe</em> op het vorige topic.
 Na het invullen verschijnen dan automatisch de ontvangen berichten voor dat nieuwe topic.</p>
@@ -174,62 +216,56 @@ Een voorbeeld is MQTTbox (<a class="reference external" href="http://workswithwe
 <h2>1. Een eerste IoT-keten<a class="headerlink" href="#een-eerste-iot-keten" title="Permalink naar deze titel">¶</a></h2>
 <p>Een eerste voorbeeld van een IoT-keten, van IoT-knoop tot toepassings (“app”), bestaat uit de volgende onderdelen:</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>een gesimuleerde IoT-knoop</dt>
-<dd><ul class="first last">
-<li><a class="reference external" href="http://infvopedia.nl/iotnode-app.html">http://infvopedia.nl/iotnode-app.html</a></li>
+<li><dl class="simple">
+<dt>een gesimuleerde IoT-knoop</dt><dd><ul>
+<li><p><a class="reference external" href="http://infvopedia.nl/iotnode-app.html">http://infvopedia.nl/iotnode-app.html</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>een MQTT-broker in het publieke internet;</li>
-<li><dl class="first docutils">
-<dt>het programma MQT3, waarmee je het mqtt-verkeer van de sensor kunt bekijken.</dt>
-<dd><ul class="first last">
-<li><a class="reference external" href="http://infvopedia.nl/mqt3.html">http://infvopedia.nl/mqt3.html</a></li>
+<li><p>een MQTT-broker in het publieke internet;</p></li>
+<li><dl class="simple">
+<dt>het programma MQT3, waarmee je het mqtt-verkeer van de sensor kunt bekijken.</dt><dd><ul>
+<li><p><a class="reference external" href="http://infvopedia.nl/mqt3.html">http://infvopedia.nl/mqt3.html</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/Iotnode-simulator-0.png"><img alt="../_images/Iotnode-simulator-0.png" src="../_images/Iotnode-simulator-0.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">IoT-knoop simulator</span></p>
+<p class="caption"><span class="caption-text">IoT-knoop simulator</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p class="rubric">Opdracht 1.1</p>
 <p>Voer de onderstaande stappen uit:</p>
 <ol class="arabic simple">
-<li>open de gesimuleerde IoT-knoop op in een browservenster</li>
-<li><dl class="first docutils">
-<dt>open het programma MQTTT in een ander browservenster</dt>
-<dd><ul class="first last">
-<li>deze opzet werkt het best met twee browservensters naast elkaar.</li>
+<li><p>open de gesimuleerde IoT-knoop op in een browservenster</p></li>
+<li><dl class="simple">
+<dt>open het programma MQTTT in een ander browservenster</dt><dd><ul class="simple">
+<li><p>deze opzet werkt het best met twee browservensters naast elkaar.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>voer in het “IoT-node”-venster van MQTTT de nodeID in van de gesimuleerde IoT-knoop</li>
-<li><dl class="first docutils">
-<dt>druk in MQTTT op de knop om de LED (led0) aan (of uit) te zetten</dt>
-<dd><ul class="first last">
-<li>in MQTTT zie je de waarden van de sensoren in tabelvorm verschijnen</li>
-<li>je ziet in de gesimuleerde IoT-knoop de linker LED aan (of uit) gaan.</li>
+<li><p>voer in het “IoT-node”-venster van MQTTT de nodeID in van de gesimuleerde IoT-knoop</p></li>
+<li><dl class="simple">
+<dt>druk in MQTTT op de knop om de LED (led0) aan (of uit) te zetten</dt><dd><ul class="simple">
+<li><p>in MQTTT zie je de waarden van de sensoren in tabelvorm verschijnen</p></li>
+<li><p>je ziet in de gesimuleerde IoT-knoop de linker LED aan (of uit) gaan.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>verander één van de sliders van de IoT-knoop</dt>
-<dd><ul class="first last">
-<li>je ziet nu (na verloop van tijd) de berichten met de nieuwe waarde langskomen.</li>
+<li><dl class="simple">
+<dt>verander één van de sliders van de IoT-knoop</dt><dd><ul class="simple">
+<li><p>je ziet nu (na verloop van tijd) de berichten met de nieuwe waarde langskomen.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>druk één van de knoppen op de (gesimuleerde) IoT-knoop in</dt>
-<dd><ul class="first last">
-<li>wat gebeurt er?</li>
+<li><dl class="simple">
+<dt>druk één van de knoppen op de (gesimuleerde) IoT-knoop in</dt><dd><ul class="simple">
+<li><p>wat gebeurt er?</p></li>
 </ul>
 </dd>
 </dl>
@@ -237,27 +273,26 @@ Een voorbeeld is MQTTbox (<a class="reference external" href="http://workswithwe
 </ol>
 <p>Opmerkingen:</p>
 <ul class="simple">
-<li>Mogelijk zie je ook berichten van andere IoT-knopen langskomen:
+<li><p>Mogelijk zie je ook berichten van andere IoT-knopen langskomen:
 die gebruiken dezelfde MQTT-broker,
-en via <code class="docutils literal notranslate"><span class="pre">subscribe:</span> <span class="pre">+/+/+</span></code> ontvangt MQTTT de berichten van alle knopen.</li>
-<li>De IoT-knoop-simulator verstuurt ca. elke 60 seconden de waarden van de lokale sensoren;
-dit zullen we later ook bij de hardware-IoT-knopen zien.</li>
-<li>je kunt meerdere (gesimuleerde) IoT-knopen hebben met dezelfde node-ID:
-deze zijn op het MQTT-niveau niet van elkaar te onderscheiden.</li>
+en via <code class="docutils literal notranslate"><span class="pre">subscribe:</span> <span class="pre">+/+/+</span></code> ontvangt MQTTT de berichten van alle knopen.</p></li>
+<li><p>De IoT-knoop-simulator verstuurt ca. elke 60 seconden de waarden van de lokale sensoren;
+dit zullen we later ook bij de hardware-IoT-knopen zien.</p></li>
+<li><p>je kunt meerdere (gesimuleerde) IoT-knopen hebben met dezelfde node-ID:
+deze zijn op het MQTT-niveau niet van elkaar te onderscheiden.</p></li>
 </ul>
 </div>
 <div class="section" id="een-tweede-iot-keten">
 <h2>2. een tweede IoT-keten<a class="headerlink" href="#een-tweede-iot-keten" title="Permalink naar deze titel">¶</a></h2>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Te doen</p>
 <p>Verder uitwerken - ook de infrastructuur.</p>
-<ul class="last simple">
-<li><dl class="first docutils">
-<dt>gebruik van een IoT-dashboard</dt>
-<dd><ul class="first last">
-<li>NB: uiteindelijk moeten we een dashboard zien te bieden waarin meerdere sensoren/IoT-knopen gecombineerd worden?</li>
-<li>gebruik van IoT-dashboard voor gegeven knopen (elders)</li>
-<li>gebruik van IoT-dashboard voor gesimuleerde knopen</li>
+<ul class="simple">
+<li><dl class="simple">
+<dt>gebruik van een IoT-dashboard</dt><dd><ul>
+<li><p>NB: uiteindelijk moeten we een dashboard zien te bieden waarin meerdere sensoren/IoT-knopen gecombineerd worden?</p></li>
+<li><p>gebruik van IoT-dashboard voor gegeven knopen (elders)</p></li>
+<li><p>gebruik van IoT-dashboard voor gesimuleerde knopen</p></li>
 </ul>
 </dd>
 </dl>
@@ -269,24 +304,15 @@ deze zijn op het MQTT-niveau niet van elkaar te onderscheiden.</li>
 
 
           </div>
+          
         </div>
       </div>
     <div class="clearer"></div>
   </div>
-    <div class="footer">
-      &copy;2019, SLO.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="../_sources/bouwstenen/opdrachten.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
+<jinja2.runtime.BlockReference object at 0x108ac6cd0>
+<script type="text/javascript">
+  $(document).trigger("runestone:login-complete");
+</script>
 
-    
-
-    
   </body>
 </html>

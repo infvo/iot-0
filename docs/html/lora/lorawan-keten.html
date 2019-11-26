@@ -1,32 +1,76 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>LoRaWan-keten &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=1FF7F927" />
+    <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
+    <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
+    <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=6F3B51A7"></script>
+    <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
+    <script type="text/javascript" src="../_static/timed.js?v=6789FE30"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=BB0B99B1"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=3984FD8D"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=11AD6126"></script>
+    <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
+    <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
+    <script type="text/javascript" src="../_static/parsons.js?v=93EFFF39"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js?v=2EEA9E5A"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="TTN-console" href="ttn-console.html" />
     <link rel="prev" title="LoRa-knopen" href="../lora.html" />
 
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = '' ? '' : 'http://127.0.0.1:8000';
+/*
+  eBookConfig.app = eBookConfig.host+'/';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = '';
+  eBookConfig.logLevel = ;
+  eBookConfig.loginRequired = ;
+  eBookConfig.build_info = "";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = ;
+  eBookConfig.python3 = ;
+  eBookConfig.basecourse = '';
+  eBookConfig.runestone_version = '';
+*/
+</script>
 <script type="application/json" class="js-hypothesis-config">
 {
 "showHighlights": false
 }
 </script>
 <script async src="https://hypothes.is/embed.js"></script>
-
 
   </head><body>
   <div class="document">
@@ -42,7 +86,6 @@
 
 
 
-<h3>Navigatie</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
@@ -82,42 +125,44 @@
 <li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../lora.html">LoRa-knopen</a><ul>
-      <li>Previous: <a href="../lora.html" title="vorig hoofdstuk">LoRa-knopen</a></li>
-      <li>Next: <a href="ttn-console.html" title="volgend hoofdstuk">TTN-console</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
+
+  <p class="topless"><a href="../lora.html"
+                        title="vorig hoofdstuk">Vorige</a></p>
+  <p class="topless"><a href="ttn-console.html"
+                        title="volgend hoofdstuk">Volgende</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Snel zoeken</h3>
+
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="lorawan-keten">
 <h1>LoRaWan-keten<a class="headerlink" href="#lorawan-keten" title="Permalink naar deze titel">¶</a></h1>
 <div class="section" id="de-lorawan-keten">
 <h2>De LoRaWan-keten<a class="headerlink" href="#de-lorawan-keten" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/IoT-keten-LoRaWan1.png"><img alt="../_images/IoT-keten-LoRaWan1.png" src="../_images/IoT-keten-LoRaWan1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">LoRaWan-keten, van IoT-knoop tot dashboard</span></p>
+<p class="caption"><span class="caption-text">LoRaWan-keten, van IoT-knoop tot dashboard</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>De IoT-knopen zijn via de LoRa-radio en het LoRaWan-protocol verbonden met de LoRaWan-gateway(s).
 Door het grote bereik van de radio kan een bericht van een IoT-knoop door meerdere gateways ontvangen worden.
@@ -144,8 +189,8 @@ De communicatie is <em>best effort</em>, met beperkte mogelijkheden voor ontvang
 <p>De LoRa-radio gebruikt (in Europa) de 868MHz ISM-band.
 Deze band kun je zonder vergunning gebruiken, mits je je houdt aan de volgende regels:</p>
 <ul class="simple">
-<li>een radio mag zenden met een maximaal vermogen van +20dB;</li>
-<li>een radio mag maximaal 1% van de tijd zenden, (gemiddeld over een uur?)</li>
+<li><p>een radio mag zenden met een maximaal vermogen van +20dB;</p></li>
+<li><p>een radio mag maximaal 1% van de tijd zenden, (gemiddeld over een uur?)</p></li>
 </ul>
 <p>Bij een IoT-radio kun je een afweging maken tussen bitrate en bereik.
 De LoRa-radio maakt een groot bereik mogelijk, met als gevolg een lage bitrate.
@@ -155,9 +200,9 @@ In combinatie met de beperkingen van de ISM-band betekent dit dat een LoRa-radio
 Voor Sigfox gelden de volgende regels/eigenschappen:</p>
 <blockquote>
 <div><ul class="simple">
-<li>12 bytes upload (payload); frame 26 bytes;</li>
-<li>8 bytes download (payload)</li>
-<li>low bitrate: 100-600 bit/s (26*8 bits = 208 bits: ca. 2 sec per message)</li>
+<li><p>12 bytes upload (payload); frame 26 bytes;</p></li>
+<li><p>8 bytes download (payload)</p></li>
+<li><p>low bitrate: 100-600 bit/s (26*8 bits = 208 bits: ca. 2 sec per message)</p></li>
 </ul>
 </div></blockquote>
 </div></blockquote>
@@ -194,9 +239,10 @@ die verbonden zijn met een <em>server</em>.
 Deze server coördineert het verkeer van en naar de gateways,
 en zorgt voor de interactie met de rest van het internet.</p>
 <blockquote>
-<div>Je kunt een gateway in dit verband vergelijken met een mobiele zendmast:
+<div><p>Je kunt een gateway in dit verband vergelijken met een mobiele zendmast:
 deze zorgt voor het verkeer tussen de (mobiele) IoT-knopen en de rest van het netwerk.
-Overigens kan een bericht van een IoT-knoop door meerdere gateways ontvangen worden.</div></blockquote>
+Overigens kan een bericht van een IoT-knoop door meerdere gateways ontvangen worden.</p>
+</div></blockquote>
 <p>Er zijn verschillende aanbieders met een eigen LoRaWan-netwerk,
 in Nederland onder andere KPN.</p>
 <p>Een bijzondere aanbieder is TheThingsNetwork:
@@ -210,18 +256,18 @@ Je kunt deze aanbieders vergelijken met de aanbieders van mobiele telefonie:
 een aanbieder heeft verspreid over het land LoRaWan-gateways staan voor de communicatie met LoRaWan-knopen.
 Deze gateways sturen de LoRa-berichten door naar de LoRaWan-servers, die zorgen voor de aansluiting op het internet.
 LoRaWan-toepassingen communiceren met deze LoRaWan-servers.</p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>Figuur van LoRaWan-keten.</li>
-<li>LoRaWan - protocol stack</li>
-<li>LoRaWan gateway: protocol-conversie (ook nog eens in de server?)</li>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>Figuur van LoRaWan-keten.</p></li>
+<li><p>LoRaWan - protocol stack</p></li>
+<li><p>LoRaWan gateway: protocol-conversie (ook nog eens in de server?)</p></li>
 </ul>
 </div>
 <p>Aanbieders van LoRaWan in Nederland:</p>
 <ul class="simple">
-<li>KPN</li>
-<li>TheThingsNetwork</li>
+<li><p>KPN</p></li>
+<li><p>TheThingsNetwork</p></li>
 </ul>
 </div>
 <hr class="docutils" />
@@ -232,14 +278,15 @@ Het netwerk is gratis te gebruiken.
 Er zijn overal in de wereld, en vooral in Nederland, lokale <em>communities</em> die ervaringen uitwisselen,
 en die zorgen voor de lokale LoRaWan-dekking door eigen gateways aan te bieden.</p>
 <blockquote>
-<div>Als school (of als hobbyist) kun je je eigen TTN-gateway installeren, en daarmee het TTN-netwerk versterken.</div></blockquote>
+<div><p>Als school (of als hobbyist) kun je je eigen TTN-gateway installeren, en daarmee het TTN-netwerk versterken.</p>
+</div></blockquote>
 <div class="section" id="fair-access-policy">
 <h3>Fair access policy<a class="headerlink" href="#fair-access-policy" title="Permalink naar deze titel">¶</a></h3>
 <p>Het gebruik van de TTN infrastructuur is gratis,
 maar gebruikers moeten zich wel “netjes gedragen”.
 TTN gebruikt als “fair access policy”:</p>
 <ul class="simple">
-<li>de totale duur (airtime) van de berichten van een radio (IoT-knoop) mag per dag niet meer dan 30 s. zijn.</li>
+<li><p>de totale duur (airtime) van de berichten van een radio (IoT-knoop) mag per dag niet meer dan 30 s. zijn.</p></li>
 </ul>
 <p>Deze voorwaarde komt bovenop de 1%-eis van de ISM-band.</p>
 </div>
@@ -250,30 +297,29 @@ TTN gebruikt als “fair access policy”:</p>
 <p>Wat zijn typische LoRa-toepassingen?
 Aan welke eisen moeten deze voldoen?</p>
 <ul class="simple">
-<li>sensoren (en geen actuatoren)</li>
-<li>met grote tussenpozen</li>
-<li>lage latency niet essentieel</li>
+<li><p>sensoren (en geen actuatoren)</p></li>
+<li><p>met grote tussenpozen</p></li>
+<li><p>lage latency niet essentieel</p></li>
 </ul>
 <p>Mogelijke voorbeelden:</p>
 <ul class="simple">
-<li>bewaken van parkeerplaatsen (elke 5 min?)</li>
-<li>logistiek: waar is mijn xxx? (elke 5 min?)</li>
-<li>smart agriculture (bijv. koeien in Afrika; eigenschappen van gewassen, grond)</li>
+<li><p>bewaken van parkeerplaatsen (elke 5 min?)</p></li>
+<li><p>logistiek: waar is mijn xxx? (elke 5 min?)</p></li>
+<li><p>smart agriculture (bijv. koeien in Afrika; eigenschappen van gewassen, grond)</p></li>
 <li></li>
 </ul>
 <p>Met andere woorden: LoRa is <em>niet geschikt voor</em>:</p>
 <ul class="simple">
-<li>home control (zoals Philips Hue)</li>
+<li><p>home control (zoals Philips Hue)</p></li>
 </ul>
 <p>Belangrijke eigenschappen van LoRa(Wan) voor IoT-toepassingen:</p>
 <ul class="simple">
-<li>long range (1 km of meer)</li>
-<li>low power</li>
-<li><dl class="first docutils">
-<dt>low cost</dt>
-<dd><ul class="first last">
-<li>voor 20-30 euro kun je een LoRaWan-IoT-knoop maken</li>
-<li>voor 300-500 euro heb je een LoRaWan gateway</li>
+<li><p>long range (1 km of meer)</p></li>
+<li><p>low power</p></li>
+<li><dl class="simple">
+<dt>low cost</dt><dd><ul>
+<li><p>voor 20-30 euro kun je een LoRaWan-IoT-knoop maken</p></li>
+<li><p>voor 300-500 euro heb je een LoRaWan gateway</p></li>
 </ul>
 </dd>
 </dl>
@@ -283,68 +329,65 @@ Aan welke eisen moeten deze voldoen?</p>
 <p>(mogelijk voor vragen:)</p>
 <p>Je kunt de tijd die een radio (van een IoT-knoop) zendt beperken door:</p>
 <ul class="simple">
-<li>korte berichten te versturen, van enkele bytes;</li>
-<li>het aantal berichten per uur te beperken (tot 10-20);</li>
-<li>waar mogelijk gebruik te maken van een gateway in de buurt.</li>
+<li><p>korte berichten te versturen, van enkele bytes;</p></li>
+<li><p>het aantal berichten per uur te beperken (tot 10-20);</p></li>
+<li><p>waar mogelijk gebruik te maken van een gateway in de buurt.</p></li>
 </ul>
 <p>Deze regels zijn ook gunstig voor het verlengen van de batterijduur van de IoT-knoop.</p>
 <p class="rubric">LoRaWan-toepassingen</p>
 <p>Voor welke toepassingen is LoRaWan geschikt?</p>
 <ul class="simple">
 <li></li>
-<li>veiligheid (security): de communicatie gebruikt “end-to-end encryptie”,
-van de IoT-knoop tot de toepassing in de TTN-server.</li>
+<li><p>veiligheid (security): de communicatie gebruikt “end-to-end encryptie”,
+van de IoT-knoop tot de toepassing in de TTN-server.</p></li>
 </ul>
 <p>Voor welke toepassingen is LoraWan <em>niet</em> geschikt?</p>
 <ul class="simple">
-<li>veel berichten per uur;</li>
-<li>grote berichten (meer dan een 10-tal bytes);</li>
-<li>grote betrouwbaarheid;</li>
+<li><p>veel berichten per uur;</p></li>
+<li><p>grote berichten (meer dan een 10-tal bytes);</p></li>
+<li><p>grote betrouwbaarheid;</p></li>
 </ul>
 <p class="rubric">links</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about">https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about</a></li>
+<li><p><a class="reference external" href="https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about">https://www.rs-online.com/designspark/eleven-internet-of-things-iot-protocols-you-need-to-know-about</a></p></li>
 </ul>
 <hr class="docutils" />
 <p>Beveiliging: volgnummers (en voor controle op verloren berichten). (Wordt bij OOTA automatisch op 0 gezet.)</p>
 <p>Details bij IoT-1: OOTA vs. ABP; wanneer wel/niet ontvangstbevestiging.</p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>gateway:</dt>
-<dd><ul class="first last">
-<li>protocol-conversie</li>
-<li>metadata</li>
-<li>onderhandeling met IoT-knoop</li>
+<li><dl class="simple">
+<dt>gateway:</dt><dd><ul>
+<li><p>protocol-conversie</p></li>
+<li><p>metadata</p></li>
+<li><p>onderhandeling met IoT-knoop</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>server:</dt>
-<dd><ul class="first last">
-<li>application:</li>
-<li>device: (IoT-knoop)</li>
+<li><dl class="simple">
+<dt>server:</dt><dd><ul>
+<li><p>application:</p></li>
+<li><p>device: (IoT-knoop)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>toepassing: (bijv. dashboard)</dt>
-<dd><ul class="first last">
-<li>communicatie via mqtt</li>
-<li>hoe gebeurt authenticatie van gebruiker?</li>
+<li><dl class="simple">
+<dt>toepassing: (bijv. dashboard)</dt><dd><ul>
+<li><p>communicatie via mqtt</p></li>
+<li><p>hoe gebeurt authenticatie van gebruiker?</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Te doen</p>
-<ul class="last simple">
-<li>LoRa radio: adressering</li>
-<li>volgnummers, voor beveiliging, en controle op ontvangst</li>
-<li>LoRaWan netwerk/protocol: architectuur; div. aanbieders</li>
-<li>TheThingsNetwork: wereldwijd LoRaWan netwerk</li>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Te doen</p>
+<ul class="simple">
+<li><p>LoRa radio: adressering</p></li>
+<li><p>volgnummers, voor beveiliging, en controle op ontvangst</p></li>
+<li><p>LoRaWan netwerk/protocol: architectuur; div. aanbieders</p></li>
+<li><p>TheThingsNetwork: wereldwijd LoRaWan netwerk</p></li>
 </ul>
 </div>
 <p>In dit hoofdstuk maken we kennis met LoRaWan: een netwerk voor IoT-knopen met een LoRa (long range) radio.
@@ -361,34 +404,25 @@ Voor een beschrijving van de gebruikte onderdelen in meer detail verwijzen we we
 <div class="section" id="links">
 <h2>Links<a class="headerlink" href="#links" title="Permalink naar deze titel">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/LoRa">https://en.wikipedia.org/wiki/LoRa</a></li>
-<li><a class="reference external" href="https://www.thethingsnetwork.org">https://www.thethingsnetwork.org</a></li>
-<li><a class="reference external" href="https://docs.google.com/spreadsheets/d/1QvcKsGeTTPpr9icj4XkKXq4r2zTc2j0gsHLrnplzM3I/edit#gid=0">spreadsheet voor berekenen van LoRaWan airtime</a></li>
-<li><a class="reference external" href="https://zakelijkforum.kpn.com/lora-forum-16/welcome-to-the-kpn-lora-forum-an-overview-11123">https://zakelijkforum.kpn.com/lora-forum-16/welcome-to-the-kpn-lora-forum-an-overview-11123</a></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/LoRa">https://en.wikipedia.org/wiki/LoRa</a></p></li>
+<li><p><a class="reference external" href="https://www.thethingsnetwork.org">https://www.thethingsnetwork.org</a></p></li>
+<li><p><a class="reference external" href="https://docs.google.com/spreadsheets/d/1QvcKsGeTTPpr9icj4XkKXq4r2zTc2j0gsHLrnplzM3I/edit#gid=0">spreadsheet voor berekenen van LoRaWan airtime</a></p></li>
+<li><p><a class="reference external" href="https://zakelijkforum.kpn.com/lora-forum-16/welcome-to-the-kpn-lora-forum-an-overview-11123">https://zakelijkforum.kpn.com/lora-forum-16/welcome-to-the-kpn-lora-forum-an-overview-11123</a></p></li>
 </ul>
 </div>
 </div>
 
 
           </div>
+          
         </div>
       </div>
     <div class="clearer"></div>
   </div>
-    <div class="footer">
-      &copy;2019, SLO.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="../_sources/lora/lorawan-keten.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
+<jinja2.runtime.BlockReference object at 0x108b36250>
+<script type="text/javascript">
+  $(document).trigger("runestone:login-complete");
+</script>
 
-    
-
-    
   </body>
 </html>

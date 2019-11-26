@@ -1,32 +1,76 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>IoT-bouwstenen &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=1FF7F927" />
+    <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
+    <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
+    <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/runestonebase.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=6F3B51A7"></script>
+    <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
+    <script type="text/javascript" src="../_static/timed.js?v=6789FE30"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=BB0B99B1"></script>
+    <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=3984FD8D"></script>
+    <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=11AD6126"></script>
+    <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
+    <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
+    <script type="text/javascript" src="../_static/parsons.js?v=93EFFF39"></script>
+    <script type="text/javascript" src="../_static/timedparsons.js?v=2EEA9E5A"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/waypoints.min.js"></script>
+    <script type="text/javascript" src="../_static/rangy-core.js"></script>
+    <script type="text/javascript" src="../_static/rangy-textrange.js"></script>
+    <script type="text/javascript" src="../_static/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="../_static/user-highlights.js"></script>
+    <script type="text/javascript" src="../_static/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="../_static/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery.hotkey.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
     <link rel="next" title="IoT-ketens" href="iot-ketens.html" />
     <link rel="prev" title="Bouwstenen" href="../bouwstenen.html" />
 
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = '' ? '' : 'http://127.0.0.1:8000';
+/*
+  eBookConfig.app = eBookConfig.host+'/';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = '';
+  eBookConfig.logLevel = ;
+  eBookConfig.loginRequired = ;
+  eBookConfig.build_info = "";
+  eBookConfig.isLoggedIn = false;
+  eBookConfig.useRunestoneServices = ;
+  eBookConfig.python3 = ;
+  eBookConfig.basecourse = '';
+  eBookConfig.runestone_version = '';
+*/
+</script>
 <script type="application/json" class="js-hypothesis-config">
 {
 "showHighlights": false
 }
 </script>
 <script async src="https://hypothes.is/embed.js"></script>
-
 
   </head><body>
   <div class="document">
@@ -42,7 +86,6 @@
 
 
 
-<h3>Navigatie</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../inleiding.html">Inleiding</a></li>
@@ -77,33 +120,35 @@
 <li class="toctree-l1"><a class="reference external" href="https://infvo.github.io/iot-1/">IoT-1</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../bouwstenen.html">Bouwstenen</a><ul>
-      <li>Previous: <a href="../bouwstenen.html" title="vorig hoofdstuk">Bouwstenen</a></li>
-      <li>Next: <a href="iot-ketens.html" title="volgend hoofdstuk">IoT-ketens</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
+
+  <p class="topless"><a href="../bouwstenen.html"
+                        title="vorig hoofdstuk">Vorige</a></p>
+  <p class="topless"><a href="iot-ketens.html"
+                        title="volgend hoofdstuk">Volgende</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Snel zoeken</h3>
+
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Zoek" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="iot-bouwstenen">
@@ -117,31 +162,31 @@ Voor de communicatie en interactie tussen de bouwstenen gebruiken we <em>protoco
 <blockquote>
 <div><div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/IoT-keten-functioneel.png"><img alt="../_images/IoT-keten-functioneel.png" src="../_images/IoT-keten-functioneel.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">IoT-keten op functioneel niveau</span></p>
+<p class="caption"><span class="caption-text">IoT-keten op functioneel niveau</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 </div></blockquote>
 <p>In deze functionele IoT-keten:</p>
 <ul class="simple">
-<li>koppelt de <em>IoT-knoop</em> de fysieke wereld aan de virtuele/logische wereld, met sensoren en actuatoren;</li>
-<li>zorgen de controllers voor het meten en besturen van de sensoren en actuatoren, mede op basis van input van de diensten (services);</li>
-<li>verwerken de diensten (services) de data van de sensoren; deze stellen de data en kennis van elders beschikbaar aan de controllers;</li>
-<li>zorgt de <em>web-app</em> voor de interactie met de gebruikers.</li>
+<li><p>koppelt de <em>IoT-knoop</em> de fysieke wereld aan de virtuele/logische wereld, met sensoren en actuatoren;</p></li>
+<li><p>zorgen de controllers voor het meten en besturen van de sensoren en actuatoren, mede op basis van input van de diensten (services);</p></li>
+<li><p>verwerken de diensten (services) de data van de sensoren; deze stellen de data en kennis van elders beschikbaar aan de controllers;</p></li>
+<li><p>zorgt de <em>web-app</em> voor de interactie met de gebruikers.</p></li>
 </ul>
 <p>Voor de communicatie en interactie tussen deze bouwstenen gebruiken we het MQTT protocol,
 en in sommige gevallen HTTP (het web-protocol).</p>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/IoT-keten-WiFi-MQTT.png"><img alt="../_images/IoT-keten-WiFi-MQTT.png" src="../_images/IoT-keten-WiFi-MQTT.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">IoT-keten met WiFI/MQTT communicatie</span></p>
+<p class="caption"><span class="caption-text">IoT-keten met WiFI/MQTT communicatie</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>We kunnen deze functionele keten verfijnen door communicatiebouwstenen toe te voegen.
 Afhankelijk van de radio die de IoT-knoop gebruikt, ziet het begin van de keten er dan anders uit.
 In het voorbeeld hierboven gebruiken we WiFi als radio voor de IoT-knoop.</p>
 <p>In deze keten:</p>
 <ul class="simple">
-<li>zorgt de WiFi-radio voor de verbinding van de IoT-knoop met de rest;</li>
-<li>zorgt de WiFi-gateway voor de koppeling aan het internet;</li>
-<li>verzorgt de MQTT-broker voor het (symmetrisch) doorsturen van de MQTT-berichten tussen de IoT-knoop,
-de NodeRed-controller en eventuele apps.</li>
+<li><p>zorgt de WiFi-radio voor de verbinding van de IoT-knoop met de rest;</p></li>
+<li><p>zorgt de WiFi-gateway voor de koppeling aan het internet;</p></li>
+<li><p>verzorgt de MQTT-broker voor het (symmetrisch) doorsturen van de MQTT-berichten tussen de IoT-knoop,
+de NodeRed-controller en eventuele apps.</p></li>
 </ul>
 <p>De WiFi-gateway wordt meestal gecombineerd met andere netwerkfuncties,
 zoals router, firewall en modem.</p>
@@ -151,27 +196,27 @@ zoals router, firewall en modem.</p>
 <p>Een <em>IoT-knoop</em> koppelt de fysieke wereld aan de virtuele wereld.
 Zo’n knoop omvat gewoonlijk:</p>
 <ul class="simple">
-<li>sensoren, om in de fysieke wereld te meten;</li>
-<li>actuatoren, om in de fysieke wereld te sturen;</li>
-<li>een microcontroller (“computer op een chip”) voor de besturing van de IoT-knoop;</li>
-<li>communicatie, vaak draadloos (radioverbinding)</li>
-<li>energie, voor draadloze knopen in de vorm van een batterij, soms aangevuld met <em>energy harvesting</em>.</li>
+<li><p>sensoren, om in de fysieke wereld te meten;</p></li>
+<li><p>actuatoren, om in de fysieke wereld te sturen;</p></li>
+<li><p>een microcontroller (“computer op een chip”) voor de besturing van de IoT-knoop;</p></li>
+<li><p>communicatie, vaak draadloos (radioverbinding)</p></li>
+<li><p>energie, voor draadloze knopen in de vorm van een batterij, soms aangevuld met <em>energy harvesting</em>.</p></li>
 </ul>
 <div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/IoT-knoop-0.png"><img alt="../_images/IoT-knoop-0.png" src="../_images/IoT-knoop-0.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">Een IoT-knoop</span></p>
+<p class="caption"><span class="caption-text">Een IoT-knoop</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>In de voorbeelden gebruiken we een IoT-knoop met de volgende sensoren/actuatoren:</p>
 <ul class="simple">
-<li>een of twee LEDs - als actuatoren</li>
-<li>twee drukknoppen - als “event” sensoren</li>
-<li>sensoren voor: temperatuur, luchtdruk en lichtniveau</li>
+<li><p>een of twee LEDs - als actuatoren</p></li>
+<li><p>twee drukknoppen - als “event” sensoren</p></li>
+<li><p>sensoren voor: temperatuur, luchtdruk en lichtniveau</p></li>
 </ul>
 <p>Voor de draadloze communicatie gebruiken we verschillende radio’s (WiFi, RFM69, LoRa).
 De eisen die het “ding” stelt aan bitrate, bereik, mobiliteit en energieverbruik bepalen de keuze voor de radio.</p>
 <div class="figure align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/IoT-knoop-rfm69-2.png"><img alt="../_images/IoT-knoop-rfm69-2.png" src="../_images/IoT-knoop-rfm69-2.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">IoT-knoop: sensoren, rfm69-radio, microcontroller, batterij</span></p>
+<p class="caption"><span class="caption-text">IoT-knoop: sensoren, rfm69-radio, microcontroller, batterij</span><a class="headerlink" href="#id4" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Voor de microcontroller voor de besturing zijn er ook meerdere alternatieven, zoals Atmega AVR (Arduino), ESP8266, ESP32, ARM.
 De keuze voor de microcontroller hangt meer af van de eigen voorkeur en omstandigheden dan van de eisen van de toepassing.
@@ -184,7 +229,7 @@ In de praktijk worden deze onderdelen verder geïntegreerd.</p>
 <h2>Controller: NodeRed<a class="headerlink" href="#controller-nodered" title="Permalink naar deze titel">¶</a></h2>
 <div class="figure align-center" id="id5">
 <a class="reference internal image-reference" href="../_images/Nodered-chat-flow.png"><img alt="../_images/Nodered-chat-flow.png" src="../_images/Nodered-chat-flow.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed Chat flow</span></p>
+<p class="caption"><span class="caption-text">NodeRed Chat flow</span><a class="headerlink" href="#id5" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Als lokale of globale controller gebruiken we NodeRed.
 IoT-toepassingen combineren vaak data uit verschillende bronnen:
@@ -200,7 +245,7 @@ Een NodeRed-server is in onze voorbeelden vrijwel altijd onderdeel van de IoT-ke
 <h2>App: dashboard<a class="headerlink" href="#app-dashboard" title="Permalink naar deze titel">¶</a></h2>
 <div class="figure align-center" id="id6">
 <a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-0.png"><img alt="../_images/Nodered-dashboard-display-0.png" src="../_images/Nodered-dashboard-display-0.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-text">Web-app voorbeeld: dashboard</span></p>
+<p class="caption"><span class="caption-text">Web-app voorbeeld: dashboard</span><a class="headerlink" href="#id6" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Uiteindelijk komen deze data terecht bij een webtoepassing (web-app),
 als gebruikersinterface in de IoT-keten.
@@ -217,38 +262,38 @@ Via dit dashboard kunnen we ook de actuators van de IoT-knoop bedienen.</p>
 Deze radio’s verschillen in hun energieverbruik (power), bereik en bitrate.
 In deze module maken we kennis met enkele IoT-radio’s.
 De onderstaande tabel geeft de belangrijkste karakteristieken.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="18%" />
-<col width="18%" />
-<col width="40%" />
-<col width="24%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 40%" />
+<col style="width: 24%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>radio</strong></td>
-<td><strong>power</strong></td>
-<td><strong>bereik</strong></td>
-<td><strong>bitrate</strong></td>
+<tbody>
+<tr class="row-odd"><td><p><strong>radio</strong></p></td>
+<td><p><strong>power</strong></p></td>
+<td><p><strong>bereik</strong></p></td>
+<td><p><strong>bitrate</strong></p></td>
 </tr>
-<tr class="row-even"><td>WiFi</td>
-<td>medium</td>
-<td>lokaal bereik (10-50m)</td>
-<td>MBytes/s</td>
+<tr class="row-even"><td><p>WiFi</p></td>
+<td><p>medium</p></td>
+<td><p>lokaal bereik (10-50m)</p></td>
+<td><p>MBytes/s</p></td>
 </tr>
-<tr class="row-odd"><td>WiFi</td>
-<td>medium</td>
-<td>lokaal bereik (10-50m)</td>
-<td>Mbytes/s</td>
+<tr class="row-odd"><td><p>WiFi</p></td>
+<td><p>medium</p></td>
+<td><p>lokaal bereik (10-50m)</p></td>
+<td><p>Mbytes/s</p></td>
 </tr>
-<tr class="row-even"><td>RFM69</td>
-<td>low</td>
-<td>lokaal bereik (50-200m)</td>
-<td>50kbits/s (*)</td>
+<tr class="row-even"><td><p>RFM69</p></td>
+<td><p>low</p></td>
+<td><p>lokaal bereik (50-200m)</p></td>
+<td><p>50kbits/s (*)</p></td>
 </tr>
-<tr class="row-odd"><td>LoRa</td>
-<td>low</td>
-<td>niet-lokaal (enkele km)</td>
-<td>1 kbit/s (*)</td>
+<tr class="row-odd"><td><p>LoRa</p></td>
+<td><p>low</p></td>
+<td><p>niet-lokaal (enkele km)</p></td>
+<td><p>1 kbit/s (*)</p></td>
 </tr>
 </tbody>
 </table>
@@ -264,7 +309,7 @@ bijvoorbeeld omdat deze knopen een ander (eenvoudiger) protocol gebruiken.
 We gebruiken dan een <em>gateway</em> om het IoT-knoop-protocol om te zetten naar het IP-protocol, en omgekeerd.</p>
 <div class="figure align-center" id="id7">
 <a class="reference internal image-reference" href="../_images/IoT-0-stacks-gateway.png"><img alt="../_images/IoT-0-stacks-gateway.png" src="../_images/IoT-0-stacks-gateway.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">IoT-gateway</span></p>
+<p class="caption"><span class="caption-text">IoT-gateway</span><a class="headerlink" href="#id7" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Bij een dergelijke omzetting (protocolconversie) moeten we rekening houden met de complete protocolstack,
 tot en met de toepassing.
@@ -278,7 +323,7 @@ De MQTT-broker verbindt de verschillende soorten clients op een symmetrische man
 van IoT-knopen tot controllers en servers.</p>
 <div class="figure align-center" id="id8">
 <a class="reference internal image-reference" href="../_images/MQTT.png"><img alt="../_images/MQTT.png" src="../_images/MQTT.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-text">Publish-subscribe interactie (MQTT)</span></p>
+<p class="caption"><span class="caption-text">Publish-subscribe interactie (MQTT)</span><a class="headerlink" href="#id8" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Een MQTT-client <em>publiceert</em> een MQTT-bericht naar de broker, gelabeld met een bepaald <em>topic</em>.
 De MQTT-broker stuurt dit bericht door (“push”) naar alle clients
@@ -288,24 +333,15 @@ die eerder via <em>subscribe</em> hun interesse voor berichten in dit topic aang
 
 
           </div>
+          
         </div>
       </div>
     <div class="clearer"></div>
   </div>
-    <div class="footer">
-      &copy;2019, SLO.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="../_sources/bouwstenen/iot-bouwstenen.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
+<jinja2.runtime.BlockReference object at 0x1084789d0>
+<script type="text/javascript">
+  $(document).trigger("runestone:login-complete");
+</script>
 
-    
-
-    
   </body>
 </html>

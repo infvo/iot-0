@@ -1,6 +1,6 @@
-
+***********
 RFM69 keten
-===========
+***********
 
 .. figure:: IoT-keten-RFM69.png
   :width: 600 px
@@ -12,18 +12,16 @@ We gebruiken een eigen protocol voor de RFM69-radio:
 hiermee houden we de pakketten klein, en de software eenvoudig.
 Het binaire Cayenne Low Power Payload (LPP) formaat gebruiken we voor de payload.
 
-Een *gateway* zet dit RFM69/LPP-protocol om in het MQTT/JSON-protocol voor onze IoT-toepassingen.
+Een lokale RFM69-WiFi-*gateway* zet dit RFM69/LPP-protocol om in het MQTT/JSON-protocol voor onze IoT-toepassingen.
 
-Op het niveau van onze IoT-toepassingen hebben alle MQTT/JSON-berichten dezelfde structuur:
-de berichten van de RFM69-IoT-knopen verwerken we op dezelfde manier als de berichten van de WiFi-knopen.
-
-
-(We gebruiken voor de IoT-toepassing een JSON-formaat met dezelfde structuur, zie XXX.)
+Op het toepassingsniveau gebruiken we MQTT/JSON-berichten met dezelfde structuur,
+voor de WiFi- en voor de RFM69-knopen.
+We kunnen dan de berichten van de RFM69-IoT-knopen we op dezelfde manier verwerken als de berichten van de WiFi-knopen.
 
 RFM69 protocol
 ==============
 
-We hebben te maken met de volgende *protocolstack*:
+We hebben in de RFM69-knopen te maken met de volgende *protocolstack*:
 
 * het hardware-protocol (RFM69 radio);
 * het protocol van de RFM69-library;
@@ -35,12 +33,26 @@ We hebben te maken met de volgende *protocolstack*:
 
   RFM69 pakket met LPP payload
 
+Hardware-protocol
+-----------------
+
 Het *hardware-protocol* zorgt voor:
 
 * het adresseren (*destination*), zenden en ontvangen van pakketten;
 * het controleren van de CRC (cyclic redundancy check, checksum):
   als deze klopt, concludeert de hardware dat het pakket correct ontvangen is;
 * het versleutelen en ontsleutelen van de payload (encryptie).
+
+De zender en ontvanger gebruiken dezelfde sleutel voor de encryptie:
+deze moet van je te voren aan beide kanten instellen.
+In zo'n geval spreken we over een *pre-shared key*.
+
+  Een beveiligde internet-verbinding, zoals voor https,
+  maakt gebruik van *public-key encryptie*.
+  In dat geval heb je geen pre-shared keys nodig.
+
+RFM69-library protocol
+----------------------
 
 Het protocol van de *RFM69-library* voegt het adres van de afzender (*source*) toe aan het pakket,
 als eerste byte van de payload in het hardware-pakket.
@@ -50,12 +62,21 @@ Het RFM69-protocol gebruikt 5-bits adressen (0..63) voor de knopen in het netwer
 De adressen 0, 61, 62 en 63 hebben een speciale betekenis.
 RFM69-adres 0 als *destination* is het *broadcast address*: alle IoT-knopen in het RFM69-netwerk ontvangen zo'n bericht.
 
+De belangrijkste opdracht voor het zenden en ontvangen van een pakket zijn:
+
+* `rf.receive(rxBuf, sizeof rxBuf);`
+    * het eerste byte van `rxBuf` geeft het adres van de afzender.
+* `rf.send(dstNode, txBuf, len);`
+
+Toepassingsprotocol
+-------------------
+
 Het *toepassingsprotocol* gebruikt de rest van de hardware-payload.
 Dit protocol gebruikt verschillende formaten voor uplink- en voor downlink-pakketten.
 We bespreken hier alleen de binaire formaten op basis van het Cayenne *low power payload* (LPP) formaat.
-Dit protocol noemen we hier het *appl:LPP* protocol.
+Dit protocol noemen we hier het *LPP protocol*.
 
-.. rubric:: *appl:LPP* uplink-berichten
+.. rubric:: LPP uplink-berichten
 
 De payload voor uplink-berichten bevat de volgende elementen:
 
@@ -98,7 +119,7 @@ Enkele voorbeelden van veel voorkomende types sensoren en actuatoren:
    "Rel. Luchtvochtigheid", "humidity", 104, 68, 1, "0.5% Unsigned"
    "Luchtdruk",         "barometer",    115, 73, 2,	"0.1 hPa Unsigned"
 
-.. rubric:: *appl_LPP* downlink-berichten
+.. rubric:: LPP downlink-berichten
 
 De payload voor een downlink-bericht is erg eenvoudig:
 
