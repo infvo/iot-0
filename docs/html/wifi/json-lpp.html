@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
-    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=B9BAA0D1" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=1FF7F927" />
     <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
     <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
     <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
@@ -19,14 +19,14 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/mchoice.js?v=8329CA55"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=6F3B51A7"></script>
     <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
     <script type="text/javascript" src="../_static/timed.js?v=6789FE30"></script>
-    <script type="text/javascript" src="../_static/shortanswer.js?v=5EB6170D"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=BB0B99B1"></script>
     <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
-    <script type="text/javascript" src="../_static/dragndrop.js?v=2B6403E8"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=3984FD8D"></script>
     <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
-    <script type="text/javascript" src="../_static/poll.js?v=6C59AE9F"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=11AD6126"></script>
     <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
     <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
     <script type="text/javascript" src="../_static/parsons.js?v=93EFFF39"></script>
@@ -169,7 +169,7 @@ In JSON staat de naam tussen dubbele quotes: <code class="docutils literal notra
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;temp&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="nt">&quot;press&quot;</span><span class="p">:</span><span class="mi">1012</span><span class="p">,</span> <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;e4c7&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="index-0">
+<div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Te doen</p>
 <ul class="simple">
 <li><p>meer JSON-voorbeelden</p></li>
@@ -234,8 +234,8 @@ kunnen we dezelfde toepassing(en) gebruiken voor de verschillende ketens.</p>
 </dl>
 </li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Voorbeeld json-lpp uplink bericht</span><a class="headerlink" href="#id1" title="Permalink naar deze broncode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Voorbeeld json-lpp uplink bericht</span><a class="headerlink" href="#id2" title="Permalink naar deze broncode">¶</a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;nodeid&quot;</span><span class="p">:</span> <span class="s2">&quot;fe3d&quot;</span><span class="p">,</span>
  <span class="nt">&quot;counter&quot;</span><span class="p">:</span> <span class="mi">3027</span><span class="p">,</span>
  <span class="nt">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -249,8 +249,8 @@ kunnen we dezelfde toepassing(en) gebruiken voor de verschillende ketens.</p>
 </div>
 </div>
 <p>De onderstaande tabel geeft de namen voor de sensor-waarden en de betekenis van de bijbehorende waarden.</p>
-<table class="colwidths-given docutils align-center" id="id2">
-<caption><span class="caption-text">JSON-LPP types</span><a class="headerlink" href="#id2" title="Permalink naar deze tabel">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">JSON-LPP types</span><a class="headerlink" href="#id3" title="Permalink naar deze tabel">¶</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 22%" />
@@ -333,8 +333,8 @@ De toepassing zou deze administratie bij kunnen houden.</p></li>
 <li><p>er is geen metadata; de nodeid volgt uit het MQTT-topic;</p></li>
 <li><p>de payload bevat alleen de gegevens van één of meer outputs (actuators).</p></li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Voorbeeld json-lpp downlink bericht</span><a class="headerlink" href="#id3" title="Permalink naar deze broncode">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Voorbeeld json-lpp downlink bericht</span><a class="headerlink" href="#id4" title="Permalink naar deze broncode">¶</a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;dOut&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
  <span class="nt">&quot;8&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;aOut&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
 <span class="p">}</span>
@@ -351,7 +351,7 @@ De toepassing zou deze administratie bij kunnen houden.</p></li>
       </div>
     <div class="clearer"></div>
   </div>
-<jinja2.runtime.BlockReference object at 0x10ce5d320>
+<jinja2.runtime.BlockReference object at 0x10843dad0>
 <script type="text/javascript">
   $(document).trigger("runestone:login-complete");
 </script>

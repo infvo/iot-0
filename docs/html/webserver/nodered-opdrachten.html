@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=808B982A" />
-    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=B9BAA0D1" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css?v=1FF7F927" />
     <link rel="stylesheet" type="text/css" href="../_static/poll.css?v=E220AC33" />
     <link rel="stylesheet" type="text/css" href="../_static/parsons.css?v=2F3E13EE" />
     <link rel="stylesheet" type="text/css" href="../_static/js_lib/prettify.css?v=2A364B6B" />
@@ -19,14 +19,14 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/mchoice.js?v=8329CA55"></script>
+    <script type="text/javascript" src="../_static/mchoice.js?v=6F3B51A7"></script>
     <script type="text/javascript" src="../_static/timedmc.js?v=B010A457"></script>
     <script type="text/javascript" src="../_static/timed.js?v=6789FE30"></script>
-    <script type="text/javascript" src="../_static/shortanswer.js?v=5EB6170D"></script>
+    <script type="text/javascript" src="../_static/shortanswer.js?v=BB0B99B1"></script>
     <script type="text/javascript" src="../_static/timed_shortanswer.js?v=B3A117D7"></script>
-    <script type="text/javascript" src="../_static/dragndrop.js?v=2B6403E8"></script>
+    <script type="text/javascript" src="../_static/dragndrop.js?v=3984FD8D"></script>
     <script type="text/javascript" src="../_static/timeddnd.js?v=378F237E"></script>
-    <script type="text/javascript" src="../_static/poll.js?v=6C59AE9F"></script>
+    <script type="text/javascript" src="../_static/poll.js?v=11AD6126"></script>
     <script type="text/javascript" src="../_static/js_lib/prettify.js?v=CA7E8928"></script>
     <script type="text/javascript" src="../_static/js_lib/hammer.min.js?v=73056367"></script>
     <script type="text/javascript" src="../_static/parsons.js?v=93EFFF39"></script>
@@ -182,7 +182,7 @@ Dit kun je vergelijken met Apache of Nginx op andere systemen.
 Met NodeRed kun je snel een simpele webserver maken.
 We gebruiken dit voor het bestuderen van het HTTP-protocol.</p>
 <p>We gebruiken hiervoor de volgende knopen:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 36%" />
 <col style="width: 32%" />
@@ -213,9 +213,9 @@ We gebruiken dit voor het bestuderen van het HTTP-protocol.</p>
 <li><p>de HTTP-request <em>method</em>, bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">GET</span></code> of <code class="docutils literal notranslate"><span class="pre">POST</span></code>.</p></li>
 </ul>
 <p>Maak met deze nodes de volgende flow:</p>
-<div class="figure align-center" id="id1">
+<div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/Nodered-hello1.png"><img alt="../_images/Nodered-hello1.png" src="../_images/Nodered-hello1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed http flow-voorbeeld</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">¶</a></p>
+<p class="caption"><span class="caption-text">NodeRed http flow-voorbeeld</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>(De namen van de knopen hoef je niet aan te passen.)</p>
 <p>Door het configureren van de nodes maken we een eigen webserver,
@@ -374,9 +374,9 @@ Daarmee kun je eventueel een LED aansturen.</p>
 <p>Voor het aansturen van de LED gebruiken we twee URLs: <code class="docutils literal notranslate"><span class="pre">/ledon</span></code> en <code class="docutils literal notranslate"><span class="pre">/ledoff</span></code>.
 Hiervoor maken we twee flows, met voor elk dezelfde opzet als bij de teller:
 een http-input-node, een function-node, een template-node, en een http-output-node.</p>
-<div class="figure align-center" id="id2">
+<div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="../_images/Nodered-flow-led-on-off.png"><img alt="../_images/Nodered-flow-led-on-off.png" src="../_images/Nodered-flow-led-on-off.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed flow voor led-besturing</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
+<p class="caption"><span class="caption-text">NodeRed flow voor led-besturing</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <ol class="arabic simple">
 <li><p>Maak deze flow voor <code class="docutils literal notranslate"><span class="pre">ledon</span></code>, door de nodes naar het flow-venster te slepen en verbinden.</p></li>
@@ -430,9 +430,9 @@ met de template-node in de flow van <code class="docutils literal notranslate"><
 Verwijder de tweede template-node en de bijbehorende http-output-node.
 Je krijgt dan onderstaande flow:</p></li>
 </ol>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id4">
 <a class="reference internal image-reference" href="../_images/Nodered-flow-led-on-off-combined.png"><img alt="../_images/Nodered-flow-led-on-off-combined.png" src="../_images/Nodered-flow-led-on-off-combined.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Ledbesturing met gedeelde response-“staart”</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
+<p class="caption"><span class="caption-text">Ledbesturing met gedeelde response-“staart”</span><a class="headerlink" href="#id4" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Door slim gebruik te maken van templates kun je vaker flows op zo’n manier combineren.</p>
 <div class="topic">
@@ -510,9 +510,9 @@ maar als parameter van de formulier-URL.</p>
 <ol class="arabic simple">
 <li><p>Maak de volgende flow, door de nodes naar het flow-deel te slepen en te verbinden.</p></li>
 </ol>
-<div class="figure align-center" id="id4">
+<div class="figure align-center" id="id5">
 <a class="reference internal image-reference" href="../_images/Nodered-form-flow-0.png"><img alt="../_images/Nodered-form-flow-0.png" src="../_images/Nodered-form-flow-0.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed form flow</span><a class="headerlink" href="#id4" title="Permallink naar deze afbeelding">¶</a></p>
+<p class="caption"><span class="caption-text">NodeRed form flow</span><a class="headerlink" href="#id5" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>(De namen van de nodes hoef je nog niet aan te passen.)</p>
 <ol class="arabic simple" start="2">
@@ -571,9 +571,9 @@ Voor andere NodeRed-installaties laat je het <code class="docutils literal notra
 <ol class="arabic simple" start="7">
 <li><p>“Deploy” en test de website.</p></li>
 </ol>
-<div class="figure align-center" id="id5">
+<div class="figure align-center" id="id6">
 <a class="reference internal image-reference" href="../_images/Nodered-form-gauge.png"><img alt="../_images/Nodered-form-gauge.png" src="../_images/Nodered-form-gauge.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed flow: formulier met dashboard-meter</span><a class="headerlink" href="#id5" title="Permallink naar deze afbeelding">¶</a></p>
+<p class="caption"><span class="caption-text">NodeRed flow: formulier met dashboard-meter</span><a class="headerlink" href="#id6" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <ol class="arabic simple" start="8">
 <li><p>Voeg als uitbreiding van deze flow, een dashboard-node (“gauge”, ronde meter).
@@ -633,12 +633,12 @@ Met welke opdracht zet je een lamp aan? Met welke uit?</p>
 Hiervoor halen we een html-document op van een website (met een HTTP GET request),
 vervolgens ontleden we dit document om de sensorgegevens eruit te halen.
 Daarna geven we deze sensorgegevens weer in een dashboard.</p>
-<div class="figure align-center" id="id6">
+<div class="figure align-center" id="id7">
 <a class="reference internal image-reference" href="../_images/Nodered-dashboard-display-01.png"><img alt="../_images/Nodered-dashboard-display-01.png" src="../_images/Nodered-dashboard-display-01.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">NodeRed dashboard display</span><a class="headerlink" href="#id6" title="Permallink naar deze afbeelding">¶</a></p>
+<p class="caption"><span class="caption-text">NodeRed dashboard display</span><a class="headerlink" href="#id7" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>NodeRed biedt de bouwstenen voor het maken van een eenvoudig dashboard. We gebruiken in het voorbeeld de volgende knopen:</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 26%" />
 <col style="width: 23%" />
@@ -677,9 +677,9 @@ NodeRed heeft o.a. een html-node om elementen uit een HTML-document te selectere
 <p>Voor demonstratiedoeleinden gebruiken we hier een website die hetzelfde interface heeft als de IoT-knopen.
 De website <a class="reference external" href="http://infvopedia.nl:1880/sensors">http://infvopedia.nl:1880/sensors</a> is gekoppeld aan de hardware-IoT-knoop <code class="docutils literal notranslate"><span class="pre">ec54</span></code>.
 In het lokale netwerk zou je deze kunnen benaderen via <code class="docutils literal notranslate"><span class="pre">http://esp8266-ec54.local/</span></code> of via het IP-adres.</p>
-<div class="figure align-center" id="id7">
+<div class="figure align-center" id="id8">
 <a class="reference internal image-reference" href="../_images/IoT-webserver-dashboard-flow.png"><img alt="../_images/IoT-webserver-dashboard-flow.png" src="../_images/IoT-webserver-dashboard-flow.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Webserver dashboard flow</span><a class="headerlink" href="#id7" title="Permallink naar deze afbeelding">¶</a></p>
+<p class="caption"><span class="caption-text">Webserver dashboard flow</span><a class="headerlink" href="#id8" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Uitleg bij deze flow:</p>
 <ul class="simple">
@@ -778,7 +778,7 @@ Dit is geen handige aanpak: je krijgt veel onnodige communicatie, zeker als de s
 Het is handiger als de IoT-knoop deze waarden opstuurt als ze veranderd zijn:
 een aanpak daarvoor zien we in het volgende hoofdstuk.</p></li>
 </ul>
-<div class="admonition-todo admonition" id="index-0">
+<div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Te doen</p>
 <ul class="simple">
 <li><p>gebruik van inject-node om led te laten knipperen
@@ -798,7 +798,7 @@ een aanpak daarvoor zien we in het volgende hoofdstuk.</p></li>
       </div>
     <div class="clearer"></div>
   </div>
-<jinja2.runtime.BlockReference object at 0x10d0e81d0>
+<jinja2.runtime.BlockReference object at 0x1084bb350>
 <script type="text/javascript">
   $(document).trigger("runestone:login-complete");
 </script>

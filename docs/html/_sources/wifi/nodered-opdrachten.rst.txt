@@ -266,27 +266,21 @@ NodeRed-code van deze flow:
 
 .. code-block:: JSON
 
-  [{"id":"9629879f.93c0f8","type":"mqtt in","z":"c0502923.451768","name":"","topic":"node/e0f1/sensors","qos":"2","broker":"d7c8ba29.2d4508","x":130,"y":120,"wires":[["3413d00c.d8504"]]},{"id":"3413d00c.d8504","type":"json","z":"c0502923.451768","name":"","property":"payload","action":"","pretty":false,"x":320,"y":120,"wires":[["d2bd74ca.0fc578"]]},{"id":"ef32ff69.ad578","type":"switch","z":"c0502923.451768","name":"button0/1 split","property":"payload","propertyType":"msg","rules":[{"t":"jsonata_exp","v":"payload.button0 = 1","vt":"jsonata"},{"t":"jsonata_exp","v":"payload.button1 = 1","vt":"jsonata"}],"checkall":"true","repair":false,"outputs":2,"x":250,"y":240,"wires":[["c2076850.c1ee7"],["9c427958.26d74"]]},{"id":"c2076850.c1ee7","type":"template","z":"c0502923.451768","name":"led0-1","field":"payload","fieldType":"msg","format":"json","syntax":"mustache","template":"{\"0\": {\"dOut\":1}}","output":"str","x":450,"y":220,"wires":[["f666c499.080d8","d7c707b1.1dd048"]]},{"id":"9c427958.26d74","type":"template","z":"c0502923.451768","name":"led0-0","field":"payload","fieldType":"msg","format":"json","syntax":"mustache","template":"{\"0\":{\"dOut\":0}}","output":"str","x":450,"y":260,"wires":[["f666c499.080d8","d7c707b1.1dd048"]]},{"id":"f666c499.080d8","type":"mqtt out","z":"c0502923.451768","name":"","topic":"node/ec54/actuators","qos":"","retain":"","broker":"d7c8ba29.2d4508","x":710,"y":240,"wires":[]},{"id":"d2bd74ca.0fc578","type":"function","z":"c0502923.451768","name":"convert-LLP-sensors","func":"msg.payload.led0 = msg.payload.payload[0].dOut;\nmsg.payload.led1 = msg.payload.payload[1].dOut;\nif (msg.payload.payload.hasOwnProperty(\"2\")) {\n  msg.payload.button0 = msg.payload.payload[2].dIn;\n} else {\n    button0 = 0;\n}\nif (msg.payload.payload.hasOwnProperty(\"3\")) {\n  msg.payload.button1 = msg.payload.payload[3].dIn;\n} else {\n    button1 = 0;\n}\nmsg.payload.temperature = msg.payload.payload[4].temperature / 10;\nmsg.payload.barometer = msg.payload.payload[5].barometer / 10;\n// msg.payload.humidity = msg.payload.payload[6].humidity;\n//msg.payload.lightlevel = msg.payload.payload[8].aIn;\n\nreturn msg;","outputs":1,"noerr":0,"x":540,"y":120,"wires":[["ef32ff69.ad578"]]},{"id":"d7c707b1.1dd048","type":"debug","z":"c0502923.451768","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":660,"y":320,"wires":[]},{"id":"d7c8ba29.2d4508","type":"mqtt-broker","z":"","name":"","broker":"localhost","port":"1883","clientid":"","usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","willTopic":"","willQos":"0","willPayload":""}]
+  [{"id":"2137b92e.cd0ef6","type":"mqtt in","z":"ba282e2d.b99a98","name":"","topic":"node/e0f1/sensors","qos":"2","broker":"d7c8ba29.2d4508","x":190,"y":140,"wires":[["e506dde5.324f9"]]},{"id":"e506dde5.324f9","type":"json","z":"ba282e2d.b99a98","name":"","property":"payload","action":"","pretty":false,"x":380,"y":140,"wires":[["e15ea67c.34b19","76e0b51.23c68cc"]]},{"id":"da4f8e21.b2655","type":"switch","z":"ba282e2d.b99a98","name":"button0/1 split","property":"payload","propertyType":"msg","rules":[{"t":"jsonata_exp","v":"payload.button0 = 1","vt":"jsonata"},{"t":"jsonata_exp","v":"payload.button1 = 1","vt":"jsonata"}],"checkall":"true","repair":false,"outputs":2,"x":310,"y":260,"wires":[["7c0ee5f.25ca49c"],["17069d90.2e51fa"]]},{"id":"7c0ee5f.25ca49c","type":"template","z":"ba282e2d.b99a98","name":"led0-1","field":"payload","fieldType":"msg","format":"json","syntax":"mustache","template":"{\"0\":{\"dOut\":1}}","output":"str","x":510,"y":240,"wires":[["bffac5ea.3b6d98","279e4ee7.53c692"]]},{"id":"17069d90.2e51fa","type":"template","z":"ba282e2d.b99a98","name":"led0-0","field":"payload","fieldType":"msg","format":"json","syntax":"mustache","template":"{\"0\":{\"dOut\":0}}","output":"str","x":510,"y":280,"wires":[["bffac5ea.3b6d98","279e4ee7.53c692"]]},{"id":"bffac5ea.3b6d98","type":"mqtt out","z":"ba282e2d.b99a98","name":"","topic":"node/ec54/actuators","qos":"","retain":"","broker":"d7c8ba29.2d4508","x":770,"y":260,"wires":[]},{"id":"e15ea67c.34b19","type":"function","z":"ba282e2d.b99a98","name":"convert-LLP-sensors","func":"if (msg.payload.payload.hasOwnProperty(\"2\")) {\n  msg.payload.button0 = msg.payload.payload[2].dIn;\n} else {\n    button0 = 0;\n}\nif (msg.payload.payload.hasOwnProperty(\"3\")) {\n  msg.payload.button1 = msg.payload.payload[3].dIn;\n} else {\n    button1 = 0;\n}\n\nreturn msg;","outputs":1,"noerr":0,"x":600,"y":140,"wires":[["da4f8e21.b2655"]]},{"id":"279e4ee7.53c692","type":"debug","z":"ba282e2d.b99a98","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":720,"y":340,"wires":[]},{"id":"76e0b51.23c68cc","type":"debug","z":"ba282e2d.b99a98","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":520,"y":80,"wires":[]},{"id":"d7c8ba29.2d4508","type":"mqtt-broker","z":"","name":"","broker":"localhost","port":"1883","clientid":"","usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","closeTopic":"","closePayload":"","willTopic":"","willQos":"0","willPayload":""}]
 
 De code van *convert-LPP-sensors*:
 
 .. code-block:: JavaScript
 
-  msg.payload.led0 = msg.payload.payload[0].dOut;
-  msg.payload.led1 = msg.payload.payload[1].dOut;
   if (msg.payload.payload.hasOwnProperty("2")) {
-    msg.payload.button0 = msg.payload.payload[2].dIn;
+      msg.payload.button0 = msg.payload.payload[2].dIn;
   } else {
       button0 = 0;
   }
   if (msg.payload.payload.hasOwnProperty("3")) {
-    msg.payload.button1 = msg.payload.payload[3].dIn;
+      msg.payload.button1 = msg.payload.payload[3].dIn;
   } else {
       button1 = 0;
   }
-  msg.payload.temperature = msg.payload.payload[4].temperature / 10;
-  msg.payload.barometer = msg.payload.payload[5].barometer / 10;
-  // msg.payload.humidity = msg.payload.payload[6].humidity;
-  //msg.payload.lightlevel = msg.payload.payload[8].aIn;
 
   return msg;
